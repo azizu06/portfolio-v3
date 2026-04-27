@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import * as THREE from "three";
+import { GLTFLoader, type GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
 import {
   ArrowUpRightIcon,
   CodeXmlIcon,
@@ -101,6 +102,8 @@ type FutsalRuntimeOptions = {
   reducedMotion: boolean;
 };
 
+type PlayerActionName = "idle" | "run" | "kick";
+
 class FutsalRuntime {
   private readonly canvas: HTMLCanvasElement;
   private readonly onScore: () => void;
@@ -109,6 +112,7 @@ class FutsalRuntime {
   private readonly scene = new THREE.Scene();
   private readonly timer = new THREE.Timer();
   private readonly raycaster = new THREE.Raycaster();
+  private readonly loader = new GLTFLoader();
   private readonly pointer = new THREE.Vector2();
   private readonly renderer: THREE.WebGLRenderer;
   private readonly camera: THREE.PerspectiveCamera;
@@ -122,8 +126,13 @@ class FutsalRuntime {
   private ballScoring = false;
   private hovered: THREE.Mesh | null = null;
   private resizeObserver?: ResizeObserver;
+  private playerActionLockedUntil = 0;
   private player!: THREE.Group;
-  private ball!: THREE.Mesh;
+  private ball!: THREE.Object3D;
+  private playerMarker?: THREE.Object3D;
+  private activePlayerAction?: THREE.AnimationAction;
+  private readonly playerActions = new Map<PlayerActionName, THREE.AnimationAction>();
+  private readonly mixers: THREE.AnimationMixer[] = [];
   private scoreboardMaterial!: THREE.ShaderMaterial;
   private fieldMaterial!: THREE.ShaderMaterial;
 
@@ -176,6 +185,8 @@ class FutsalRuntime {
   kick() {
     if (this.ballScoring) return;
     const distance = this.player.position.distanceTo(this.ball.position);
+    this.playPlayerAction("kick");
+    this.playerActionLockedUntil = this.timer.getElapsed() + 0.72;
     if (distance < 1.45) {
       this.ballVelocity.set(0, 0, -0.18);
       gsap.to(this.ball.position, {
@@ -212,6 +223,8 @@ class FutsalRuntime {
 
     this.addField();
     this.addFence();
+    this.addCourtAsset();
+    this.addFenceAsset();
     this.addGoal();
     this.addScoreboard();
     this.addTrophyShelf();
@@ -221,6 +234,74 @@ class FutsalRuntime {
     this.addBall();
     this.addLights();
     this.addStreetDetails();
+  }
+
+  private loadModel(path: string, onLoad: (root: THREE.Group, gltf: GLTF) => void) {
+    this.loader.load(
+      path,
+      (gltf) => {
+        const root = gltf.scene;
+        this.prepareModel(root);
+        onLoad(root, gltf);
+      },
+      undefined,
+      (error) => {
+        console.warn(`Unable to load ${path}`, error);
+      }
+    );
+  }
+
+  private prepareModel(root: THREE.Object3D) {
+    root.traverse((node) => {
+      const mesh = node as THREE.Mesh;
+      if (!mesh.isMesh) return;
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      this.disposables.push(mesh.geometry);
+      const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+      materials.forEach((material) => {
+        this.disposables.push(material);
+        Object.values(material).forEach((value) => {
+          if (value instanceof THREE.Texture) {
+            this.disposables.push(value);
+          }
+        });
+      });
+    });
+  }
+
+  private fitModel(
+    root: THREE.Object3D,
+    target: { width?: number; depth?: number; height?: number; position?: THREE.Vector3 }
+  ) {
+    root.updateMatrixWorld(true);
+    let box = new THREE.Box3().setFromObject(root);
+    const size = box.getSize(new THREE.Vector3());
+    const scales = [
+      target.width && size.x > 0 ? target.width / size.x : undefined,
+      target.depth && size.z > 0 ? target.depth / size.z : undefined,
+      target.height && size.y > 0 ? target.height / size.y : undefined,
+    ].filter((value): value is number => typeof value === "number" && Number.isFinite(value));
+
+    if (scales.length > 0) {
+      root.scale.multiplyScalar(Math.min(...scales));
+      root.updateMatrixWorld(true);
+      box = new THREE.Box3().setFromObject(root);
+    }
+
+    const center = box.getCenter(new THREE.Vector3());
+    const position = target.position ?? new THREE.Vector3();
+    root.position.x += position.x - center.x;
+    root.position.y += position.y - box.min.y;
+    root.position.z += position.z - center.z;
+  }
+
+  private playPlayerAction(name: PlayerActionName) {
+    const action = this.playerActions.get(name);
+    if (!action || action === this.activePlayerAction) return;
+    action.reset().fadeIn(0.16).play();
+    this.activePlayerAction?.fadeOut(0.16);
+    this.activePlayerAction = action;
   }
 
   private addField() {
@@ -308,7 +389,39 @@ class FutsalRuntime {
     });
   }
 
+  private addCourtAsset() {
+    this.loadModel("/assets/3d/football-court.glb", (root) => {
+      const oversizedPieces: THREE.Object3D[] = [];
+      root.traverse((node) => {
+        if (/tribune|proof/i.test(node.name)) {
+          oversizedPieces.push(node);
+        }
+      });
+      oversizedPieces.forEach((node) => node.parent?.remove(node));
+      root.position.set(0, 0, 0);
+      root.rotation.y = Math.PI;
+      this.fitModel(root, {
+        width: 13.2,
+        position: new THREE.Vector3(0, -0.04, -0.15),
+      });
+      this.scene.add(root);
+    });
+  }
+
+  private addFenceAsset() {
+    this.loadModel("/assets/3d/chainlink-fence.glb", (root) => {
+      root.position.set(0, 0, 0);
+      this.fitModel(root, {
+        width: 12.8,
+        height: 2.45,
+        position: new THREE.Vector3(0, 0, -4.52),
+      });
+      this.scene.add(root);
+    });
+  }
+
   private addGoal() {
+    const fallback = new THREE.Group();
     const material = this.material(0xdfeee6, 0.3, 0.45);
     const postGeometry = new THREE.CylinderGeometry(0.055, 0.055, 1.35, 18);
     const barGeometry = new THREE.CylinderGeometry(0.055, 0.055, 2.7, 18);
@@ -340,9 +453,22 @@ class FutsalRuntime {
     this.disposables.push(material, postGeometry, barGeometry, netGeometry, netMaterial);
     [left, right, top, leftBack, rightBack, backTop].forEach((piece) => {
       piece.castShadow = true;
-      this.scene.add(piece);
+      fallback.add(piece);
     });
-    this.scene.add(net, netTop);
+    fallback.add(net, netTop);
+    this.scene.add(fallback);
+
+    this.loadModel("/assets/3d/futsal-goal.glb", (root) => {
+      root.position.set(0, 0, 0);
+      root.rotation.y = Math.PI / 2;
+      this.fitModel(root, {
+        width: 2.85,
+        height: 1.45,
+        position: new THREE.Vector3(0, 0, -4.05),
+      });
+      fallback.visible = false;
+      this.scene.add(root);
+    });
   }
 
   private addScoreboard() {
@@ -450,6 +576,7 @@ class FutsalRuntime {
 
   private addPlayer() {
     this.player = new THREE.Group();
+    const fallback = new THREE.Group();
     const kitMaterial = this.material(0xf3f7ef, 0.4, 0.22);
     const accentMaterial = this.material(0x37ff9b, 0.2, 0.35);
     const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.2, 0.5, 10, 18), kitMaterial);
@@ -467,7 +594,9 @@ class FutsalRuntime {
     const marker = new THREE.Mesh(new THREE.TorusGeometry(0.46, 0.025, 8, 36), accentMaterial);
     marker.rotation.x = Math.PI / 2;
     marker.position.y = 0.05;
-    this.player.add(body, head, leftLeg, rightLeg, marker);
+    this.playerMarker = marker;
+    fallback.add(body, head, leftLeg, rightLeg);
+    this.player.add(fallback, marker);
     this.player.position.set(0, 0, 2.1);
     this.scene.add(this.player);
     this.disposables.push(
@@ -480,21 +609,62 @@ class FutsalRuntime {
       head.material,
       legMaterial
     );
+
+    this.loadModel("/assets/3d/soccer-player.glb", (root, gltf) => {
+      root.position.set(0, 0, 0);
+      root.rotation.y = Math.PI;
+      this.fitModel(root, {
+        height: 1.55,
+        position: new THREE.Vector3(0, 0.02, 0),
+      });
+      fallback.visible = false;
+      this.player.add(root);
+
+      const mixer = new THREE.AnimationMixer(root);
+      this.mixers.push(mixer);
+      gltf.animations.forEach((clip) => {
+        const actionName = clip.name.toLowerCase() as PlayerActionName;
+        if (actionName === "idle" || actionName === "run" || actionName === "kick") {
+          const action = mixer.clipAction(clip);
+          if (actionName === "kick") {
+            action.setLoop(THREE.LoopOnce, 1);
+            action.clampWhenFinished = true;
+          }
+          this.playerActions.set(actionName, action);
+        }
+      });
+      this.playPlayerAction("idle");
+    });
   }
 
   private addBall() {
     const ballMaterial = this.material(0xf8f8f1, 0.28, 0.46);
     const seamMaterial = this.material(0x111917, 0.5, 0.45);
-    this.ball = new THREE.Mesh(new THREE.SphereGeometry(0.18, 28, 18), ballMaterial);
-    this.ball.position.set(0.85, 0.2, 1.4);
+    const fallback = new THREE.Mesh(new THREE.SphereGeometry(0.18, 28, 18), ballMaterial);
+    fallback.position.set(0.85, 0.2, 1.4);
     const seam = new THREE.Mesh(new THREE.TorusGeometry(0.185, 0.008, 6, 24), seamMaterial);
     seam.rotation.x = Math.PI / 2;
-    this.ball.add(seam);
+    fallback.add(seam);
+    this.ball = fallback;
     this.scene.add(this.ball);
-    this.disposables.push(ballMaterial, seamMaterial, this.ball.geometry, seam.geometry);
+    this.disposables.push(ballMaterial, seamMaterial, fallback.geometry, seam.geometry);
+
+    this.loadModel("/assets/3d/soccer-ball.glb", (root) => {
+      root.position.set(0, 0, 0);
+      this.fitModel(root, {
+        width: 0.38,
+        depth: 0.38,
+        height: 0.38,
+        position: new THREE.Vector3(0.85, 0.02, 1.4),
+      });
+      fallback.visible = false;
+      this.ball = root;
+      this.scene.add(root);
+    });
   }
 
   private addLights() {
+    const visualFallback = new THREE.Group();
     const poleMaterial = this.material(0x1f2924, 0.35, 0.8);
     const bulbMaterial = new THREE.MeshBasicMaterial({ color: 0xf8ffe8 });
     const poleGeo = new THREE.CylinderGeometry(0.04, 0.05, 3.8, 10);
@@ -511,9 +681,32 @@ class FutsalRuntime {
       bulb.position.set(x, 3.85, z);
       const light = new THREE.PointLight(index < 2 ? 0xb9ffda : 0xd7ecff, 1.8, 10, 1.4);
       light.position.set(x, 3.7, z);
-      this.scene.add(pole, bulb, light);
+      visualFallback.add(pole, bulb);
+      this.scene.add(light);
     });
+    this.scene.add(visualFallback);
     this.disposables.push(poleMaterial, bulbMaterial, poleGeo, bulbGeo);
+
+    this.loadModel("/assets/3d/street-lamp.glb", (root) => {
+      root.position.set(0, 0, 0);
+      this.fitModel(root, {
+        height: 3.85,
+        position: new THREE.Vector3(0, 0, 0),
+      });
+      visualFallback.visible = false;
+      [
+        [-5.6, -3.95, 0.62],
+        [5.6, -3.95, -0.62],
+        [-5.6, 3.95, 2.46],
+        [5.6, 3.95, -2.46],
+      ].forEach(([x, z, rotationY], index) => {
+        const lamp = index === 0 ? root : root.clone(true);
+        lamp.position.x += x;
+        lamp.position.z += z;
+        lamp.rotation.y += rotationY;
+        this.scene.add(lamp);
+      });
+    });
   }
 
   private addStreetDetails() {
@@ -616,12 +809,15 @@ class FutsalRuntime {
     const elapsed = this.timer.getElapsed();
     this.fieldMaterial.uniforms.uTime.value = elapsed;
     this.scoreboardMaterial.uniforms.uTime.value = elapsed;
+    this.mixers.forEach((mixer) => mixer.update(delta));
 
     if (!this.reducedMotion) {
       this.updatePlayer(delta);
       this.ball.rotation.x += this.ballVelocity.z * 1.8;
       this.ball.rotation.z += this.ballVelocity.x * 1.8;
-      this.player.children[4].rotation.z += delta * 0.9;
+      if (this.playerMarker) {
+        this.playerMarker.rotation.z += delta * 0.9;
+      }
       this.camera.position.x += (this.player.position.x * 0.08 + 7.5 - this.camera.position.x) * 0.015;
       this.camera.lookAt(this.player.position.x * 0.22, 0.45, -0.3);
     }
@@ -637,6 +833,9 @@ class FutsalRuntime {
     if (this.keys.has("arrowdown") || this.keys.has("s")) dz += speed;
     if (this.keys.has("arrowleft") || this.keys.has("a")) dx -= speed;
     if (this.keys.has("arrowright") || this.keys.has("d")) dx += speed;
+    if (this.timer.getElapsed() > this.playerActionLockedUntil) {
+      this.playPlayerAction(dx === 0 && dz === 0 ? "idle" : "run");
+    }
     if (dx === 0 && dz === 0) return;
     this.player.position.x = THREE.MathUtils.clamp(this.player.position.x + dx, -5.15, 5.15);
     this.player.position.z = THREE.MathUtils.clamp(this.player.position.z + dz, -3.25, 3.25);
