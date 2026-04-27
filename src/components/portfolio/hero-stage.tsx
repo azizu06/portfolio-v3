@@ -3,7 +3,7 @@
 import Image from "next/image";
 import ElectricBorder from "@/components/ElectricBorder";
 import GradientText from "@/components/GradientText";
-import SoftAurora from "@/components/SoftAurora";
+import Iridescence from "@/components/Iridescence";
 import TextType from "@/components/TextType";
 import { LiquidPillNav } from "@/components/portfolio/liquid-pill-nav";
 
@@ -24,22 +24,12 @@ export function HeroStage({
   return (
     <section className="relative isolate min-h-[100dvh] overflow-hidden px-5 py-8 sm:px-8 lg:px-10">
       <div className="absolute inset-0 -z-30 bg-[radial-gradient(circle_at_50%_8%,rgba(141,183,255,0.16),transparent_26rem),linear-gradient(180deg,#061427_0%,#081a31_46%,#061427_100%)]" />
-      <div className="absolute inset-x-[-12%] top-[-18%] -z-20 h-[86dvh] opacity-70 saturate-125">
-        <SoftAurora
-          speed={0.42}
-          scale={1.65}
-          brightness={0.86}
-          color1="#eaf2ff"
-          color2="#8db7ff"
-          noiseFrequency={2.15}
-          noiseAmplitude={0.9}
-          bandHeight={0.44}
-          bandSpread={0.82}
-          octaveDecay={0.22}
-          layerOffset={0.56}
-          colorSpeed={0.58}
-          enableMouseInteraction
-          mouseInfluence={0.08}
+      <div className="absolute inset-x-[-12%] top-[-18%] -z-20 h-[86dvh] opacity-36 saturate-125 mix-blend-screen">
+        <Iridescence
+          color={[0.27450980392156865, 0.403921568627451, 0.6627450980392157]}
+          speed={0.72}
+          amplitude={0.045}
+          mouseReact={false}
         />
       </div>
       <div className="absolute inset-x-[12%] bottom-[-16%] -z-20 h-[38dvh] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(47,111,237,0.16),rgba(141,183,255,0.07)_38%,transparent_70%)] blur-3xl" />
