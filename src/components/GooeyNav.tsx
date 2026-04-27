@@ -134,7 +134,10 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     if (!liEl) return;
     runGooeyAnimation(liEl, index);
     if (href === activeHref) return;
-    router.push(href);
+    window.dispatchEvent(new CustomEvent("portfolio:navigate-start"));
+    window.setTimeout(() => {
+      router.push(href);
+    }, 520);
   };
   const handleKeyDown = (e: React.KeyboardEvent<HTMLAnchorElement>, index: number) => {
     if (e.key === 'Enter' || e.key === ' ') {
