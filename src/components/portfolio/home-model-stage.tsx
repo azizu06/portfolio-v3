@@ -5,8 +5,9 @@ import { ArrowUpRightIcon } from "lucide-react";
 import Aurora from "@/components/Aurora";
 import Magnet from "@/components/Magnet";
 import SplitText from "@/components/SplitText";
+import { LiquidPillNav } from "@/components/portfolio/liquid-pill-nav";
 import { Button } from "@/components/ui/button";
-import { navItems, profile } from "@/data/profile";
+import { profile } from "@/data/profile";
 
 export function HomeModelStage() {
   return (
@@ -22,32 +23,9 @@ export function HomeModelStage() {
       </div>
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_46%,rgba(47,111,237,0.3),transparent_30rem),linear-gradient(180deg,rgba(6,20,39,0.1)_0%,#061427_100%)]" />
 
-      <nav className="relative z-20 mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-full border border-ice/10 bg-navy/72 px-4 py-3 shadow-[0_18px_60px_rgba(0,0,0,0.22)] backdrop-blur-xl">
-        <Link href="/" className="font-mono text-xs uppercase tracking-[0.24em] text-ice">
-          Aziz Umarov
-        </Link>
-        <div className="hidden items-center gap-1 md:flex">
-          {navItems.slice(1).map((item) => (
-            <Button
-              key={item.href}
-              render={<Link href={item.href} />}
-              variant="ghost"
-              size="sm"
-              className="rounded-full text-ice/72 hover:bg-ice/8 hover:text-ice"
-            >
-              {item.label}
-            </Button>
-          ))}
-        </div>
-        <Button
-          render={<Link href="/about" />}
-          size="sm"
-          className="rounded-full bg-cobalt px-4 text-ice hover:bg-cobalt/85"
-        >
-          About
-          <ArrowUpRightIcon data-icon="inline-end" />
-        </Button>
-      </nav>
+      <div className="relative z-20">
+        <LiquidPillNav />
+      </div>
 
       <section className="mx-auto grid min-h-[calc(100dvh-5rem)] max-w-7xl items-center py-10">
         <div className="relative min-h-[72dvh] overflow-hidden rounded-[2rem] border border-ice/10 bg-navy/28 shadow-[0_40px_140px_rgba(0,0,0,0.3)] backdrop-blur-sm">

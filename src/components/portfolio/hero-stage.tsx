@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRightIcon, FileTextIcon } from "lucide-react";
+import { ArrowUpRightIcon } from "lucide-react";
 import Aurora from "@/components/Aurora";
 import Magnet from "@/components/Magnet";
 import SplitText from "@/components/SplitText";
+import { LiquidPillNav } from "@/components/portfolio/liquid-pill-nav";
 import { Button } from "@/components/ui/button";
-import { navItems } from "@/data/profile";
 
 type HeroStageProps = {
   name: string;
@@ -37,32 +37,7 @@ export function HeroStage({
       </div>
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_20%,rgba(47,111,237,0.22),transparent_30rem),linear-gradient(180deg,rgba(6,20,39,0)_0%,#061427_82%)]" />
 
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-full border border-[#eaf2ff]/10 bg-[#0b1f3a]/72 px-4 py-3 shadow-[0_18px_60px_rgba(0,0,0,0.22)] backdrop-blur-xl">
-        <Link href="/" className="font-mono text-xs uppercase tracking-[0.24em] text-[#eaf2ff]">
-          Aziz Umarov
-        </Link>
-        <div className="hidden items-center gap-1 md:flex">
-          {navItems.slice(1).map((item) => (
-            <Button
-              key={item.href}
-              render={<Link href={item.href} />}
-              variant="ghost"
-              size="sm"
-              className="rounded-full text-[#eaf2ff]/72 hover:bg-[#eaf2ff]/8 hover:text-[#eaf2ff]"
-            >
-              {item.label}
-            </Button>
-          ))}
-        </div>
-        <Button
-          render={<Link href={resumeHref} target="_blank" rel="noreferrer" />}
-          size="sm"
-          className="rounded-full bg-[#2f6fed] px-4 text-[#eaf2ff] hover:bg-[#255ed2]"
-        >
-          Resume
-          <FileTextIcon data-icon="inline-end" />
-        </Button>
-      </nav>
+      <LiquidPillNav />
 
       <div className="mx-auto grid min-h-[calc(100dvh-5rem)] max-w-7xl items-center gap-14 py-16 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.72fr)] lg:py-24">
         <div className="max-w-6xl">
