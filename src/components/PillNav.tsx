@@ -17,7 +17,7 @@ export default function PillNav({ items }: PillNavProps) {
   const pathname = usePathname();
 
   return (
-    <div className="relative hidden items-center rounded-full border border-ice/10 bg-deep-navy/28 p-1.5 shadow-[inset_0_1px_0_rgba(234,242,255,0.1)] md:flex">
+    <div className="relative hidden items-center gap-1 md:flex">
       {items.map((item) => {
         const isActive = pathname === item.href;
 
