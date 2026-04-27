@@ -9,12 +9,10 @@ export const profile = {
   name: "Abduaziz Umarov",
   shortName: "Aziz",
   location: "Orlando, FL",
-  role: "Software Engineer and Computer Science Student",
-  headline:
-    "I build thoughtful software across research, full-stack products, and interactive web experiences.",
+  role: "Software engineer and UCF computer science student",
+  headline: "UCF CS student, ISUE Lab researcher, Knight Hacks developer.",
   summary:
-    "UCF computer science student with experience in AI-assisted speech research, hackathon product development, and full-stack web projects.",
-  email: "mailto:abduaziz.umarov@example.com",
+    "A UCF computer science student with a 4.0 GPA, research experience in AI-assisted speech feedback, and hackathon work recognized at Hacklytics 2026.",
   resumeHref: "/assets/resume.pdf",
   links: [
     {
@@ -41,8 +39,16 @@ export const profile = {
 };
 
 export const navItems = [
+  { label: "Home", href: "#home" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
+];
+
+export const proofPoints = [
+  "UCF Computer Science, 4.0 GPA",
+  "Knight Hacks Software Developer",
+  "ISUE Lab Undergraduate Research Assistant",
+  "CrisisLens, Hacklytics 2026 first place",
 ];

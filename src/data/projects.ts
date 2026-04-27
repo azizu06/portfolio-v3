@@ -1,16 +1,33 @@
 export type Project = {
   title: string;
   date: string;
-  image: string;
+  image?: string;
   description: string;
   technologies: string[];
-  githubHref: string;
-  liveHref: string;
+  githubHref?: string;
+  liveHref?: string;
   featured?: boolean;
-  category: "Full-stack" | "React" | "JavaScript" | "Game" | "CSS";
+  category:
+    | "AI product"
+    | "Research"
+    | "Full-stack"
+    | "React"
+    | "JavaScript"
+    | "Game"
+    | "CSS";
 };
 
 export const projects: Project[] = [
+  {
+    title: "CrisisLens",
+    date: "Hacklytics 2026",
+    image: "/assets/logo.png",
+    description:
+      "Crisis response product that placed first at Hacklytics 2026.",
+    technologies: ["React", "AI", "Data pipelines", "Product design"],
+    featured: true,
+    category: "AI product",
+  },
   {
     title: "FinBridge",
     date: "October 2025",
@@ -32,6 +49,16 @@ export const projects: Project[] = [
     category: "Full-stack",
   },
   {
+    title: "AI Speech Feedback Research",
+    date: "October 2025 - Present",
+    image: "/assets/isue.png",
+    description:
+      "Research work at ISUE Lab focused on clinically useful feedback systems for dysarthric speech.",
+    technologies: ["Python", "PyTorch", "Pandas", "NumPy", "Scikit-learn"],
+    featured: true,
+    category: "Research",
+  },
+  {
     title: "Battleship",
     date: "January 2026",
     image: "/assets/battleship.png",
@@ -40,7 +67,6 @@ export const projects: Project[] = [
     technologies: ["JavaScript", "HTML", "CSS", "Jest", "Webpack"],
     githubHref: "https://github.com/azizu06/Battleship",
     liveHref: "https://battleship-one-sandy.vercel.app/",
-    featured: true,
     category: "Game",
   },
   {
@@ -104,7 +130,7 @@ export const projects: Project[] = [
     date: "November 2025",
     image: "/assets/signup.png",
     description:
-      "Responsive sign-up form focused on semantics, validation feedback, and modern CSS.",
+      "Responsive sign-up form with semantic markup and validation feedback.",
     technologies: ["JavaScript", "HTML", "CSS"],
     githubHref: "https://github.com/azizu06/Sign-up",
     liveHref: "https://sign-up-one-liart.vercel.app/",
