@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     template: "%s | Abduaziz Umarov",
   },
   description:
-    "Portfolio for Abduaziz Umarov, a UCF computer science student building research, full-stack, and product-focused software.",
+    "A street futsal-inspired portfolio for Abduaziz Umarov, a UCF computer science student building research, full-stack, and product-focused software.",
   openGraph: {
     title: "Abduaziz Umarov | Software Engineer",
     description:
-      "Experiences, projects, and selected work from Abduaziz Umarov.",
+      "A playable street futsal portfolio featuring experiences, projects, and selected work from Abduaziz Umarov.",
     url: "https://azizu.dev",
     siteName: "azizu.dev",
     type: "website",
