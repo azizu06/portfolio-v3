@@ -435,9 +435,149 @@
   display: none;
 }
 
+.futsal-app-shell {
+  min-height: 100dvh;
+  border: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(219, 255, 168, 0.12), transparent 34rem),
+    linear-gradient(180deg, #07100c 0%, #0b1511 100%);
+}
+
+.futsal-app-card {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  background: rgba(7, 16, 12, 0.7) !important;
+  color: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(18px);
+}
+
+.futsal-app-topbar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  left: 1rem;
+  z-index: 2;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  pointer-events: none;
+}
+
+.futsal-app-topbar > *,
+.futsal-focus-hud,
+.futsal-quick-links,
+.futsal-mobile-hotspots {
+  pointer-events: auto;
+}
+
+.futsal-scoreboard-hud {
+  width: min(25rem, calc(100vw - 2rem));
+}
+
+.futsal-score-number {
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 1px solid rgba(217, 255, 117, 0.28);
+  border-radius: 0.85rem;
+  background: rgba(217, 255, 117, 0.1);
+  color: #d9ff75;
+  font-family: var(--font-geist-mono);
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.futsal-instruction-hud {
+  max-width: 18rem;
+}
+
+.futsal-instruction-hud span {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.82rem;
+}
+
+.futsal-focus-hud {
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  top: 8.25rem;
+  width: min(17rem, calc(100vw - 2rem));
+}
+
+.futsal-quick-links {
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.futsal-quick-links [data-slot="button"] {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.futsal-mobile-hotspots [data-slot="button"] {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: rgba(7, 16, 12, 0.72);
+  color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+}
+
+.futsal-app-dialog {
+  max-height: min(760px, calc(100dvh - 2rem));
+  max-width: min(960px, calc(100vw - 2rem));
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(18, 31, 25, 0.98), rgba(7, 16, 12, 0.98)),
+    #07100c;
+  color: white;
+}
+
+.futsal-tabs-list {
+  width: 100%;
+  justify-content: start;
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.futsal-dialog-scroll {
+  max-height: min(520px, calc(100dvh - 16rem));
+  overflow: auto;
+  padding-right: 0.25rem;
+}
+
+.futsal-dialog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.futsal-dialog-card {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.045) !important;
+}
+
+.futsal-dialog-card [data-slot="badge"] {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.is-fallback .futsal-webgl-fallback {
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: radial-gradient(circle at 50% 35%, rgba(217, 255, 117, 0.08), rgba(7, 16, 12, 0.88) 62%);
+}
+
 @media (max-width: 900px) {
   .futsal-scene-shell {
-    min-height: 430px;
+    min-height: 100dvh;
   }
 
   .futsal-stat-strip,
@@ -452,8 +592,8 @@
 
 @media (max-width: 640px) {
   .futsal-scene-shell {
-    min-height: 390px;
-    border-radius: 1.35rem;
+    min-height: 100dvh;
+    border-radius: 0;
   }
 
   .futsal-project-card {
@@ -482,7 +622,36 @@
   .futsal-mobile-hotspots {
     left: 0.75rem;
     right: 0.75rem;
-    bottom: 4.15rem;
+    bottom: 1rem;
+  }
+
+  .futsal-app-topbar {
+    top: 0.75rem;
+    right: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .futsal-scoreboard-hud {
+    width: 100%;
+  }
+
+  .futsal-instruction-hud,
+  .futsal-focus-hud,
+  .futsal-quick-links {
+    display: none;
+  }
+
+  .futsal-dialog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .futsal-app-dialog {
+    max-width: calc(100vw - 1rem);
+    padding: 0.75rem;
+  }
+
+  .futsal-dialog-scroll {
+    max-height: calc(100dvh - 14.5rem);
   }
 }
 

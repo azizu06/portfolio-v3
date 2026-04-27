@@ -4,10 +4,36 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import * as THREE from "three";
-import { ArrowRightIcon, TrophyIcon } from "lucide-react";
+import {
+  ArrowUpRightIcon,
+  CodeXmlIcon,
+  ContactIcon,
+  FileTextIcon,
+  MailIcon,
+  RotateCcwIcon,
+} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { sceneHotspots, sceneProjects, sceneStats } from "@/data/scene";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { experiences } from "@/data/experience";
+import { sceneHotspots, sceneProjects } from "@/data/scene";
 import { profile } from "@/data/profile";
+import { projects } from "@/data/projects";
+import { skillGroups } from "@/data/skills";
 
 const fieldVertexShader = `
   varying vec2 vUv;
@@ -27,14 +53,19 @@ const fieldFragmentShader = `
   }
 
   void main() {
-    vec3 base = mix(vec3(0.045, 0.19, 0.13), vec3(0.07, 0.27, 0.18), vUv.y);
-    float grain = fract(sin(dot(vUv * 180.0, vec2(12.9898, 78.233))) * 43758.5453);
-    float concrete = smoothstep(0.42, 0.98, grain) * 0.05;
-    float stripes = sin((vUv.x + uTime * 0.015) * 42.0) * 0.018;
-    float courtLines = line(vUv.x, 0.5, 0.006) + line(vUv.y, 0.5, 0.006);
+    vec3 base = mix(vec3(0.035, 0.16, 0.105), vec3(0.075, 0.28, 0.17), vUv.y);
+    float grain = fract(sin(dot(vUv * 260.0, vec2(12.9898, 78.233))) * 43758.5453);
+    float turf = (grain - 0.5) * 0.075;
+    float mowing = sin((vUv.x + uTime * 0.008) * 58.0) * 0.014;
+    float courtLines = line(vUv.x, 0.5, 0.005) + line(vUv.y, 0.5, 0.005);
     courtLines += line(vUv.x, 0.08, 0.004) + line(vUv.x, 0.92, 0.004);
     courtLines += line(vUv.y, 0.08, 0.004) + line(vUv.y, 0.92, 0.004);
-    vec3 color = base + concrete + stripes + courtLines * vec3(0.72, 0.92, 0.78);
+    float centerCircle = 1.0 - smoothstep(0.005, 0.011, abs(distance(vUv, vec2(0.5)) - 0.14));
+    float spot = 1.0 - smoothstep(0.0, 0.018, distance(vUv, vec2(0.5, 0.5)));
+    float boxTop = line(vUv.y, 0.20, 0.004) * step(0.32, vUv.x) * step(vUv.x, 0.68);
+    float boxBottom = line(vUv.y, 0.80, 0.004) * step(0.32, vUv.x) * step(vUv.x, 0.68);
+    courtLines += centerCircle + spot + boxTop + boxBottom;
+    vec3 color = base + turf + mowing + courtLines * vec3(0.82, 0.96, 0.86);
     gl_FragColor = vec4(color, 1.0);
   }
 `;
@@ -111,10 +142,12 @@ class FutsalRuntime {
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.08;
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.timer.connect(document);
 
-    this.camera = new THREE.PerspectiveCamera(42, 1, 0.1, 80);
-    this.camera.position.set(7.5, 6.4, 9.2);
+    this.camera = new THREE.PerspectiveCamera(46, 1, 0.1, 90);
+    this.camera.position.set(8.8, 7.2, 10.6);
     this.camera.lookAt(0, 0, 0);
 
     this.buildScene();
@@ -171,8 +204,10 @@ class FutsalRuntime {
     const ambient = new THREE.HemisphereLight(0xb7ffd7, 0x07100c, 1.8);
     this.scene.add(ambient);
 
-    const keyLight = new THREE.DirectionalLight(0xf7ffe2, 2.2);
+    const keyLight = new THREE.DirectionalLight(0xf7ffe2, 2.6);
     keyLight.position.set(-4, 7, 5);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.set(1024, 1024);
     this.scene.add(keyLight);
 
     this.addField();
@@ -200,12 +235,21 @@ class FutsalRuntime {
     this.disposables.push(fieldGeometry);
     const field = new THREE.Mesh(fieldGeometry, this.fieldMaterial);
     field.rotation.x = -Math.PI / 2;
+    field.receiveShadow = true;
     this.scene.add(field);
 
-    const curbMaterial = this.material(0x1b2420, 0.52, 0.58);
-    const curbGeometry = new THREE.BoxGeometry(12.6, 0.25, 0.32);
+    const outerMaterial = this.material(0x242a25, 0.82, 0.08);
+    const outerGeometry = new THREE.PlaneGeometry(22, 16, 1, 1);
+    const outer = new THREE.Mesh(outerGeometry, outerMaterial);
+    outer.rotation.x = -Math.PI / 2;
+    outer.position.y = -0.025;
+    outer.receiveShadow = true;
+    this.scene.add(outer);
+
+    const curbMaterial = this.material(0x18211d, 0.58, 0.42);
+    const curbGeometry = new THREE.BoxGeometry(12.6, 0.18, 0.32);
     const curbFront = new THREE.Mesh(curbGeometry, curbMaterial);
-    curbFront.position.set(0, 0.12, 4.25);
+    curbFront.position.set(0, 0.09, 4.25);
     const curbBack = curbFront.clone();
     curbBack.position.z = -4.25;
     curbBack.scale.z = 1;
@@ -215,21 +259,27 @@ class FutsalRuntime {
     const curbRight = curbLeft.clone();
     curbRight.position.x = 6.25;
     this.disposables.push(curbGeometry, sideGeometry, curbMaterial);
-    this.scene.add(curbFront, curbBack, curbLeft, curbRight);
+    [curbFront, curbBack, curbLeft, curbRight].forEach((curb) => {
+      curb.castShadow = true;
+      curb.receiveShadow = true;
+      this.scene.add(curb);
+    });
+    this.disposables.push(outerGeometry, outerMaterial);
   }
 
   private addFence() {
     const postMaterial = this.material(0x26332d, 0.36, 0.72);
     const wireMaterial = this.material(0x49655b, 0.28, 0.55);
-    const postGeometry = new THREE.BoxGeometry(0.08, 2.2, 0.08);
-    const railGeometry = new THREE.BoxGeometry(12.8, 0.045, 0.045);
-    const sideRailGeometry = new THREE.BoxGeometry(0.045, 0.045, 8.6);
+    const postGeometry = new THREE.CylinderGeometry(0.045, 0.055, 2.4, 12);
+    const railGeometry = new THREE.CylinderGeometry(0.022, 0.022, 12.8, 8);
+    const sideRailGeometry = new THREE.CylinderGeometry(0.022, 0.022, 8.6, 8);
     this.disposables.push(postMaterial, wireMaterial, postGeometry, railGeometry, sideRailGeometry);
 
     for (let x = -6; x <= 6; x += 1.5) {
       [-4.35, 4.35].forEach((z) => {
         const post = new THREE.Mesh(postGeometry, postMaterial);
-        post.position.set(x, 1.05, z);
+        post.position.set(x, 1.15, z);
+        post.castShadow = true;
         this.scene.add(post);
       });
     }
@@ -237,7 +287,8 @@ class FutsalRuntime {
     for (let z = -3.75; z <= 3.75; z += 1.5) {
       [-6.35, 6.35].forEach((x) => {
         const post = new THREE.Mesh(postGeometry, postMaterial);
-        post.position.set(x, 1.05, z);
+        post.position.set(x, 1.15, z);
+        post.castShadow = true;
         this.scene.add(post);
       });
     }
@@ -245,10 +296,12 @@ class FutsalRuntime {
     [0.7, 1.35, 2].forEach((y) => {
       const back = new THREE.Mesh(railGeometry, wireMaterial);
       back.position.set(0, y, -4.35);
+      back.rotation.z = Math.PI / 2;
       const front = back.clone();
       front.position.z = 4.35;
       const left = new THREE.Mesh(sideRailGeometry, wireMaterial);
       left.position.set(-6.35, y, 0);
+      left.rotation.x = Math.PI / 2;
       const right = left.clone();
       right.position.x = 6.35;
       this.scene.add(back, front, left, right);
@@ -257,14 +310,21 @@ class FutsalRuntime {
 
   private addGoal() {
     const material = this.material(0xdfeee6, 0.3, 0.45);
-    const postGeometry = new THREE.BoxGeometry(0.12, 1.35, 0.12);
-    const barGeometry = new THREE.BoxGeometry(2.7, 0.12, 0.12);
+    const postGeometry = new THREE.CylinderGeometry(0.055, 0.055, 1.35, 18);
+    const barGeometry = new THREE.CylinderGeometry(0.055, 0.055, 2.7, 18);
     const left = new THREE.Mesh(postGeometry, material);
     left.position.set(-1.35, 0.7, -3.95);
     const right = left.clone();
     right.position.x = 1.35;
     const top = new THREE.Mesh(barGeometry, material);
     top.position.set(0, 1.35, -3.95);
+    top.rotation.z = Math.PI / 2;
+    const leftBack = left.clone();
+    leftBack.position.z = -4.45;
+    const rightBack = right.clone();
+    rightBack.position.z = -4.45;
+    const backTop = top.clone();
+    backTop.position.z = -4.45;
     const netGeometry = new THREE.PlaneGeometry(2.7, 1.35, 8, 5);
     const netMaterial = new THREE.MeshBasicMaterial({
       color: 0xdbeee6,
@@ -274,8 +334,15 @@ class FutsalRuntime {
     });
     const net = new THREE.Mesh(netGeometry, netMaterial);
     net.position.set(0, 0.7, -4.05);
+    const netTop = net.clone();
+    netTop.rotation.x = Math.PI / 2;
+    netTop.position.set(0, 1.38, -4.2);
     this.disposables.push(material, postGeometry, barGeometry, netGeometry, netMaterial);
-    this.scene.add(left, right, top, net);
+    [left, right, top, leftBack, rightBack, backTop].forEach((piece) => {
+      piece.castShadow = true;
+      this.scene.add(piece);
+    });
+    this.scene.add(net, netTop);
   }
 
   private addScoreboard() {
@@ -294,9 +361,9 @@ class FutsalRuntime {
       new THREE.BoxGeometry(3.4, 1.5, 0.18),
       this.material(0x0b1411, 0.45, 0.78)
     );
-    frame.position.set(0, 2.9, -4.52);
+    frame.position.set(0, 3.0, -4.62);
     const screen = new THREE.Mesh(new THREE.PlaneGeometry(3.05, 1.12), this.scoreboardMaterial);
-    screen.position.set(0, 2.9, -4.42);
+    screen.position.set(0, 3.0, -4.51);
     screen.userData.hotspot = "projects";
     this.hotspotMeshes.push(screen);
     this.disposables.push(frame.geometry, screen.geometry, frame.material);
@@ -383,16 +450,24 @@ class FutsalRuntime {
 
   private addPlayer() {
     this.player = new THREE.Group();
-    const kitMaterial = this.material(0xf3f7ef, 0.35, 0.42);
+    const kitMaterial = this.material(0xf3f7ef, 0.4, 0.22);
     const accentMaterial = this.material(0x37ff9b, 0.2, 0.35);
-    const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.22, 0.55, 8, 16), kitMaterial);
-    body.position.y = 0.55;
+    const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.2, 0.5, 10, 18), kitMaterial);
+    body.position.y = 0.68;
+    body.castShadow = true;
     const head = new THREE.Mesh(new THREE.SphereGeometry(0.17, 20, 16), this.material(0xd8a876, 0.48, 0.45));
-    head.position.y = 1.02;
+    head.position.y = 1.08;
+    head.castShadow = true;
+    const legGeo = new THREE.CapsuleGeometry(0.055, 0.38, 6, 10);
+    const legMaterial = this.material(0x17221d, 0.58, 0.25);
+    const leftLeg = new THREE.Mesh(legGeo, legMaterial);
+    leftLeg.position.set(-0.09, 0.3, 0.02);
+    const rightLeg = leftLeg.clone();
+    rightLeg.position.x = 0.09;
     const marker = new THREE.Mesh(new THREE.TorusGeometry(0.46, 0.025, 8, 36), accentMaterial);
     marker.rotation.x = Math.PI / 2;
     marker.position.y = 0.05;
-    this.player.add(body, head, marker);
+    this.player.add(body, head, leftLeg, rightLeg, marker);
     this.player.position.set(0, 0, 2.1);
     this.scene.add(this.player);
     this.disposables.push(
@@ -400,8 +475,10 @@ class FutsalRuntime {
       accentMaterial,
       body.geometry,
       head.geometry,
+      legGeo,
       marker.geometry,
-      head.material
+      head.material,
+      legMaterial
     );
   }
 
@@ -544,7 +621,7 @@ class FutsalRuntime {
       this.updatePlayer(delta);
       this.ball.rotation.x += this.ballVelocity.z * 1.8;
       this.ball.rotation.z += this.ballVelocity.x * 1.8;
-      this.player.children[2].rotation.z += delta * 0.9;
+      this.player.children[4].rotation.z += delta * 0.9;
       this.camera.position.x += (this.player.position.x * 0.08 + 7.5 - this.camera.position.x) * 0.015;
       this.camera.lookAt(this.player.position.x * 0.22, 0.45, -0.3);
     }
@@ -616,8 +693,11 @@ export function FutsalHeroScene() {
   const runtimeRef = useRef<FutsalRuntime | null>(null);
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [score, setScore] = useState(0);
-  const [activeHotspot, setActiveHotspot] = useState(sceneHotspots[0]);
+  const [activePanel, setActivePanel] = useState<(typeof sceneHotspots)[number]["id"]>("projects");
+  const [panelOpen, setPanelOpen] = useState(false);
+  const [webglFailed, setWebglFailed] = useState(false);
   const activeProject = sceneProjects[activeProjectIndex] ?? sceneProjects[0];
+  const activeHotspot = sceneHotspots.find((hotspot) => hotspot.id === activePanel) ?? sceneHotspots[0];
 
   const reducedMotion = useMemo(() => {
     if (typeof window === "undefined") return false;
@@ -634,21 +714,19 @@ export function FutsalHeroScene() {
         onScore: () => {
           setScore((value) => value + 1);
           setActiveProjectIndex((value) => (value + 1) % Math.max(sceneProjects.length, 1));
-          setActiveHotspot(sceneHotspots[0]);
+          setActivePanel("projects");
+          setPanelOpen(true);
         },
         onHotspot: (id) => {
           const hotspot = sceneHotspots.find((item) => item.id === id);
           if (!hotspot) return;
-          setActiveHotspot(hotspot);
-          if (hotspot.href.startsWith("#")) {
-            document.querySelector(hotspot.href)?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
-          } else {
-            window.open(hotspot.href, "_blank", "noreferrer");
-          }
+          setActivePanel(hotspot.id);
+          setPanelOpen(true);
         },
       });
       runtimeRef.current = runtime;
     } catch {
+      queueMicrotask(() => setWebglFailed(true));
       canvasRef.current.classList.add("opacity-0");
     }
 
@@ -658,58 +736,256 @@ export function FutsalHeroScene() {
     };
   }, [reducedMotion]);
 
+  const openPanel = (panel: typeof activePanel) => {
+    setActivePanel(panel);
+    setPanelOpen(true);
+  };
+
   return (
-    <div className="futsal-scene-shell">
+    <div className={`futsal-scene-shell futsal-app-shell${webglFailed ? " is-fallback" : ""}`}>
       <canvas
         ref={canvasRef}
         className="futsal-canvas"
         aria-label="Interactive street futsal court with portfolio hotspots"
       />
       <div className="futsal-scene-vignette" />
-      <div className="futsal-score-card">
-        <span>Score</span>
-        <strong>{score.toString().padStart(2, "0")}</strong>
+
+      <div className="futsal-app-topbar">
+        <Card size="sm" className="futsal-app-card futsal-scoreboard-hud">
+          <CardHeader className="pb-0">
+            <CardTitle className="flex items-center justify-between gap-3 text-sm">
+              <span>{profile.shortName} FC</span>
+              <Badge className="court-badge">Street futsal</Badge>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="grid grid-cols-[auto_1fr] items-center gap-3">
+            <div className="futsal-score-number">{score.toString().padStart(2, "0")}</div>
+            <div className="min-w-0">
+              <p className="truncate text-sm font-medium">{activeProject?.title ?? "Featured project"}</p>
+              <p className="text-xs text-white/58">Score to rotate the board</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card size="sm" className="futsal-app-card futsal-instruction-hud">
+          <CardContent className="flex items-center gap-2">
+            <Button className="court-button-primary" size="sm" onClick={() => runtimeRef.current?.kick()}>
+              Kick
+            </Button>
+            <span>WASD / arrows to move</span>
+          </CardContent>
+        </Card>
       </div>
-      <div className="futsal-project-card">
-        <span className="futsal-card-kicker">Scoreboard</span>
-        <strong>{activeProject?.title ?? "Featured project"}</strong>
-        <p>{activeProject?.description ?? "Score a goal to cycle project highlights."}</p>
-      </div>
-      <div className="futsal-hotspot-card">
-        <TrophyIcon className="size-4" />
-        <div>
-          <span>{activeHotspot.label}</span>
-          <p>{activeHotspot.description}</p>
-        </div>
-      </div>
-      <div className="futsal-controls">
-        <button type="button" onClick={() => runtimeRef.current?.kick()}>
-          Kick / Space
-        </button>
-        <span>WASD or arrows to move</span>
-      </div>
+
+      <Card size="sm" className="futsal-app-card futsal-focus-hud">
+        <CardHeader className="pb-0">
+          <CardTitle className="flex items-center gap-2 text-sm">
+            <CodeXmlIcon className="size-4 text-[#d9ff75]" />
+            Court Map
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="grid gap-2">
+          <Button variant="outline" className="court-button-outline justify-start" onClick={() => openPanel("projects")}>
+            Scoreboard
+            <ArrowUpRightIcon data-icon="inline-end" />
+          </Button>
+          <Button variant="outline" className="court-button-outline justify-start" onClick={() => openPanel("experience")}>
+            Trophy wall
+            <ArrowUpRightIcon data-icon="inline-end" />
+          </Button>
+          <Button variant="outline" className="court-button-outline justify-start" onClick={() => openPanel("skills")}>
+            Poster wall
+            <ArrowUpRightIcon data-icon="inline-end" />
+          </Button>
+        </CardContent>
+      </Card>
+
       <div className="futsal-mobile-hotspots" aria-label="Portfolio court hotspots">
         {sceneHotspots.map((hotspot) => (
-          <Link key={hotspot.id} href={hotspot.href}>
+          <Button key={hotspot.id} variant="outline" size="sm" onClick={() => openPanel(hotspot.id)}>
             {hotspot.label}
-          </Link>
+          </Button>
         ))}
       </div>
-      <div className="futsal-stat-strip">
-        {sceneStats.map((stat) => (
-          <div key={stat.label}>
-            <strong>{stat.value}</strong>
-            <span>{stat.label}</span>
-          </div>
-        ))}
-      </div>
-      <div className="futsal-webgl-fallback" aria-hidden="true">
-        <span>{profile.shortName} FC</span>
-        <p>Street futsal portfolio court</p>
-        <Button render={<Link href="#projects" />} size="sm">
-          View work
-          <ArrowRightIcon data-icon="inline-end" />
-        </Button>
+
+      <Card size="sm" className="futsal-app-card futsal-quick-links">
+        <CardContent className="flex items-center gap-2">
+          <Button variant="ghost" size="icon-sm" render={<Link href={profile.links[0]?.href ?? "#"} target="_blank" />}>
+            <CodeXmlIcon />
+            <span className="sr-only">GitHub</span>
+          </Button>
+          <Button variant="ghost" size="icon-sm" render={<Link href={profile.links[1]?.href ?? "#"} target="_blank" />}>
+            <ContactIcon />
+            <span className="sr-only">LinkedIn</span>
+          </Button>
+          <Button variant="ghost" size="icon-sm" render={<Link href={profile.email} />}>
+            <MailIcon />
+            <span className="sr-only">Email</span>
+          </Button>
+          <Button variant="ghost" size="icon-sm" onClick={() => runtimeRef.current?.kick()}>
+            <RotateCcwIcon />
+            <span className="sr-only">Kick the ball</span>
+          </Button>
+        </CardContent>
+      </Card>
+
+      <Dialog open={panelOpen} onOpenChange={setPanelOpen}>
+        <DialogContent className="futsal-app-dialog">
+          <DialogHeader>
+            <DialogTitle>{activeHotspot.label}</DialogTitle>
+            <DialogDescription>{activeHotspot.description}</DialogDescription>
+          </DialogHeader>
+          <Tabs value={activePanel} onValueChange={(value) => setActivePanel(value as typeof activePanel)}>
+            <TabsList className="futsal-tabs-list">
+              <TabsTrigger value="projects">Projects</TabsTrigger>
+              <TabsTrigger value="experience">Experience</TabsTrigger>
+              <TabsTrigger value="skills">Skills</TabsTrigger>
+              <TabsTrigger value="contact">Contact</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="projects" className="futsal-dialog-scroll">
+              <div className="futsal-dialog-grid">
+                {projects.slice(0, 6).map((project) => (
+                  <Card key={project.title} size="sm" className="futsal-dialog-card">
+                    <CardHeader>
+                      <CardTitle className="flex items-start justify-between gap-3">
+                        <span>{project.title}</span>
+                        <Badge variant="secondary">{project.category}</Badge>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="grid gap-3">
+                      <p className="text-sm leading-6 text-white/66">{project.description}</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.technologies.slice(0, 5).map((technology) => (
+                          <Badge key={technology} variant="outline">
+                            {technology}
+                          </Badge>
+                        ))}
+                      </div>
+                      <div className="flex gap-2">
+                        <Button size="sm" render={<Link href={project.liveHref} target="_blank" />}>
+                          Live
+                          <ArrowUpRightIcon data-icon="inline-end" />
+                        </Button>
+                        <Button size="sm" variant="outline" render={<Link href={project.githubHref} target="_blank" />}>
+                          Code
+                          <CodeXmlIcon data-icon="inline-end" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="experience" className="futsal-dialog-scroll">
+              <div className="grid gap-3">
+                {experiences.map((experience) => (
+                  <Card key={`${experience.company}-${experience.role}`} size="sm" className="futsal-dialog-card">
+                    <CardHeader>
+                      <CardTitle>{experience.role}</CardTitle>
+                      <p className="text-sm text-white/58">
+                        {experience.company} / {experience.period}
+                      </p>
+                    </CardHeader>
+                    <CardContent className="grid gap-3">
+                      <p className="text-sm leading-6 text-white/68">{experience.summary}</p>
+                      <div className="grid gap-2">
+                        {experience.highlights.map((highlight) => (
+                          <p key={highlight} className="text-sm text-white/62">
+                            {highlight}
+                          </p>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="skills" className="futsal-dialog-scroll">
+              <div className="futsal-dialog-grid">
+                {skillGroups.map((group) => (
+                  <Card key={group.title} size="sm" className="futsal-dialog-card">
+                    <CardHeader>
+                      <CardTitle>{group.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex flex-wrap gap-1.5">
+                      {group.skills.map((skill) => (
+                        <Badge key={skill} variant="outline">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="resume" className="futsal-dialog-scroll">
+              <Card size="sm" className="futsal-dialog-card">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <FileTextIcon className="size-4 text-[#d9ff75]" />
+                    Resume
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="grid gap-3">
+                  <p className="text-sm leading-6 text-white/68">
+                    The sideline pass opens the current resume PDF without leaving the court shell.
+                  </p>
+                  <Button render={<Link href={profile.resumeHref} target="_blank" />}>
+                    Open resume
+                    <FileTextIcon data-icon="inline-end" />
+                  </Button>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="contact" className="futsal-dialog-scroll">
+              <Card size="sm" className="futsal-dialog-card">
+                <CardHeader>
+                  <CardTitle>Final whistle</CardTitle>
+                </CardHeader>
+                <CardContent className="grid gap-3">
+                  <p className="text-sm leading-6 text-white/68">{profile.summary}</p>
+                  <Separator />
+                  <div className="flex flex-wrap gap-2">
+                    <Button render={<Link href={profile.email} />}>
+                      Email
+                      <MailIcon data-icon="inline-end" />
+                    </Button>
+                    <Button variant="outline" render={<Link href={profile.links[0]?.href ?? "#"} target="_blank" />}>
+                      GitHub
+                      <CodeXmlIcon data-icon="inline-end" />
+                    </Button>
+                    <Button variant="outline" render={<Link href={profile.links[1]?.href ?? "#"} target="_blank" />}>
+                      LinkedIn
+                      <ContactIcon data-icon="inline-end" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
+        </DialogContent>
+      </Dialog>
+
+      <div className="futsal-webgl-fallback" aria-hidden={!webglFailed}>
+        <Card className="futsal-app-card max-w-sm">
+          <CardHeader>
+            <CardTitle>{profile.shortName} FC</CardTitle>
+          </CardHeader>
+          <CardContent className="grid gap-3">
+            <p className="text-sm text-white/68">
+              The interactive WebGL court did not initialize, but the full court menu is still available.
+            </p>
+            <Button onClick={() => openPanel("projects")}>
+              Open projects
+              <ArrowUpRightIcon data-icon="inline-end" />
+            </Button>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
