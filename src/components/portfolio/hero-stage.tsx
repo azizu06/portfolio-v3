@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Aurora from "@/components/Aurora";
+import ElectricBorder from "@/components/ElectricBorder";
 import GradientText from "@/components/GradientText";
 import TextType from "@/components/TextType";
 import { LiquidPillNav } from "@/components/portfolio/liquid-pill-nav";
@@ -40,19 +41,27 @@ export function HeroStage({
 
       <div className="mx-auto flex min-h-[calc(100dvh-5rem)] max-w-5xl flex-col items-center justify-center py-16 text-center lg:py-24">
         <div className="relative">
-          <div className="absolute -inset-6 rounded-full bg-cobalt/18 blur-3xl" />
-          <div className="relative size-[min(19rem,72vw)] overflow-hidden rounded-full border border-cobalt/55 bg-navy/64 p-2 shadow-[0_28px_110px_rgba(47,111,237,0.3)] backdrop-blur-xl md:size-[24rem]">
-            <div className="relative h-full w-full overflow-hidden rounded-full bg-ice/8">
-              <Image
-                src="/assets/aziz-headshot.jpeg"
-                alt={name}
-                fill
-                priority
-                sizes="(min-width: 768px) 24rem, 72vw"
-                className="object-cover grayscale-[10%] contrast-105"
-              />
+          <div className="absolute -inset-8 rounded-full bg-cobalt/16 blur-3xl" />
+          <ElectricBorder
+            color="#8db7ff"
+            speed={0.36}
+            chaos={0.018}
+            borderRadius={9999}
+            className="rounded-full"
+          >
+            <div className="relative size-[min(21rem,78vw)] overflow-hidden rounded-full border border-ice/18 bg-navy/64 p-2 shadow-[0_30px_120px_rgba(47,111,237,0.28)] backdrop-blur-xl md:size-[26rem]">
+              <div className="relative h-full w-full overflow-hidden rounded-full bg-ice/8">
+                <Image
+                  src="/assets/aziz-headshot.jpeg"
+                  alt={name}
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 26rem, 78vw"
+                  className="object-cover grayscale-[10%] contrast-105"
+                />
+              </div>
             </div>
-          </div>
+          </ElectricBorder>
         </div>
 
         <h1 className="mt-12 max-w-5xl text-[clamp(2.8rem,5.8vw,5.9rem)] font-semibold leading-[0.94] tracking-tight">
@@ -75,7 +84,7 @@ export function HeroStage({
           textColors={["#8db7ff", "#eaf2ff", "#2f6fed"]}
           cursorCharacter="_"
           cursorClassName="text-cobalt"
-          className="mt-5 min-h-8 font-mono text-sm uppercase tracking-[0.24em] text-ice/70 md:text-base"
+          className="mt-5 min-h-9 font-mono text-base uppercase tracking-[0.2em] text-ice/72 md:text-lg"
         />
         <p className="mt-6 max-w-3xl text-lg leading-8 text-ice/72 md:text-2xl md:leading-9">
           {summary}
