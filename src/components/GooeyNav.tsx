@@ -164,6 +164,12 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
           :root {
             --linear-ease: linear(0, 0.068, 0.19 2.7%, 0.804 8.1%, 1.037, 1.199 13.2%, 1.245, 1.27 15.8%, 1.274, 1.272 17.4%, 1.249 19.1%, 0.996 28%, 0.949, 0.928 33.3%, 0.926, 0.933 36.8%, 1.001 45.6%, 1.013, 1.019 50.8%, 1.018 54.4%, 1 63.1%, 0.995 68%, 1.001 85%, 1);
           }
+          .gooey-nav {
+            --color-1: #2f6fed;
+            --color-2: #8db7ff;
+            --color-3: #eaf2ff;
+            --color-4: #123e7a;
+          }
           .gooey-nav .effect {
             position: absolute;
             opacity: 1;
@@ -180,25 +186,22 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             color: #061427;
           }
           .gooey-nav .effect.filter {
-            filter: blur(7px) contrast(100) blur(0);
-            mix-blend-mode: lighten;
+            filter: blur(6px) contrast(32) blur(0);
+            mix-blend-mode: screen;
           }
           .gooey-nav .effect.filter::before {
-            content: "";
-            position: absolute;
-            inset: -75px;
-            z-index: -2;
-            background: #061427;
+            display: none;
           }
           .gooey-nav .effect.filter::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(234,242,255,0.92);
+            background: linear-gradient(135deg, rgba(234,242,255,0.88), rgba(47,111,237,0.74));
             transform: scale(0);
             opacity: 0;
             z-index: -1;
             border-radius: 9999px;
+            box-shadow: inset 0 1px 0 rgba(234,242,255,0.28), 0 10px 30px rgba(47,111,237,0.28);
           }
           .gooey-nav .effect.active::after {
             animation: pill 0.3s ease both;
@@ -288,8 +291,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             content: "";
             position: absolute;
             inset: 0;
-            border-radius: 8px;
-            background: rgba(234,242,255,0.92);
+            border-radius: 9999px;
+            background: linear-gradient(135deg, rgba(234,242,255,0.88), rgba(47,111,237,0.74));
             opacity: 0;
             transform: scale(0);
             transition: all 0.3s ease;
