@@ -1,0 +1,26 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="au-stroke" x1="42" y1="37" x2="216" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EAF2FF"/>
+      <stop offset="0.45" stop-color="#8DB7FF"/>
+      <stop offset="1" stop-color="#2F6FED"/>
+    </linearGradient>
+    <radialGradient id="au-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(137 116) rotate(90) scale(112)">
+      <stop stop-color="#8DB7FF" stop-opacity="0.44"/>
+      <stop offset="0.56" stop-color="#2F6FED" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#061427" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft-shadow" x="-34" y="-34" width="324" height="324" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#2F6FED" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#soft-shadow)">
+    <circle cx="128" cy="128" r="103" fill="url(#au-glow)"/>
+    <path d="M51 194L99.5 64C101.7 58.1 110.1 58.1 112.3 64L161 194" stroke="url(#au-stroke)" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M75 148H137" stroke="#EAF2FF" stroke-opacity="0.86" stroke-width="16" stroke-linecap="round"/>
+    <path d="M166 67V145C166 176 183.4 196 210 196C236.6 196 254 176 254 145V67" transform="translate(-34 0)" stroke="url(#au-stroke)" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M144 62C152 75 156 90 156 108V143" stroke="#8DB7FF" stroke-opacity="0.42" stroke-width="7" stroke-linecap="round"/>
+    <path d="M41 207H210" stroke="#EAF2FF" stroke-opacity="0.18" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>

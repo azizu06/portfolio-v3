@@ -16,7 +16,7 @@ export default function PillNav({ items }: PillNavProps) {
   const pathname = usePathname();
 
   return (
-    <div className="relative hidden items-center gap-2 md:flex">
+    <div className="relative hidden items-center gap-3 md:flex">
       {items.map((item) => {
         const isActive = pathname === item.href;
 
@@ -25,7 +25,7 @@ export default function PillNav({ items }: PillNavProps) {
             key={item.href}
             href={item.href}
             aria-current={isActive ? "page" : undefined}
-            className={`group relative px-5 py-4 text-base font-semibold leading-none no-underline transition-all duration-300 hover:-translate-y-0.5 md:px-6 md:text-lg ${
+            className={`group relative px-5 py-4 text-lg font-semibold leading-none no-underline transition-all duration-300 hover:-translate-y-0.5 md:px-7 md:py-5 md:text-xl ${
               isActive ? "text-ice" : "text-ice/62 hover:text-ice"
             }`}
           >
