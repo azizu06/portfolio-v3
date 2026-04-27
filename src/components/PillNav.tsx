@@ -33,15 +33,15 @@ export default function PillNav({ items }: PillNavProps) {
             <ShinyText
               text={item.label}
               speed={3.2}
-              color={isActive ? "#eaf2ff" : "#9fbbe8"}
-              shineColor={isActive ? "#8db7ff" : "#eaf2ff"}
-              spread={112}
+              color={isActive ? "rgba(234,242,255,0.86)" : "rgba(234,242,255,0.58)"}
+              shineColor="#ffffff"
+              spread={104}
               delay={index * 0.18}
               yoyo
               pauseOnHover
-              className="relative z-10"
+              className="relative z-10 drop-shadow-[0_0_12px_rgba(255,255,255,0.08)]"
             />
-            <span className="absolute inset-x-5 bottom-2 h-px origin-center scale-x-0 bg-cobalt/90 shadow-[0_0_18px_rgba(47,111,237,0.8)] transition-transform duration-300 group-hover:scale-x-100 md:inset-x-6" />
+            <span className="absolute inset-x-5 bottom-2 h-px origin-center scale-x-0 bg-ice/82 shadow-[0_0_18px_rgba(255,255,255,0.46)] transition-transform duration-300 group-hover:scale-x-100 md:inset-x-6" />
           </Link>
         );
       })}
