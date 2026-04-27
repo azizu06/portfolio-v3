@@ -3,7 +3,15 @@
 import Image from "next/image";
 import Aurora from "@/components/Aurora";
 import GradientText from "@/components/GradientText";
+import TextType from "@/components/TextType";
 import { LiquidPillNav } from "@/components/portfolio/liquid-pill-nav";
+
+const roleTypewriterPhrases = [
+  "software engineer",
+  "computer science student",
+  "undergraduate researcher",
+  "hackathon builder",
+];
 
 type HeroStageProps = {
   name: string;
@@ -56,7 +64,19 @@ export function HeroStage({
             Hey there, I&apos;m Aziz
           </GradientText>
         </h1>
-        <p className="mt-7 max-w-3xl text-lg leading-8 text-ice/72 md:text-2xl md:leading-9">
+        <TextType
+          as="p"
+          text={roleTypewriterPhrases}
+          typingSpeed={58}
+          deletingSpeed={34}
+          pauseDuration={1500}
+          initialDelay={450}
+          textColors={["#8db7ff", "#eaf2ff", "#2f6fed"]}
+          cursorCharacter="_"
+          cursorClassName="text-cobalt"
+          className="mt-5 min-h-8 font-mono text-sm uppercase tracking-[0.24em] text-ice/70 md:text-base"
+        />
+        <p className="mt-6 max-w-3xl text-lg leading-8 text-ice/72 md:text-2xl md:leading-9">
           {summary}
         </p>
       </div>
