@@ -18,7 +18,7 @@ export default function PillNav({ items }: PillNavProps) {
 
   return (
     <div className="relative hidden items-center gap-4 md:flex">
-      {items.map((item) => {
+      {items.map((item, index) => {
         const isActive = pathname === item.href;
 
         return (
@@ -32,10 +32,11 @@ export default function PillNav({ items }: PillNavProps) {
           >
             <ShinyText
               text={item.label}
-              speed={3.8}
-              color={isActive ? "#eaf2ff" : "rgba(234,242,255,0.66)"}
+              speed={3.2}
+              color={isActive ? "#eaf2ff" : "#9fbbe8"}
               shineColor={isActive ? "#8db7ff" : "#eaf2ff"}
-              spread={108}
+              spread={112}
+              delay={index * 0.18}
               yoyo
               pauseOnHover
               className="relative z-10"
