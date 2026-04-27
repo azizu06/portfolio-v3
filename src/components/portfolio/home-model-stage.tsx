@@ -12,16 +12,17 @@ import { profile } from "@/data/profile";
 export function HomeModelStage() {
   return (
     <main className="relative isolate min-h-dvh w-full overflow-hidden bg-deep-navy px-5 py-8 text-ice sm:px-8 lg:px-10">
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(120deg,#061427_0%,#0b1f3a_52%,#123e7a_100%)]" />
-      <div className="absolute inset-0 -z-10 opacity-42">
+      <div className="absolute inset-0 -z-30 bg-[radial-gradient(circle_at_50%_8%,rgba(141,183,255,0.14),transparent_28rem),linear-gradient(180deg,#061427_0%,#081a31_48%,#061427_100%)]" />
+      <div className="absolute inset-x-[-18%] top-[-16%] -z-20 h-[84dvh] opacity-68 saturate-125">
         <Aurora
-          colorStops={["#061427", "#2f6fed", "#dbeafe"]}
-          amplitude={0.52}
-          blend={0.4}
-          speed={0.6}
+          colorStops={["#061427", "#2f6fed", "#8db7ff"]}
+          amplitude={0.4}
+          blend={0.76}
+          speed={0.32}
         />
       </div>
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_46%,rgba(47,111,237,0.3),transparent_30rem),linear-gradient(180deg,rgba(6,20,39,0.1)_0%,#061427_100%)]" />
+      <div className="absolute inset-x-[10%] bottom-[-18%] -z-20 h-[42dvh] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(47,111,237,0.15),rgba(141,183,255,0.06)_38%,transparent_70%)] blur-3xl" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_46%,rgba(47,111,237,0.16),transparent_32rem),radial-gradient(circle_at_78%_16%,rgba(219,234,254,0.09),transparent_24rem),linear-gradient(180deg,rgba(6,20,39,0.08)_0%,rgba(6,20,39,0.42)_50%,#061427_100%)]" />
 
       <div className="relative z-20">
         <LiquidPillNav />
