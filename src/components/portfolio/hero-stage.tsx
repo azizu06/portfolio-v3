@@ -82,7 +82,7 @@ export function HeroStage({
           textColors={["#8db7ff", "#eaf2ff", "#2f6fed"]}
           cursorCharacter="_"
           cursorClassName="text-cobalt"
-          className="mt-5 min-h-9 font-mono text-base uppercase tracking-[0.2em] text-ice/72 md:text-lg"
+          className="mt-6 min-h-11 font-mono text-xl uppercase tracking-[0.16em] text-ice/78 md:text-2xl"
         />
       </div>
     </section>
