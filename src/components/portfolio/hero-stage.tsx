@@ -62,7 +62,7 @@ export function HeroStage({
           </ElectricBorder>
         </div>
 
-        <h1 className="mt-12 max-w-5xl text-[clamp(2.8rem,5.8vw,5.9rem)] font-semibold leading-[0.94] tracking-tight">
+        <h1 className="mt-12 max-w-5xl text-[clamp(2.45rem,5vw,5.15rem)] font-semibold leading-[0.96] tracking-tight">
           <GradientText
             colors={["#eaf2ff", "#8db7ff", "#2f6fed", "#dbeafe"]}
             animationSpeed={9}
