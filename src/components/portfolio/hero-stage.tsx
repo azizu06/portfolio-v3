@@ -7,13 +7,11 @@ import { LiquidPillNav } from "@/components/portfolio/liquid-pill-nav";
 
 type HeroStageProps = {
   name: string;
-  role: string;
   summary: string;
 };
 
 export function HeroStage({
   name,
-  role,
   summary,
 }: HeroStageProps) {
   return (
@@ -48,10 +46,7 @@ export function HeroStage({
           </div>
         </div>
 
-        <p className="mt-12 font-mono text-xs uppercase tracking-[0.28em] text-ice/56">
-          {role}
-        </p>
-        <h1 className="mt-6 max-w-5xl text-[clamp(2.8rem,5.8vw,5.9rem)] font-semibold leading-[0.94] tracking-tight">
+        <h1 className="mt-12 max-w-5xl text-[clamp(2.8rem,5.8vw,5.9rem)] font-semibold leading-[0.94] tracking-tight">
           <GradientText
             colors={["#eaf2ff", "#8db7ff", "#2f6fed", "#dbeafe"]}
             animationSpeed={9}
