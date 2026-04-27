@@ -1,3 +1,4 @@
+import FadeContent from "@/components/FadeContent";
 import { HeroStage } from "@/components/portfolio/hero-stage";
 import { profile } from "@/data/profile";
 
@@ -26,28 +27,33 @@ export default function AboutPage() {
       >
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ice/18 to-transparent" />
         <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[0.82fr_1.18fr] md:items-start">
-          <div>
+          <FadeContent blur duration={900} threshold={0.18}>
             <p className="font-mono text-xs uppercase tracking-[0.28em] text-white/45">
               About
             </p>
             <h2 className="mt-5 max-w-xl text-4xl font-semibold leading-[1.04] tracking-tight text-white md:text-6xl">
               Focused on useful software and applied AI.
             </h2>
-          </div>
+          </FadeContent>
 
           <div className="grid gap-4">
-            {aboutDetails.map((detail) => (
-              <article
+            {aboutDetails.map((detail, index) => (
+              <FadeContent
                 key={detail.label}
-                className="rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:bg-white/[0.055] md:p-8"
+                blur
+                duration={850}
+                delay={index * 120}
+                threshold={0.18}
               >
-                <p className="font-mono text-xs uppercase tracking-[0.24em] text-white/42">
-                  {detail.label}
-                </p>
-                <p className="mt-4 text-lg leading-8 text-white/78 md:text-xl">
-                  {detail.value}
-                </p>
-              </article>
+                <article className="rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:bg-white/[0.055] md:p-8">
+                  <p className="font-mono text-xs uppercase tracking-[0.24em] text-white/42">
+                    {detail.label}
+                  </p>
+                  <p className="mt-4 text-lg leading-8 text-white/78 md:text-xl">
+                    {detail.value}
+                  </p>
+                </article>
+              </FadeContent>
             ))}
           </div>
         </div>
