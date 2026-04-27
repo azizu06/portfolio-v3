@@ -10,7 +10,6 @@ import {
   AnimatePresence
 } from 'motion/react';
 import React, { Children, cloneElement, useEffect, useMemo, useRef, useState } from 'react';
-import ElectricBorder from '@/components/ElectricBorder';
 
 export type DockItemData = {
   icon: React.ReactNode;
@@ -64,15 +63,16 @@ function DockItem({
 
   const targetSize = useTransform(mouseDistance, [-distance, 0, distance], [baseItemSize, magnification, baseItemSize]);
   const size = useSpring(targetSize, spring);
-  const borderOpacity = useTransform(isHovered, [0, 1], [0, 1]);
-  const borderScale = useTransform(isHovered, [0, 1], [0.9, 1]);
+  const targetY = useTransform(isHovered, [0, 1], [0, -8]);
+  const y = useSpring(targetY, spring);
 
   return (
     <motion.div
       ref={ref}
       style={{
         width: size,
-        height: size
+        height: size,
+        y
       }}
       onHoverStart={() => isHovered.set(1)}
       onHoverEnd={() => isHovered.set(0)}
@@ -84,21 +84,6 @@ function DockItem({
       role="button"
       aria-haspopup="true"
     >
-      <motion.span
-        aria-hidden="true"
-        style={{ opacity: borderOpacity, scale: borderScale }}
-        className="pointer-events-none absolute inset-0 rounded-full"
-      >
-        <ElectricBorder
-          color="#eaf2ff"
-          speed={0.24}
-          chaos={0.01}
-          borderRadius={9999}
-          className="h-full w-full rounded-full"
-        >
-          <span className="block h-full w-full rounded-full" />
-        </ElectricBorder>
-      </motion.span>
       {Children.map(children, child =>
         React.isValidElement(child)
           ? cloneElement(child as React.ReactElement<{ isHovered?: MotionValue<number> }>, { isHovered })
