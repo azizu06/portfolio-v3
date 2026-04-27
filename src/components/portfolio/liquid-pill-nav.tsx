@@ -11,13 +11,13 @@ export function LiquidPillNav() {
       <Link
         href="/"
         aria-label="Aziz Umarov home"
-        className="flex size-16 shrink-0 items-center justify-center overflow-visible p-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105 md:size-20"
+        className="flex h-12 w-20 shrink-0 items-center justify-center overflow-visible p-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105 md:h-14 md:w-24"
       >
         <Image
-          src="/assets/au-logo.svg"
+          src="/assets/au-logo.png"
           alt="Aziz Umarov logo"
-          width={80}
-          height={80}
+          width={512}
+          height={407}
           className="h-full w-full object-contain drop-shadow-[0_0_22px_rgba(47,111,237,0.22)]"
           priority
         />
