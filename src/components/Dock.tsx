@@ -63,6 +63,8 @@ function DockItem({
 
   const targetSize = useTransform(mouseDistance, [-distance, 0, distance], [baseItemSize, magnification, baseItemSize]);
   const size = useSpring(targetSize, spring);
+  const glowOpacity = useTransform(isHovered, [0, 1], [0, 1]);
+  const glowScale = useTransform(isHovered, [0, 1], [0.72, 1]);
 
   return (
     <motion.div
@@ -76,11 +78,17 @@ function DockItem({
       onFocus={() => isHovered.set(1)}
       onBlur={() => isHovered.set(0)}
       onClick={onClick}
-      className={`relative inline-flex items-center justify-center rounded-full border-2 border-[#eaf2ff]/10 bg-[#061427] text-[#eaf2ff] shadow-md ${className}`}
+      className={`group relative inline-flex items-center justify-center rounded-full border border-[#eaf2ff]/0 bg-transparent text-[#eaf2ff] transition-colors duration-300 hover:text-white ${className}`}
       tabIndex={0}
       role="button"
       aria-haspopup="true"
     >
+      <motion.span
+        aria-hidden="true"
+        style={{ opacity: glowOpacity, scale: glowScale }}
+        className="absolute inset-0 rounded-full bg-[#2f6fed]/24 blur-xl"
+      />
+      <span className="absolute inset-0 rounded-full bg-[#eaf2ff]/0 transition-colors duration-300 group-hover:bg-[#eaf2ff]/8" />
       {Children.map(children, child =>
         React.isValidElement(child)
           ? cloneElement(child as React.ReactElement<{ isHovered?: MotionValue<number> }>, { isHovered })
@@ -133,7 +141,7 @@ type DockIconProps = {
 };
 
 function DockIcon({ children, className = '' }: DockIconProps) {
-  return <div className={`flex items-center justify-center ${className}`}>{children}</div>;
+  return <div className={`relative z-10 flex items-center justify-center ${className}`}>{children}</div>;
 }
 
 export default function Dock({
