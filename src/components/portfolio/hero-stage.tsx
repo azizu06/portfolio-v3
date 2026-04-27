@@ -16,12 +16,10 @@ const roleTypewriterPhrases = [
 
 type HeroStageProps = {
   name: string;
-  summary: string;
 };
 
 export function HeroStage({
   name,
-  summary,
 }: HeroStageProps) {
   return (
     <section className="relative isolate min-h-[100dvh] overflow-hidden px-5 py-8 sm:px-8 lg:px-10">
@@ -86,9 +84,6 @@ export function HeroStage({
           cursorClassName="text-cobalt"
           className="mt-5 min-h-9 font-mono text-base uppercase tracking-[0.2em] text-ice/72 md:text-lg"
         />
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-ice/72 md:text-2xl md:leading-9">
-          {summary}
-        </p>
       </div>
     </section>
   );
