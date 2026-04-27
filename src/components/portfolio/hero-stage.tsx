@@ -24,16 +24,17 @@ export function HeroStage({
 }: HeroStageProps) {
   return (
     <section className="relative isolate min-h-[100dvh] overflow-hidden px-5 py-8 sm:px-8 lg:px-10">
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(120deg,#061427_0%,#0b1f3a_52%,#123e7a_100%)]" />
-      <div className="absolute inset-x-0 top-0 -z-10 h-[58dvh] opacity-45">
+      <div className="absolute inset-0 -z-30 bg-[radial-gradient(circle_at_50%_8%,rgba(141,183,255,0.16),transparent_26rem),linear-gradient(180deg,#061427_0%,#081a31_46%,#061427_100%)]" />
+      <div className="absolute inset-x-[-18%] top-[-14%] -z-20 h-[82dvh] opacity-70 saturate-125">
         <Aurora
-          colorStops={["#061427", "#2f6fed", "#dbeafe"]}
-          amplitude={0.58}
-          blend={0.42}
-          speed={0.72}
+          colorStops={["#061427", "#2f6fed", "#8db7ff"]}
+          amplitude={0.42}
+          blend={0.74}
+          speed={0.34}
         />
       </div>
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_20%,rgba(47,111,237,0.22),transparent_30rem),linear-gradient(180deg,rgba(6,20,39,0)_0%,#061427_82%)]" />
+      <div className="absolute inset-x-[12%] bottom-[-16%] -z-20 h-[38dvh] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(47,111,237,0.16),rgba(141,183,255,0.07)_38%,transparent_70%)] blur-3xl" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_36%,rgba(47,111,237,0.16),transparent_34rem),radial-gradient(circle_at_78%_18%,rgba(219,234,254,0.1),transparent_24rem),linear-gradient(180deg,rgba(6,20,39,0.08)_0%,rgba(6,20,39,0.42)_48%,#061427_100%)]" />
 
       <LiquidPillNav />
 
