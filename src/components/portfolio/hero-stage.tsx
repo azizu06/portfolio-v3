@@ -79,14 +79,10 @@ export function HeroStage({
           deletingSpeed={34}
           pauseDuration={1500}
           initialDelay={450}
-          shinyText
-          shinyTextColor="rgba(234,242,255,0.72)"
-          shinyTextShineColor="#ffffff"
-          shinyTextSpeed={2.8}
-          shinyTextSpread={98}
+          textColors={["#ffffff"]}
           cursorCharacter="_"
-          cursorClassName="text-ice/88 drop-shadow-[0_0_14px_rgba(255,255,255,0.26)]"
-          className="mt-7 min-h-14 font-mono text-2xl uppercase tracking-[0.12em] text-ice/82 drop-shadow-[0_0_16px_rgba(255,255,255,0.12)] md:text-3xl"
+          cursorClassName="text-white"
+          className="mt-7 min-h-14 font-mono text-2xl uppercase tracking-[0.12em] text-white md:text-3xl"
         />
       </div>
     </section>
