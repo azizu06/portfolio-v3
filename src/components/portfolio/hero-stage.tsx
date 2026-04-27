@@ -7,6 +7,7 @@ import ElectricBorder from "@/components/ElectricBorder";
 import FadeContent from "@/components/FadeContent";
 import GradientText from "@/components/GradientText";
 import Iridescence from "@/components/Iridescence";
+import ShinyText from "@/components/ShinyText";
 import TextType from "@/components/TextType";
 import { LiquidPillNav } from "@/components/portfolio/liquid-pill-nav";
 
@@ -141,18 +142,23 @@ export function HeroStage({ name }: HeroStageProps) {
         <button
           type="button"
           onClick={scrollToMore}
-          className={`group absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center rounded-full px-8 py-3 text-center text-sm font-medium text-white/66 transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ice/60 sm:bottom-10 sm:text-base ${
+          className={`group absolute bottom-28 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center px-8 py-3 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 focus-visible:rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ice/60 sm:bottom-32 ${
             isScrollingToMore ? "opacity-0 blur-sm" : "opacity-100 blur-0"
           }`}
           aria-label="Scroll to more about Aziz"
         >
-          <span className="tracking-tight">Care to learn more?</span>
-          <span className="mt-4 flex size-10 items-center justify-center rounded-full border border-white/18 bg-white/[0.035] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition duration-500 group-hover:border-white/36 group-hover:bg-white/[0.07] sm:size-11">
-            <ChevronDownIcon
-              aria-hidden="true"
-              className="size-6 animate-bounce stroke-[1.75] text-white/72 transition duration-500 group-hover:text-white sm:size-7"
-            />
-          </span>
+          <ShinyText
+            text="Care to learn more?"
+            speed={3.4}
+            color="rgba(255,255,255,0.72)"
+            shineColor="#ffffff"
+            spread={112}
+            className="text-lg font-semibold tracking-tight sm:text-xl"
+          />
+          <ChevronDownIcon
+            aria-hidden="true"
+            className="mt-3 size-10 animate-bounce stroke-[1.65] text-white/78 transition duration-500 group-hover:text-white sm:size-12"
+          />
         </button>
       </FadeContent>
     </section>
