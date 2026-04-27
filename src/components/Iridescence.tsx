@@ -60,7 +60,7 @@ export default function Iridescence({
   speed = 1,
   amplitude = 0.1,
   mouseReact = true,
-  className = ''
+  className = "",
 }: IridescenceProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mousePos = useRef({ x: 0.5, y: 0.5 });
@@ -68,28 +68,28 @@ export default function Iridescence({
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
-    const renderer = new Renderer();
+    const renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
     const gl = renderer.gl;
-    gl.clearColor(1, 1, 1, 1);
-
-    let program: Program | undefined;
+    gl.clearColor(0, 0, 0, 0);
 
     function resize() {
-      renderer.setSize(container.offsetWidth, container.offsetHeight);
-      if (program) {
-        program.uniforms.uResolution.value = new Color(
-          gl.canvas.width,
-          gl.canvas.height,
-          gl.canvas.width / gl.canvas.height
-        );
-      }
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      const width = Math.max(container.offsetWidth, 1);
+      const height = Math.max(container.offsetHeight, 1);
+
+      renderer.setSize(width * pixelRatio, height * pixelRatio);
+      gl.canvas.style.width = `${width}px`;
+      gl.canvas.style.height = `${height}px`;
+
+      program.uniforms.uResolution.value = new Color(
+        gl.canvas.width,
+        gl.canvas.height,
+        gl.canvas.width / gl.canvas.height
+      );
     }
 
-    window.addEventListener('resize', resize, false);
-    resize();
-
     const geometry = new Triangle(gl);
-    program = new Program(gl, {
+    const program = new Program(gl, {
       vertex: vertexShader,
       fragment: fragmentShader,
       uniforms: {
@@ -108,17 +108,17 @@ export default function Iridescence({
     let animationFrameId = 0;
 
     function update(time: number) {
-      if (!program) return;
       animationFrameId = requestAnimationFrame(update);
       program.uniforms.uTime.value = time * 0.001;
       renderer.render({ scene: mesh });
     }
 
+    window.addEventListener('resize', resize, false);
+    resize();
     animationFrameId = requestAnimationFrame(update);
     container.appendChild(gl.canvas);
 
     function handleMouseMove(event: MouseEvent) {
-      if (!program) return;
       const rect = container.getBoundingClientRect();
       const x = (event.clientX - rect.left) / rect.width;
       const y = 1 - (event.clientY - rect.top) / rect.height;
