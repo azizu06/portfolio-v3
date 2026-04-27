@@ -694,13 +694,16 @@ class FutsalRuntime {
         position: new THREE.Vector3(0, 0, 0),
       });
       visualFallback.visible = false;
+      const basePosition = root.position.clone();
+      const source = root.clone(true);
       [
         [-5.6, -3.95, 0.62],
         [5.6, -3.95, -0.62],
         [-5.6, 3.95, 2.46],
         [5.6, 3.95, -2.46],
       ].forEach(([x, z, rotationY], index) => {
-        const lamp = index === 0 ? root : root.clone(true);
+        const lamp = index === 0 ? root : source.clone(true);
+        lamp.position.copy(basePosition);
         lamp.position.x += x;
         lamp.position.z += z;
         lamp.rotation.y += rotationY;
