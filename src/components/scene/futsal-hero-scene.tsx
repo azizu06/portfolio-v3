@@ -190,6 +190,10 @@ class FutsalRuntime {
   private readonly cameraTarget = new THREE.Vector3(0, 0.7, -0.35);
   private readonly playerVelocity = new THREE.Vector3();
   private readonly playerInput = new THREE.Vector3();
+  private readonly moveForward = new THREE.Vector3();
+  private readonly moveRight = new THREE.Vector3();
+  private readonly nextCameraTarget = new THREE.Vector3();
+  private readonly worldUp = new THREE.Vector3(0, 1, 0);
   private ballScoring = false;
   private hovered: THREE.Mesh | null = null;
   private resizeObserver?: ResizeObserver;
@@ -491,7 +495,7 @@ class FutsalRuntime {
     this.loadModel("/assets/3d/football-court.glb", (root) => {
       const oversizedPieces: THREE.Object3D[] = [];
       root.traverse((node) => {
-        if (/proof|black.*tribune/i.test(node.name)) {
+        if (/tribune|proof/i.test(node.name)) {
           oversizedPieces.push(node);
         }
       });
@@ -919,10 +923,8 @@ class FutsalRuntime {
       if (this.playerMarker) {
         this.playerMarker.rotation.z += delta * 0.9;
       }
-      this.cameraTarget.lerp(
-        new THREE.Vector3(this.player.position.x * 0.18, 0.72, -0.35 + this.player.position.z * 0.06),
-        0.04
-      );
+      this.nextCameraTarget.set(this.player.position.x * 0.18, 0.72, -0.35 + this.player.position.z * 0.06);
+      this.cameraTarget.lerp(this.nextCameraTarget, 0.04);
       this.controls.target.copy(this.cameraTarget);
     }
 
@@ -932,19 +934,26 @@ class FutsalRuntime {
 
   private updatePlayer(delta: number) {
     this.playerInput.set(0, 0, 0);
-    if (this.keys.has("arrowup") || this.keys.has("w")) this.playerInput.z -= 1;
-    if (this.keys.has("arrowdown") || this.keys.has("s")) this.playerInput.z += 1;
-    if (this.keys.has("arrowleft") || this.keys.has("a")) this.playerInput.x -= 1;
-    if (this.keys.has("arrowright") || this.keys.has("d")) this.playerInput.x += 1;
-    if (this.playerInput.lengthSq() > 0) {
-      this.playerInput.normalize().multiplyScalar(3.35);
+    const forwardInput =
+      (this.keys.has("arrowup") || this.keys.has("w") ? 1 : 0) -
+      (this.keys.has("arrowdown") || this.keys.has("s") ? 1 : 0);
+    const sideInput =
+      (this.keys.has("arrowright") || this.keys.has("d") ? 1 : 0) -
+      (this.keys.has("arrowleft") || this.keys.has("a") ? 1 : 0);
+
+    if (forwardInput !== 0 || sideInput !== 0) {
+      this.camera.getWorldDirection(this.moveForward);
+      this.moveForward.y = 0;
+      this.moveForward.normalize();
+      this.moveRight.crossVectors(this.moveForward, this.worldUp).normalize();
+      this.playerInput
+        .addScaledVector(this.moveForward, forwardInput)
+        .addScaledVector(this.moveRight, sideInput)
+        .normalize()
+        .multiplyScalar(3.45);
     }
 
-    const smoothing = this.playerInput.lengthSq() > 0 ? 1 - Math.exp(-13 * delta) : 1 - Math.exp(-9 * delta);
-    this.playerVelocity.lerp(this.playerInput, smoothing);
-    if (this.playerVelocity.lengthSq() < 0.001) {
-      this.playerVelocity.set(0, 0, 0);
-    }
+    this.playerVelocity.copy(this.playerInput);
 
     if (this.timer.getElapsed() > this.playerActionLockedUntil) {
       this.playPlayerAction(this.playerVelocity.lengthSq() > 0.025 ? "run" : "idle");
