@@ -1,5 +1,5 @@
 import { HeroStage } from "@/components/portfolio/hero-stage";
-import { profile, proofPoints } from "@/data/profile";
+import { profile } from "@/data/profile";
 
 export default function AboutPage() {
   return (
@@ -8,7 +8,6 @@ export default function AboutPage() {
         name={profile.name}
         role={profile.role}
         summary={profile.summary}
-        proofPoints={proofPoints}
       />
     </main>
   );

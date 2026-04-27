@@ -9,14 +9,12 @@ type HeroStageProps = {
   name: string;
   role: string;
   summary: string;
-  proofPoints: string[];
 };
 
 export function HeroStage({
   name,
   role,
   summary,
-  proofPoints,
 }: HeroStageProps) {
   return (
     <section className="relative isolate min-h-[100dvh] overflow-hidden px-5 py-8 sm:px-8 lg:px-10">
@@ -68,17 +66,6 @@ export function HeroStage({
         <p className="mt-7 max-w-3xl text-lg leading-8 text-ice/72 md:text-2xl md:leading-9">
           {summary}
         </p>
-
-        <div className="mt-10 flex max-w-4xl flex-wrap justify-center gap-3">
-          {proofPoints.map((point) => (
-            <span
-              key={point}
-              className="rounded-full border border-ice/12 bg-ice/7 px-4 py-2 text-sm text-ice/74 shadow-[inset_0_1px_0_rgba(234,242,255,0.12)] backdrop-blur-xl"
-            >
-              {point}
-            </span>
-          ))}
-        </div>
       </div>
     </section>
   );
