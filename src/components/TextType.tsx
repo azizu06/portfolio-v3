@@ -2,6 +2,7 @@
 
 import { ElementType, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import ShinyText from '@/components/ShinyText';
 
 interface TextTypeProps {
   className?: string;
@@ -18,6 +19,11 @@ interface TextTypeProps {
   deletingSpeed?: number;
   loop?: boolean;
   textColors?: string[];
+  shinyText?: boolean;
+  shinyTextColor?: string;
+  shinyTextShineColor?: string;
+  shinyTextSpeed?: number;
+  shinyTextSpread?: number;
   variableSpeed?: { min: number; max: number };
   onSentenceComplete?: (sentence: string, index: number) => void;
   startOnVisible?: boolean;
@@ -39,6 +45,11 @@ const TextType = ({
   cursorClassName = '',
   cursorBlinkDuration = 0.5,
   textColors = [],
+  shinyText = false,
+  shinyTextColor = 'rgba(234,242,255,0.72)',
+  shinyTextShineColor = '#ffffff',
+  shinyTextSpeed = 3,
+  shinyTextSpread = 104,
   variableSpeed,
   onSentenceComplete,
   startOnVisible = false,
@@ -179,9 +190,21 @@ const TextType = ({
       {...props}
     >
       <span ref={containerRef} className="contents">
-        <span className="inline" style={{ color: getCurrentTextColor() || 'inherit' }}>
-          {displayedText}
-        </span>
+        {shinyText ? (
+          <ShinyText
+            text={displayedText}
+            speed={shinyTextSpeed}
+            color={shinyTextColor}
+            shineColor={shinyTextShineColor}
+            spread={shinyTextSpread}
+            yoyo
+            className="inline"
+          />
+        ) : (
+          <span className="inline" style={{ color: getCurrentTextColor() || 'inherit' }}>
+            {displayedText}
+          </span>
+        )}
         {showCursor && (
           <span
             ref={cursorRef}
