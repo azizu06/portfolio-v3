@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Aurora from "@/components/Aurora";
-import SplitText from "@/components/SplitText";
+import GradientText from "@/components/GradientText";
 import { LiquidPillNav } from "@/components/portfolio/liquid-pill-nav";
 
 type HeroStageProps = {
@@ -51,17 +51,15 @@ export function HeroStage({
         <p className="mt-12 font-mono text-xs uppercase tracking-[0.28em] text-ice/56">
           {role}
         </p>
-        <h1 className="mt-6 max-w-5xl text-[clamp(3.2rem,7vw,7rem)] font-semibold leading-[0.92] tracking-tight text-ice">
-          <SplitText
-            text="Hey there, I'm Aziz"
-            tag="span"
-            splitType="words"
-            textAlign="center"
-            className="block text-ice"
-            delay={70}
-            from={{ opacity: 0.08, y: 34, rotateX: -22 }}
-            to={{ opacity: 1, y: 0, rotateX: 0 }}
-          />
+        <h1 className="mt-6 max-w-5xl text-[clamp(2.8rem,5.8vw,5.9rem)] font-semibold leading-[0.94] tracking-tight">
+          <GradientText
+            colors={["#eaf2ff", "#8db7ff", "#2f6fed", "#dbeafe"]}
+            animationSpeed={9}
+            direction="horizontal"
+            className="text-center"
+          >
+            Hey there, I&apos;m Aziz
+          </GradientText>
         </h1>
         <p className="mt-7 max-w-3xl text-lg leading-8 text-ice/72 md:text-2xl md:leading-9">
           {summary}
