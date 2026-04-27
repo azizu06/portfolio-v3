@@ -39,7 +39,7 @@ export function HeroStage({
 
       <div className="mx-auto flex min-h-[calc(100dvh-5rem)] max-w-5xl flex-col items-center justify-center py-16 text-center lg:py-24">
         <div className="relative">
-          <div className="absolute -inset-10 rounded-full bg-cobalt/16 blur-3xl" />
+          <div className="absolute -inset-12 rounded-full bg-cobalt/16 blur-3xl" />
           <ElectricBorder
             color="#8db7ff"
             speed={0.36}
@@ -47,14 +47,14 @@ export function HeroStage({
             borderRadius={9999}
             className="rounded-full"
           >
-            <div className="relative size-[min(23rem,84vw)] overflow-hidden rounded-full border border-ice/18 bg-navy/64 p-2 shadow-[0_34px_130px_rgba(47,111,237,0.28)] backdrop-blur-xl md:size-[30rem]">
+            <div className="relative size-[min(25rem,88vw)] overflow-hidden rounded-full border border-ice/18 bg-navy/64 p-2 shadow-[0_38px_140px_rgba(47,111,237,0.28)] backdrop-blur-xl md:size-[34rem]">
               <div className="relative h-full w-full overflow-hidden rounded-full bg-ice/8">
                 <Image
                   src="/assets/aziz-headshot.jpeg"
                   alt={name}
                   fill
                   priority
-                  sizes="(min-width: 768px) 30rem, 84vw"
+                  sizes="(min-width: 768px) 34rem, 88vw"
                   className="object-cover grayscale-[10%] contrast-105"
                 />
               </div>
