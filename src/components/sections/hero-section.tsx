@@ -51,7 +51,7 @@ export function HeroSection() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.12} className="relative z-10">
+        <Reveal delay={0.12} className="relative z-10 max-lg:order-first">
           <FutsalHeroSceneLoader />
         </Reveal>
       </div>

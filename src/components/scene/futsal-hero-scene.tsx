@@ -76,7 +76,7 @@ class FutsalRuntime {
   private readonly onHotspot: (id: string) => void;
   private readonly reducedMotion: boolean;
   private readonly scene = new THREE.Scene();
-  private readonly clock = new THREE.Clock();
+  private readonly timer = new THREE.Timer();
   private readonly raycaster = new THREE.Raycaster();
   private readonly pointer = new THREE.Vector2();
   private readonly renderer: THREE.WebGLRenderer;
@@ -111,6 +111,7 @@ class FutsalRuntime {
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.08;
+    this.timer.connect(document);
 
     this.camera = new THREE.PerspectiveCamera(42, 1, 0.1, 80);
     this.camera.position.set(7.5, 6.4, 9.2);
@@ -135,6 +136,7 @@ class FutsalRuntime {
         item.dispose();
       }
     });
+    this.timer.dispose();
     this.renderer.dispose();
   }
 
@@ -480,7 +482,7 @@ class FutsalRuntime {
     if (document.hidden) {
       cancelAnimationFrame(this.frameId);
     } else {
-      this.clock.getDelta();
+      this.timer.reset();
       this.animate();
     }
   };
@@ -532,8 +534,9 @@ class FutsalRuntime {
 
   private animate = () => {
     this.frameId = requestAnimationFrame(this.animate);
-    const delta = Math.min(this.clock.getDelta(), 0.04);
-    const elapsed = this.clock.elapsedTime;
+    this.timer.update();
+    const delta = Math.min(this.timer.getDelta(), 0.04);
+    const elapsed = this.timer.getElapsed();
     this.fieldMaterial.uniforms.uTime.value = elapsed;
     this.scoreboardMaterial.uniforms.uTime.value = elapsed;
 

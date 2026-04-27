@@ -437,7 +437,7 @@
 
 @media (max-width: 900px) {
   .futsal-scene-shell {
-    min-height: 560px;
+    min-height: 430px;
   }
 
   .futsal-stat-strip,
@@ -452,19 +452,27 @@
 
 @media (max-width: 640px) {
   .futsal-scene-shell {
-    min-height: 520px;
+    min-height: 390px;
     border-radius: 1.35rem;
   }
 
   .futsal-project-card {
-    right: 0.75rem;
-    bottom: 0.75rem;
-    width: calc(100% - 1.5rem);
+    display: none !important;
+  }
+
+  .futsal-score-card {
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.6rem 0.7rem;
+  }
+
+  .futsal-score-card strong {
+    font-size: 1.25rem;
   }
 
   .futsal-controls {
     left: 0.75rem;
-    bottom: 8.4rem;
+    bottom: 0.75rem;
   }
 
   .futsal-controls span {
@@ -474,7 +482,7 @@
   .futsal-mobile-hotspots {
     left: 0.75rem;
     right: 0.75rem;
-    bottom: 5.3rem;
+    bottom: 4.15rem;
   }
 }
 
