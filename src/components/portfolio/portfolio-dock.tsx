@@ -1,18 +1,35 @@
 "use client";
 
-import { CodeXmlIcon, ContactIcon, FileTextIcon, MailIcon, UserRoundIcon } from "lucide-react";
+import {
+  BriefcaseBusinessIcon,
+  CodeXmlIcon,
+  FileTextIcon,
+  Layers3Icon,
+  LinkIcon,
+  UserRoundIcon,
+} from "lucide-react";
 import Dock, { type DockItemData } from "@/components/Dock";
 
 const dockItems: DockItemData[] = [
   {
     label: "Home",
     icon: <UserRoundIcon className="size-5" />,
-    onClick: () => document.querySelector("#home")?.scrollIntoView({ behavior: "smooth" }),
+    onClick: () => window.location.assign("/"),
   },
   {
     label: "Projects",
     icon: <CodeXmlIcon className="size-5" />,
-    onClick: () => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" }),
+    onClick: () => window.location.assign("/projects"),
+  },
+  {
+    label: "Experience",
+    icon: <BriefcaseBusinessIcon className="size-5" />,
+    onClick: () => window.location.assign("/experience"),
+  },
+  {
+    label: "Skills",
+    icon: <Layers3Icon className="size-5" />,
+    onClick: () => window.location.assign("/skills"),
   },
   {
     label: "GitHub",
@@ -21,18 +38,13 @@ const dockItems: DockItemData[] = [
   },
   {
     label: "LinkedIn",
-    icon: <ContactIcon className="size-5" />,
+    icon: <LinkIcon className="size-5" />,
     onClick: () => window.open("https://www.linkedin.com/in/abduaziz-umarov/", "_blank", "noopener,noreferrer"),
   },
   {
     label: "Resume",
     icon: <FileTextIcon className="size-5" />,
     onClick: () => window.open("/assets/resume.pdf", "_blank", "noopener,noreferrer"),
-  },
-  {
-    label: "Contact",
-    icon: <MailIcon className="size-5" />,
-    onClick: () => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }),
   },
 ];
 

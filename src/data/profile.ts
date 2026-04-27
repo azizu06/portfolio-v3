@@ -1,8 +1,8 @@
 import {
   ArrowUpRightIcon,
   CodeXmlIcon,
-  ContactIcon,
   FileTextIcon,
+  LinkIcon,
 } from "lucide-react";
 
 export const profile = {
@@ -23,7 +23,7 @@ export const profile = {
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/abduaziz-umarov/",
-      icon: ContactIcon,
+      icon: LinkIcon,
     },
     {
       label: "Resume",
@@ -32,18 +32,17 @@ export const profile = {
     },
     {
       label: "Live projects",
-      href: "#projects",
+      href: "/projects",
       icon: ArrowUpRightIcon,
     },
   ],
 };
 
 export const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Experience", href: "/experience" },
+  { label: "Projects", href: "/projects" },
+  { label: "Skills", href: "/skills" },
 ];
 
 export const proofPoints = [
