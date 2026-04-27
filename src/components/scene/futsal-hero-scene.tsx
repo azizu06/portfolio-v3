@@ -167,6 +167,19 @@ type FutsalRuntimeOptions = {
 
 type PlayerActionName = "idle" | "run" | "kick";
 
+type FutsalDebugState = {
+  playerPosition: { x: number; z: number };
+  cameraForward: { x: number; z: number };
+};
+
+declare global {
+  interface Window {
+    __futsalRuntime?: {
+      getDebugState: () => FutsalDebugState;
+    };
+  }
+}
+
 class FutsalRuntime {
   private readonly canvas: HTMLCanvasElement;
   private readonly onScore: () => void;
@@ -291,6 +304,22 @@ class FutsalRuntime {
         repeat: 1,
       });
     }
+  }
+
+  getDebugState(): FutsalDebugState {
+    this.camera.getWorldDirection(this.moveForward);
+    this.moveForward.y = 0;
+    this.moveForward.normalize();
+    return {
+      playerPosition: {
+        x: this.player.position.x,
+        z: this.player.position.z,
+      },
+      cameraForward: {
+        x: this.moveForward.x,
+        z: this.moveForward.z,
+      },
+    };
   }
 
   private buildScene() {
@@ -910,18 +939,19 @@ class FutsalRuntime {
   private animate = () => {
     this.frameId = requestAnimationFrame(this.animate);
     this.timer.update();
-    const delta = Math.min(this.timer.getDelta(), 0.04);
+    const delta = Math.min(this.timer.getDelta(), 0.2);
+    const animationDelta = Math.min(delta, 0.04);
     const elapsed = this.timer.getElapsed();
     this.fieldMaterial.uniforms.uTime.value = elapsed;
     this.scoreboardMaterial.uniforms.uTime.value = elapsed;
-    this.mixers.forEach((mixer) => mixer.update(delta));
+    this.mixers.forEach((mixer) => mixer.update(animationDelta));
 
     if (!this.reducedMotion) {
       this.updatePlayer(delta);
       this.ball.rotation.x += this.ballVelocity.z * 1.8;
       this.ball.rotation.z += this.ballVelocity.x * 1.8;
       if (this.playerMarker) {
-        this.playerMarker.rotation.z += delta * 0.9;
+        this.playerMarker.rotation.z += animationDelta * 0.9;
       }
       this.nextCameraTarget.set(this.player.position.x * 0.18, 0.72, -0.35 + this.player.position.z * 0.06);
       this.cameraTarget.lerp(this.nextCameraTarget, 0.04);
@@ -950,7 +980,7 @@ class FutsalRuntime {
         .addScaledVector(this.moveForward, forwardInput)
         .addScaledVector(this.moveRight, sideInput)
         .normalize()
-        .multiplyScalar(3.45);
+        .multiplyScalar(4.2);
     }
 
     this.playerVelocity.copy(this.playerInput);
@@ -1058,6 +1088,9 @@ export function FutsalHeroScene() {
         },
       });
       runtimeRef.current = runtime;
+      if (process.env.NODE_ENV !== "production") {
+        window.__futsalRuntime = runtime;
+      }
     } catch {
       queueMicrotask(() => setWebglFailed(true));
       canvasRef.current.classList.add("opacity-0");
@@ -1065,6 +1098,9 @@ export function FutsalHeroScene() {
 
     return () => {
       runtime?.dispose();
+      if (window.__futsalRuntime === runtime) {
+        delete window.__futsalRuntime;
+      }
       runtimeRef.current = null;
     };
   }, [reducedMotion]);
