@@ -83,7 +83,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         particle.style.setProperty('--end-y', `${p.end[1]}px`);
         particle.style.setProperty('--time', `${p.time}ms`);
         particle.style.setProperty('--scale', `${p.scale}`);
-        particle.style.setProperty('--color', `var(--color-${p.color}, white)`);
+        particle.style.setProperty('--color', `var(--color-${p.color}, #2f6fed)`);
         particle.style.setProperty('--rotate', `${p.rotate}deg`);
         point.classList.add('point');
         particle.appendChild(point);
@@ -133,9 +133,11 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     const liEl = e.currentTarget.parentElement;
     if (!liEl) return;
     runGooeyAnimation(liEl, index);
+    if (href === activeHref) return;
+    window.dispatchEvent(new CustomEvent("portfolio:navigate-start"));
     window.setTimeout(() => {
       router.push(href);
-    }, 240);
+    }, 320);
   };
   const handleKeyDown = (e: React.KeyboardEvent<HTMLAnchorElement>, index: number) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -173,8 +175,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
           }
           .gooey-nav {
             --color-1: #2f6fed;
-            --color-2: #8db7ff;
-            --color-3: #eaf2ff;
+            --color-2: #4f8cff;
+            --color-3: #1f5dd9;
             --color-4: #123e7a;
           }
           .gooey-nav .effect {
@@ -189,8 +191,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             display: none;
           }
           .gooey-nav .effect.filter {
-            filter: blur(6px) contrast(32) blur(0);
-            mix-blend-mode: screen;
+            filter: blur(6px) contrast(28) blur(0);
+            mix-blend-mode: normal;
           }
           .gooey-nav .effect.filter::before {
             display: none;
@@ -199,7 +201,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(47,111,237,0.92), rgba(141,183,255,0.82));
+            background: linear-gradient(135deg, rgba(47,111,237,0.96), rgba(18,62,122,0.88));
             transform: scale(0);
             opacity: 0;
             z-index: -1;
@@ -295,7 +297,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             position: absolute;
             inset: 0;
             border-radius: 9999px;
-            background: linear-gradient(135deg, rgba(47,111,237,0.92), rgba(141,183,255,0.82));
+            background: linear-gradient(135deg, rgba(47,111,237,0.96), rgba(18,62,122,0.88));
             opacity: 0;
             transform: scale(0);
             transition: all 0.3s ease;

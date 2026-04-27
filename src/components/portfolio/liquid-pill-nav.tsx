@@ -14,7 +14,7 @@ export function LiquidPillNav() {
       <Link
         href="/"
         aria-label="Aziz Umarov home"
-        className="flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full border border-ice/10 bg-ice/10 p-1.5 shadow-[inset_0_1px_0_rgba(234,242,255,0.14)] transition-transform duration-300 hover:scale-105 md:size-16"
+        className="flex size-14 shrink-0 items-center justify-center overflow-hidden p-0 transition-transform duration-300 hover:scale-105 md:size-16"
       >
         <Image
           src="/assets/logo.png"
