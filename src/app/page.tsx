@@ -1,16 +1,5 @@
-import { HeroStage } from "@/components/portfolio/hero-stage";
-import { profile, proofPoints } from "@/data/profile";
+import { HomeModelStage } from "@/components/portfolio/home-model-stage";
 
 export default function Home() {
-  return (
-    <main className="w-full max-w-full overflow-x-hidden bg-deep-navy text-ice">
-      <HeroStage
-        name={profile.name}
-        role={profile.role}
-        summary={profile.summary}
-        resumeHref={profile.resumeHref}
-        proofPoints={proofPoints}
-      />
-    </main>
-  );
+  return <HomeModelStage />;
 }

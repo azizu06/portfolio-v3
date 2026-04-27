@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRightIcon, FileTextIcon } from "lucide-react";
 import Aurora from "@/components/Aurora";
@@ -17,6 +18,7 @@ type HeroStageProps = {
 };
 
 export function HeroStage({
+  name,
   role,
   summary,
   resumeHref,
@@ -108,23 +110,15 @@ export function HeroStage({
 
         <aside className="relative mx-auto w-full max-w-md lg:ml-auto">
           <div className="relative overflow-hidden rounded-[1.75rem] border border-[#eaf2ff]/10 bg-[#0b1f3a]/66 p-3 shadow-[0_32px_100px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] bg-[radial-gradient(circle_at_50%_22%,rgba(47,111,237,0.42),transparent_15rem),linear-gradient(145deg,#061427,#0b1f3a_58%,#123e7a)]">
-              <div className="absolute inset-8 rounded-[1.25rem] border border-[#eaf2ff]/10" />
-              <div className="absolute inset-x-8 top-10 h-px bg-[#eaf2ff]/16" />
-              <div className="absolute inset-y-10 left-10 w-px bg-[#eaf2ff]/10" />
-              <div className="absolute inset-y-10 right-10 w-px bg-[#eaf2ff]/10" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="grid grid-cols-3 gap-3 text-[clamp(4.8rem,10vw,7.2rem)] font-semibold leading-none tracking-normal text-[#eaf2ff]">
-                  <span className="translate-y-8 opacity-45">J</span>
-                  <span className="opacity-90">J</span>
-                  <span className="-translate-y-8 opacity-62">J</span>
-                </div>
-              </div>
-              <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-[#eaf2ff]/10 bg-[#061427]/68 px-4 py-3 backdrop-blur-md">
-                <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#eaf2ff]/62">
-                  3J model stage
-                </p>
-              </div>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] bg-[#eaf2ff]/8">
+              <Image
+                src="/assets/aziz-headshot.jpeg"
+                alt={name}
+                fill
+                priority
+                sizes="(min-width: 1024px) 28rem, 90vw"
+                className="object-cover grayscale-[18%] contrast-105"
+              />
             </div>
           </div>
           <div className="relative -mt-8 ml-3 w-[min(24rem,92vw)] rounded-2xl border border-[#eaf2ff]/12 bg-[#0b1f3a] p-5 text-[#eaf2ff] shadow-[0_22px_80px_rgba(0,0,0,0.28)]">

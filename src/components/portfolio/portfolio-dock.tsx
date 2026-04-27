@@ -6,6 +6,7 @@ import {
   FileTextIcon,
   Layers3Icon,
   LinkIcon,
+  ScanFaceIcon,
   UserRoundIcon,
 } from "lucide-react";
 import Dock, { type DockItemData } from "@/components/Dock";
@@ -15,6 +16,11 @@ const dockItems: DockItemData[] = [
     label: "Home",
     icon: <UserRoundIcon className="size-5" />,
     onClick: () => window.location.assign("/"),
+  },
+  {
+    label: "About",
+    icon: <ScanFaceIcon className="size-5" />,
+    onClick: () => window.location.assign("/about"),
   },
   {
     label: "Projects",
@@ -51,7 +57,7 @@ const dockItems: DockItemData[] = [
 export function PortfolioDock() {
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-3 z-40 hidden justify-center md:flex">
-      <div className="pointer-events-auto relative h-20 w-full max-w-xl">
+      <div className="pointer-events-auto relative h-20 w-full max-w-3xl">
         <Dock
           items={dockItems}
           panelHeight={58}
