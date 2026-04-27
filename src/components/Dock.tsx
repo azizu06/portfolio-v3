@@ -64,7 +64,7 @@ function DockItem({
   const targetSize = useTransform(mouseDistance, [-distance, 0, distance], [baseItemSize, magnification, baseItemSize]);
   const size = useSpring(targetSize, spring);
   const glowOpacity = useTransform(isHovered, [0, 1], [0, 1]);
-  const glowScale = useTransform(isHovered, [0, 1], [0.72, 1]);
+  const glowScale = useTransform(isHovered, [0, 1], [0.58, 0.78]);
 
   return (
     <motion.div
@@ -86,7 +86,7 @@ function DockItem({
       <motion.span
         aria-hidden="true"
         style={{ opacity: glowOpacity, scale: glowScale }}
-        className="absolute inset-0 rounded-full bg-[#2f6fed]/24 blur-xl"
+        className="absolute inset-1 rounded-full bg-[#2f6fed]/24 blur-lg"
       />
       <span className="absolute inset-0 rounded-full bg-[#eaf2ff]/0 transition-colors duration-300 group-hover:bg-[#eaf2ff]/8" />
       {Children.map(children, child =>
