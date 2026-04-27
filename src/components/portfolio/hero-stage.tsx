@@ -1,19 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRightIcon } from "lucide-react";
 import Aurora from "@/components/Aurora";
-import Magnet from "@/components/Magnet";
 import SplitText from "@/components/SplitText";
 import { LiquidPillNav } from "@/components/portfolio/liquid-pill-nav";
-import { Button } from "@/components/ui/button";
 
 type HeroStageProps = {
   name: string;
   role: string;
   summary: string;
-  resumeHref: string;
   proofPoints: string[];
 };
 
@@ -21,7 +16,6 @@ export function HeroStage({
   name,
   role,
   summary,
-  resumeHref,
   proofPoints,
 }: HeroStageProps) {
   return (
@@ -39,79 +33,52 @@ export function HeroStage({
 
       <LiquidPillNav />
 
-      <div className="mx-auto grid min-h-[calc(100dvh-5rem)] max-w-7xl items-center gap-14 py-16 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.72fr)] lg:py-24">
-        <div className="max-w-6xl">
-          <p className="mb-6 font-mono text-xs uppercase tracking-[0.28em] text-[#eaf2ff]/62">
-            {role}
-          </p>
-          <h1 className="max-w-6xl text-[clamp(3rem,7.2vw,6.8rem)] font-semibold leading-[0.9] tracking-tight text-[#eaf2ff]">
-            <SplitText
-              text="Aziz Umarov"
-              tag="span"
-              splitType="words"
-              textAlign="left"
-              className="block text-[#eaf2ff]"
-              delay={70}
-              from={{ opacity: 0.08, y: 34, rotateX: -22 }}
-              to={{ opacity: 1, y: 0, rotateX: 0 }}
-            />
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-[#eaf2ff]/76 md:text-xl">
-            {summary}
-          </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Magnet padding={54} magnetStrength={7}>
-              <Button
-                render={<Link href="/projects" />}
-                size="lg"
-                className="h-12 rounded-full bg-[#2f6fed] px-6 text-[#eaf2ff] shadow-[0_14px_38px_rgba(47,111,237,0.24)] hover:bg-[#255ed2]"
-              >
-                View projects
-                <ArrowUpRightIcon data-icon="inline-end" />
-              </Button>
-            </Magnet>
-            <Magnet padding={54} magnetStrength={7}>
-              <Button
-                render={<Link href={resumeHref} target="_blank" rel="noreferrer" />}
-                variant="outline"
-                size="lg"
-                className="h-12 rounded-full border-[#eaf2ff]/16 bg-[#eaf2ff]/7 px-6 text-[#eaf2ff] hover:bg-[#eaf2ff]/12"
-              >
-                Resume
-              </Button>
-            </Magnet>
-          </div>
-        </div>
-
-        <aside className="relative mx-auto w-full max-w-md lg:ml-auto">
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-[#eaf2ff]/10 bg-[#0b1f3a]/66 p-3 shadow-[0_32px_100px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] bg-[#eaf2ff]/8">
+      <div className="mx-auto flex min-h-[calc(100dvh-5rem)] max-w-5xl flex-col items-center justify-center py-16 text-center lg:py-24">
+        <div className="relative">
+          <div className="absolute -inset-6 rounded-full bg-cobalt/18 blur-3xl" />
+          <div className="relative size-[min(19rem,72vw)] overflow-hidden rounded-full border border-cobalt/55 bg-navy/64 p-2 shadow-[0_28px_110px_rgba(47,111,237,0.3)] backdrop-blur-xl md:size-[24rem]">
+            <div className="relative h-full w-full overflow-hidden rounded-full bg-ice/8">
               <Image
                 src="/assets/aziz-headshot.jpeg"
                 alt={name}
                 fill
                 priority
-                sizes="(min-width: 1024px) 28rem, 90vw"
-                className="object-cover grayscale-[18%] contrast-105"
+                sizes="(min-width: 768px) 24rem, 72vw"
+                className="object-cover grayscale-[10%] contrast-105"
               />
             </div>
           </div>
-          <div className="relative -mt-8 ml-3 w-[min(24rem,92vw)] rounded-2xl border border-[#eaf2ff]/12 bg-[#0b1f3a] p-5 text-[#eaf2ff] shadow-[0_22px_80px_rgba(0,0,0,0.28)]">
-            <div className="mb-4 flex items-center justify-between gap-4">
-              <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#eaf2ff]/56">
-                Profile
-              </p>
-              <span className="h-2 w-2 rounded-full bg-[#2f6fed]" />
-            </div>
-            <div className="grid gap-2">
-              {proofPoints.map((point) => (
-                <p key={point} className="text-sm leading-6 text-[#eaf2ff]/78">
-                  {point}
-                </p>
-              ))}
-            </div>
-          </div>
-        </aside>
+        </div>
+
+        <p className="mt-12 font-mono text-xs uppercase tracking-[0.28em] text-ice/56">
+          {role}
+        </p>
+        <h1 className="mt-6 max-w-5xl text-[clamp(3.2rem,7vw,7rem)] font-semibold leading-[0.92] tracking-tight text-ice">
+          <SplitText
+            text="Hey there, I'm Aziz"
+            tag="span"
+            splitType="words"
+            textAlign="center"
+            className="block text-ice"
+            delay={70}
+            from={{ opacity: 0.08, y: 34, rotateX: -22 }}
+            to={{ opacity: 1, y: 0, rotateX: 0 }}
+          />
+        </h1>
+        <p className="mt-7 max-w-3xl text-lg leading-8 text-ice/72 md:text-2xl md:leading-9">
+          {summary}
+        </p>
+
+        <div className="mt-10 flex max-w-4xl flex-wrap justify-center gap-3">
+          {proofPoints.map((point) => (
+            <span
+              key={point}
+              className="rounded-full border border-ice/12 bg-ice/7 px-4 py-2 text-sm text-ice/74 shadow-[inset_0_1px_0_rgba(234,242,255,0.12)] backdrop-blur-xl"
+            >
+              {point}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -8,7 +8,6 @@ export default function AboutPage() {
         name={profile.name}
         role={profile.role}
         summary={profile.summary}
-        resumeHref={profile.resumeHref}
         proofPoints={proofPoints}
       />
     </main>
