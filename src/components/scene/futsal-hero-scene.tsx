@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import * as THREE from "three";
 import { GLTFLoader, type GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import {
   ArrowUpRightIcon,
   CodeXmlIcon,
@@ -95,6 +96,68 @@ const screenFragmentShader = `
   }
 `;
 
+const asphaltFragmentShader = `
+  varying vec2 vUv;
+
+  float noise(vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+  }
+
+  float crack(vec2 uv, float offset) {
+    float path = sin(uv.x * 18.0 + offset) * 0.018 + sin(uv.x * 43.0) * 0.006;
+    return 1.0 - smoothstep(0.003, 0.018, abs(uv.y - 0.5 - path));
+  }
+
+  void main() {
+    vec2 scaled = vUv * vec2(46.0, 34.0);
+    float fine = noise(floor(scaled * 6.0));
+    float coarse = noise(floor(scaled * 0.85));
+    float aggregate = fine * 0.055 + coarse * 0.075;
+    float seamA = crack(vUv * vec2(1.2, 1.0), 0.7) * 0.16;
+    float seamB = crack(vUv.yx * vec2(1.1, 1.0), 2.4) * 0.1;
+    float oil = smoothstep(0.32, 0.0, distance(vUv, vec2(0.2, 0.74))) * 0.08;
+    vec3 base = mix(vec3(0.035, 0.039, 0.037), vec3(0.13, 0.142, 0.13), aggregate);
+    vec3 color = base - seamA - seamB - oil;
+    gl_FragColor = vec4(color, 1.0);
+  }
+`;
+
+const skyVertexShader = `
+  varying vec3 vWorldPosition;
+
+  void main() {
+    vec4 worldPosition = modelMatrix * vec4(position, 1.0);
+    vWorldPosition = worldPosition.xyz;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+`;
+
+const skyFragmentShader = `
+  varying vec3 vWorldPosition;
+
+  float star(vec2 p) {
+    vec2 id = floor(p);
+    float n = fract(sin(dot(id, vec2(41.3, 289.7))) * 92731.23);
+    vec2 f = fract(p) - 0.5;
+    float d = length(f);
+    return smoothstep(0.055, 0.0, d) * step(0.985, n);
+  }
+
+  void main() {
+    vec3 dir = normalize(vWorldPosition);
+    float horizon = smoothstep(-0.18, 0.82, dir.y);
+    vec3 low = vec3(0.09, 0.045, 0.075);
+    vec3 mid = vec3(0.025, 0.07, 0.075);
+    vec3 high = vec3(0.004, 0.011, 0.018);
+    vec3 color = mix(low, mid, horizon);
+    color = mix(color, high, smoothstep(0.35, 1.0, dir.y));
+    float cityGlow = pow(max(0.0, 1.0 - abs(dir.y + 0.04)), 6.0) * 0.16;
+    float stars = star(dir.xz * 95.0) * smoothstep(0.12, 0.9, dir.y);
+    color += vec3(0.24, 0.32, 0.22) * cityGlow + vec3(0.65, 0.8, 0.72) * stars;
+    gl_FragColor = vec4(color, 1.0);
+  }
+`;
+
 type FutsalRuntimeOptions = {
   canvas: HTMLCanvasElement;
   onScore: () => void;
@@ -116,6 +179,7 @@ class FutsalRuntime {
   private readonly pointer = new THREE.Vector2();
   private readonly renderer: THREE.WebGLRenderer;
   private readonly camera: THREE.PerspectiveCamera;
+  private readonly controls: OrbitControls;
   private readonly keys = new Set<string>();
   private readonly disposables: Array<THREE.Object3D | THREE.Material | THREE.BufferGeometry | THREE.Texture> = [];
   private readonly hotspotMeshes: THREE.Mesh[] = [];
@@ -123,6 +187,9 @@ class FutsalRuntime {
   private width = 1;
   private height = 1;
   private ballVelocity = new THREE.Vector3();
+  private readonly cameraTarget = new THREE.Vector3(0, 0.7, -0.35);
+  private readonly playerVelocity = new THREE.Vector3();
+  private readonly playerInput = new THREE.Vector3();
   private ballScoring = false;
   private hovered: THREE.Mesh | null = null;
   private resizeObserver?: ResizeObserver;
@@ -157,7 +224,19 @@ class FutsalRuntime {
 
     this.camera = new THREE.PerspectiveCamera(46, 1, 0.1, 90);
     this.camera.position.set(8.8, 7.2, 10.6);
-    this.camera.lookAt(0, 0, 0);
+    this.camera.lookAt(this.cameraTarget);
+
+    this.controls = new OrbitControls(this.camera, this.canvas);
+    this.controls.enableDamping = true;
+    this.controls.dampingFactor = 0.08;
+    this.controls.enablePan = false;
+    this.controls.rotateSpeed = 0.62;
+    this.controls.zoomSpeed = 0.72;
+    this.controls.minDistance = 6.2;
+    this.controls.maxDistance = 19;
+    this.controls.minPolarAngle = THREE.MathUtils.degToRad(24);
+    this.controls.maxPolarAngle = THREE.MathUtils.degToRad(86);
+    this.controls.target.copy(this.cameraTarget);
 
     this.buildScene();
     this.addEvents();
@@ -178,6 +257,7 @@ class FutsalRuntime {
         item.dispose();
       }
     });
+    this.controls.dispose();
     this.timer.dispose();
     this.renderer.dispose();
   }
@@ -210,9 +290,9 @@ class FutsalRuntime {
   }
 
   private buildScene() {
-    this.scene.fog = new THREE.Fog(0x07110d, 13, 29);
+    this.scene.fog = new THREE.Fog(0x07110d, 17, 38);
 
-    const ambient = new THREE.HemisphereLight(0xb7ffd7, 0x07100c, 1.8);
+    const ambient = new THREE.HemisphereLight(0xb7ffd7, 0x07100c, 1.45);
     this.scene.add(ambient);
 
     const keyLight = new THREE.DirectionalLight(0xf7ffe2, 2.6);
@@ -221,6 +301,7 @@ class FutsalRuntime {
     keyLight.shadow.mapSize.set(1024, 1024);
     this.scene.add(keyLight);
 
+    this.addSky();
     this.addField();
     this.addFence();
     this.addCourtAsset();
@@ -304,6 +385,20 @@ class FutsalRuntime {
     this.activePlayerAction = action;
   }
 
+  private addSky() {
+    const skyGeometry = new THREE.SphereGeometry(52, 36, 20);
+    const skyMaterial = new THREE.ShaderMaterial({
+      vertexShader: skyVertexShader,
+      fragmentShader: skyFragmentShader,
+      side: THREE.BackSide,
+      depthWrite: false,
+    });
+    const sky = new THREE.Mesh(skyGeometry, skyMaterial);
+    sky.position.y = 3;
+    this.scene.add(sky);
+    this.disposables.push(skyGeometry, skyMaterial);
+  }
+
   private addField() {
     this.fieldMaterial = new THREE.ShaderMaterial({
       vertexShader: fieldVertexShader,
@@ -319,7 +414,10 @@ class FutsalRuntime {
     field.receiveShadow = true;
     this.scene.add(field);
 
-    const outerMaterial = this.material(0x242a25, 0.82, 0.08);
+    const outerMaterial = new THREE.ShaderMaterial({
+      vertexShader: fieldVertexShader,
+      fragmentShader: asphaltFragmentShader,
+    });
     const outerGeometry = new THREE.PlaneGeometry(22, 16, 1, 1);
     const outer = new THREE.Mesh(outerGeometry, outerMaterial);
     outer.rotation.x = -Math.PI / 2;
@@ -393,7 +491,7 @@ class FutsalRuntime {
     this.loadModel("/assets/3d/football-court.glb", (root) => {
       const oversizedPieces: THREE.Object3D[] = [];
       root.traverse((node) => {
-        if (/tribune|proof/i.test(node.name)) {
+        if (/proof|black.*tribune/i.test(node.name)) {
           oversizedPieces.push(node);
         }
       });
@@ -821,28 +919,52 @@ class FutsalRuntime {
       if (this.playerMarker) {
         this.playerMarker.rotation.z += delta * 0.9;
       }
-      this.camera.position.x += (this.player.position.x * 0.08 + 7.5 - this.camera.position.x) * 0.015;
-      this.camera.lookAt(this.player.position.x * 0.22, 0.45, -0.3);
+      this.cameraTarget.lerp(
+        new THREE.Vector3(this.player.position.x * 0.18, 0.72, -0.35 + this.player.position.z * 0.06),
+        0.04
+      );
+      this.controls.target.copy(this.cameraTarget);
     }
 
+    this.controls.update();
     this.renderer.render(this.scene, this.camera);
   };
 
   private updatePlayer(delta: number) {
-    const speed = 3.1 * delta;
-    let dx = 0;
-    let dz = 0;
-    if (this.keys.has("arrowup") || this.keys.has("w")) dz -= speed;
-    if (this.keys.has("arrowdown") || this.keys.has("s")) dz += speed;
-    if (this.keys.has("arrowleft") || this.keys.has("a")) dx -= speed;
-    if (this.keys.has("arrowright") || this.keys.has("d")) dx += speed;
-    if (this.timer.getElapsed() > this.playerActionLockedUntil) {
-      this.playPlayerAction(dx === 0 && dz === 0 ? "idle" : "run");
+    this.playerInput.set(0, 0, 0);
+    if (this.keys.has("arrowup") || this.keys.has("w")) this.playerInput.z -= 1;
+    if (this.keys.has("arrowdown") || this.keys.has("s")) this.playerInput.z += 1;
+    if (this.keys.has("arrowleft") || this.keys.has("a")) this.playerInput.x -= 1;
+    if (this.keys.has("arrowright") || this.keys.has("d")) this.playerInput.x += 1;
+    if (this.playerInput.lengthSq() > 0) {
+      this.playerInput.normalize().multiplyScalar(3.35);
     }
-    if (dx === 0 && dz === 0) return;
-    this.player.position.x = THREE.MathUtils.clamp(this.player.position.x + dx, -5.15, 5.15);
-    this.player.position.z = THREE.MathUtils.clamp(this.player.position.z + dz, -3.25, 3.25);
-    this.player.rotation.y = Math.atan2(dx, dz);
+
+    const smoothing = this.playerInput.lengthSq() > 0 ? 1 - Math.exp(-13 * delta) : 1 - Math.exp(-9 * delta);
+    this.playerVelocity.lerp(this.playerInput, smoothing);
+    if (this.playerVelocity.lengthSq() < 0.001) {
+      this.playerVelocity.set(0, 0, 0);
+    }
+
+    if (this.timer.getElapsed() > this.playerActionLockedUntil) {
+      this.playPlayerAction(this.playerVelocity.lengthSq() > 0.025 ? "run" : "idle");
+    }
+    if (this.playerVelocity.lengthSq() === 0) return;
+
+    const nextX = THREE.MathUtils.clamp(this.player.position.x + this.playerVelocity.x * delta, -5.15, 5.15);
+    const nextZ = THREE.MathUtils.clamp(this.player.position.z + this.playerVelocity.z * delta, -3.25, 3.25);
+    if (nextX === this.player.position.x) this.playerVelocity.x = 0;
+    if (nextZ === this.player.position.z) this.playerVelocity.z = 0;
+    this.player.position.set(nextX, this.player.position.y, nextZ);
+
+    if (this.playerVelocity.lengthSq() > 0.02) {
+      const targetAngle = Math.atan2(this.playerVelocity.x, this.playerVelocity.z);
+      const angleDelta = Math.atan2(
+        Math.sin(targetAngle - this.player.rotation.y),
+        Math.cos(targetAngle - this.player.rotation.y)
+      );
+      this.player.rotation.y += angleDelta * Math.min(1, delta * 12);
+    }
   }
 
   private score() {
@@ -974,7 +1096,7 @@ export function FutsalHeroScene() {
             <Button className="court-button-primary" size="sm" onClick={() => runtimeRef.current?.kick()}>
               Kick
             </Button>
-            <span>WASD / arrows to move</span>
+            <span>WASD / arrows to move, drag orbit, scroll zoom</span>
           </CardContent>
         </Card>
       </div>
