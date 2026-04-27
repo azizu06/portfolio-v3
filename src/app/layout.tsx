@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { PortfolioDock } from "@/components/portfolio/portfolio-dock";
+import { PageTransition } from "@/components/portfolio/page-transition";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
@@ -46,7 +47,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <TooltipProvider>
-          {children}
+          <PageTransition>{children}</PageTransition>
           <PortfolioDock />
           <Analytics />
           <SpeedInsights />

@@ -3,6 +3,7 @@
 /* eslint-disable react-hooks/purity */
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
 interface GooeyNavItem {
@@ -40,6 +41,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       )
     : 0
 }) => {
+  const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLUListElement>(null);
   const filterRef = useRef<HTMLSpanElement>(null);
@@ -111,24 +113,29 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     Object.assign(textRef.current.style, styles);
     textRef.current.innerText = element.innerText;
   };
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, index: number) => {
-    const liEl = e.currentTarget.parentElement;
-    if (!liEl) return;
-    if (activeIndex === index) return;
+  const runGooeyAnimation = (element: HTMLElement, index: number) => {
     setActiveIndex(index);
-    updateEffectPosition(liEl);
+    updateEffectPosition(element);
     if (filterRef.current) {
       const particles = filterRef.current.querySelectorAll('.particle');
       particles.forEach(p => filterRef.current!.removeChild(p));
     }
-    if (textRef.current) {
-      textRef.current.classList.remove('active');
-      void textRef.current.offsetWidth;
-      textRef.current.classList.add('active');
-    }
     if (filterRef.current) {
+      filterRef.current.classList.remove('active');
+      void filterRef.current.offsetWidth;
       makeParticles(filterRef.current);
     }
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, index: number, href: string) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    const liEl = e.currentTarget.parentElement;
+    if (!liEl) return;
+    runGooeyAnimation(liEl, index);
+    window.setTimeout(() => {
+      router.push(href);
+    }, 240);
   };
   const handleKeyDown = (e: React.KeyboardEvent<HTMLAnchorElement>, index: number) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -179,11 +186,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             z-index: 1;
           }
           .gooey-nav .effect.text {
-            color: #eaf2ff;
-            transition: color 0.3s ease;
-          }
-          .gooey-nav .effect.text.active {
-            color: #061427;
+            display: none;
           }
           .gooey-nav .effect.filter {
             filter: blur(6px) contrast(32) blur(0);
@@ -196,7 +199,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(234,242,255,0.88), rgba(47,111,237,0.74));
+            background: linear-gradient(135deg, rgba(47,111,237,0.92), rgba(141,183,255,0.82));
             transform: scale(0);
             opacity: 0;
             z-index: -1;
@@ -280,7 +283,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             }
           }
           .gooey-nav li.active {
-            color: #061427;
+            color: #eaf2ff;
             text-shadow: none;
           }
           .gooey-nav li.active::after {
@@ -292,7 +295,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             position: absolute;
             inset: 0;
             border-radius: 9999px;
-            background: linear-gradient(135deg, rgba(234,242,255,0.88), rgba(47,111,237,0.74));
+            background: linear-gradient(135deg, rgba(47,111,237,0.92), rgba(141,183,255,0.82));
             opacity: 0;
             transform: scale(0);
             transition: all 0.3s ease;
@@ -319,7 +322,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
               >
                 <Link
                   href={item.href}
-                  onClick={e => handleClick(e, index)}
+                  onClick={e => handleClick(e, index, item.href)}
                   onKeyDown={e => handleKeyDown(e, index)}
                   className="inline-block px-6 py-4 text-base font-semibold leading-none no-underline outline-none md:px-7 md:py-4 md:text-lg"
                 >
