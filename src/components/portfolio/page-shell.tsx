@@ -6,10 +6,18 @@ import { SectionReveal } from "@/components/portfolio/section-reveal";
 type PageShellProps = {
   eyebrow: string;
   title: string;
+  titleNode?: ReactNode;
+  titleClassName?: string;
   children: ReactNode;
 };
 
-export function PageShell({ eyebrow, title, children }: PageShellProps) {
+export function PageShell({
+  eyebrow,
+  title,
+  titleNode,
+  titleClassName = "",
+  children,
+}: PageShellProps) {
   return (
     <main className="relative isolate min-h-dvh w-full max-w-full overflow-x-hidden bg-deep-navy text-ice">
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(120deg,#061427_0%,#0b1f3a_52%,#123e7a_100%)]" />
@@ -27,11 +35,15 @@ export function PageShell({ eyebrow, title, children }: PageShellProps) {
 
       <section className="px-5 py-20 sm:px-8 md:py-28">
         <div className="mx-auto max-w-7xl">
-          <p className="font-mono text-xs uppercase tracking-[0.24em] text-ice/46">
-            {eyebrow}
-          </p>
-          <h1 className="mt-5 max-w-5xl text-[clamp(3rem,6.4vw,6.4rem)] font-semibold leading-[0.92] tracking-tight text-ice">
-            <SectionReveal text={title} />
+          {eyebrow ? (
+            <p className="font-mono text-xs uppercase tracking-[0.24em] text-ice/46">
+              {eyebrow}
+            </p>
+          ) : null}
+          <h1
+            className={`mt-5 max-w-5xl text-[clamp(3rem,6.4vw,6.4rem)] font-semibold leading-[0.92] tracking-tight text-ice ${titleClassName}`}
+          >
+            {titleNode ?? <SectionReveal text={title} />}
           </h1>
           {children}
         </div>

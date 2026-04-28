@@ -1,11 +1,15 @@
 export type Experience = {
   company: string;
   role: string;
+  displayRole?: string;
   period: string;
   location: string;
-  image: string;
+  dateLabel: string;
+  image?: string;
+  imageTreatment?: "cover" | "transparent";
+  mark?: string;
+  accent: "green" | "blue" | "cyan" | "violet";
   summary: string;
-  highlights: string[];
   technologies: string[];
 };
 
@@ -13,30 +17,34 @@ export const experiences: Experience[] = [
   {
     company: "Knight Hacks",
     role: "Software Developer",
-    period: "2025 - Present",
-    location: "University of Central Florida",
-    image: "/assets/logo.png",
-    summary: "Software developer for Knight Hacks at UCF.",
-    highlights: [
-      "Worked on web features for the Knight Hacks developer community.",
-      "Collaborated with other student developers and organizers.",
-      "Built with React, TypeScript, Next.js, and Tailwind CSS.",
+    displayRole: "Software Developer",
+    period: "Oct 2025 - Present",
+    dateLabel: "Oct 2025",
+    location: "Orlando, FL",
+    image: "/assets/knighthacks2.webp",
+    accent: "blue",
+    summary:
+      "Built production features for Forge, a platform supporting a 1,000+ member Knight Hacks community. I work in Next.js, TypeScript, and tRPC, shipping organizer-facing flows with strong data consistency and practical UX polish.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "tRPC",
+      "Drizzle",
+      "Tailwind CSS",
+      "GitHub",
     ],
-    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Git"],
   },
   {
     company: "ISUE Lab",
     role: "Undergraduate Research Assistant",
-    period: "October 2025 - Present",
-    location: "University of Central Florida",
-    image: "/assets/isue.png",
+    displayRole: "Research Assistant",
+    period: "Sep 2025 - Present",
+    dateLabel: "Sep 2025",
+    location: "Orlando, FL",
+    image: "/assets/isue-experience.png",
+    accent: "cyan",
     summary:
-      "Developing AI-driven feedback systems for dysarthric speech with a focus on usable, clinically aligned feedback.",
-    highlights: [
-      "Helped build and label a speech-error dataset for therapeutic feedback research.",
-      "Contributed to PyTorch-based modeling work for personalized speech feedback.",
-      "Participated in pilot evaluations with dysarthric speakers and clinicians.",
-    ],
+      "Developing AI-based speech therapy feedback tools for dysarthric speakers with a focus on clinician usability. I build and refine data pipelines, PyTorch models, and evaluation workflows so feedback remains understandable and actionable during therapy sessions.",
     technologies: [
       "Python",
       "Pandas",
@@ -46,20 +54,5 @@ export const experiences: Experience[] = [
       "Matplotlib",
       "Seaborn",
     ],
-  },
-  {
-    company: "Hacklytics 2026",
-    role: "First Place Builder, CrisisLens",
-    period: "February 2026",
-    location: "Georgia Tech",
-    image: "/assets/logo.png",
-    summary:
-      "Built CrisisLens, a hackathon product recognized as first place out of 234 projects.",
-    highlights: [
-      "Built for crisis analysis workflows.",
-      "Prepared the product demo and judging story.",
-      "Placed first at Hacklytics 2026.",
-    ],
-    technologies: ["React", "AI", "Data visualization", "Product strategy"],
   },
 ];
