@@ -38,6 +38,11 @@ type ScrollState = {
   position?: number;
 };
 
+type PointerPosition = {
+  x: number;
+  y: number;
+} | null;
+
 function debounce<T extends (...args: never[]) => void>(func: T, wait: number) {
   let timeout: number | undefined;
 
@@ -179,6 +184,9 @@ class Media {
   private x = 0;
   private width = 0;
   private widthTotal = 0;
+  private baseScaleX = 1;
+  private baseScaleY = 1;
+  private hoverScale = 1;
 
   plane!: Mesh;
   program!: Program;
@@ -326,7 +334,11 @@ class Media {
     });
   }
 
-  update(scroll: ScrollState, direction: "left" | "right") {
+  update(
+    scroll: ScrollState,
+    direction: "left" | "right",
+    pointer: PointerPosition,
+  ) {
     this.plane.position.x = this.x - scroll.current - this.extra;
 
     const x = this.plane.position.x;
@@ -352,6 +364,15 @@ class Media {
     this.program.uniforms.uTime.value += 0.04;
     this.program.uniforms.uSpeed.value = speed;
 
+    const isHovered = this.containsPointer(pointer);
+    const targetScale = isHovered ? 1.055 : 1;
+    this.hoverScale = lerp(this.hoverScale, targetScale, 0.12);
+    this.plane.scale.set(
+      this.baseScaleX * this.hoverScale,
+      this.baseScaleY * this.hoverScale,
+      1,
+    );
+
     const planeOffset = this.plane.scale.x / 2;
     const viewportOffset = this.viewport.width / 2;
     const isBefore = this.plane.position.x + planeOffset < -viewportOffset;
@@ -366,18 +387,37 @@ class Media {
     }
   }
 
+  containsPointer(pointer: PointerPosition) {
+    if (!pointer) return false;
+
+    const halfWidth = this.baseScaleX / 2;
+    const halfHeight = this.baseScaleY / 2;
+
+    return (
+      pointer.x >= this.plane.position.x - halfWidth &&
+      pointer.x <= this.plane.position.x + halfWidth &&
+      pointer.y >= this.plane.position.y - halfHeight &&
+      pointer.y <= this.plane.position.y + halfHeight
+    );
+  }
+
   onResize({ screen, viewport }: { screen?: ScreenSize; viewport?: ViewportSize } = {}) {
     if (screen) this.screen = screen;
     if (viewport) this.viewport = viewport;
 
     const scale = this.screen.height / 1500;
-    this.plane.scale.y = (this.viewport.height * (1120 * scale)) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (1180 * scale)) / this.screen.width;
+    this.baseScaleY = (this.viewport.height * (1120 * scale)) / this.screen.height;
+    this.baseScaleX = (this.viewport.width * (1180 * scale)) / this.screen.width;
+    this.plane.scale.set(
+      this.baseScaleX * this.hoverScale,
+      this.baseScaleY * this.hoverScale,
+      1,
+    );
     this.plane.program.uniforms.uPlaneSizes.value = [
-      this.plane.scale.x,
-      this.plane.scale.y,
+      this.baseScaleX,
+      this.baseScaleY,
     ];
-    this.width = this.plane.scale.x + 3.1;
+    this.width = this.baseScaleX + 3.1;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
   }
@@ -403,6 +443,7 @@ class CircularGalleryApp {
   private raf = 0;
   private isDown = false;
   private start = 0;
+  private pointer: PointerPosition = null;
   private onCheckDebounce: () => void;
 
   constructor(
@@ -508,6 +549,9 @@ class CircularGalleryApp {
   }
 
   onTouchDown = (event: MouseEvent | TouchEvent) => {
+    if (event instanceof MouseEvent) {
+      this.updatePointerPosition(event);
+    }
     this.isDown = true;
     this.scroll.position = this.scroll.current;
     this.start =
@@ -515,6 +559,10 @@ class CircularGalleryApp {
   };
 
   onTouchMove = (event: MouseEvent | TouchEvent) => {
+    if (event instanceof MouseEvent) {
+      this.updatePointerPosition(event);
+    }
+
     if (!this.isDown) return;
 
     const x =
@@ -527,6 +575,19 @@ class CircularGalleryApp {
     this.isDown = false;
     this.onCheck();
   };
+
+  onMouseLeave = () => {
+    this.pointer = null;
+    this.onTouchUp();
+  };
+
+  updatePointerPosition(event: MouseEvent) {
+    const rect = this.container.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width - 0.5) * this.viewport.width;
+    const y = (0.5 - (event.clientY - rect.top) / rect.height) * this.viewport.height;
+
+    this.pointer = { x, y };
+  }
 
   onWheel = (event: WheelEvent) => {
     const delta = event.deltaY || event.detail;
@@ -571,7 +632,9 @@ class CircularGalleryApp {
       this.scroll.ease,
     );
     const direction = this.scroll.current > this.scroll.last ? "right" : "left";
-    this.medias?.forEach((media) => media.update(this.scroll, direction));
+    this.medias?.forEach((media) =>
+      media.update(this.scroll, direction, this.pointer),
+    );
     this.renderer.render({ scene: this.scene, camera: this.camera });
     this.scroll.last = this.scroll.current;
     this.raf = window.requestAnimationFrame(this.update);
@@ -583,7 +646,7 @@ class CircularGalleryApp {
     this.container.addEventListener("mousedown", this.onTouchDown);
     this.container.addEventListener("mousemove", this.onTouchMove);
     this.container.addEventListener("mouseup", this.onTouchUp);
-    this.container.addEventListener("mouseleave", this.onTouchUp);
+    this.container.addEventListener("mouseleave", this.onMouseLeave);
     this.container.addEventListener("touchstart", this.onTouchDown, {
       passive: true,
     });
@@ -600,7 +663,7 @@ class CircularGalleryApp {
     this.container.removeEventListener("mousedown", this.onTouchDown);
     this.container.removeEventListener("mousemove", this.onTouchMove);
     this.container.removeEventListener("mouseup", this.onTouchUp);
-    this.container.removeEventListener("mouseleave", this.onTouchUp);
+    this.container.removeEventListener("mouseleave", this.onMouseLeave);
     this.container.removeEventListener("touchstart", this.onTouchDown);
     this.container.removeEventListener("touchmove", this.onTouchMove);
     this.container.removeEventListener("touchend", this.onTouchUp);

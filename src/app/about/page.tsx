@@ -38,7 +38,7 @@ export default function AboutPage() {
                   Portfolio!
                 </span>
               </h2>
-              <p className="mx-auto mt-9 max-w-6xl text-2xl leading-[1.55] text-white/78 md:text-[2rem] md:leading-[1.55]">
+              <p className="mx-auto mt-9 max-w-6xl text-2xl leading-[1.55] text-white/88 md:text-[2rem] md:leading-[1.55]">
                 My name is Aziz Umarov, and I am a software engineer and
                 computer science student at the{" "}
                 <a
