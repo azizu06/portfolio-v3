@@ -1,6 +1,5 @@
-import { AboutPageContent } from "@/components/portfolio/about-page-content";
-import { ResponsiveHome } from "@/components/portfolio/responsive-home";
+import { HomeModelStage } from "@/components/portfolio/home-model-stage";
 
 export default function Home() {
-  return <ResponsiveHome mobile={<AboutPageContent />} />;
+  return <HomeModelStage />;
 }
