@@ -17,7 +17,7 @@ export type DockItemData = {
   className?: string;
 };
 
-export type DockProps = {
+type DockProps = {
   items: DockItemData[];
   className?: string;
   gapClassName?: string;

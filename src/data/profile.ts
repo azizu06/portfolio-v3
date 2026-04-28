@@ -45,10 +45,3 @@ export const navItems = [
   { label: "Projects", href: "/projects" },
   { label: "Skills", href: "/skills" },
 ];
-
-export const proofPoints = [
-  "UCF Computer Science, 4.0 GPA",
-  "Knight Hacks Software Developer",
-  "ISUE Lab Undergraduate Research Assistant",
-  "CrisisLens, Hacklytics 2026 first place",
-];
