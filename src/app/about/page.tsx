@@ -8,14 +8,6 @@ const aboutGalleryItems = [
   { image: "/assets/about-gallery/about-01.jpg", text: "Orlando" },
   { image: "/assets/about-gallery/about-02.jpg", text: "Knight Hacks" },
   { image: "/assets/about-gallery/about-03.jpg", text: "Hacklytics" },
-  { image: "/assets/about-gallery/about-04.jpg", text: "Late build" },
-  { image: "/assets/about-gallery/about-05.jpg", text: "Campus" },
-  { image: "/assets/about-gallery/about-06.jpg", text: "Winners" },
-  { image: "/assets/about-gallery/about-07.jpg", text: "Team" },
-  { image: "/assets/about-gallery/about-08.jpg", text: "Work session" },
-  { image: "/assets/about-gallery/about-09.jpg", text: "Community" },
-  { image: "/assets/about-gallery/about-10.jpg", text: "Demo day" },
-  { image: "/assets/about-gallery/about-11.jpg", text: "UCF" },
 ];
 
 export default function AboutPage() {
@@ -29,8 +21,8 @@ export default function AboutPage() {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ice/18 to-transparent" />
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_24%,rgba(47,111,237,0.16),transparent_28rem),radial-gradient(circle_at_82%_18%,rgba(141,183,255,0.11),transparent_28rem)]" />
 
-        <div className="mx-auto grid max-w-[96rem] gap-16 lg:grid-cols-[minmax(28rem,0.92fr)_minmax(0,1.08fr)] lg:items-center xl:gap-24">
-          <div className="relative z-10 max-w-3xl">
+        <div className="mx-auto max-w-[96rem]">
+          <div className="relative z-10 max-w-6xl">
             <FadeContent blur duration={900} threshold={0.16}>
               <h2 className="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-white md:text-7xl">
                 Welcome to my{" "}
@@ -58,10 +50,13 @@ export default function AboutPage() {
                 >
                   Knight Hacks
                 </a>
-                , a computer science student community at UCF. My focus there
-                is helping support the tech community on campus, especially as
-                we prepare for and run our annual hackathon. I also contribute
-                to AI-assisted speech feedback research at{" "}
+                , a computer science student community at UCF. Being involved
+                there lets me build with like-minded students, support the
+                campus tech community, and help run our annual hackathon. I am
+                also a hackathon enthusiast; I love competing, building under
+                pressure, and working alongside people who care about turning
+                ideas into real products. I also contribute to Ph.D. student-led
+                AI-assisted speech feedback research at{" "}
                 <a
                   href="https://www.isuelab.org/"
                   target="_blank"
@@ -70,19 +65,19 @@ export default function AboutPage() {
                 >
                   ISUE Lab
                 </a>
-                .
+                , working with LLMs and machine learning.
               </p>
             </FadeContent>
           </div>
 
           <FadeContent blur duration={1000} delay={120} threshold={0.16}>
-            <div className="relative h-[30rem] md:h-[40rem] lg:h-[46rem] xl:-mr-10 xl:h-[50rem]">
+            <div className="relative -mx-5 mt-20 h-[28rem] sm:-mx-8 md:h-[34rem] lg:-mx-10 lg:h-[40rem] xl:-mx-16 xl:h-[44rem]">
               <CircularGallery
                 items={aboutGalleryItems}
-                bend={1.45}
+                bend={0.9}
                 borderRadius={0.055}
-                scrollEase={0.032}
-                scrollSpeed={1.55}
+                scrollEase={0.03}
+                scrollSpeed={1.35}
                 textColor="#f8fbff"
                 font="600 30px Geist, sans-serif"
               />
