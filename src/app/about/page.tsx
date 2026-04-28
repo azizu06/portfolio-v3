@@ -5,9 +5,9 @@ import { HeroStage } from "@/components/portfolio/hero-stage";
 import { profile } from "@/data/profile";
 
 const aboutGalleryItems = [
-  { image: "/assets/about-gallery/about-01.webp", text: "Orlando" },
-  { image: "/assets/about-gallery/about-02.webp", text: "Knight Hacks" },
-  { image: "/assets/about-gallery/about-03.webp", text: "Hacklytics" },
+  { image: "/assets/about-gallery/about-01.webp", text: "ShellHacks 2025" },
+  { image: "/assets/about-gallery/about-02.webp", text: "ShellHacks 2025" },
+  { image: "/assets/about-gallery/about-03.webp", text: "ShellHacks 2025" },
   { image: "/assets/about-gallery/about-04.webp", text: "Knight Hacks VIII" },
   { image: "/assets/about-gallery/about-05.webp", text: "Knight Hacks VIII" },
   { image: "/assets/about-gallery/about-06.webp", text: "Winners" },
