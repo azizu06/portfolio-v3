@@ -29,7 +29,7 @@ export default function AboutPage() {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ice/18 to-transparent" />
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_24%,rgba(47,111,237,0.16),transparent_28rem),radial-gradient(circle_at_82%_18%,rgba(141,183,255,0.11),transparent_28rem)]" />
 
-        <div className="mx-auto grid max-w-[96rem] gap-12 lg:grid-cols-[minmax(28rem,0.8fr)_minmax(0,1.45fr)] lg:items-center xl:gap-16">
+        <div className="mx-auto grid max-w-[96rem] gap-16 lg:grid-cols-[minmax(28rem,0.92fr)_minmax(0,1.08fr)] lg:items-center xl:gap-24">
           <div className="relative z-10 max-w-3xl">
             <FadeContent blur duration={900} threshold={0.16}>
               <h2 className="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-white md:text-7xl">
@@ -49,7 +49,7 @@ export default function AboutPage() {
                 >
                   University of Central Florida
                 </a>
-                . I work as a software developer for{" "}
+                . I am a software developer for{" "}
                 <a
                   href="https://knighthacks.org/"
                   target="_blank"
@@ -58,19 +58,28 @@ export default function AboutPage() {
                 >
                   Knight Hacks
                 </a>
-                , contribute to AI-assisted speech feedback research at ISUE
-                Lab, and build products at hackathons. My recent work includes
-                CrisisLens, a Hacklytics 2026 first-place project built around
-                crisis analysis workflows.
+                , a computer science student community at UCF. My focus there
+                is helping support the tech community on campus, especially as
+                we prepare for and run our annual hackathon. I also contribute
+                to AI-assisted speech feedback research at{" "}
+                <a
+                  href="https://www.isuelab.org/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[#8db7ff] underline decoration-[#8db7ff]/70 underline-offset-4 transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:text-white"
+                >
+                  ISUE Lab
+                </a>
+                .
               </p>
             </FadeContent>
           </div>
 
           <FadeContent blur duration={1000} delay={120} threshold={0.16}>
-            <div className="relative h-[34rem] md:h-[48rem] lg:h-[58rem] xl:-mr-28 xl:h-[64rem]">
+            <div className="relative h-[30rem] md:h-[40rem] lg:h-[46rem] xl:-mr-10 xl:h-[50rem]">
               <CircularGallery
                 items={aboutGalleryItems}
-                bend={1.65}
+                bend={1.45}
                 borderRadius={0.055}
                 scrollEase={0.032}
                 scrollSpeed={1.55}
