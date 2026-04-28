@@ -80,7 +80,7 @@ export default function AboutPage() {
           </div>
 
           <FadeContent blur duration={1000} delay={120} threshold={0.16}>
-            <div className="relative -mx-5 mt-20 h-[28rem] sm:-mx-8 md:h-[34rem] lg:-mx-10 lg:h-[40rem] xl:-mx-16 xl:h-[44rem]">
+            <div className="relative -mx-5 mt-20 h-[32rem] sm:-mx-8 md:h-[40rem] lg:-mx-10 lg:h-[46rem] xl:-mx-16 xl:h-[52rem]">
               <CircularGallery
                 items={aboutGalleryItems}
                 bend={0.9}
