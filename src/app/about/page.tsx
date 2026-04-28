@@ -88,7 +88,7 @@ export default function AboutPage() {
                 scrollEase={0.03}
                 scrollSpeed={1.35}
                 textColor="#f8fbff"
-                font="900 96px Geist, sans-serif"
+                font="900 144px Geist, sans-serif"
               />
             </div>
           </FadeContent>
