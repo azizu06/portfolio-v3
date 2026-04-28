@@ -8,8 +8,8 @@ import {
   useRef,
   useState,
 } from "react";
-import { Canvas, type ThreeEvent, useFrame } from "@react-three/fiber";
-import { Environment, useGLTF } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Environment, Html, useGLTF } from "@react-three/drei";
 import { useRouter } from "next/navigation";
 import * as THREE from "three";
 import CountUp from "@/components/CountUp";
@@ -72,7 +72,7 @@ const LAB_HOTSPOTS: LabHotspot[] = [
     stationLabel: "Analysis Bay",
     stationHint: "Skills",
     href: "/skills",
-    position: labPoint(-5.1, 1.17, -0.58),
+    position: labPoint(-5.36, 1.12, -0.62),
     focusPosition: labPoint(-0.7, 0.88, -0.62),
     focusTarget: labPoint(-2.75, 0.66, -0.62),
   },
@@ -83,7 +83,7 @@ const LAB_HOTSPOTS: LabHotspot[] = [
     stationLabel: "Control Panel",
     stationHint: "Projects",
     href: "/projects",
-    position: labPoint(3.58, 1.25, 0.64),
+    position: labPoint(3.22, 1.3, 0.64),
     focusPosition: labPoint(0.92, 0.84, 0.64),
     focusTarget: labPoint(3.12, 0.78, 0.64),
   },
@@ -94,7 +94,7 @@ const LAB_HOTSPOTS: LabHotspot[] = [
     stationLabel: "Gate",
     stationHint: "Experience",
     href: "/experience",
-    position: labPoint(1.94, 1.08, -1.52),
+    position: labPoint(1.78, 0.9, -1.56),
     focusPosition: labPoint(1.98, 0.86, 1.18),
     focusTarget: labPoint(1.92, 0.82, -1.5),
   },
@@ -104,7 +104,11 @@ function easeSmooth(value: number) {
   return THREE.MathUtils.smootherstep(value, 0, 1);
 }
 
-function SciFiLabModel({ onReady }: { onReady: () => void }) {
+function SciFiLabModel({
+  onReady,
+}: {
+  onReady: () => void;
+}) {
   const gltf = useGLTF(MODEL_PATH);
   const model = useMemo(() => gltf.scene.clone(true), [gltf.scene]);
 
@@ -273,11 +277,7 @@ function CameraOverviewMove({ onComplete }: { onComplete: () => void }) {
       THREE.MathUtils.clamp(elapsed.current / 0.85, 0, 1),
     );
 
-    cameraPoint.lerpVectors(
-      startPosition.current,
-      HOME_VIEW_POSITION,
-      progress,
-    );
+    cameraPoint.lerpVectors(startPosition.current, HOME_VIEW_POSITION, progress);
     lookPoint.lerpVectors(startLookPoint.current, HOME_VIEW_TARGET, progress);
     camera.position.copy(cameraPoint);
     camera.lookAt(lookPoint);
@@ -319,135 +319,46 @@ function OverviewCamera({
   return null;
 }
 
-function SelectedHotspotAnchor({
+function HotspotLabels({
   hotspot,
   onSelect,
 }: {
   hotspot: LabHotspot | null;
   onSelect: (hotspot: LabHotspot) => void;
 }) {
-  const groupRef = useRef<THREE.Group>(null);
-
-  useFrame(({ camera, clock }) => {
-    const group = groupRef.current;
-
-    if (!group || !hotspot) {
-      return;
-    }
-
-    const pulse = 1 + Math.sin(clock.elapsedTime * 3.1) * 0.08;
-    group.scale.setScalar(pulse);
-    group.lookAt(camera.position);
-  });
-
-  const handlePointerOver = (event: ThreeEvent<PointerEvent>) => {
-    event.stopPropagation();
-    document.body.style.cursor = "pointer";
-  };
-
-  const handlePointerOut = (event: ThreeEvent<PointerEvent>) => {
-    event.stopPropagation();
-    document.body.style.cursor = "";
-  };
-
-  const handleClick = (event: ThreeEvent<MouseEvent>) => {
-    event.stopPropagation();
-    if (hotspot) {
-      onSelect(hotspot);
-    }
-  };
-
   if (!hotspot) {
     return null;
   }
 
   return (
-    <group
-      ref={groupRef}
+    <Html
       position={hotspot.position}
-      onPointerOver={handlePointerOver}
-      onPointerOut={handlePointerOut}
-      onClick={handleClick}
+      center
+      distanceFactor={5.8}
+      zIndexRange={[12, 0]}
     >
-      <pointLight color="#9feaff" intensity={0.34} distance={0.8} />
-      <mesh renderOrder={52}>
-        <sphereGeometry args={[0.048, 24, 24]} />
-        <meshBasicMaterial color="#d9f7ff" depthTest={false} toneMapped={false} />
-      </mesh>
-      <mesh renderOrder={51}>
-        <torusGeometry args={[0.15, 0.006, 18, 72]} />
-        <meshBasicMaterial
-          color="#90ecff"
-          depthTest={false}
-          transparent
-          opacity={0.86}
-          toneMapped={false}
-        />
-      </mesh>
-      <mesh renderOrder={50}>
-        <torusGeometry args={[0.24, 0.004, 18, 96]} />
-        <meshBasicMaterial
-          color="#7dd3fc"
-          depthTest={false}
-          transparent
-          opacity={0.28}
-          toneMapped={false}
-        />
-      </mesh>
-    </group>
-  );
-}
-
-function StationHud({
-  hotspot,
-  onSelect,
-}: {
-  hotspot: LabHotspot | null;
-  onSelect: (hotspot: LabHotspot) => void;
-}) {
-  if (!hotspot) {
-    return null;
-  }
-
-  return (
-    <div
-      data-station-hud
-      className="pointer-events-none fixed inset-x-0 bottom-[5.75rem] z-20 px-5 sm:bottom-8 sm:left-0 sm:right-auto sm:px-8 lg:px-10"
-    >
-      <div className="pointer-events-auto w-[min(22rem,calc(100vw-2.5rem))] rounded-[1.7rem] border border-sky-100/20 bg-sky-950/35 p-1.5 shadow-[inset_0_1px_0_rgba(234,242,255,0.16),0_22px_70px_rgba(2,8,23,0.42),0_0_34px_rgba(96,216,255,0.14)] backdrop-blur-2xl">
-        <div className="rounded-[1.25rem] border border-white/[0.07] bg-[#071527]/78 px-4 py-3.5 shadow-[inset_0_1px_0_rgba(234,242,255,0.11)]">
-          <div className="mb-3 flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <span className="size-2 rounded-full bg-sky-200 shadow-[0_0_16px_rgba(125,211,252,0.86)]" />
-              <span className="text-[0.66rem] font-semibold uppercase tracking-[0.24em] text-sky-100/68">
-                {hotspot.stationLabel}
-              </span>
-            </div>
-            <span className="rounded-full border border-white/10 bg-white/[0.04] px-2 py-1 text-[0.62rem] font-medium uppercase tracking-[0.18em] text-ice/54">
-              {hotspot.id}
-            </span>
-          </div>
-          <div className="flex items-end justify-between gap-4">
-            <div className="min-w-0">
-              <h2 className="text-2xl font-semibold leading-none tracking-tight text-ice">
-                {hotspot.label}
-              </h2>
-              <p className="mt-1.5 text-sm font-medium text-sky-100/60">
-                {hotspot.detail}
-              </p>
-            </div>
-            <button
-              type="button"
-              aria-label={`Open ${hotspot.label}`}
-              onClick={() => onSelect(hotspot)}
-              className="shrink-0 rounded-full border border-sky-100/28 bg-sky-100/10 px-4 py-2 text-sm font-semibold text-sky-50 shadow-[inset_0_1px_0_rgba(234,242,255,0.18),0_12px_28px_rgba(2,8,23,0.28)] transition-[border-color,background-color,box-shadow,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:border-sky-100/62 hover:bg-sky-100/16 hover:shadow-[inset_0_1px_0_rgba(234,242,255,0.24),0_16px_36px_rgba(2,8,23,0.34),0_0_26px_rgba(125,211,252,0.22)] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-100/70"
-            >
-              Open
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+      <button
+        type="button"
+        aria-label={`Open ${hotspot.label}`}
+        onClick={(event) => {
+          event.stopPropagation();
+          onSelect(hotspot);
+        }}
+        className="group relative flex w-[7.5rem] items-center gap-1.5 rounded-full border border-sky-100/24 bg-[#071527]/82 px-2.5 py-1.5 text-left text-[0.68rem] text-ice shadow-[inset_0_1px_0_rgba(234,242,255,0.14),0_14px_34px_rgba(2,8,23,0.32)] backdrop-blur-md transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-sky-100/70 hover:shadow-[inset_0_1px_0_rgba(234,242,255,0.2),0_16px_44px_rgba(2,8,23,0.36),0_0_0_1px_rgba(234,242,255,0.46),0_0_24px_rgba(186,230,253,0.42)] focus:outline-none focus-visible:border-white/70 focus-visible:shadow-[inset_0_1px_0_rgba(234,242,255,0.2),0_16px_44px_rgba(2,8,23,0.36),0_0_0_1px_rgba(234,242,255,0.5),0_0_24px_rgba(186,230,253,0.46)] focus-visible:ring-2 focus-visible:ring-white/65"
+      >
+        <span className="size-1.5 rounded-full bg-sky-200 shadow-[0_0_12px_rgba(125,211,252,0.82)] transition-transform duration-300 group-hover:scale-125" />
+        <span className="grid flex-1 gap-1 text-center">
+          <span className="font-medium leading-none">Open {hotspot.label}</span>
+          <span
+            className={`text-[0.56rem] leading-none text-ice/62 ${
+              hotspot.id === "experience" ? "pl-1" : ""
+            }`}
+          >
+            {hotspot.detail}
+          </span>
+        </span>
+      </button>
+    </Html>
   );
 }
 
@@ -546,7 +457,9 @@ function LabScene() {
         data-lab-scene
         className={[
           "absolute inset-0 transition-[opacity,filter] duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)]",
-          sceneReadyToReveal ? "opacity-100 blur-0" : "opacity-0 blur-[2px]",
+          sceneReadyToReveal
+            ? "opacity-100 blur-0"
+            : "opacity-0 blur-[2px]",
         ].join(" ")}
         aria-hidden={!sceneReadyToReveal}
       >
@@ -617,7 +530,7 @@ function LabScene() {
 
           <Suspense fallback={null}>
             <SciFiLabModel onReady={handleModelReady} />
-            <SelectedHotspotAnchor
+            <HotspotLabels
               hotspot={labelReady ? focusedHotspot : null}
               onSelect={handleRouteSelect}
             />
@@ -625,11 +538,6 @@ function LabScene() {
           </Suspense>
         </Canvas>
       </div>
-
-      <StationHud
-        hotspot={labelReady ? focusedHotspot : null}
-        onSelect={handleRouteSelect}
-      />
 
       <div className="pointer-events-none fixed inset-x-0 top-0 z-20 px-5 py-8 sm:px-8 lg:px-10">
         <div className="pointer-events-auto">
