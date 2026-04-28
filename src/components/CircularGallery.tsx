@@ -433,6 +433,7 @@ class CircularGalleryApp {
     this.onResize();
     this.createGeometry();
     this.createMedias();
+    this.setInitialScrollPosition();
     this.update();
     this.addEventListeners();
   }
@@ -492,6 +493,18 @@ class CircularGalleryApp {
           font: this.font,
         }),
     );
+  }
+
+  setInitialScrollPosition() {
+    if (!this.medias?.[0]) return;
+
+    const midpointIndex = Math.floor(this.medias.length / 2);
+    const midpoint = this.medias[0].snapWidth * midpointIndex;
+
+    this.scroll.current = midpoint;
+    this.scroll.target = midpoint;
+    this.scroll.last = midpoint;
+    this.scroll.position = midpoint;
   }
 
   onTouchDown = (event: MouseEvent | TouchEvent) => {
