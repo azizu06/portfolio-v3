@@ -8,6 +8,14 @@ const aboutGalleryItems = [
   { image: "/assets/about-gallery/about-01.jpg", text: "Orlando" },
   { image: "/assets/about-gallery/about-02.jpg", text: "Knight Hacks" },
   { image: "/assets/about-gallery/about-03.jpg", text: "Hacklytics" },
+  { image: "/assets/about-gallery/about-04.jpg", text: "Late build" },
+  { image: "/assets/about-gallery/about-05.jpg", text: "Campus" },
+  { image: "/assets/about-gallery/about-06.jpg", text: "Winners" },
+  { image: "/assets/about-gallery/about-07.jpg", text: "Team" },
+  { image: "/assets/about-gallery/about-08.jpg", text: "Work session" },
+  { image: "/assets/about-gallery/about-09.jpg", text: "Community" },
+  { image: "/assets/about-gallery/about-10.jpg", text: "Demo day" },
+  { image: "/assets/about-gallery/about-11.jpg", text: "UCF" },
 ];
 
 export default function AboutPage() {
@@ -52,10 +60,11 @@ export default function AboutPage() {
                 </a>
                 , a computer science student community at UCF. Being involved
                 there lets me build with like-minded students, support the
-                campus tech community, and help run our annual hackathon. I am
-                also a hackathon enthusiast; I love competing, building under
-                pressure, and working alongside people who care about turning
-                ideas into real products. I also contribute to Ph.D. student-led
+                campus tech community, and stay close to people who care about
+                making things. I am also a hackathon enthusiast; I love
+                competing, building under pressure, and working alongside people
+                who care about turning ideas into real products. I also
+                contribute to Ph.D. student-led
                 AI-assisted speech feedback research at{" "}
                 <a
                   href="https://www.isuelab.org/"

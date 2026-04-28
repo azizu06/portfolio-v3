@@ -377,7 +377,7 @@ class Media {
       this.plane.scale.x,
       this.plane.scale.y,
     ];
-    this.width = this.plane.scale.x + 2.25;
+    this.width = this.plane.scale.x + 3.1;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
   }
