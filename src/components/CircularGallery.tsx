@@ -106,7 +106,6 @@ class Title {
   private text: string;
   private textColor: string;
   private font: string;
-  private program!: Program;
 
   mesh!: Mesh;
 
@@ -154,29 +153,18 @@ class Title {
       fragment: `
         precision highp float;
         uniform sampler2D tMap;
-        uniform float uTime;
         varying vec2 vUv;
         void main() {
           vec4 mask = texture2D(tMap, vUv);
           if (mask.a < 0.1) discard;
-
-          float sweep = fract(uTime * 0.72);
-          float shine = smoothstep(0.2, 0.0, abs(vUv.x - sweep));
-          vec3 base = vec3(0.88, 0.92, 0.98);
-          vec3 highlight = vec3(1.0);
-          vec3 color = mix(base, highlight, shine);
-
-          gl_FragColor = vec4(color, mask.a);
+          gl_FragColor = vec4(vec3(1.0), mask.a);
         }
       `,
-      uniforms: {
-        tMap: { value: texture },
-        uTime: { value: 0 },
-      },
+      uniforms: { tMap: { value: texture } },
       transparent: true,
     });
 
-    this.mesh = new Mesh(this.gl, { geometry, program: this.program });
+    this.mesh = new Mesh(this.gl, { geometry, program });
     const aspect = width / height;
     const textHeight = 0.72;
     const textWidth = textHeight * aspect;
@@ -191,18 +179,15 @@ class Title {
     y,
     cardHeight,
     rotation,
-    time,
   }: {
     x: number;
     y: number;
     cardHeight: number;
     rotation: number;
-    time: number;
   }) {
     this.mesh.position.x = x;
     this.mesh.position.y = y - cardHeight / 2 - 0.94;
     this.mesh.rotation.z = rotation;
-    this.program.uniforms.uTime.value = time;
   }
 }
 
@@ -408,7 +393,6 @@ class Media {
       y: this.plane.position.y,
       cardHeight: this.baseScaleY * this.hoverScale,
       rotation: this.plane.rotation.z,
-      time: performance.now() * 0.001 + this.index * 0.18,
     });
 
     const planeOffset = this.plane.scale.x / 2;
