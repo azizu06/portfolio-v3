@@ -138,29 +138,27 @@ export function HeroStage({ name }: HeroStageProps) {
         </FadeContent>
       </div>
 
-      <FadeContent blur duration={900} delay={430} threshold={0.02}>
-        <button
-          type="button"
-          onClick={scrollToMore}
-          className={`group absolute bottom-36 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center px-8 py-3 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 focus-visible:rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ice/60 sm:bottom-44 ${
-            isScrollingToMore ? "opacity-0 blur-sm" : "opacity-100 blur-0"
-          }`}
-          aria-label="Scroll to more about Aziz"
-        >
-          <ShinyText
-            text="Care to learn more?"
-            speed={3.4}
-            color="rgba(255,255,255,0.96)"
-            shineColor="#ffffff"
-            spread={128}
-            className="text-xl font-semibold tracking-tight sm:text-2xl"
-          />
-          <ChevronDownIcon
-            aria-hidden="true"
-            className="mt-3 size-11 animate-bounce stroke-[1.65] text-white transition duration-500 group-hover:text-white sm:size-14"
-          />
-        </button>
-      </FadeContent>
+      <button
+        type="button"
+        onClick={scrollToMore}
+        className={`group absolute bottom-[5.625rem] left-1/2 z-20 flex -translate-x-1/2 flex-col items-center px-8 py-3 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 focus-visible:rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ice/60 sm:bottom-[6.5625rem] ${
+          isScrollingToMore ? "opacity-0 blur-sm" : "opacity-100 blur-0"
+        }`}
+        aria-label="Scroll to more about Aziz"
+      >
+        <ShinyText
+          text="Care to learn more?"
+          speed={3.4}
+          color="rgba(255,255,255,0.96)"
+          shineColor="#ffffff"
+          spread={128}
+          className="text-xl font-semibold tracking-tight sm:text-2xl"
+        />
+        <ChevronDownIcon
+          aria-hidden="true"
+          className="mt-3 size-11 animate-bounce stroke-[1.65] text-white transition duration-500 group-hover:text-white sm:size-14"
+        />
+      </button>
     </section>
   );
 }
