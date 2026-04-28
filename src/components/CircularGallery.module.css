@@ -1,0 +1,17 @@
+.circularGallery {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.circularGallery:active {
+  cursor: grabbing;
+}
+
+.circularGallery canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
