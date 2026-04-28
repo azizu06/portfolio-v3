@@ -74,7 +74,8 @@ function createTextTexture(
   context.font = font;
   const metrics = context.measureText(text);
   const textWidth = Math.ceil(metrics.width);
-  const textHeight = Math.ceil(Number.parseInt(font, 10) * 1.2);
+  const fontSize = Number.parseInt(font.match(/(\d+)px/)?.[1] ?? "30", 10);
+  const textHeight = Math.ceil(fontSize * 1.45);
 
   canvas.width = textWidth + 20;
   canvas.height = textHeight + 20;
@@ -165,17 +166,17 @@ class Title {
 
     this.mesh = new Mesh(this.gl, { geometry, program });
     const aspect = width / height;
-    const textHeight = 0.18;
+    const textHeight = 0.34;
     const textWidth = textHeight * aspect;
 
     this.mesh.scale.set(textWidth, textHeight, 1);
-    this.mesh.position.y = -0.68;
+    this.mesh.position.y = -0.76;
     this.mesh.position.z = 0.01;
     this.mesh.setParent(this.plane);
   }
 
   onResize() {
-    this.mesh.position.y = -0.68;
+    this.mesh.position.y = -0.76;
   }
 }
 
