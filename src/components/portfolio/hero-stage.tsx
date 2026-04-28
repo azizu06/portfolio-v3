@@ -141,7 +141,7 @@ export function HeroStage({ name }: HeroStageProps) {
       <button
         type="button"
         onClick={scrollToMore}
-        className={`group absolute bottom-[8.75rem] left-1/2 z-20 flex -translate-x-1/2 flex-col items-center px-8 py-3 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 focus-visible:rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ice/60 sm:bottom-[9.75rem] ${
+        className={`group absolute bottom-[17.5rem] left-1/2 z-20 flex -translate-x-1/2 flex-col items-center px-8 py-3 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 focus-visible:rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ice/60 sm:bottom-[19.5rem] ${
           isScrollingToMore ? "opacity-0 blur-sm" : "opacity-100 blur-0"
         }`}
         aria-label="Scroll to more about Aziz"
