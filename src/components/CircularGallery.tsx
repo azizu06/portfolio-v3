@@ -106,6 +106,7 @@ class Title {
   private text: string;
   private textColor: string;
   private font: string;
+  private program!: Program;
 
   mesh!: Mesh;
 
@@ -138,7 +139,7 @@ class Title {
       this.textColor,
     );
     const geometry = new Plane(this.gl);
-    const program = new Program(this.gl, {
+    this.program = new Program(this.gl, {
       vertex: `
         attribute vec3 position;
         attribute vec2 uv;
@@ -153,20 +154,31 @@ class Title {
       fragment: `
         precision highp float;
         uniform sampler2D tMap;
+        uniform float uTime;
         varying vec2 vUv;
         void main() {
-          vec4 color = texture2D(tMap, vUv);
-          if (color.a < 0.1) discard;
-          gl_FragColor = color;
+          vec4 mask = texture2D(tMap, vUv);
+          if (mask.a < 0.1) discard;
+
+          float sweep = fract(uTime * 0.28);
+          float shine = smoothstep(0.16, 0.0, abs(vUv.x - sweep));
+          vec3 base = vec3(0.80, 0.86, 0.94);
+          vec3 highlight = vec3(1.0);
+          vec3 color = mix(base, highlight, shine);
+
+          gl_FragColor = vec4(color, mask.a);
         }
       `,
-      uniforms: { tMap: { value: texture } },
+      uniforms: {
+        tMap: { value: texture },
+        uTime: { value: 0 },
+      },
       transparent: true,
     });
 
-    this.mesh = new Mesh(this.gl, { geometry, program });
+    this.mesh = new Mesh(this.gl, { geometry, program: this.program });
     const aspect = width / height;
-    const textHeight = 0.52;
+    const textHeight = 0.9;
     const textWidth = textHeight * aspect;
 
     this.mesh.scale.set(textWidth, textHeight, 1);
@@ -179,15 +191,18 @@ class Title {
     y,
     cardHeight,
     rotation,
+    time,
   }: {
     x: number;
     y: number;
     cardHeight: number;
     rotation: number;
+    time: number;
   }) {
     this.mesh.position.x = x;
-    this.mesh.position.y = y - cardHeight / 2 - 0.72;
+    this.mesh.position.y = y - cardHeight / 2 - 1.1;
     this.mesh.rotation.z = rotation;
+    this.program.uniforms.uTime.value = time;
   }
 }
 
@@ -393,6 +408,7 @@ class Media {
       y: this.plane.position.y,
       cardHeight: this.baseScaleY * this.hoverScale,
       rotation: this.plane.rotation.z,
+      time: performance.now() * 0.001 + this.index * 0.18,
     });
 
     const planeOffset = this.plane.scale.x / 2;
