@@ -102,6 +102,7 @@ class Title {
   private font: string;
 
   mesh!: Mesh;
+  program!: Program;
 
   constructor({
     gl,
@@ -160,7 +161,8 @@ class Title {
 
     this.mesh = new Mesh(this.gl, { geometry, program: this.program });
     const aspect = width / height;
-    const textHeight = 0.72;
+    const textSize = Number.parseInt(this.font.match(/(\d+)px/)?.[1] ?? "144", 10);
+    const textHeight = Math.max(0.8, (textSize / 144) * 1.18);
     const textWidth = textHeight * aspect;
 
     this.mesh.scale.set(textWidth, textHeight, 1);

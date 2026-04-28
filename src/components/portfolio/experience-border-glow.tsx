@@ -5,6 +5,7 @@ import {
   useEffect,
   useRef,
   useState,
+  useSyncExternalStore,
   type CSSProperties,
   type PointerEvent,
   type ReactNode,
@@ -18,6 +19,7 @@ type BorderGlowProps = {
   backgroundColor?: string;
   borderRadius?: number;
   glowRadius?: number;
+  mobileGlowRadius?: number;
   glowIntensity?: number;
   coneSpread?: number;
   animated?: boolean;
@@ -143,6 +145,7 @@ export function ExperienceBorderGlow({
   backgroundColor = "rgba(7, 19, 36, 0.9)",
   borderRadius = 22,
   glowRadius = 34,
+  mobileGlowRadius,
   glowIntensity = 0.76,
   coneSpread = 24,
   animated = true,
@@ -257,6 +260,30 @@ export function ExperienceBorderGlow({
     return () => cancelAnimationFrame(frame);
   }, [animated]);
 
+  const subscribeToMobileGlow = useCallback((onStoreChange: () => void) => {
+    if (mobileGlowRadius === undefined) {
+      return () => {};
+    }
+
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    mediaQuery.addEventListener("change", onStoreChange);
+
+    return () => mediaQuery.removeEventListener("change", onStoreChange);
+  }, [mobileGlowRadius]);
+  const getMobileGlowSnapshot = useCallback(
+    () =>
+      mobileGlowRadius !== undefined &&
+      window.matchMedia("(max-width: 767px)").matches,
+    [mobileGlowRadius],
+  );
+  const isMobileGlow = useSyncExternalStore(
+    subscribeToMobileGlow,
+    getMobileGlowSnapshot,
+    () => false,
+  );
+  const effectiveGlowRadius =
+    isMobileGlow && mobileGlowRadius !== undefined ? mobileGlowRadius : glowRadius;
+
   const colorSensitivity = edgeSensitivity + 20;
   const isVisible = isHovered || sweepActive;
   const rawBorderOpacity = isVisible
@@ -349,7 +376,7 @@ export function ExperienceBorderGlow({
       <span
         className="pointer-events-none absolute rounded-[inherit]"
         style={{
-          inset: `${-glowRadius}px`,
+          inset: `${-effectiveGlowRadius}px`,
           maskImage: `conic-gradient(from ${angle} at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%)`,
           mixBlendMode: "plus-lighter",
           opacity: glowOpacity,
@@ -363,7 +390,7 @@ export function ExperienceBorderGlow({
           className="absolute rounded-[inherit]"
           style={{
             boxShadow: buildBoxShadow(glowColor, boostedGlowIntensity),
-            inset: `${glowRadius}px`,
+            inset: `${effectiveGlowRadius}px`,
           }}
         />
       </span>

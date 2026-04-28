@@ -111,6 +111,14 @@
       linear-gradient(180deg, #061427 0%, #0b1f3a 50%, #061427 100%);
   }
 
+  a,
+  button,
+  summary,
+  [role="button"],
+  [role="link"] {
+    cursor: pointer;
+  }
+
   ::selection {
     background: rgba(47, 111, 237, 0.42);
     color: #eaf2ff;

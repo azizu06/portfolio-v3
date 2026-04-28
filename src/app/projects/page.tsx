@@ -26,13 +26,13 @@ export default function ProjectsPage() {
         </FadeContent>
       }
     >
-      <div className="relative left-1/2 mt-14 w-[min(calc(100vw-3rem),1920px)] -translate-x-1/2 pb-30">
-        <div className="grid auto-rows-fr grid-cols-1 gap-8 md:grid-cols-2 2xl:grid-cols-3 2xl:gap-8">
+      <div className="mx-auto mt-14 w-full max-w-[88rem] pb-30">
+        <div className="grid auto-rows-fr grid-cols-1 gap-8 xl:grid-cols-2 2xl:gap-10">
           {projects.map((project, index) => (
             <ProjectSpotlightCard
               key={project.title}
               project={project}
-              priority={index < 3}
+              priority={index < 2}
             />
           ))}
         </div>

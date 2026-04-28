@@ -78,7 +78,7 @@ export function HeroStage({ name }: HeroStageProps) {
       <LiquidPillNav />
 
       <div
-        className={`mx-auto flex min-h-[calc(100dvh-5rem)] max-w-5xl flex-col items-center justify-center pb-36 pt-16 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] sm:pb-40 lg:pb-44 lg:pt-24 ${
+        className={`mx-auto flex min-h-[calc(100dvh-5rem)] max-w-5xl flex-col items-center justify-start pb-32 pt-16 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] sm:pt-20 md:pb-36 md:pt-24 lg:pb-40 lg:pt-28 ${
           isScrollingToMore
             ? "-translate-y-8 opacity-0 blur-sm"
             : "translate-y-0 opacity-100 blur-0"
@@ -93,14 +93,14 @@ export function HeroStage({ name }: HeroStageProps) {
               borderRadius={9999}
               className="rounded-full"
             >
-              <div className="relative size-[min(25rem,88vw)] overflow-hidden rounded-full border border-ice/18 bg-navy/64 p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl md:size-[34rem]">
+              <div className="relative size-[min(18.5rem,76vw)] overflow-hidden rounded-full border border-ice/18 bg-navy/64 p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl sm:size-[min(22rem,78vw)] md:size-[27rem] lg:size-[30rem]">
                 <div className="relative h-full w-full overflow-hidden rounded-full bg-ice/8">
                   <Image
                     src="/assets/aziz-headshot.jpeg"
                     alt={name}
                     fill
                     priority
-                    sizes="(min-width: 768px) 34rem, 88vw"
+                    sizes="(min-width: 1024px) 30rem, (min-width: 768px) 27rem, (min-width: 640px) 22rem, 76vw"
                     className="object-cover grayscale-[10%] contrast-105"
                   />
                 </div>
@@ -110,15 +110,15 @@ export function HeroStage({ name }: HeroStageProps) {
         </FadeContent>
 
         <FadeContent blur duration={900} delay={130} threshold={0.02}>
-          <h1 className="mt-12 flex max-w-5xl flex-wrap items-baseline justify-center gap-x-4 text-[clamp(2.35rem,4.7vw,4.85rem)] font-semibold leading-[0.98] tracking-tight text-white">
-            <span>Hey there, I&apos;m</span>
+          <h1 className="mt-7 flex w-full max-w-5xl flex-wrap items-baseline justify-center gap-x-3 overflow-visible px-2 pb-1 text-[clamp(1.95rem,8vw,2.35rem)] font-semibold leading-[1.08] tracking-tight text-white md:mt-9 md:gap-x-4 md:text-[clamp(2.45rem,4.05vw,4rem)] md:leading-[1]">
+            <span>Hi, I&apos;m</span>
             <GradientText
               colors={["#dbeafe", "#8db7ff", "#2f6fed", "#eaf2ff"]}
               animationSpeed={9}
               direction="horizontal"
               className="text-center"
             >
-              Aziz!
+              Aziz Umarov!
             </GradientText>
           </h1>
         </FadeContent>
@@ -133,32 +133,31 @@ export function HeroStage({ name }: HeroStageProps) {
             textColors={["#ffffff"]}
             cursorCharacter="_"
             cursorClassName="text-white"
-            className="mt-7 min-h-14 font-mono text-2xl uppercase tracking-[0.12em] text-white md:text-3xl"
+            className="mt-4 min-h-10 font-mono text-lg uppercase tracking-[0.12em] text-white sm:text-xl md:mt-5 md:min-h-12 md:text-2xl"
           />
         </FadeContent>
+        <FadeContent blur duration={900} delay={360} threshold={0.02}>
+          <button
+            type="button"
+            onClick={scrollToMore}
+            className="group mt-4 flex flex-col items-center px-6 py-2 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 active:scale-[0.98] md:mt-6"
+            aria-label="Scroll to more about Aziz"
+          >
+            <ShinyText
+              text="Get to know me"
+              speed={3.4}
+              color="rgba(255,255,255,0.94)"
+              shineColor="#ffffff"
+              spread={120}
+              className="text-base font-semibold tracking-tight md:text-xl"
+            />
+            <ChevronDownIcon
+              aria-hidden="true"
+              className="mt-1 size-8 animate-bounce stroke-[1.65] text-white transition duration-500 group-hover:text-white md:size-10"
+            />
+          </button>
+        </FadeContent>
       </div>
-
-      <button
-        type="button"
-        onClick={scrollToMore}
-        className={`group absolute bottom-[17.5rem] left-1/2 z-20 flex -translate-x-1/2 flex-col items-center px-8 py-3 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 focus-visible:rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ice/60 sm:bottom-[19.5rem] ${
-          isScrollingToMore ? "opacity-0 blur-sm" : "opacity-100 blur-0"
-        }`}
-        aria-label="Scroll to more about Aziz"
-      >
-        <ShinyText
-          text="Care to learn more?"
-          speed={3.4}
-          color="rgba(255,255,255,0.96)"
-          shineColor="#ffffff"
-          spread={128}
-          className="text-xl font-semibold tracking-tight sm:text-2xl"
-        />
-        <ChevronDownIcon
-          aria-hidden="true"
-          className="mt-3 size-11 animate-bounce stroke-[1.65] text-white transition duration-500 group-hover:text-white sm:size-14"
-        />
-      </button>
     </section>
   );
 }

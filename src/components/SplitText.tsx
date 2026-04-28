@@ -39,7 +39,7 @@ const SplitText: React.FC<SplitTextProps> = ({
   textAlign = 'center',
   onLetterAnimationComplete
 }) => {
-  const ref = useRef<HTMLParagraphElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const animationCompletedRef = useRef(false);
   const onCompleteRef = useRef(onLetterAnimationComplete);
   const [fontsLoaded, setFontsLoaded] = useState<boolean>(
@@ -164,6 +164,10 @@ const SplitText: React.FC<SplitTextProps> = ({
     }
   );
 
+  const setElementRef = (element: HTMLElement | null) => {
+    ref.current = element;
+  };
+
   const renderTag = () => {
     const style: React.CSSProperties = {
       textAlign,
@@ -171,13 +175,24 @@ const SplitText: React.FC<SplitTextProps> = ({
       willChange: 'transform, opacity'
     };
     const classes = `split-parent overflow-hidden inline-block whitespace-normal ${className}`;
-    const Tag = (tag || 'p') as React.ElementType;
-
-    return (
-      <Tag ref={ref} style={style} className={classes}>
-        {text}
-      </Tag>
-    );
+    switch (tag) {
+      case 'h1':
+        return <h1 ref={setElementRef} style={style} className={classes}>{text}</h1>;
+      case 'h2':
+        return <h2 ref={setElementRef} style={style} className={classes}>{text}</h2>;
+      case 'h3':
+        return <h3 ref={setElementRef} style={style} className={classes}>{text}</h3>;
+      case 'h4':
+        return <h4 ref={setElementRef} style={style} className={classes}>{text}</h4>;
+      case 'h5':
+        return <h5 ref={setElementRef} style={style} className={classes}>{text}</h5>;
+      case 'h6':
+        return <h6 ref={setElementRef} style={style} className={classes}>{text}</h6>;
+      case 'span':
+        return <span ref={setElementRef} style={style} className={classes}>{text}</span>;
+      default:
+        return <p ref={setElementRef} style={style} className={classes}>{text}</p>;
+    }
   };
 
   return renderTag();

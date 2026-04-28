@@ -11,13 +11,14 @@ export type PillNavItem = {
 
 type PillNavProps = {
   items: PillNavItem[];
+  onItemSelect?: (item: PillNavItem) => void;
 };
 
-export default function PillNav({ items }: PillNavProps) {
+export default function PillNav({ items, onItemSelect }: PillNavProps) {
   const pathname = usePathname();
 
   return (
-    <div className="relative hidden items-center gap-4 md:flex">
+    <div className="relative flex min-w-0 flex-1 items-center justify-end gap-1 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-2 md:gap-3">
       {items.map((item, index) => {
         const isActive = pathname === item.href;
 
@@ -26,7 +27,15 @@ export default function PillNav({ items }: PillNavProps) {
             key={item.href}
             href={item.href}
             aria-current={isActive ? "page" : undefined}
-            className={`group relative px-5 py-4 text-xl font-semibold leading-none no-underline transition-all duration-300 hover:-translate-y-0.5 md:px-8 md:py-5 md:text-2xl ${
+            onClick={(event) => {
+              if (!onItemSelect) {
+                return;
+              }
+
+              event.preventDefault();
+              onItemSelect(item);
+            }}
+            className={`group relative shrink-0 px-3 py-3 text-sm font-semibold leading-none no-underline transition-all duration-300 hover:-translate-y-0.5 sm:px-4 sm:text-base md:px-5 md:py-3 md:text-xl ${
               isActive ? "text-ice" : "text-ice/62 hover:text-ice"
             }`}
           >
@@ -41,7 +50,7 @@ export default function PillNav({ items }: PillNavProps) {
               pauseOnHover
               className="relative z-10 drop-shadow-[0_0_12px_rgba(255,255,255,0.08)]"
             />
-            <span className="absolute inset-x-5 bottom-2 h-px origin-center scale-x-0 bg-ice/82 shadow-[0_0_18px_rgba(255,255,255,0.46)] transition-transform duration-300 group-hover:scale-x-100 md:inset-x-6" />
+            <span className="absolute inset-x-3 bottom-1.5 h-px origin-center scale-x-0 bg-ice/82 shadow-[0_0_18px_rgba(255,255,255,0.46)] transition-transform duration-300 group-hover:scale-x-100 sm:inset-x-4 md:inset-x-5 md:bottom-1.5" />
           </Link>
         );
       })}

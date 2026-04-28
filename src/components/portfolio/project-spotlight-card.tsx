@@ -41,6 +41,10 @@ function GitHubBrandIcon({ className = "size-6" }: { className?: string }) {
 
 const LinksAndResourcesIcon = ExternalLink;
 
+function useVisibleTechnologyCount() {
+  return 3;
+}
+
 export function ProjectSpotlightCard({
   project,
   className = "",
@@ -125,13 +129,14 @@ export function ProjectSpotlightCard({
       });
     }
   };
-  const visibleTechnologies = project.technologies.slice(0, 3);
+  const visibleTechnologyCount = useVisibleTechnologyCount();
+  const visibleTechnologies = project.technologies.slice(0, visibleTechnologyCount);
   const hiddenTechnologyCount = project.technologies.length - visibleTechnologies.length;
 
   return (
     <>
       <ExperienceBorderGlow
-        className={`group h-full rounded-[1.35rem] ${className}`}
+        className={`group h-full min-w-0 rounded-[1.35rem] ${className}`}
         glowIntensity={1.6}
         glowRadius={68}
         coneSpread={38}
@@ -139,10 +144,10 @@ export function ProjectSpotlightCard({
         edgeSensitivity={8}
         borderRadius={26}
       >
-        <Card className="overflow-hidden rounded-[inherit] border-ice/10 bg-navy/76 py-0 shadow-none ring-1 ring-ice/8 outline outline-1 outline-ice/12">
+        <Card className="flex h-full min-w-0 flex-col overflow-hidden rounded-[inherit] border-ice/10 bg-navy/76 py-0 shadow-none ring-1 ring-ice/8 outline outline-1 outline-ice/12">
           <div
             ref={articleRef}
-            className="relative aspect-[16/9] min-h-[22rem] overflow-hidden px-7 py-10 sm:px-9"
+            className="relative aspect-[16/9] min-h-[18rem] shrink-0 overflow-hidden px-5 py-8 sm:min-h-[22rem] sm:px-9 sm:py-10"
           >
             {project.previewVideo ? (
               <>
@@ -152,7 +157,7 @@ export function ProjectSpotlightCard({
                     alt={`${project.title} preview`}
                     fill
                     priority={priority}
-                    sizes="(min-width: 1536px) 31vw, (min-width: 768px) 45vw, 100vw"
+                    sizes="(min-width: 1280px) 44vw, (min-width: 768px) 86vw, 100vw"
                     className="object-cover object-center"
                   />
                 ) : null}
@@ -176,7 +181,7 @@ export function ProjectSpotlightCard({
                 alt={`${project.title} preview`}
                 fill
                 priority={priority}
-                sizes="(min-width: 1536px) 31vw, (min-width: 768px) 45vw, 100vw"
+                sizes="(min-width: 1280px) 44vw, (min-width: 768px) 86vw, 100vw"
                 className="object-cover object-center"
               />
             ) : (
@@ -184,8 +189,8 @@ export function ProjectSpotlightCard({
             )}
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,20,39,0)_0%,rgba(6,20,39,0.42)_36%,rgba(6,20,39,0.78)_100%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_84%,rgba(6,20,39,0.48),transparent_16rem)]" />
-            <div className="absolute bottom-7 left-7 right-7 sm:bottom-8 sm:left-8">
-              <h2 className="max-w-full whitespace-nowrap font-mono text-[clamp(1.35rem,1.75vw,2rem)] font-black leading-none tracking-tight text-ice drop-shadow-[0_4px_22px_rgba(0,0,0,0.62)]">
+            <div className="absolute bottom-7 left-7 right-7 min-w-0 sm:bottom-8 sm:left-8">
+              <h2 className="max-w-full break-words font-mono text-[clamp(1.15rem,5.8vw,1.75rem)] font-black leading-none tracking-tight text-ice drop-shadow-[0_4px_22px_rgba(0,0,0,0.62)] sm:text-[clamp(1.35rem,1.75vw,2rem)]">
                 {project.title}
               </h2>
             </div>
@@ -197,29 +202,29 @@ export function ProjectSpotlightCard({
             ) : null}
           </div>
 
-          <CardContent className="bg-navy/86 p-7 sm:p-9">
-            <div className="flex flex-wrap items-center gap-x-7 gap-y-3.5 font-mono text-xl font-bold uppercase tracking-[0.08em] text-ice/78">
+          <CardContent className="flex min-w-0 flex-1 flex-col bg-navy/86 p-5 sm:p-9">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2.5 font-mono text-sm font-bold uppercase tracking-[0.08em] text-ice/78 sm:gap-x-7 sm:gap-y-3.5 sm:text-xl">
               <span className="inline-flex items-center gap-2.5">
                 <CalendarDays className="h-5 w-5" aria-hidden="true" />
                 {project.date}
               </span>
             </div>
 
-            <p className="mt-7 line-clamp-3 max-w-2xl border-y border-ice/14 py-6 text-xl font-semibold leading-8 tracking-tight text-ice sm:text-2xl sm:leading-9">
+            <p className="mt-5 line-clamp-4 min-h-[10.75rem] max-w-2xl break-words border-y border-ice/14 py-5 text-lg font-semibold leading-8 tracking-tight text-ice sm:mt-7 sm:line-clamp-3 sm:min-h-[10rem] sm:py-6 sm:text-2xl sm:leading-9">
               {project.description}
             </p>
 
-            <div className="mt-7">
-              <p className="flex items-center gap-2 font-mono text-xl font-black text-ice/90">
-                <Code2 className="h-5 w-5" aria-hidden="true" />
+            <div className="mt-7 min-w-0">
+              <p className="flex items-center gap-2 font-mono text-base font-black text-ice/90 sm:text-xl">
+                <Code2 className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
                 Technologies
               </p>
-              <div className="mt-4 flex min-h-14 flex-nowrap gap-3 overflow-hidden">
+              <div className="mt-4 flex min-h-12 max-w-full flex-wrap gap-2.5 sm:min-h-14 sm:flex-nowrap sm:gap-3 sm:overflow-hidden">
                 {visibleTechnologies.map((technology) => (
                   <Badge
                     key={technology}
                     variant="outline"
-                    className="shrink-0 rounded-xl border-blue-300/70 bg-cobalt/18 px-6 py-4 font-mono text-lg font-black leading-none tracking-[0.04em] text-ice shadow-[inset_0_0_18px_rgba(255,255,255,0.04)]"
+                    className="max-w-full shrink rounded-xl border-blue-300/70 bg-cobalt/18 px-4 py-3 text-center font-mono text-sm font-black leading-none tracking-[0.04em] text-ice shadow-[inset_0_0_18px_rgba(255,255,255,0.04)] sm:shrink-0 sm:px-6 sm:py-4 sm:text-lg"
                   >
                     {technology}
                   </Badge>
@@ -227,7 +232,7 @@ export function ProjectSpotlightCard({
                 {hiddenTechnologyCount > 0 ? (
                   <Badge
                     variant="outline"
-                    className="shrink-0 rounded-xl border-blue-300/70 bg-cobalt/18 px-6 py-4 font-mono text-lg font-black leading-none tracking-[0.04em] text-sky-200 shadow-[inset_0_0_18px_rgba(255,255,255,0.04)]"
+                    className="shrink-0 rounded-xl border-blue-300/70 bg-cobalt/18 px-4 py-3 text-center font-mono text-sm font-black leading-none tracking-[0.04em] text-sky-200 shadow-[inset_0_0_18px_rgba(255,255,255,0.04)] sm:px-6 sm:py-4 sm:text-lg"
                   >
                     +{hiddenTechnologyCount}
                   </Badge>
@@ -235,11 +240,11 @@ export function ProjectSpotlightCard({
               </div>
             </div>
 
-            <div className="mt-8 flex gap-4 pt-6">
+            <div className="mt-auto flex flex-col gap-3 pt-8 sm:flex-row sm:gap-4 sm:pt-9">
               <Button
                 size="sm"
                 variant="outline"
-                className="group/button h-11 flex-1 rounded-full border-ice/16 bg-ice/7 px-6 py-3 text-lg font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300/45 hover:bg-ice/13 active:scale-[0.98]"
+                className="group/button h-11 min-w-0 w-full rounded-full border-ice/16 bg-ice/7 px-5 py-3 text-base font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300/45 hover:bg-ice/13 active:scale-[0.98] sm:flex-1 sm:px-6 sm:text-lg"
                 onClick={() => setIsDetailsOpen(true)}
               >
                 View details
@@ -256,7 +261,7 @@ export function ProjectSpotlightCard({
                   />
                 }
                 size="sm"
-                className="group/button h-11 flex-1 rounded-full bg-cobalt px-6 py-3 text-lg font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:bg-cobalt/85 active:scale-[0.98]"
+                className="group/button h-11 min-w-0 w-full rounded-full bg-cobalt px-5 py-3 text-base font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:bg-cobalt/85 active:scale-[0.98] sm:flex-1 sm:px-6 sm:text-lg"
               >
                 Live demo
                 <span className="ml-1 inline-flex size-7 items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5">
@@ -271,22 +276,22 @@ export function ProjectSpotlightCard({
       <Dialog open={isDetailsOpen} onOpenChange={setIsDetailsOpen}>
         <DialogContent
           showCloseButton={false}
-          className="!w-[min(96vw,112rem)] !max-w-none sm:!max-w-[min(96vw,112rem)] !max-h-[96dvh] overflow-hidden rounded-[1.55rem] border border-ice/14 bg-[#071324]/96 p-0 text-ice shadow-[0_34px_140px_rgba(0,0,0,0.58)] backdrop-blur-2xl"
+          className="!max-h-[92dvh] !w-[min(94vw,112rem)] !max-w-none min-w-0 overflow-hidden rounded-[1rem] border border-ice/14 bg-[#071324]/96 p-0 text-ice shadow-[0_34px_140px_rgba(0,0,0,0.58)] backdrop-blur-2xl sm:!max-h-[96dvh] sm:!max-w-[min(96vw,112rem)] sm:rounded-[1.55rem]"
         >
           <DialogClose
             render={
               <Button
                 variant="outline"
                 size="icon"
-                className="absolute right-5 top-5 z-30 size-13 rounded-full border-ice/35 bg-[#071324]/82 text-ice shadow-[0_16px_42px_rgba(0,0,0,0.42)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300/70 hover:bg-cobalt"
+                className="absolute right-3 top-3 z-30 size-10 rounded-full border-ice/35 bg-[#071324]/82 text-ice shadow-[0_16px_42px_rgba(0,0,0,0.42)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300/70 hover:bg-cobalt sm:right-5 sm:top-5 sm:size-13"
               />
             }
           >
-            <XIcon className="size-7" aria-hidden="true" />
+            <XIcon className="size-5 sm:size-7" aria-hidden="true" />
             <span className="sr-only">Close project details</span>
           </DialogClose>
-          <div className="max-h-[96dvh] overflow-y-auto">
-            <div className="relative min-h-[56dvh] overflow-hidden rounded-t-[1.55rem] bg-[#061427] sm:min-h-[46rem]">
+          <div className="max-h-[92dvh] min-w-0 overflow-y-auto sm:max-h-[96dvh]">
+            <div className="relative min-h-[21rem] overflow-hidden rounded-t-[1rem] bg-[#061427] sm:min-h-[46rem] sm:rounded-t-[1.55rem]">
               {project.previewVideo ? (
                 <video
                   src={project.previewVideo}
@@ -313,51 +318,51 @@ export function ProjectSpotlightCard({
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,20,39,0)_18%,rgba(6,20,39,0.24)_48%,rgba(6,20,39,0.86)_100%)]" />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_84%,rgba(6,20,39,0.54),transparent_22rem)]" />
               {project.award ? (
-                <div className="absolute left-8 top-8 inline-flex items-center gap-2 rounded-xl border border-sky-300/45 bg-cobalt px-5 py-3 font-mono text-xl font-black leading-none text-ice shadow-[0_16px_34px_rgba(47,111,237,0.28)]">
-                  <TrophyIcon className="h-5 w-5" aria-hidden="true" />
+                <div className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-xl border border-sky-300/45 bg-cobalt px-3 py-2 font-mono text-sm font-black leading-none text-ice shadow-[0_16px_34px_rgba(47,111,237,0.28)] sm:left-8 sm:top-8 sm:gap-2 sm:px-5 sm:py-3 sm:text-xl">
+                  <TrophyIcon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
                   Winner
                 </div>
               ) : null}
-              <div className="absolute bottom-8 left-8 right-8">
-                <DialogTitle className="font-mono text-[clamp(2.55rem,4.3vw,5.3rem)] font-black leading-none tracking-tight text-ice drop-shadow-[0_4px_22px_rgba(0,0,0,0.62)]">
+              <div className="absolute bottom-5 left-5 right-5 min-w-0 sm:bottom-8 sm:left-8 sm:right-8">
+                <DialogTitle className="break-words font-mono text-[clamp(1.85rem,10vw,2.65rem)] font-black leading-none tracking-tight text-ice drop-shadow-[0_4px_22px_rgba(0,0,0,0.62)] sm:text-[clamp(2.55rem,4.3vw,5.3rem)]">
                   {project.title}
                 </DialogTitle>
-                <DialogDescription className="mt-6 flex items-center gap-3 font-mono text-2xl font-bold uppercase tracking-[0.08em] text-ice/84">
-                  <CalendarDays className="h-6 w-6" aria-hidden="true" />
+                <DialogDescription className="mt-4 flex flex-wrap items-center gap-2 break-words font-mono text-base font-bold uppercase tracking-[0.08em] text-ice/84 sm:mt-6 sm:gap-3 sm:text-2xl">
+                  <CalendarDays className="h-4 w-4 sm:h-6 sm:w-6" aria-hidden="true" />
                   {project.date}
                 </DialogDescription>
               </div>
             </div>
 
-            <div className="bg-navy/92 flex flex-col gap-10 p-10 sm:p-11">
-              <div className="grid gap-8 border-y border-ice/14 py-6 lg:grid-cols-2 lg:gap-10">
-                <div className="flex min-h-[19rem] flex-col">
-                  <p className="flex items-center gap-3 font-mono text-2xl font-black text-ice">
-                    <InfoIcon className="h-6 w-6" aria-hidden="true" />
+            <div className="bg-navy/92 flex min-w-0 flex-col gap-7 p-5 sm:gap-10 sm:p-11">
+              <div className="grid min-w-0 gap-7 border-y border-ice/14 py-5 sm:gap-8 sm:py-6 lg:grid-cols-2 lg:gap-10">
+                <div className="flex min-w-0 flex-col lg:min-h-[19rem]">
+                  <p className="flex items-center gap-2.5 font-mono text-lg font-black text-ice sm:gap-3 sm:text-2xl">
+                    <InfoIcon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                     Summary
                   </p>
-                  <p className="mt-5 text-2xl font-semibold leading-9 tracking-tight text-ice">
+                  <p className="mt-4 break-words text-base font-semibold leading-7 tracking-tight text-ice sm:mt-5 sm:text-2xl sm:leading-9">
                     {project.details ?? project.description}
                   </p>
                 </div>
 
                 {project.keyFeatures?.length ? (
-                  <div className="flex min-h-[19rem] flex-col">
-                    <p className="flex items-center gap-3 font-mono text-2xl font-black text-ice">
-                      <Code2 className="h-6 w-6" aria-hidden="true" />
+                  <div className="flex min-w-0 flex-col lg:min-h-[19rem]">
+                    <p className="flex items-center gap-2.5 font-mono text-lg font-black text-ice sm:gap-3 sm:text-2xl">
+                      <Code2 className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                       Key Features
                     </p>
-                    <ul className="mt-5 space-y-3.5 text-ice">
+                    <ul className="mt-4 space-y-3 text-ice sm:mt-5 sm:space-y-3.5">
                       {project.keyFeatures.map((feature) => (
                         <li
                           key={feature}
-                          className="flex gap-4 text-2xl font-semibold leading-9 tracking-tight text-ice"
+                          className="flex min-w-0 gap-3 text-base font-semibold leading-7 tracking-tight text-ice sm:gap-4 sm:text-2xl sm:leading-9"
                         >
                           <span
-                            className="mt-3 h-2 w-2 shrink-0 rounded-full bg-sky-300 shadow-[0_0_0_5px_rgba(87,178,255,0.11)]"
+                            className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-300 shadow-[0_0_0_5px_rgba(87,178,255,0.11)] sm:mt-3 sm:h-2 sm:w-2"
                             aria-hidden="true"
                           />
-                          <span>{feature}</span>
+                          <span className="min-w-0 break-words">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -365,17 +370,17 @@ export function ProjectSpotlightCard({
                 ) : null}
               </div>
 
-              <div>
-                <p className="flex items-center gap-3 font-mono text-2xl font-black text-ice/90">
-                  <Code2 className="h-6 w-6" aria-hidden="true" />
+              <div className="min-w-0">
+                <p className="flex items-center gap-2.5 font-mono text-lg font-black text-ice/90 sm:gap-3 sm:text-2xl">
+                  <Code2 className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                   Technologies & Skills
                 </p>
-                <div className="mt-6 flex flex-wrap gap-5">
+                <div className="mt-4 flex flex-wrap gap-3 sm:mt-6 sm:gap-5">
                   {project.technologies.map((technology) => (
                     <Badge
                       key={technology}
                       variant="outline"
-                      className="rounded-xl border-blue-300/70 bg-cobalt/18 px-8 py-4 font-mono text-xl font-black leading-none tracking-[0.04em] text-ice shadow-[inset_0_0_18px_rgba(255,255,255,0.04)]"
+                      className="max-w-full shrink whitespace-normal break-words rounded-xl border-blue-300/70 bg-cobalt/18 px-4 py-3 text-center font-mono text-sm font-black leading-tight tracking-[0.04em] text-ice shadow-[inset_0_0_18px_rgba(255,255,255,0.04)] sm:px-8 sm:py-4 sm:text-xl"
                     >
                       {technology}
                     </Badge>
@@ -383,12 +388,12 @@ export function ProjectSpotlightCard({
                 </div>
               </div>
 
-              <div className="border-t border-ice/14 pt-8">
-                <p className="flex w-fit items-center gap-2.5 font-mono text-2xl font-black uppercase tracking-[0.08em] text-ice">
-                  <LinksAndResourcesIcon className="size-6" />
+              <div className="min-w-0 border-t border-ice/14 pt-6 sm:pt-8">
+                <p className="flex w-fit items-center gap-2.5 font-mono text-lg font-black uppercase tracking-[0.08em] text-ice sm:text-2xl">
+                  <LinksAndResourcesIcon className="size-5 sm:size-6" />
                   Links & Resources
                 </p>
-                <div className="mt-5 grid max-w-[32rem] grid-cols-2 gap-4 justify-items-center">
+                <div className="mt-5 grid max-w-[32rem] grid-cols-1 gap-3 justify-items-center sm:grid-cols-2 sm:gap-4">
                   <Button
                     render={
                       <Link
@@ -399,7 +404,7 @@ export function ProjectSpotlightCard({
                     }
                     variant="outline"
                     size="sm"
-                    className="h-11 w-full max-w-[14.5rem] justify-center rounded-full border-ice/16 bg-ice/7 px-5 py-3 text-lg font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300/45 hover:bg-ice/13 active:scale-[0.98]"
+                    className="h-11 w-full max-w-none justify-center rounded-full border-ice/16 bg-ice/7 px-5 py-3 text-base font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300/45 hover:bg-ice/13 active:scale-[0.98] sm:max-w-[14.5rem] sm:text-lg"
                   >
                     <GitHubBrandIcon />
                     GitHub
@@ -413,7 +418,7 @@ export function ProjectSpotlightCard({
                       />
                     }
                     size="sm"
-                    className="group/button h-11 w-full max-w-[14.5rem] justify-center rounded-full bg-cobalt px-5 py-3 text-lg font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:bg-cobalt/85 active:scale-[0.98]"
+                    className="group/button h-11 w-full max-w-none justify-center rounded-full bg-cobalt px-5 py-3 text-base font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:bg-cobalt/85 active:scale-[0.98] sm:max-w-[14.5rem] sm:text-lg"
                   >
                     Live demo
                     <span className="ml-1 inline-flex size-7 items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5">

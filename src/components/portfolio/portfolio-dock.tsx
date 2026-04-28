@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { FileTextIcon } from "lucide-react";
 import Dock, { type DockItemData } from "@/components/Dock";
 
@@ -45,19 +46,81 @@ const dockItems: DockItemData[] = [
   },
 ];
 
-export function PortfolioDock() {
+function MobileDock() {
+  const [pressedItemLabel, setPressedItemLabel] = useState<string | null>(null);
+  const pressTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (pressTimeoutRef.current) {
+        window.clearTimeout(pressTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleDockPress = (item: DockItemData) => {
+    const label = String(item.label);
+
+    if (pressTimeoutRef.current) {
+      window.clearTimeout(pressTimeoutRef.current);
+    }
+
+    setPressedItemLabel(label);
+    item.onClick();
+    pressTimeoutRef.current = window.setTimeout(() => {
+      setPressedItemLabel(null);
+    }, 130);
+  };
+
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-3 z-40 hidden justify-center md:flex">
-      <div className="pointer-events-auto relative h-24 w-full max-w-sm">
-        <Dock
-          items={dockItems}
-          panelHeight={72}
-          baseItemSize={58}
-          magnification={84}
-          dockHeight={126}
-          className="border-[#eaf2ff]/10 bg-[#0b1f3a]/64 shadow-[0_22px_80px_rgba(0,0,0,0.32)] backdrop-blur-2xl"
-        />
+    <div className="pointer-events-none fixed inset-x-0 bottom-3 z-40 flex justify-center px-5 md:hidden">
+      <div className="pointer-events-auto flex min-w-[10.75rem] items-center justify-between rounded-[1rem] border border-[#eaf2ff]/14 bg-[#0b1f3a]/72 px-3.5 py-1.5 text-[#eaf2ff] shadow-[0_16px_48px_rgba(0,0,0,0.32),inset_0_1px_0_rgba(234,242,255,0.18),inset_0_0_1px_rgba(234,242,255,0.38)] backdrop-blur-2xl">
+        {dockItems.map((item) => {
+          const label = String(item.label);
+          const isPressed = pressedItemLabel === label;
+
+          return (
+            <button
+              key={label}
+              type="button"
+              aria-label={label}
+              onPointerDown={() => setPressedItemLabel(label)}
+              onPointerCancel={() => setPressedItemLabel(null)}
+              onClick={() => handleDockPress(item)}
+              className={[
+                "grid size-9 touch-manipulation place-items-center rounded-full text-[#eaf2ff] transition-[transform,background-color,color,box-shadow] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] [&_svg]:size-[1.6rem]",
+                isPressed
+                  ? "scale-[0.92] bg-[#eaf2ff]/12 text-white shadow-[0_10px_24px_rgba(47,111,237,0.22)]"
+                  : "scale-100 bg-transparent",
+              ].join(" ")}
+            >
+              {item.icon}
+            </button>
+          );
+        })}
       </div>
     </div>
+  );
+}
+
+export function PortfolioDock() {
+  return (
+    <>
+      <MobileDock />
+      <div className="pointer-events-none fixed inset-x-0 bottom-3 z-40 hidden justify-center md:flex">
+        <div className="pointer-events-auto relative h-20 w-full max-w-sm">
+          <Dock
+            items={dockItems}
+            panelHeight={50}
+            baseItemSize={38}
+            magnification={54}
+            dockHeight={78}
+            gapClassName="gap-2"
+            paddingClassName="px-4 pb-1"
+            className="border-[#eaf2ff]/12 bg-[#0b1f3a]/64 shadow-[0_22px_80px_rgba(0,0,0,0.32),inset_0_0_1px_rgba(234,242,255,0.42)] backdrop-blur-2xl transition-[border-color,box-shadow] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-sky-300/70 hover:shadow-[0_0_0_1px_rgba(141,183,255,0.42),0_0_28px_rgba(47,111,237,0.48),0_0_68px_rgba(125,211,252,0.28),0_22px_80px_rgba(0,0,0,0.32),inset_0_0_22px_rgba(47,111,237,0.28)]"
+          />
+        </div>
+      </div>
+    </>
   );
 }

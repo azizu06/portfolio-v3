@@ -1,6 +1,6 @@
 'use client';
 
-import { ElementType, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { ElementType, createElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import ShinyText from '@/components/ShinyText';
 
@@ -182,13 +182,8 @@ const TextType = ({
   const shouldHideCursor =
     hideCursorWhileTyping && (currentCharIndex < textArray[currentTextIndex].length || isDeleting);
 
-  const ComponentTag = Component;
-
-  return (
-    <ComponentTag
-      className={`inline-block whitespace-pre-wrap tracking-tight ${className}`}
-      {...props}
-    >
+  const content = (
+    <>
       <span ref={containerRef} className="contents">
         {shinyText ? (
           <ShinyText
@@ -214,7 +209,16 @@ const TextType = ({
           </span>
         )}
       </span>
-    </ComponentTag>
+    </>
+  );
+
+  return createElement(
+    Component,
+    {
+      className: `inline-block whitespace-pre-wrap tracking-tight ${className}`,
+      ...props,
+    },
+    content,
   );
 };
 

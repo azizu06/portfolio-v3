@@ -24,6 +24,7 @@ interface ElectricBorderProps {
   speed?: number;
   chaos?: number;
   borderRadius?: number;
+  tight?: boolean;
   className?: string;
   style?: CSSProperties;
 }
@@ -34,6 +35,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
   speed = 1,
   chaos = 0.12,
   borderRadius = 24,
+  tight = false,
   className,
   style
 }) => {
@@ -42,6 +44,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
   const animationRef = useRef<number | null>(null);
   const timeRef = useRef(0);
   const lastFrameTimeRef = useRef(0);
+  const borderInset = tight ? "-1px" : "0px";
 
   const random = useCallback((x: number): number => {
     return (Math.sin(x * 12.9898) * 43758.5453) % 1;
@@ -182,15 +185,14 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const octaves = 10;
+    const octaves = tight ? 6 : 10;
     const lacunarity = 1.6;
-    const gain = 0.7;
+    const gain = tight ? 0.54 : 0.7;
     const amplitude = chaos;
-    const frequency = 10;
+    const frequency = tight ? 7 : 10;
     const baseFlatness = 0;
-    const displacement = 60;
-    const borderOffset = 60;
-
+    const displacement = tight ? 1.5 : 60;
+    const borderOffset = tight ? 1 : 60;
     const updateSize = () => {
       const rect = container.getBoundingClientRect();
       const width = rect.width + borderOffset * 2;
@@ -297,7 +299,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
       }
       resizeObserver.disconnect();
     };
-  }, [color, speed, chaos, borderRadius, octavedNoise, getRoundedRectPoint]);
+  }, [color, speed, chaos, borderRadius, tight, octavedNoise, getRoundedRectPoint]);
 
   return (
     <div
@@ -308,22 +310,42 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[2]">
         <canvas ref={canvasRef} className="block" />
       </div>
-      <div className="absolute inset-0 rounded-[inherit] pointer-events-none z-0">
-        <div
-          className="absolute inset-0 rounded-[inherit] pointer-events-none"
-          style={{ border: `2px solid ${hexToRgba(color, 0.6)}`, filter: 'blur(1px)' }}
-        />
-        <div
-          className="absolute inset-0 rounded-[inherit] pointer-events-none"
-          style={{ border: `2px solid ${color}`, filter: 'blur(4px)' }}
-        />
-        <div
-          className="absolute inset-0 rounded-[inherit] pointer-events-none -z-[1] scale-110 opacity-30"
-          style={{
-            filter: 'blur(32px)',
-            background: `linear-gradient(-30deg, ${color}, transparent, ${color})`
-          }}
-        />
+      <div className="absolute rounded-[inherit] pointer-events-none z-0" style={{ inset: borderInset }}>
+        {tight ? (
+          <div
+            className="absolute -inset-1 rounded-[inherit] pointer-events-none opacity-45"
+            style={{
+              filter: 'blur(10px)',
+              background: hexToRgba(color, 0.34)
+            }}
+          />
+        ) : (
+          <>
+            <div
+              className="absolute inset-0 rounded-[inherit] pointer-events-none"
+              style={{
+                border: `2px solid ${hexToRgba(color, 0.6)}`,
+                filter: 'blur(1px)'
+              }}
+            />
+            <div
+              className="absolute inset-0 rounded-[inherit] pointer-events-none"
+              style={{
+                border: `2px solid ${color}`,
+                filter: 'blur(4px)'
+              }}
+            />
+          </>
+        )}
+        {!tight ? (
+          <div
+            className="absolute inset-0 rounded-[inherit] pointer-events-none -z-[1] scale-110 opacity-30"
+            style={{
+              filter: 'blur(32px)',
+              background: `linear-gradient(-30deg, ${color}, transparent, ${color})`
+            }}
+          />
+        ) : null}
       </div>
       <div className="relative rounded-[inherit] z-[1]">{children}</div>
     </div>
