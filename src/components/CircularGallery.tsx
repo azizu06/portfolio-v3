@@ -164,7 +164,7 @@ class Title {
       transparent: true,
     });
 
-    this.mesh = new Mesh(this.gl, { geometry, program });
+    this.mesh = new Mesh(this.gl, { geometry, program: this.program });
     const aspect = width / height;
     const textHeight = 0.72;
     const textWidth = textHeight * aspect;
