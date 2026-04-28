@@ -499,9 +499,9 @@ class CircularGalleryApp {
 
   createMedias() {
     const fallbackItems = [
-      { image: "/assets/about-gallery/about-01.jpg", text: "UCF" },
-      { image: "/assets/about-gallery/about-02.jpg", text: "Research" },
-      { image: "/assets/about-gallery/about-03.jpg", text: "Hackathons" },
+      { image: "/assets/about-gallery/about-01.webp", text: "UCF" },
+      { image: "/assets/about-gallery/about-02.webp", text: "Research" },
+      { image: "/assets/about-gallery/about-03.webp", text: "Hackathons" },
     ];
     const galleryItems = this.items?.length ? this.items : fallbackItems;
     const mediasImages = galleryItems.concat(galleryItems);

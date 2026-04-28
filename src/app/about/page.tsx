@@ -5,17 +5,17 @@ import { HeroStage } from "@/components/portfolio/hero-stage";
 import { profile } from "@/data/profile";
 
 const aboutGalleryItems = [
-  { image: "/assets/about-gallery/about-01.jpg", text: "Orlando" },
-  { image: "/assets/about-gallery/about-02.jpg", text: "Knight Hacks" },
-  { image: "/assets/about-gallery/about-03.jpg", text: "Hacklytics" },
-  { image: "/assets/about-gallery/about-04.jpg", text: "Late build" },
-  { image: "/assets/about-gallery/about-05.jpg", text: "Campus" },
-  { image: "/assets/about-gallery/about-06.jpg", text: "Winners" },
-  { image: "/assets/about-gallery/about-07.jpg", text: "Team" },
-  { image: "/assets/about-gallery/about-08.jpg", text: "Work session" },
-  { image: "/assets/about-gallery/about-09.jpg", text: "Community" },
-  { image: "/assets/about-gallery/about-10.jpg", text: "Demo day" },
-  { image: "/assets/about-gallery/about-11.jpg", text: "UCF" },
+  { image: "/assets/about-gallery/about-01.webp", text: "Orlando" },
+  { image: "/assets/about-gallery/about-02.webp", text: "Knight Hacks" },
+  { image: "/assets/about-gallery/about-03.webp", text: "Hacklytics" },
+  { image: "/assets/about-gallery/about-04.webp", text: "Late build" },
+  { image: "/assets/about-gallery/about-05.webp", text: "Campus" },
+  { image: "/assets/about-gallery/about-06.webp", text: "Winners" },
+  { image: "/assets/about-gallery/about-07.webp", text: "Team" },
+  { image: "/assets/about-gallery/about-08.webp", text: "Work session" },
+  { image: "/assets/about-gallery/about-09.webp", text: "Community" },
+  { image: "/assets/about-gallery/about-10.webp", text: "Demo day" },
+  { image: "/assets/about-gallery/about-11.webp", text: "UCF" },
 ];
 
 export default function AboutPage() {
