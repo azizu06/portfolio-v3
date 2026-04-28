@@ -102,7 +102,7 @@ function createTextTexture(
 
 class Title {
   private gl: OGLRenderingContext;
-  private plane: Mesh;
+  private scene: Transform;
   private text: string;
   private textColor: string;
   private font: string;
@@ -111,19 +111,19 @@ class Title {
 
   constructor({
     gl,
-    plane,
+    scene,
     text,
     textColor = "#ffffff",
     font = "600 30px Geist, sans-serif",
   }: {
     gl: OGLRenderingContext;
-    plane: Mesh;
+    scene: Transform;
     text: string;
     textColor?: string;
     font?: string;
   }) {
     this.gl = gl;
-    this.plane = plane;
+    this.scene = scene;
     this.text = text;
     this.textColor = textColor;
     this.font = font;
@@ -166,17 +166,28 @@ class Title {
 
     this.mesh = new Mesh(this.gl, { geometry, program });
     const aspect = width / height;
-    const textHeight = 0.34;
+    const textHeight = 0.52;
     const textWidth = textHeight * aspect;
 
     this.mesh.scale.set(textWidth, textHeight, 1);
-    this.mesh.position.y = -0.76;
-    this.mesh.position.z = 0.01;
-    this.mesh.setParent(this.plane);
+    this.mesh.position.z = 0.03;
+    this.mesh.setParent(this.scene);
   }
 
-  onResize() {
-    this.mesh.position.y = -0.76;
+  update({
+    x,
+    y,
+    cardHeight,
+    rotation,
+  }: {
+    x: number;
+    y: number;
+    cardHeight: number;
+    rotation: number;
+  }) {
+    this.mesh.position.x = x;
+    this.mesh.position.y = y - cardHeight / 2 - 0.72;
+    this.mesh.rotation.z = rotation;
   }
 }
 
@@ -336,7 +347,7 @@ class Media {
   createTitle() {
     this.title = new Title({
       gl: this.gl,
-      plane: this.plane,
+      scene: this.scene,
       text: this.text,
       textColor: this.textColor,
       font: this.font,
@@ -377,6 +388,12 @@ class Media {
       this.baseScaleY * this.hoverScale,
       1,
     );
+    this.title?.update({
+      x: this.plane.position.x,
+      y: this.plane.position.y,
+      cardHeight: this.baseScaleY * this.hoverScale,
+      rotation: this.plane.rotation.z,
+    });
 
     const planeOffset = this.plane.scale.x / 2;
     const viewportOffset = this.viewport.width / 2;
@@ -422,7 +439,6 @@ class Media {
       this.baseScaleX,
       this.baseScaleY,
     ];
-    this.title?.onResize();
     this.width = this.baseScaleX + 3.15;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;

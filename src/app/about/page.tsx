@@ -1,7 +1,7 @@
 import FadeContent from "@/components/FadeContent";
 import CircularGallery from "@/components/CircularGallery";
-import GradientText from "@/components/GradientText";
 import { HeroStage } from "@/components/portfolio/hero-stage";
+import { SkillsOrbitShowcase } from "@/components/portfolio/skills-orbit-showcase";
 import { profile } from "@/data/profile";
 
 const aboutGalleryItems = [
@@ -80,7 +80,7 @@ export default function AboutPage() {
           </div>
 
           <FadeContent blur duration={1000} delay={120} threshold={0.16}>
-            <div className="relative -mx-5 mt-20 h-[32rem] sm:-mx-8 md:h-[40rem] lg:-mx-10 lg:h-[46rem] xl:-mx-16 xl:h-[52rem]">
+            <div className="relative -mx-5 mt-20 h-[42rem] sm:-mx-8 md:h-[52rem] lg:-mx-10 lg:h-[60rem] xl:-mx-16 xl:h-[66rem]">
               <CircularGallery
                 items={aboutGalleryItems}
                 bend={0.55}
@@ -88,30 +88,14 @@ export default function AboutPage() {
                 scrollEase={0.03}
                 scrollSpeed={1.35}
                 textColor="#f8fbff"
-                font="600 30px Geist, sans-serif"
+                font="700 44px Geist, sans-serif"
               />
             </div>
           </FadeContent>
         </div>
       </section>
 
-      <section className="relative isolate bg-[#061427] px-5 pb-32 pt-6 sm:px-8 lg:px-10 lg:pb-44">
-        <div className="mx-auto max-w-7xl text-center">
-          <FadeContent blur duration={900} threshold={0.16}>
-            <div className="inline-flex w-fit flex-col items-center">
-              <GradientText
-                colors={["#eaf2ff", "#8db7ff", "#2f6fed", "#dbeafe"]}
-                animationSpeed={9}
-                direction="horizontal"
-                className="w-fit text-center text-5xl font-semibold leading-none tracking-tight md:text-7xl"
-              >
-                Skills
-              </GradientText>
-              <span className="mt-2 h-[2px] w-full rounded-full bg-gradient-to-r from-[#eaf2ff] via-[#8db7ff] to-[#2f6fed] opacity-85" />
-            </div>
-          </FadeContent>
-        </div>
-      </section>
+      <SkillsOrbitShowcase />
     </main>
   );
 }
