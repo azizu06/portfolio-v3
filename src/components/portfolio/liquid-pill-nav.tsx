@@ -109,6 +109,15 @@ export function LiquidPillNav({
     }, 130);
   };
 
+  const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    setMobileMenuOpen(false);
+
+    if (pathname === "/" && onLogoSelect) {
+      event.preventDefault();
+      onLogoSelect();
+    }
+  };
+
   return (
     <>
       <nav
@@ -120,17 +129,10 @@ export function LiquidPillNav({
         ].join(" ")}
       >
         <Link
-          href="/about"
-          aria-label="Aziz Umarov about"
+          href="/"
+          aria-label="Aziz Umarov home"
           className="flex h-8 w-11 shrink-0 items-center justify-center overflow-visible p-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105 sm:h-9 sm:w-14 md:h-8 md:w-12"
-          onClick={(event) => {
-            setMobileMenuOpen(false);
-
-            if (onLogoSelect) {
-              event.preventDefault();
-              onLogoSelect();
-            }
-          }}
+          onClick={handleLogoClick}
         >
           <Image
             src="/assets/au-logo-transparent.png"
@@ -208,10 +210,10 @@ export function LiquidPillNav({
             <div className="rounded-[calc(2rem-0.5rem)] border border-ice/10 bg-[#061427]/84 p-4 shadow-[inset_0_1px_0_rgba(234,242,255,0.12)]">
               <div className="flex items-center justify-between gap-4">
                 <Link
-                  href="/about"
-                  aria-label="Aziz Umarov about"
+                  href="/"
+                  aria-label="Aziz Umarov home"
                   className="flex h-9 w-14 items-center justify-center"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={handleLogoClick}
                 >
                   <Image
                     src="/assets/au-logo-transparent.png"
@@ -235,10 +237,7 @@ export function LiquidPillNav({
 
               <div className="mt-8 grid gap-2 pb-2">
                 {mobileNavItems.map((item, index) => {
-                  const isActive =
-                    pathname === item.href ||
-                    (item.label === "About" &&
-                      (pathname === "/" || pathname === "/about"));
+                  const isActive = pathname === item.href;
                   const isPressed = pressedNavHref === item.href;
 
                   return (
