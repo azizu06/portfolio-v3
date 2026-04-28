@@ -12,10 +12,10 @@ const aboutGalleryItems = [
   { image: "/assets/about-gallery/about-05.webp", text: "Knight Hacks VIII" },
   { image: "/assets/about-gallery/about-06.webp", text: "Knight Hacks Dev Team" },
   { image: "/assets/about-gallery/about-07.webp", text: "Knight Hacks Dev Team" },
-  { image: "/assets/about-gallery/about-08.webp", text: "Work session" },
-  { image: "/assets/about-gallery/about-09.webp", text: "Community" },
-  { image: "/assets/about-gallery/about-10.webp", text: "Demo day" },
-  { image: "/assets/about-gallery/about-11.webp", text: "UCF" },
+  { image: "/assets/about-gallery/about-08.webp", text: "Hacklytics 2026" },
+  { image: "/assets/about-gallery/about-09.webp", text: "Hacklytics 2026" },
+  { image: "/assets/about-gallery/about-10.webp", text: "Hacklytics 2026" },
+  { image: "/assets/about-gallery/about-11.webp", text: "Hacklytics 2026" },
 ];
 
 export default function AboutPage() {
