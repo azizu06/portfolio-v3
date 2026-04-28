@@ -396,8 +396,8 @@ class Media {
     if (viewport) this.viewport = viewport;
 
     const scale = this.screen.height / 1500;
-    this.baseScaleY = (this.viewport.height * (1320 * scale)) / this.screen.height;
-    this.baseScaleX = (this.viewport.width * (1400 * scale)) / this.screen.width;
+    this.baseScaleY = (this.viewport.height * (1160 * scale)) / this.screen.height;
+    this.baseScaleX = (this.viewport.width * (1920 * scale)) / this.screen.width;
     this.plane.scale.set(
       this.baseScaleX * this.hoverScale,
       this.baseScaleY * this.hoverScale,
@@ -407,7 +407,7 @@ class Media {
       this.baseScaleX,
       this.baseScaleY,
     ];
-    this.width = this.baseScaleX + 2.7;
+    this.width = this.baseScaleX + 3.15;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
   }

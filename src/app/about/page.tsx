@@ -83,7 +83,7 @@ export default function AboutPage() {
             <div className="relative -mx-5 mt-20 h-[32rem] sm:-mx-8 md:h-[40rem] lg:-mx-10 lg:h-[46rem] xl:-mx-16 xl:h-[52rem]">
               <CircularGallery
                 items={aboutGalleryItems}
-                bend={0.9}
+                bend={0.55}
                 borderRadius={0.055}
                 scrollEase={0.03}
                 scrollSpeed={1.35}
