@@ -160,9 +160,9 @@ class Title {
           vec4 mask = texture2D(tMap, vUv);
           if (mask.a < 0.1) discard;
 
-          float sweep = fract(uTime * 0.28);
-          float shine = smoothstep(0.16, 0.0, abs(vUv.x - sweep));
-          vec3 base = vec3(0.80, 0.86, 0.94);
+          float sweep = fract(uTime * 0.72);
+          float shine = smoothstep(0.2, 0.0, abs(vUv.x - sweep));
+          vec3 base = vec3(0.88, 0.92, 0.98);
           vec3 highlight = vec3(1.0);
           vec3 color = mix(base, highlight, shine);
 
@@ -178,7 +178,7 @@ class Title {
 
     this.mesh = new Mesh(this.gl, { geometry, program: this.program });
     const aspect = width / height;
-    const textHeight = 0.9;
+    const textHeight = 0.72;
     const textWidth = textHeight * aspect;
 
     this.mesh.scale.set(textWidth, textHeight, 1);
@@ -200,7 +200,7 @@ class Title {
     time: number;
   }) {
     this.mesh.position.x = x;
-    this.mesh.position.y = y - cardHeight / 2 - 1.1;
+    this.mesh.position.y = y - cardHeight / 2 - 0.94;
     this.mesh.rotation.z = rotation;
     this.program.uniforms.uTime.value = time;
   }
@@ -444,8 +444,8 @@ class Media {
     if (viewport) this.viewport = viewport;
 
     const scale = this.screen.height / 1500;
-    this.baseScaleY = (this.viewport.height * (1160 * scale)) / this.screen.height;
-    this.baseScaleX = (this.viewport.width * (1920 * scale)) / this.screen.width;
+    this.baseScaleY = (this.viewport.height * (1040 * scale)) / this.screen.height;
+    this.baseScaleX = (this.viewport.width * (1480 * scale)) / this.screen.width;
     this.plane.scale.set(
       this.baseScaleX * this.hoverScale,
       this.baseScaleY * this.hoverScale,
@@ -455,7 +455,7 @@ class Media {
       this.baseScaleX,
       this.baseScaleY,
     ];
-    this.width = this.baseScaleX + 3.15;
+    this.width = this.baseScaleX + 1.25;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
   }

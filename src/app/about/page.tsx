@@ -83,12 +83,12 @@ export default function AboutPage() {
             <div className="relative -mx-5 mt-20 h-[42rem] sm:-mx-8 md:h-[52rem] lg:-mx-10 lg:h-[60rem] xl:-mx-16 xl:h-[66rem]">
               <CircularGallery
                 items={aboutGalleryItems}
-                bend={0.55}
+                bend={1.35}
                 borderRadius={0.055}
                 scrollEase={0.03}
                 scrollSpeed={1.35}
                 textColor="#f8fbff"
-                font="900 78px Geist, sans-serif"
+                font="900 68px Geist, sans-serif"
               />
             </div>
           </FadeContent>
