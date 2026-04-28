@@ -79,7 +79,15 @@ function createTextTexture(
   canvas.width = textWidth + 20;
   canvas.height = textHeight + 20;
   context.font = font;
-  context.fillStyle = color;
+  const shine = context.createLinearGradient(0, 0, canvas.width, 0);
+  shine.addColorStop(0, "rgba(234,242,255,0.7)");
+  shine.addColorStop(0.38, color);
+  shine.addColorStop(0.5, "#ffffff");
+  shine.addColorStop(0.62, color);
+  shine.addColorStop(1, "rgba(234,242,255,0.72)");
+  context.fillStyle = shine;
+  context.shadowColor = "rgba(255,255,255,0.28)";
+  context.shadowBlur = 12;
   context.textBaseline = "middle";
   context.textAlign = "center";
   context.clearRect(0, 0, canvas.width, canvas.height);
