@@ -18,88 +18,65 @@ const aboutGalleryItems = [
   { image: "/assets/about-gallery/about-11.jpg", text: "UCF" },
 ];
 
-const bioPoints = [
-  {
-    label: "Where I am",
-    value:
-      "Computer science student at UCF with a 4.0 GPA, focused on full-stack products and applied AI.",
-  },
-  {
-    label: "What I build",
-    value:
-      "Web apps, research tools, and hackathon products that turn messy problems into usable workflows.",
-  },
-  {
-    label: "Where I work",
-    value:
-      "Knight Hacks software, ISUE Lab speech-feedback research, and CrisisLens, a Hacklytics 2026 first-place project.",
-  },
-];
-
 export default function AboutPage() {
   return (
     <main className="w-full max-w-full overflow-x-hidden bg-deep-navy text-ice">
       <HeroStage name={profile.name} />
       <section
         id="about-more"
-        className="relative isolate scroll-mt-0 bg-[#061427] px-5 py-28 sm:px-8 lg:px-10 lg:py-36"
+        className="relative isolate scroll-mt-0 bg-[#061427] px-5 py-28 sm:px-8 lg:px-10 lg:py-40"
       >
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ice/18 to-transparent" />
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_24%,rgba(47,111,237,0.16),transparent_28rem),radial-gradient(circle_at_82%_18%,rgba(141,183,255,0.11),transparent_28rem)]" />
 
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
-          <div>
+        <div className="mx-auto grid max-w-[96rem] gap-12 lg:grid-cols-[minmax(28rem,0.8fr)_minmax(0,1.45fr)] lg:items-center xl:gap-16">
+          <div className="relative z-10 max-w-3xl">
             <FadeContent blur duration={900} threshold={0.16}>
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-white/50">
-                Biography
-              </p>
-              <h2 className="mt-5 max-w-2xl text-4xl font-semibold leading-[1.02] tracking-tight text-white md:text-6xl">
-                Building with people, research, and pressure-tested ideas.
+              <h2 className="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-white md:text-7xl">
+                Welcome to my{" "}
+                <span className="bg-gradient-to-r from-[#dbeafe] via-[#8db7ff] to-[#2f6fed] bg-clip-text text-transparent">
+                  Portfolio!
+                </span>
               </h2>
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-white/72 md:text-xl md:leading-9">
-                I am Aziz Umarov, a UCF computer science student working across
-                software engineering, applied AI research, and hackathon-driven
-                product building. I like projects where the interface matters as
-                much as the model or backend behind it.
+              <p className="mt-9 text-2xl leading-[1.55] text-white/78 md:text-[2rem] md:leading-[1.55]">
+                My name is Aziz Umarov, and I am a software engineer and
+                computer science student at the{" "}
+                <a
+                  href="https://www.ucf.edu/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[#8db7ff] underline decoration-[#8db7ff]/70 underline-offset-4 transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:text-white"
+                >
+                  University of Central Florida
+                </a>
+                . I work as a software developer for{" "}
+                <a
+                  href="https://knighthacks.org/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[#8db7ff] underline decoration-[#8db7ff]/70 underline-offset-4 transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:text-white"
+                >
+                  Knight Hacks
+                </a>
+                , contribute to AI-assisted speech feedback research at ISUE
+                Lab, and build products at hackathons. My recent work includes
+                CrisisLens, a Hacklytics 2026 first-place project built around
+                crisis analysis workflows.
               </p>
             </FadeContent>
-
-            <div className="mt-10 grid gap-3">
-              {bioPoints.map((detail, index) => (
-                <FadeContent
-                  key={detail.label}
-                  blur
-                  duration={850}
-                  delay={index * 100}
-                  threshold={0.18}
-                >
-                  <article className="group rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:bg-white/[0.055] md:p-6">
-                    <p className="font-mono text-xs uppercase tracking-[0.24em] text-white/42">
-                      {detail.label}
-                    </p>
-                    <p className="mt-3 text-base leading-7 text-white/76 md:text-lg">
-                      {detail.value}
-                    </p>
-                  </article>
-                </FadeContent>
-              ))}
-            </div>
           </div>
 
           <FadeContent blur duration={1000} delay={120} threshold={0.16}>
-            <div className="relative h-[34rem] overflow-hidden rounded-[2.25rem] border border-white/10 bg-white/[0.035] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] md:h-[42rem]">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_16%,rgba(141,183,255,0.16),transparent_24rem)]" />
-              <div className="relative h-full overflow-hidden rounded-[1.8rem] bg-[#081a31]/70">
-                <CircularGallery
-                  items={aboutGalleryItems}
-                  bend={2.2}
-                  borderRadius={0.075}
-                  scrollEase={0.035}
-                  scrollSpeed={1.65}
-                  textColor="#f8fbff"
-                  font="600 28px Geist, sans-serif"
-                />
-              </div>
+            <div className="relative h-[34rem] md:h-[48rem] lg:h-[58rem] xl:-mr-28 xl:h-[64rem]">
+              <CircularGallery
+                items={aboutGalleryItems}
+                bend={1.65}
+                borderRadius={0.055}
+                scrollEase={0.032}
+                scrollSpeed={1.55}
+                textColor="#f8fbff"
+                font="600 30px Geist, sans-serif"
+              />
             </div>
           </FadeContent>
         </div>
