@@ -165,12 +165,17 @@ class Title {
 
     this.mesh = new Mesh(this.gl, { geometry, program });
     const aspect = width / height;
-    const textHeight = this.plane.scale.y * 0.14;
+    const textHeight = 0.18;
     const textWidth = textHeight * aspect;
 
     this.mesh.scale.set(textWidth, textHeight, 1);
-    this.mesh.position.y = -this.plane.scale.y * 0.5 - textHeight * 0.55 - 0.05;
+    this.mesh.position.y = -0.68;
+    this.mesh.position.z = 0.01;
     this.mesh.setParent(this.plane);
+  }
+
+  onResize() {
+    this.mesh.position.y = -0.68;
   }
 }
 
@@ -188,6 +193,7 @@ class Media {
   private textColor: string;
   private borderRadius: number;
   private font: string;
+  private title?: Title;
   private extra = 0;
   private x = 0;
   private width = 0;
@@ -327,7 +333,7 @@ class Media {
   }
 
   createTitle() {
-    new Title({
+    this.title = new Title({
       gl: this.gl,
       plane: this.plane,
       text: this.text,
@@ -415,6 +421,7 @@ class Media {
       this.baseScaleX,
       this.baseScaleY,
     ];
+    this.title?.onResize();
     this.width = this.baseScaleX + 3.15;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
