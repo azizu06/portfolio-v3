@@ -23,6 +23,7 @@ interface ElectricBorderProps {
   color?: string;
   speed?: number;
   chaos?: number;
+  thickness?: number;
   borderRadius?: number;
   tight?: boolean;
   className?: string;
@@ -34,6 +35,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
   color = '#5227FF',
   speed = 1,
   chaos = 0.12,
+  thickness = 1,
   borderRadius = 24,
   tight = false,
   className,
@@ -44,7 +46,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
   const animationRef = useRef<number | null>(null);
   const timeRef = useRef(0);
   const lastFrameTimeRef = useRef(0);
-  const borderInset = tight ? "-1px" : "0px";
+  const borderInset = tight ? "-2px" : "0px";
 
   const random = useCallback((x: number): number => {
     return (Math.sin(x * 12.9898) * 43758.5453) % 1;
@@ -185,14 +187,14 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const octaves = tight ? 6 : 10;
+    const octaves = tight ? 8 : 10;
     const lacunarity = 1.6;
-    const gain = tight ? 0.54 : 0.7;
+    const gain = tight ? 0.64 : 0.7;
     const amplitude = chaos;
-    const frequency = tight ? 7 : 10;
+    const frequency = tight ? 9 : 10;
     const baseFlatness = 0;
-    const displacement = tight ? 1.5 : 60;
-    const borderOffset = tight ? 1 : 60;
+    const displacement = tight ? 34 : 60;
+    const borderOffset = tight ? 24 : 60;
     const updateSize = () => {
       const rect = container.getBoundingClientRect();
       const width = rect.width + borderOffset * 2;
@@ -223,7 +225,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
       ctx.scale(dpr, dpr);
 
       ctx.strokeStyle = color;
-      ctx.lineWidth = 1;
+      ctx.lineWidth = thickness;
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
 
@@ -299,7 +301,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
       }
       resizeObserver.disconnect();
     };
-  }, [color, speed, chaos, borderRadius, tight, octavedNoise, getRoundedRectPoint]);
+  }, [color, speed, chaos, thickness, borderRadius, tight, octavedNoise, getRoundedRectPoint]);
 
   return (
     <div
@@ -312,13 +314,30 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
       </div>
       <div className="absolute rounded-[inherit] pointer-events-none z-0" style={{ inset: borderInset }}>
         {tight ? (
-          <div
-            className="absolute -inset-1 rounded-[inherit] pointer-events-none opacity-45"
-            style={{
-              filter: 'blur(10px)',
-              background: hexToRgba(color, 0.34)
-            }}
-          />
+          <>
+            <div
+              className="absolute inset-0 rounded-[inherit] pointer-events-none"
+              style={{
+                border: `${Math.max(1, thickness)}px solid ${hexToRgba(color, 0.55)}`,
+                filter: 'blur(0.75px)'
+              }}
+            />
+            <div
+              className="absolute inset-0 rounded-[inherit] pointer-events-none"
+              style={{
+                border: `${Math.max(1, thickness)}px solid ${color}`,
+                filter: 'blur(2.5px)',
+                opacity: 0.72
+              }}
+            />
+            <div
+              className="absolute -inset-2 rounded-[inherit] pointer-events-none opacity-55"
+              style={{
+                filter: 'blur(14px)',
+                background: `linear-gradient(-30deg, ${hexToRgba(color, 0.54)}, transparent, ${hexToRgba(color, 0.5)})`
+              }}
+            />
+          </>
         ) : (
           <>
             <div

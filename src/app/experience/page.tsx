@@ -66,13 +66,15 @@ export default function ExperiencePage() {
         <div className="relative mt-20 pb-36 md:pb-44">
           <div className="absolute bottom-32 left-[0.55rem] top-0 z-0 w-2 md:bottom-40 md:left-1/2 md:w-3 md:-translate-x-1/2">
             <ElectricBorder
-              color="#60a5fa"
-              speed={1.9}
-              chaos={0.08}
+              color="#2f6fed"
+              speed={0.78}
+              chaos={0.068}
+              thickness={2}
               borderRadius={999}
+              tight
               className="h-full w-full rounded-full opacity-90"
             >
-              <div className="mx-auto h-full w-px rounded-full bg-gradient-to-b from-cobalt/0 via-sky-300 to-cobalt/0 shadow-[0_0_14px_rgba(96,165,250,0.46)] md:w-[2px] md:shadow-[0_0_22px_rgba(96,165,250,0.56)]" />
+              <div className="mx-auto h-full w-px rounded-full bg-gradient-to-b from-cobalt/0 via-[#8db7ff] to-cobalt/0 shadow-[0_0_14px_rgba(47,111,237,0.5)] md:w-[2px] md:shadow-[0_0_22px_rgba(47,111,237,0.58)]" />
             </ElectricBorder>
           </div>
 

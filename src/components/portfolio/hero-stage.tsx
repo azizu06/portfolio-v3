@@ -87,13 +87,15 @@ export function HeroStage({ name }: HeroStageProps) {
         <FadeContent blur duration={900} threshold={0.02}>
           <div className="relative">
             <ElectricBorder
-              color="#f8fbff"
-              speed={0.78}
-              chaos={0.052}
+              color="#2f6fed"
+              speed={0.82}
+              chaos={0.085}
+              thickness={2}
               borderRadius={9999}
-              className="rounded-full"
+              tight
+              className="rounded-full opacity-100"
             >
-              <div className="relative size-[min(18.5rem,76vw)] overflow-hidden rounded-full border border-ice/18 bg-navy/64 p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl sm:size-[min(22rem,78vw)] md:size-[27rem] lg:size-[30rem]">
+              <div className="relative size-[min(18.5rem,76vw)] overflow-hidden rounded-full border border-sky-100/24 bg-navy/28 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl sm:size-[min(22rem,78vw)] md:size-[27rem] lg:size-[30rem]">
                 <div className="relative h-full w-full overflow-hidden rounded-full bg-ice/8">
                   <Image
                     src="/assets/aziz-headshot.jpeg"
