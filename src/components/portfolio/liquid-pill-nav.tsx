@@ -3,6 +3,12 @@
 import { useEffect, useRef, useState, type ComponentType, type MouseEvent, type SVGProps } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  BriefcaseBusinessIcon,
+  CodeXmlIcon,
+  MonitorIcon,
+  UserRoundIcon,
+} from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import PillNav from "@/components/PillNav";
 import { navItems, profile } from "@/data/profile";
@@ -20,6 +26,26 @@ type SocialNavItem = {
   iconClassName?: string;
   external?: boolean;
 };
+
+function MobileSectionIcon({ label }: { label: string }) {
+  const iconClassName = "size-5 stroke-current stroke-[2]";
+
+  if (label === "About") {
+    return <UserRoundIcon className={iconClassName} aria-hidden="true" />;
+  }
+
+  if (label === "Experience") {
+    return (
+      <BriefcaseBusinessIcon className={iconClassName} aria-hidden="true" />
+    );
+  }
+
+  if (label === "Projects") {
+    return <MonitorIcon className={iconClassName} aria-hidden="true" />;
+  }
+
+  return <CodeXmlIcon className={iconClassName} aria-hidden="true" />;
+}
 
 function GitHubBrandIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -293,7 +319,7 @@ export function LiquidPillNav({
                       onPointerCancel={() => setPressedNavHref(null)}
                       onClick={(event) => handleMobileNavSelect(event, item)}
                       className={[
-                        "touch-manipulation select-none px-4 py-1 text-center text-xl font-semibold tracking-[-0.01em] text-white transition-[transform,color,text-shadow] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.96]",
+                        "inline-flex touch-manipulation select-none items-center gap-3 px-4 py-1 text-center text-xl font-semibold tracking-[-0.01em] text-white transition-[transform,color,text-shadow] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.96]",
                         isPressed
                           ? "scale-[0.96] text-white [text-shadow:0_0_20px_rgba(234,242,255,0.34)]"
                         : isActive
@@ -304,7 +330,8 @@ export function LiquidPillNav({
                         animation: `mobile-menu-item-in 440ms cubic-bezier(0.32,0.72,0,1) ${index * 55}ms both`,
                       }}
                     >
-                      {item.label}
+                      <MobileSectionIcon label={item.label} />
+                      <span>{item.label}</span>
                     </Link>
                   );
                 })}
@@ -325,13 +352,13 @@ export function LiquidPillNav({
                     <Link
                       key={item.label}
                       href={item.href}
+                      aria-label={item.label}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noreferrer" : undefined}
-                      className="flex items-center gap-2 text-sm font-semibold text-ice/78 transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:text-white active:scale-[0.96]"
+                      className="grid size-9 place-items-center text-ice/78 transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:text-white active:scale-[0.94]"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <Icon className="size-4 fill-current" />
-                      <span>{item.label}</span>
+                      <Icon className="size-6 fill-current" />
                     </Link>
                   );
                 })}
