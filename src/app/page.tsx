@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
 import { AboutPageContent } from "@/components/portfolio/about-page-content";
 import { ResponsiveHome } from "@/components/portfolio/responsive-home";
 
@@ -33,17 +31,6 @@ export const metadata: Metadata = {
   },
 };
 
-const mobileUserAgentPattern =
-  /Android|BlackBerry|iPad|iPhone|iPod|IEMobile|Mobile|Opera Mini|webOS|Windows Phone/i;
-
-export default async function Home() {
-  const userAgent = (await headers()).get("user-agent") ?? "";
-
-  if (mobileUserAgentPattern.test(userAgent)) {
-    redirect("/about");
-  }
-
-  return (
-    <ResponsiveHome mobile={<AboutPageContent />} mobileRedirectPath="/about" />
-  );
+export default function Home() {
+  return <ResponsiveHome mobile={<AboutPageContent />} />;
 }

@@ -3,7 +3,9 @@
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/navigation";
+
+const desktopLabMediaQuery =
+  "(min-width: 1100px) and (hover: hover) and (pointer: fine)";
 
 const DesktopLabHome = dynamic(
   () =>
@@ -24,33 +26,20 @@ const DesktopLabHome = dynamic(
 
 type ResponsiveHomeProps = {
   mobile: ReactNode;
-  mobileRedirectPath?: string;
 };
 
-export function ResponsiveHome({
-  mobile,
-  mobileRedirectPath,
-}: ResponsiveHomeProps) {
-  const router = useRouter();
+export function ResponsiveHome({ mobile }: ResponsiveHomeProps) {
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 768px)");
-    const syncViewport = () => {
-      const isDesktopViewport = mediaQuery.matches;
-
-      setIsDesktop(isDesktopViewport);
-
-      if (!isDesktopViewport && mobileRedirectPath) {
-        router.replace(mobileRedirectPath);
-      }
-    };
+    const mediaQuery = window.matchMedia(desktopLabMediaQuery);
+    const syncViewport = () => setIsDesktop(mediaQuery.matches);
 
     syncViewport();
     mediaQuery.addEventListener("change", syncViewport);
 
     return () => mediaQuery.removeEventListener("change", syncViewport);
-  }, [mobileRedirectPath, router]);
+  }, []);
 
   if (isDesktop) {
     return <DesktopLabHome />;
