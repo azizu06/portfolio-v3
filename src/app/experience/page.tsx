@@ -46,7 +46,7 @@ const accentStyles = {
 };
 
 const experienceMediaClass =
-  "!bottom-auto !left-1/2 !right-auto !top-1/2 !h-[82%] !w-[92%] !-translate-x-1/2 !-translate-y-1/2 object-contain object-center sm:!inset-0 sm:!h-full sm:!w-full sm:!translate-x-0 sm:!translate-y-0 sm:object-cover";
+  "object-cover object-center";
 const transparentExperienceMediaClass =
   "!bottom-auto !left-1/2 !right-auto !top-[44%] !h-[72%] !w-[88%] !-translate-x-1/2 !-translate-y-1/2 object-contain object-center drop-shadow-[0_18px_34px_rgba(47,111,237,0.24)] sm:!inset-0 sm:!h-full sm:!w-full sm:!translate-x-0 sm:!translate-y-0 sm:p-10 sm:pb-28";
 
@@ -143,7 +143,7 @@ export default function ExperiencePage() {
                       >
                         <Card className="overflow-hidden rounded-[inherit] border-ice/10 bg-navy/76 py-0 shadow-none ring-1 ring-ice/8">
                           <div
-                            className={`relative aspect-[16/9] min-h-[18rem] overflow-hidden px-5 py-8 sm:min-h-[22rem] sm:px-9 sm:py-10 ${
+                            className={`relative aspect-[16/9] overflow-hidden px-5 py-8 sm:min-h-[22rem] sm:px-9 sm:py-10 ${
                               hasTransparentImage
                                 ? "bg-transparent"
                                 : `bg-gradient-to-br ${accent.header}`

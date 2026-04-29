@@ -149,7 +149,7 @@ export function ProjectSpotlightCard({
         <Card className="flex h-full min-w-0 flex-col overflow-hidden rounded-[inherit] border-ice/10 bg-navy/76 py-0 shadow-none ring-1 ring-ice/8 outline outline-1 outline-ice/12">
           <div
             ref={articleRef}
-            className="relative aspect-[16/9] min-h-[18rem] shrink-0 overflow-hidden bg-[#061427] px-5 py-8 sm:min-h-[22rem] sm:px-9 sm:py-10"
+            className="relative aspect-[16/9] shrink-0 overflow-hidden bg-[#061427] px-5 py-8 sm:min-h-[22rem] sm:px-9 sm:py-10"
           >
             {project.previewVideo ? (
               <>
