@@ -7,7 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 const siteUrl = "https://azizu.dev";
-const ogImageUrl = `${siteUrl}/og-image.png`;
+const ogImageUrl = `${siteUrl}/og-image.jpg`;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,8 +35,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: ogImageUrl,
-        width: 1200,
-        height: 630,
+        width: 2400,
+        height: 1260,
+        type: "image/jpeg",
         alt: "Aziz Umarov portfolio preview",
       },
     ],

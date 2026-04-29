@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { HomeModelStage } from "@/components/portfolio/home-model-stage";
 
 const siteUrl = "https://azizu.dev";
-const ogImageUrl = `${siteUrl}/og-image.png`;
+const ogImageUrl = `${siteUrl}/og-image.jpg`;
 
 export const metadata: Metadata = {
   title: {
@@ -15,8 +15,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: ogImageUrl,
-        width: 1200,
-        height: 630,
+        width: 2400,
+        height: 1260,
+        type: "image/jpeg",
         alt: "Aziz Umarov portfolio preview",
       },
     ],
