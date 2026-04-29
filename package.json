@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "engines": {
+    "node": "24.x"
+  },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
     "@gsap/react": "^2.1.2",
