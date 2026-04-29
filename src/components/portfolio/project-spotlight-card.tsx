@@ -132,6 +132,10 @@ export function ProjectSpotlightCard({
   const visibleTechnologyCount = useVisibleTechnologyCount();
   const visibleTechnologies = project.technologies.slice(0, visibleTechnologyCount);
   const hiddenTechnologyCount = project.technologies.length - visibleTechnologies.length;
+  const previewMediaClass =
+    "!bottom-auto !left-1/2 !right-auto !top-1/2 !h-[84%] !w-[92%] !-translate-x-1/2 !-translate-y-1/2 object-contain object-center sm:!inset-0 sm:!h-full sm:!w-full sm:!translate-x-0 sm:!translate-y-0 sm:object-cover";
+  const modalMediaClass =
+    "!bottom-auto !left-1/2 !right-auto !top-1/2 !h-[88%] !w-[94%] !-translate-x-1/2 !-translate-y-1/2 object-contain object-center sm:!inset-0 sm:!h-full sm:!w-full sm:!translate-x-0 sm:!translate-y-0 sm:object-cover";
 
   return (
     <>
@@ -158,7 +162,7 @@ export function ProjectSpotlightCard({
                     fill
                     priority={priority}
                     sizes="(min-width: 1280px) 44vw, (min-width: 768px) 86vw, 100vw"
-                    className="object-contain object-center sm:object-cover"
+                    className={previewMediaClass}
                   />
                 ) : null}
                 <video
@@ -172,7 +176,7 @@ export function ProjectSpotlightCard({
                   preload="none"
                   onLoadedData={handleMediaLoaded}
                   aria-label={`${project.title} interaction preview`}
-                  className="absolute inset-0 h-full w-full object-contain object-center opacity-100 sm:object-cover"
+                  className={`absolute ${previewMediaClass} opacity-100`}
                 />
               </>
             ) : project.image ? (
@@ -182,7 +186,7 @@ export function ProjectSpotlightCard({
                 fill
                 priority={priority}
                 sizes="(min-width: 1280px) 44vw, (min-width: 768px) 86vw, 100vw"
-                className="object-contain object-center sm:object-cover"
+                className={previewMediaClass}
               />
             ) : (
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(47,111,237,0.55),transparent_18rem),linear-gradient(135deg,#061427,#123e7a)]" />
@@ -302,7 +306,7 @@ export function ProjectSpotlightCard({
                   playsInline
                   preload="metadata"
                   aria-label={`${project.title} expanded preview`}
-                  className="absolute inset-0 h-full w-full object-contain object-center sm:object-cover"
+                  className={`absolute ${modalMediaClass}`}
                 />
               ) : project.image ? (
                 <Image
@@ -310,7 +314,7 @@ export function ProjectSpotlightCard({
                   alt={`${project.title} preview`}
                   fill
                   sizes="(min-width: 1024px) 48vw, 100vw"
-                  className="object-contain object-center sm:object-cover"
+                  className={modalMediaClass}
                 />
               ) : (
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(47,111,237,0.55),transparent_18rem),linear-gradient(135deg,#061427,#123e7a)]" />

@@ -45,6 +45,11 @@ const accentStyles = {
   },
 };
 
+const experienceMediaClass =
+  "!bottom-auto !left-1/2 !right-auto !top-1/2 !h-[82%] !w-[92%] !-translate-x-1/2 !-translate-y-1/2 object-contain object-center sm:!inset-0 sm:!h-full sm:!w-full sm:!translate-x-0 sm:!translate-y-0 sm:object-cover";
+const transparentExperienceMediaClass =
+  "!bottom-auto !left-1/2 !right-auto !top-[44%] !h-[72%] !w-[88%] !-translate-x-1/2 !-translate-y-1/2 object-contain object-center drop-shadow-[0_18px_34px_rgba(47,111,237,0.24)] sm:!inset-0 sm:!h-full sm:!w-full sm:!translate-x-0 sm:!translate-y-0 sm:p-10 sm:pb-28";
+
 export default function ExperiencePage() {
   return (
     <PageShell
@@ -152,8 +157,8 @@ export default function ExperiencePage() {
                                 sizes="(min-width: 768px) 44vw, 100vw"
                                 className={
                                   hasTransparentImage
-                                    ? "object-contain p-6 pb-28 drop-shadow-[0_18px_34px_rgba(47,111,237,0.24)] sm:p-10 sm:pb-28"
-                                    : "object-contain object-center sm:object-cover"
+                                    ? transparentExperienceMediaClass
+                                    : experienceMediaClass
                                 }
                               />
                             ) : null}
