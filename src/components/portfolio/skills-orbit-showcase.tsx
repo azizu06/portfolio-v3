@@ -95,21 +95,23 @@ export function SkillsOrbitShowcase() {
         </FadeContent>
 
         <FadeContent blur duration={1000} delay={120} threshold={0.12}>
-          <div className="relative mx-auto mt-5 h-[19rem] w-full max-w-[23rem] overflow-visible md:hidden">
+          <div className="relative mx-auto mt-8 w-full max-w-[20rem] overflow-visible md:hidden">
             <OrbitImages
               images={orbitImages}
               imageLabels={orbitLabels}
               altPrefix="Skill"
               shape="ellipse"
               baseWidth={1100}
-              radiusX={540}
-              radiusY={185}
-              rotation={-9}
+              radiusX={210}
+              radiusY={510}
+              rotation={-3}
               duration={54}
-              itemSize={54}
+              itemSize={68}
               pauseOnHover
               responsive
-              className="-translate-y-[4.5rem]"
+              responsiveScaleAxis="height"
+              responsiveAspectRatio="1 / 1.72"
+              className="-translate-y-4"
             />
           </div>
 

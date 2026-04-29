@@ -152,8 +152,8 @@ export default function ExperiencePage() {
                                 sizes="(min-width: 768px) 44vw, 100vw"
                                 className={
                                   hasTransparentImage
-                                    ? "object-contain p-8 pb-28 drop-shadow-[0_18px_34px_rgba(47,111,237,0.24)] sm:p-10 sm:pb-28"
-                                    : "object-cover"
+                                    ? "object-contain p-6 pb-28 drop-shadow-[0_18px_34px_rgba(47,111,237,0.24)] sm:p-10 sm:pb-28"
+                                    : "object-contain object-center sm:object-cover"
                                 }
                               />
                             ) : null}

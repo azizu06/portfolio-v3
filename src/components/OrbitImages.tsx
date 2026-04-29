@@ -58,6 +58,8 @@ interface OrbitImagesProps {
   pauseOnHover?: boolean;
   centerContent?: ReactNode;
   responsive?: boolean;
+  responsiveScaleAxis?: "width" | "height";
+  responsiveAspectRatio?: string;
 }
 
 interface OrbitItemProps {
@@ -285,6 +287,8 @@ export default function OrbitImages({
   pauseOnHover = false,
   centerContent,
   responsive = false,
+  responsiveScaleAxis = "width",
+  responsiveAspectRatio = "1 / 1",
 }: OrbitImagesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
@@ -342,7 +346,11 @@ export default function OrbitImages({
 
     const updateScale = () => {
       if (!containerRef.current) return;
-      setScale(containerRef.current.clientWidth / baseWidth);
+      const dimension =
+        responsiveScaleAxis === "height"
+          ? containerRef.current.clientHeight
+          : containerRef.current.clientWidth;
+      setScale(dimension / baseWidth);
     };
 
     updateScale();
@@ -350,7 +358,7 @@ export default function OrbitImages({
     observer.observe(containerRef.current);
 
     return () => observer.disconnect();
-  }, [responsive, baseWidth]);
+  }, [responsive, baseWidth, responsiveScaleAxis]);
 
   const progress = useMotionValue(0);
   const isAnimationPaused = paused || (pauseOnHover && isItemHovered);
@@ -440,7 +448,7 @@ export default function OrbitImages({
       style={{
         width: containerWidth,
         height: containerHeight,
-        aspectRatio: responsive ? "1 / 1" : undefined,
+        aspectRatio: responsive ? responsiveAspectRatio : undefined,
       }}
       aria-hidden="true"
     >

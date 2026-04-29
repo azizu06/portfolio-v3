@@ -147,7 +147,7 @@ export function ProjectSpotlightCard({
         <Card className="flex h-full min-w-0 flex-col overflow-hidden rounded-[inherit] border-ice/10 bg-navy/76 py-0 shadow-none ring-1 ring-ice/8 outline outline-1 outline-ice/12">
           <div
             ref={articleRef}
-            className="relative aspect-[16/9] min-h-[18rem] shrink-0 overflow-hidden px-5 py-8 sm:min-h-[22rem] sm:px-9 sm:py-10"
+            className="relative aspect-[16/9] min-h-[18rem] shrink-0 overflow-hidden bg-[#061427] px-5 py-8 sm:min-h-[22rem] sm:px-9 sm:py-10"
           >
             {project.previewVideo ? (
               <>
@@ -158,7 +158,7 @@ export function ProjectSpotlightCard({
                     fill
                     priority={priority}
                     sizes="(min-width: 1280px) 44vw, (min-width: 768px) 86vw, 100vw"
-                    className="object-cover object-center"
+                    className="object-contain object-center sm:object-cover"
                   />
                 ) : null}
                 <video
@@ -172,7 +172,7 @@ export function ProjectSpotlightCard({
                   preload="none"
                   onLoadedData={handleMediaLoaded}
                   aria-label={`${project.title} interaction preview`}
-                  className="absolute inset-0 h-full w-full object-cover object-center opacity-100"
+                  className="absolute inset-0 h-full w-full object-contain object-center opacity-100 sm:object-cover"
                 />
               </>
             ) : project.image ? (
@@ -182,7 +182,7 @@ export function ProjectSpotlightCard({
                 fill
                 priority={priority}
                 sizes="(min-width: 1280px) 44vw, (min-width: 768px) 86vw, 100vw"
-                className="object-cover object-center"
+                className="object-contain object-center sm:object-cover"
               />
             ) : (
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(47,111,237,0.55),transparent_18rem),linear-gradient(135deg,#061427,#123e7a)]" />
@@ -302,7 +302,7 @@ export function ProjectSpotlightCard({
                   playsInline
                   preload="metadata"
                   aria-label={`${project.title} expanded preview`}
-                  className="absolute inset-0 h-full w-full object-cover object-center"
+                  className="absolute inset-0 h-full w-full object-contain object-center sm:object-cover"
                 />
               ) : project.image ? (
                 <Image
@@ -310,7 +310,7 @@ export function ProjectSpotlightCard({
                   alt={`${project.title} preview`}
                   fill
                   sizes="(min-width: 1024px) 48vw, 100vw"
-                  className="object-cover object-center"
+                  className="object-contain object-center sm:object-cover"
                 />
               ) : (
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(47,111,237,0.55),transparent_18rem),linear-gradient(135deg,#061427,#123e7a)]" />
