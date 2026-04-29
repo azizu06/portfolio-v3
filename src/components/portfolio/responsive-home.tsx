@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 const desktopLabMediaQuery =
-  "(min-width: 1100px) and (hover: hover) and (pointer: fine)";
+  "(min-width: 1280px) and (min-height: 720px) and (hover: hover) and (pointer: fine)";
 
 const DesktopLabHome = dynamic(
   () =>
