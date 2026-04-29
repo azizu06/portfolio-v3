@@ -6,6 +6,9 @@ import { PageTransition } from "@/components/portfolio/page-transition";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
+const siteUrl = "https://azizu.dev";
+const ogImageUrl = `${siteUrl}/og-image.png`;
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -17,20 +20,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://azizu.dev"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Home | Aziz Umarov",
     template: "%s | Aziz Umarov",
   },
-  description:
-    "The portfolio of Aziz Umarov, a UCF computer science student building research, full-stack, and product-focused software.",
+  description: "Software Engineer · Full-Stack Developer",
   openGraph: {
-    title: "Home | Aziz Umarov",
-    description:
-      "Selected experience, projects, and research work from Aziz Umarov.",
-    url: "https://azizu.dev",
+    title: "Aziz Umarov | Portfolio",
+    description: "Software Engineer · Full-Stack Developer",
+    url: siteUrl,
     siteName: "azizu.dev",
     type: "website",
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: "Aziz Umarov portfolio preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aziz Umarov | Portfolio",
+    description: "Software Engineer · Full-Stack Developer",
+    images: [ogImageUrl],
   },
 };
 
