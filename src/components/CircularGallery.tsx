@@ -19,6 +19,7 @@ type CircularGalleryProps = {
   scrollSpeed?: number;
   scrollEase?: number;
   touchSensitivity?: number;
+  desktopSensitivity?: number;
 };
 
 type ScreenSize = {
@@ -488,6 +489,7 @@ class CircularGalleryApp {
   private font: string;
   private scrollSpeed: number;
   private touchSensitivity: number;
+  private desktopSensitivity: number;
   private scroll: ScrollState;
   private renderer!: Renderer;
   private gl!: OGLRenderingContext;
@@ -514,6 +516,7 @@ class CircularGalleryApp {
       scrollSpeed = 2,
       scrollEase = 0.05,
       touchSensitivity = 1,
+      desktopSensitivity = 0.72,
     }: CircularGalleryProps = {},
   ) {
     this.container = container;
@@ -524,6 +527,7 @@ class CircularGalleryApp {
     this.font = font;
     this.scrollSpeed = scrollSpeed;
     this.touchSensitivity = touchSensitivity;
+    this.desktopSensitivity = desktopSensitivity;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
 
@@ -626,8 +630,10 @@ class CircularGalleryApp {
 
     const x =
       "touches" in event ? event.touches[0]?.clientX ?? 0 : event.clientX;
+    const inputSensitivity =
+      event instanceof MouseEvent ? this.desktopSensitivity : this.touchSensitivity;
     const distance =
-      (this.start - x) * (this.scrollSpeed * 0.025 * this.touchSensitivity);
+      (this.start - x) * (this.scrollSpeed * 0.025 * inputSensitivity);
     this.scroll.target = (this.scroll.position ?? 0) + distance;
   };
 
@@ -652,7 +658,9 @@ class CircularGalleryApp {
   onWheel = (event: WheelEvent) => {
     const delta = event.deltaY || event.detail;
     this.scroll.target +=
-      (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
+      (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) *
+      0.2 *
+      this.desktopSensitivity;
     this.onCheckDebounce();
   };
 
@@ -745,6 +753,7 @@ export default function CircularGallery({
   scrollSpeed = 2,
   scrollEase = 0.05,
   touchSensitivity = 1,
+  desktopSensitivity = 0.72,
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -760,6 +769,7 @@ export default function CircularGallery({
       scrollSpeed,
       scrollEase,
       touchSensitivity,
+      desktopSensitivity,
     });
 
     return () => app.destroy();
@@ -772,6 +782,7 @@ export default function CircularGallery({
     scrollSpeed,
     scrollEase,
     touchSensitivity,
+    desktopSensitivity,
   ]);
 
   return <div className={styles.circularGallery} ref={containerRef} />;

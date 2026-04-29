@@ -87,6 +87,7 @@ export function AboutPageContent() {
                 scrollEase={0.03}
                 scrollSpeed={1.35}
                 touchSensitivity={1.85}
+                desktopSensitivity={0.58}
                 textColor="#f8fbff"
                 font="900 92px Geist, sans-serif"
               />
