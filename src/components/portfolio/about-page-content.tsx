@@ -86,6 +86,7 @@ export function AboutPageContent() {
                 borderRadius={0.055}
                 scrollEase={0.03}
                 scrollSpeed={1.35}
+                touchSensitivity={1.85}
                 textColor="#f8fbff"
                 font="900 92px Geist, sans-serif"
               />

@@ -18,6 +18,7 @@ type CircularGalleryProps = {
   font?: string;
   scrollSpeed?: number;
   scrollEase?: number;
+  touchSensitivity?: number;
 };
 
 type ScreenSize = {
@@ -486,6 +487,7 @@ class CircularGalleryApp {
   private borderRadius: number;
   private font: string;
   private scrollSpeed: number;
+  private touchSensitivity: number;
   private scroll: ScrollState;
   private renderer!: Renderer;
   private gl!: OGLRenderingContext;
@@ -511,6 +513,7 @@ class CircularGalleryApp {
       font = "600 30px Geist, sans-serif",
       scrollSpeed = 2,
       scrollEase = 0.05,
+      touchSensitivity = 1,
     }: CircularGalleryProps = {},
   ) {
     this.container = container;
@@ -520,6 +523,7 @@ class CircularGalleryApp {
     this.borderRadius = borderRadius;
     this.font = font;
     this.scrollSpeed = scrollSpeed;
+    this.touchSensitivity = touchSensitivity;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
 
@@ -622,7 +626,8 @@ class CircularGalleryApp {
 
     const x =
       "touches" in event ? event.touches[0]?.clientX ?? 0 : event.clientX;
-    const distance = (this.start - x) * (this.scrollSpeed * 0.025);
+    const distance =
+      (this.start - x) * (this.scrollSpeed * 0.025 * this.touchSensitivity);
     this.scroll.target = (this.scroll.position ?? 0) + distance;
   };
 
@@ -739,6 +744,7 @@ export default function CircularGallery({
   font = "600 30px Geist, sans-serif",
   scrollSpeed = 2,
   scrollEase = 0.05,
+  touchSensitivity = 1,
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -753,10 +759,20 @@ export default function CircularGallery({
       font,
       scrollSpeed,
       scrollEase,
+      touchSensitivity,
     });
 
     return () => app.destroy();
-  }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
+  }, [
+    items,
+    bend,
+    textColor,
+    borderRadius,
+    font,
+    scrollSpeed,
+    scrollEase,
+    touchSensitivity,
+  ]);
 
   return <div className={styles.circularGallery} ref={containerRef} />;
 }

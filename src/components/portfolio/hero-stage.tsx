@@ -78,7 +78,7 @@ export function HeroStage({ name }: HeroStageProps) {
       <LiquidPillNav />
 
       <div
-        className={`mx-auto flex min-h-[calc(100dvh-5rem)] max-w-5xl flex-col items-center justify-start pb-32 pt-16 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] sm:pt-20 md:pb-36 md:pt-24 lg:pb-40 lg:pt-28 ${
+        className={`mx-auto flex min-h-[calc(100dvh-5rem)] max-w-5xl flex-col items-center justify-start pb-32 pt-24 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] sm:pt-20 md:pb-36 md:pt-24 lg:pb-40 lg:pt-28 ${
           isScrollingToMore
             ? "-translate-y-8 opacity-0 blur-sm"
             : "translate-y-0 opacity-100 blur-0"

@@ -201,7 +201,7 @@ export function LiquidPillNav({
     <>
       <nav
         className={[
-          "fixed left-1/2 top-6 z-40 grid min-h-[4.5rem] w-[calc(100%-2.5rem)] grid-cols-[auto_1fr_auto] items-center gap-2 rounded-full border border-ice/18 bg-ice/[0.07] px-3 py-3 shadow-[inset_0_1px_0_rgba(234,242,255,0.2),inset_0_-1px_0_rgba(47,111,237,0.18),0_24px_90px_rgba(0,0,0,0.36),0_0_0_1px_rgba(47,111,237,0.2)] backdrop-blur-2xl transition-[opacity,filter,transform] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform sm:gap-4 sm:px-4 md:min-h-[4.25rem] md:grid-cols-[1fr_auto_1fr] md:px-4 md:py-2",
+          "fixed left-1/2 top-6 z-40 grid min-h-[3.7rem] w-[calc(100%-2.5rem)] grid-cols-[auto_1fr_auto] items-center gap-2 rounded-full border border-ice/18 bg-ice/[0.07] px-4 py-2 shadow-[inset_0_1px_0_rgba(234,242,255,0.2),inset_0_-1px_0_rgba(47,111,237,0.18),0_24px_90px_rgba(0,0,0,0.36),0_0_0_1px_rgba(47,111,237,0.2)] backdrop-blur-2xl transition-[opacity,filter,transform] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform sm:min-h-[4.1rem] sm:gap-4 sm:px-4 md:min-h-[4.25rem] md:grid-cols-[1fr_auto_1fr] md:px-4",
           navHidden && !mobileMenuOpen
             ? "pointer-events-none opacity-0 blur-sm"
             : "opacity-100 blur-0",
@@ -219,7 +219,7 @@ export function LiquidPillNav({
         <Link
           href="/"
           aria-label="Aziz Umarov home"
-          className="flex h-8 w-11 shrink-0 items-center justify-center justify-self-start overflow-visible p-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105 sm:h-9 sm:w-14 md:h-8 md:w-12"
+          className="flex h-7 w-10 shrink-0 items-center justify-center justify-self-start overflow-visible p-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105 sm:h-9 sm:w-14 md:h-8 md:w-12"
           onClick={handleLogoClick}
         >
           <Image
@@ -252,7 +252,7 @@ export function LiquidPillNav({
                   setNavHidden(false);
                   setMobileMenuOpen((current) => !current);
                 }}
-                className="group relative ml-1 grid size-11 shrink-0 place-items-center rounded-full border border-ice/14 bg-ice/[0.06] text-ice shadow-[inset_0_1px_0_rgba(234,242,255,0.18)] transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] sm:size-12 md:hidden"
+                className="group relative ml-1 grid size-10 shrink-0 place-items-center rounded-full border border-ice/14 bg-ice/[0.06] text-ice shadow-[inset_0_1px_0_rgba(234,242,255,0.18)] transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] sm:size-12 md:hidden"
               >
                 <span className="sr-only">
                   {mobileMenuOpen ? "Close navigation" : "Open navigation"}
