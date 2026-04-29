@@ -209,16 +209,19 @@ class Title {
     cardHeight,
     rotation,
     titleOffset,
+    renderOrder,
   }: {
     x: number;
     y: number;
     cardHeight: number;
     rotation: number;
     titleOffset: number;
+    renderOrder: number;
   }) {
     this.mesh.position.x = x;
     this.mesh.position.y = y - cardHeight / 2 - titleOffset;
     this.mesh.rotation.z = rotation;
+    this.mesh.renderOrder = renderOrder + 1;
   }
 }
 
@@ -415,6 +418,11 @@ class Media {
     const isHovered = this.containsPointer(pointer);
     const targetScale = isHovered ? 1.055 : 1;
     this.hoverScale = lerp(this.hoverScale, targetScale, 0.12);
+    const centerProminence = Math.max(
+      0,
+      10000 - Math.round(Math.abs(this.plane.position.x) * 1000),
+    );
+    this.plane.renderOrder = centerProminence;
     this.plane.scale.set(
       this.baseScaleX * this.hoverScale,
       this.baseScaleY * this.hoverScale,
@@ -426,6 +434,7 @@ class Media {
       cardHeight: this.baseScaleY * this.hoverScale,
       rotation: this.plane.rotation.z,
       titleOffset: this.titleOffset,
+      renderOrder: centerProminence,
     });
 
     const planeOffset = this.plane.scale.x / 2;
