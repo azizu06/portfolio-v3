@@ -1,8 +1,13 @@
+import type { Metadata } from "next";
 import FadeContent from "@/components/FadeContent";
 import GradientText from "@/components/GradientText";
 import { PageShell } from "@/components/portfolio/page-shell";
 import { ProjectSpotlightCard } from "@/components/portfolio/project-spotlight-card";
 import { projects } from "@/data/projects";
+
+export const metadata: Metadata = {
+  title: "Projects",
+};
 
 export default function ProjectsPage() {
   return (

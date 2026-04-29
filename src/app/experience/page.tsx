@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Building2, CalendarDays, Code2, MapPin } from "lucide-react";
 import ElectricBorder from "@/components/ElectricBorder";
@@ -8,6 +9,10 @@ import { PageShell } from "@/components/portfolio/page-shell";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { experiences } from "@/data/experience";
+
+export const metadata: Metadata = {
+  title: "Experience",
+};
 
 const accentStyles = {
   green: {

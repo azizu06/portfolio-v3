@@ -19,15 +19,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://azizu.dev"),
   title: {
-    default: "azizu.dev",
-    template: "%s | azizu.dev",
+    default: "Home | Aziz Umarov",
+    template: "%s | Aziz Umarov",
   },
   description:
-    "The portfolio of Abduaziz Umarov, a UCF computer science student building research, full-stack, and product-focused software.",
+    "The portfolio of Aziz Umarov, a UCF computer science student building research, full-stack, and product-focused software.",
   openGraph: {
-    title: "azizu.dev",
+    title: "Home | Aziz Umarov",
     description:
-      "Selected experience, projects, and research work from Abduaziz Umarov.",
+      "Selected experience, projects, and research work from Aziz Umarov.",
     url: "https://azizu.dev",
     siteName: "azizu.dev",
     type: "website",

@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import FadeContent from "@/components/FadeContent";
 import { RouteHeader } from "@/components/portfolio/route-header";
 import { SkillsOrbitShowcase } from "@/components/portfolio/skills-orbit-showcase";
+
+export const metadata: Metadata = {
+  title: "Skills",
+};
 
 export default function SkillsPage() {
   return (
