@@ -1,7 +1,6 @@
 import {
   ArrowUpRightIcon,
   CodeXmlIcon,
-  FileTextIcon,
   LinkIcon,
 } from "lucide-react";
 
@@ -13,7 +12,6 @@ export const profile = {
   headline: "UCF CS student, ISUE Lab researcher, Knight Hacks developer.",
   summary:
     "A UCF computer science student with a 4.0 GPA, research experience in AI-assisted speech feedback, and hackathon work recognized at Hacklytics 2026.",
-  resumeHref: "/assets/resume.pdf",
   links: [
     {
       label: "GitHub",
@@ -24,11 +22,6 @@ export const profile = {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/abduaziz-umarov/",
       icon: LinkIcon,
-    },
-    {
-      label: "Resume",
-      href: "/assets/resume.pdf",
-      icon: FileTextIcon,
     },
     {
       label: "Live projects",

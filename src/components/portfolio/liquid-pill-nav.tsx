@@ -52,13 +52,6 @@ const socialNavItems: SocialNavItem[] = [
     iconClassName: "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
     external: true,
   },
-  {
-    label: "Resume",
-    href: profile.resumeHref,
-    icon: profile.links.find((link) => link.label === "Resume")?.icon ?? (() => null),
-    iconClassName: "size-[1.32rem] fill-none stroke-current stroke-[1.7] sm:size-[1.42rem] lg:size-[1.52rem]",
-    external: true,
-  },
 ];
 
 function SocialNavLink({
