@@ -117,14 +117,22 @@ export function LiquidPillNav({
     lastScrollYRef.current = window.scrollY;
 
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      const currentScrollY =
+        window.scrollY || document.documentElement.scrollTop || 0;
       const delta = currentScrollY - lastScrollYRef.current;
 
-      if (Math.abs(delta) < 8) {
+      if (Math.abs(delta) < 4) {
         return;
       }
 
-      setNavHidden(currentScrollY > 92 && delta > 0);
+      if (delta > 0 && currentScrollY > 80) {
+        setNavHidden(true);
+      }
+
+      if (delta < 0) {
+        setNavHidden(false);
+      }
+
       lastScrollYRef.current = currentScrollY;
     };
 
@@ -167,14 +175,20 @@ export function LiquidPillNav({
     <>
       <nav
         className={[
-          "fixed inset-x-5 top-6 z-40 grid min-h-[4.5rem] grid-cols-[auto_1fr_auto] items-center gap-2 rounded-full border border-ice/18 bg-ice/[0.07] px-3 py-3 shadow-[inset_0_1px_0_rgba(234,242,255,0.2),inset_0_-1px_0_rgba(47,111,237,0.18),0_24px_90px_rgba(0,0,0,0.36),0_0_0_1px_rgba(47,111,237,0.2)] backdrop-blur-2xl transition-[transform,opacity,filter] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform sm:gap-4 sm:px-4 md:static md:inset-auto md:top-auto md:z-auto md:min-h-[4.25rem] md:grid-cols-[1fr_auto_1fr] md:px-4 md:py-2",
+          "fixed inset-x-5 top-6 z-40 grid min-h-[4.5rem] grid-cols-[auto_1fr_auto] items-center gap-2 rounded-full border border-ice/18 bg-ice/[0.07] px-3 py-3 shadow-[inset_0_1px_0_rgba(234,242,255,0.2),inset_0_-1px_0_rgba(47,111,237,0.18),0_24px_90px_rgba(0,0,0,0.36),0_0_0_1px_rgba(47,111,237,0.2)] backdrop-blur-2xl transition-[opacity,filter,transform] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform sm:gap-4 sm:px-4 md:static md:inset-auto md:top-auto md:z-auto md:min-h-[4.25rem] md:grid-cols-[1fr_auto_1fr] md:px-4 md:py-2",
           navHidden && !mobileMenuOpen
-            ? "pointer-events-none -translate-y-[calc(100%+3rem)] opacity-0 blur-sm"
-            : "translate-y-0 opacity-100 blur-0",
+            ? "pointer-events-none opacity-0 blur-sm"
+            : "opacity-100 blur-0",
           showLinks
             ? "mx-auto w-full max-w-7xl"
             : "w-fit justify-center",
         ].join(" ")}
+        style={{
+          transform:
+            navHidden && !mobileMenuOpen
+              ? "translate3d(0, calc(-100% - 3rem), 0)"
+              : "translate3d(0, 0, 0)",
+        }}
       >
         <Link
           href="/"
@@ -239,31 +253,20 @@ export function LiquidPillNav({
         ) : null}
       </nav>
 
-      {showLinks ? (
+      {showLinks && mobileMenuOpen ? (
         <div
           id="mobile-navigation-menu"
-          className={[
-            "fixed inset-0 z-50 md:hidden",
-            mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none",
-          ].join(" ")}
+          className="fixed inset-0 z-50 bg-[#061427]/92 text-ice backdrop-blur-2xl md:hidden"
           aria-hidden={!mobileMenuOpen}
         >
           <button
             type="button"
             aria-label="Close navigation"
-            className={[
-              "absolute inset-0 bg-[#061427]/86 backdrop-blur-2xl transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]",
-              mobileMenuOpen ? "opacity-100" : "opacity-0",
-            ].join(" ")}
+            className="absolute inset-0"
             onClick={() => setMobileMenuOpen(false)}
           />
           <div
-            className={[
-              "absolute inset-0 flex flex-col px-7 py-8 text-ice transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]",
-              mobileMenuOpen
-                ? "translate-y-0 opacity-100 blur-0"
-                : "-translate-y-4 opacity-0 blur-sm",
-            ].join(" ")}
+            className="relative z-10 flex min-h-dvh flex-col px-7 py-8 text-ice"
           >
             <button
               type="button"
@@ -275,7 +278,7 @@ export function LiquidPillNav({
               <span className="absolute h-px w-7 -rotate-45 rounded-full bg-current" />
             </button>
 
-            <div className="flex min-h-0 flex-1 items-center justify-center pt-10">
+            <div className="grid flex-1 place-items-center">
               <div className="flex flex-col items-center justify-center gap-8">
                 {mobileNavItems.map((item, index) => {
                   const isActive = pathname === item.href;
@@ -290,20 +293,15 @@ export function LiquidPillNav({
                       onPointerCancel={() => setPressedNavHref(null)}
                       onClick={(event) => handleMobileNavSelect(event, item)}
                       className={[
-                        "touch-manipulation select-none px-4 py-1 text-center text-[1.12rem] font-semibold tracking-[-0.01em] transition-[transform,color,opacity,text-shadow] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform active:scale-[0.96]",
+                        "touch-manipulation select-none px-4 py-1 text-center text-xl font-semibold tracking-[-0.01em] text-white transition-[transform,color,text-shadow] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.96]",
                         isPressed
                           ? "scale-[0.96] text-white [text-shadow:0_0_20px_rgba(234,242,255,0.34)]"
-                          : isActive
+                        : isActive
                           ? "text-white [text-shadow:0_0_20px_rgba(234,242,255,0.28)]"
-                          : "text-ice/82 hover:text-white",
-                        mobileMenuOpen
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-5 opacity-0",
+                          : "text-ice/86 hover:text-white",
                       ].join(" ")}
                       style={{
-                        transitionDelay: mobileMenuOpen
-                          ? `${110 + index * 65}ms`
-                          : "0ms",
+                        animation: `mobile-menu-item-in 440ms cubic-bezier(0.32,0.72,0,1) ${index * 55}ms both`,
                       }}
                     >
                       {item.label}
@@ -314,16 +312,9 @@ export function LiquidPillNav({
             </div>
 
             <div
-              className={[
-                "flex flex-col items-center gap-5 pb-7 transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]",
-                mobileMenuOpen
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-4 opacity-0",
-              ].join(" ")}
+              className="flex flex-col items-center gap-5 pb-7"
               style={{
-                transitionDelay: mobileMenuOpen
-                  ? `${190 + mobileNavItems.length * 65}ms`
-                  : "0ms",
+                animation: `mobile-menu-item-in 520ms cubic-bezier(0.32,0.72,0,1) ${mobileNavItems.length * 55}ms both`,
               }}
             >
               <div className="flex items-center justify-center gap-7">
@@ -347,6 +338,18 @@ export function LiquidPillNav({
               </div>
               <span className="h-1.5 w-14 rounded-full bg-ice/24" />
             </div>
+            <style jsx>{`
+              @keyframes mobile-menu-item-in {
+                from {
+                  opacity: 0;
+                  transform: translate3d(0, 18px, 0);
+                }
+                to {
+                  opacity: 1;
+                  transform: translate3d(0, 0, 0);
+                }
+              }
+            `}</style>
           </div>
         </div>
       ) : null}
