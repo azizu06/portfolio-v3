@@ -89,15 +89,41 @@ const FadeContent: React.FC<FadeContentProps> = ({
       ease,
     });
 
+    const playTimeline = () => {
+      if (tl.progress() === 0 && !tl.isActive()) {
+        tl.play();
+      }
+    };
+
     const st = ScrollTrigger.create({
       trigger: el,
       scroller: scrollerTarget || window,
       start: `top ${startPct}%`,
       once: true,
-      onEnter: () => tl.play(),
+      onEnter: playTimeline,
+    });
+
+    const rafId = window.requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+
+      const scrollerRect =
+        scrollerTarget instanceof Element
+          ? scrollerTarget.getBoundingClientRect()
+          : { top: 0, bottom: window.innerHeight };
+      const viewportHeight =
+        scrollerTarget instanceof Element
+          ? scrollerTarget.clientHeight
+          : window.innerHeight;
+      const rect = el.getBoundingClientRect();
+      const triggerTop = scrollerRect.top + viewportHeight * (startPct / 100);
+
+      if (rect.top <= triggerTop && rect.bottom >= scrollerRect.top) {
+        playTimeline();
+      }
     });
 
     return () => {
+      window.cancelAnimationFrame(rafId);
       st.kill();
       tl.kill();
       gsap.killTweensOf(el);

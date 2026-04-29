@@ -677,7 +677,15 @@ function LabScene() {
               <div className="absolute left-1/2 top-12 h-20 w-16 -translate-x-1/2 rounded-t-[1.4rem] border border-sky-100/38 bg-sky-100/[0.1] shadow-[inset_0_1px_0_rgba(234,242,255,0.42),0_0_24px_rgba(186,230,253,0.16)] backdrop-blur-sm" />
               <div className="absolute left-1/2 top-[7.1rem] h-3 w-24 -translate-x-1/2 rounded-full bg-sky-100/38 shadow-[inset_0_1px_0_rgba(255,255,255,0.44),0_0_22px_rgba(186,230,253,0.28)]" />
               <div className="lab-loader-glass absolute left-1/2 top-28 h-40 w-52 -translate-x-1/2 overflow-hidden border border-sky-100/40 bg-sky-100/[0.09] shadow-[inset_0_1px_0_rgba(234,242,255,0.34),inset_0_-20px_42px_rgba(96,216,255,0.1),0_0_58px_rgba(96,216,255,0.2)] backdrop-blur-md sm:h-44 sm:w-60">
-                <div className="lab-loader-liquid absolute inset-x-4 bottom-4 h-[5.85rem] overflow-hidden rounded-b-[4.2rem] bg-gradient-to-br from-[#afff5d] via-[#28e32f] to-[#10d85e] shadow-[inset_0_18px_26px_rgba(255,255,255,0.18),0_0_42px_rgba(40,227,47,0.46)] sm:h-[6.65rem]">
+                <div
+                  className="lab-loader-liquid absolute inset-x-4 bottom-4 h-[5.85rem] overflow-hidden rounded-b-[4.2rem] bg-gradient-to-br from-[#afff5d] via-[#28e32f] to-[#10d85e] shadow-[inset_0_18px_26px_rgba(255,255,255,0.18),0_0_42px_rgba(40,227,47,0.46)] sm:h-[6.65rem]"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #afff5d 0%, #28e32f 48%, #10d85e 100%)",
+                    boxShadow:
+                      "inset 0 18px 26px rgba(255,255,255,0.18), 0 0 42px rgba(40,227,47,0.46)",
+                  }}
+                >
                   <div className="lab-loader-wave absolute -left-10 -top-5 h-12 w-72 rounded-[50%] bg-white/18" />
                   <span className="lab-loader-bubble absolute left-8 top-10 size-3 rounded-full bg-white/56" />
                   <span className="lab-loader-bubble absolute left-20 top-14 size-2 rounded-full bg-white/44 [animation-delay:0.35s]" />
