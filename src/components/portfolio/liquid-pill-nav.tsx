@@ -117,6 +117,7 @@ export function LiquidPillNav({
   const [navHidden, setNavHidden] = useState(false);
   const routeTimeoutRef = useRef<number | null>(null);
   const lastScrollYRef = useRef(0);
+  const lastTouchYRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!mobileMenuOpen) {
@@ -142,6 +143,20 @@ export function LiquidPillNav({
   useEffect(() => {
     lastScrollYRef.current = window.scrollY;
 
+    const handleDirectionalScroll = (delta: number) => {
+      if (Math.abs(delta) < 4) {
+        return;
+      }
+
+      if (delta > 0) {
+        setNavHidden(true);
+      }
+
+      if (delta < 0) {
+        setNavHidden(false);
+      }
+    };
+
     const handleScroll = () => {
       const currentScrollY =
         window.scrollY || document.documentElement.scrollTop || 0;
@@ -162,9 +177,42 @@ export function LiquidPillNav({
       lastScrollYRef.current = currentScrollY;
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    const handleWheel = (event: WheelEvent) => {
+      handleDirectionalScroll(event.deltaY);
+    };
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handleTouchStart = (event: TouchEvent) => {
+      lastTouchYRef.current = event.touches[0]?.clientY ?? null;
+    };
+
+    const handleTouchMove = (event: TouchEvent) => {
+      const currentTouchY = event.touches[0]?.clientY ?? null;
+
+      if (currentTouchY === null || lastTouchYRef.current === null) {
+        return;
+      }
+
+      handleDirectionalScroll(lastTouchYRef.current - currentTouchY);
+      lastTouchYRef.current = currentTouchY;
+    };
+
+    const handleTouchEnd = () => {
+      lastTouchYRef.current = null;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("wheel", handleWheel, { passive: true });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
   }, []);
 
   const handleMobileNavSelect = (
