@@ -143,7 +143,7 @@ export default function ExperiencePage() {
                       >
                         <Card className="overflow-hidden rounded-[inherit] border-ice/10 bg-navy/76 py-0 shadow-none ring-1 ring-ice/8">
                           <div
-                            className={`relative aspect-[16/9] overflow-hidden px-5 py-8 sm:min-h-[22rem] sm:px-9 sm:py-10 ${
+                            className={`relative aspect-[4/3] overflow-hidden px-5 py-8 sm:aspect-[16/9] sm:min-h-[22rem] sm:px-9 sm:py-10 ${
                               hasTransparentImage
                                 ? "bg-transparent"
                                 : `bg-gradient-to-br ${accent.header}`

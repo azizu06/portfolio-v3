@@ -149,7 +149,7 @@ export function ProjectSpotlightCard({
         <Card className="flex h-full min-w-0 flex-col overflow-hidden rounded-[inherit] border-ice/10 bg-navy/76 py-0 shadow-none ring-1 ring-ice/8 outline outline-1 outline-ice/12">
           <div
             ref={articleRef}
-            className="relative aspect-[16/9] shrink-0 overflow-hidden bg-[#061427] px-5 py-8 sm:min-h-[22rem] sm:px-9 sm:py-10"
+            className="relative aspect-[4/3] shrink-0 overflow-hidden bg-[#061427] px-5 py-8 sm:aspect-[16/9] sm:min-h-[22rem] sm:px-9 sm:py-10"
           >
             {project.previewVideo ? (
               <>
@@ -320,7 +320,7 @@ export function ProjectSpotlightCard({
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,20,39,0)_18%,rgba(6,20,39,0.24)_48%,rgba(6,20,39,0.86)_100%)]" />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_84%,rgba(6,20,39,0.54),transparent_22rem)]" />
               {project.award ? (
-                <div className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-xl border border-sky-300/45 bg-cobalt px-3 py-2 font-mono text-sm font-black leading-none text-ice shadow-[0_16px_34px_rgba(47,111,237,0.28)] sm:left-8 sm:top-8 sm:gap-2 sm:px-5 sm:py-3 sm:text-xl">
+                <div className="absolute left-4 top-4 z-30 inline-flex max-w-[calc(100%-2rem)] items-center gap-1.5 rounded-xl border border-sky-300/60 bg-cobalt px-3 py-2 font-mono text-sm font-black leading-none text-ice shadow-[0_16px_34px_rgba(47,111,237,0.32)] ring-1 ring-ice/18 sm:left-8 sm:top-8 sm:gap-2 sm:px-5 sm:py-3 sm:text-xl">
                   <TrophyIcon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
                   Winner
                 </div>
