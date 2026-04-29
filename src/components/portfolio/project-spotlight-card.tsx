@@ -132,10 +132,8 @@ export function ProjectSpotlightCard({
   const visibleTechnologyCount = useVisibleTechnologyCount();
   const visibleTechnologies = project.technologies.slice(0, visibleTechnologyCount);
   const hiddenTechnologyCount = project.technologies.length - visibleTechnologies.length;
-  const previewMediaClass =
-    "!bottom-auto !left-1/2 !right-auto !top-1/2 !h-[84%] !w-[92%] !-translate-x-1/2 !-translate-y-1/2 object-contain object-center sm:!inset-0 sm:!h-full sm:!w-full sm:!translate-x-0 sm:!translate-y-0 sm:object-cover";
-  const modalMediaClass =
-    "!bottom-auto !left-1/2 !right-auto !top-1/2 !h-[88%] !w-[94%] !-translate-x-1/2 !-translate-y-1/2 object-contain object-center sm:!inset-0 sm:!h-full sm:!w-full sm:!translate-x-0 sm:!translate-y-0 sm:object-cover";
+  const previewMediaClass = "object-cover object-center";
+  const modalMediaClass = "object-cover object-center";
 
   return (
     <>
@@ -176,7 +174,7 @@ export function ProjectSpotlightCard({
                   preload="none"
                   onLoadedData={handleMediaLoaded}
                   aria-label={`${project.title} interaction preview`}
-                  className={`absolute ${previewMediaClass} opacity-100`}
+                  className={`absolute inset-0 h-full w-full ${previewMediaClass} opacity-100`}
                 />
               </>
             ) : project.image ? (
@@ -306,7 +304,7 @@ export function ProjectSpotlightCard({
                   playsInline
                   preload="metadata"
                   aria-label={`${project.title} expanded preview`}
-                  className={`absolute ${modalMediaClass}`}
+                  className={`absolute inset-0 h-full w-full ${modalMediaClass}`}
                 />
               ) : project.image ? (
                 <Image
