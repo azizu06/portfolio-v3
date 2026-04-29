@@ -276,7 +276,7 @@ export function ProjectSpotlightCard({
       <Dialog open={isDetailsOpen} onOpenChange={setIsDetailsOpen}>
         <DialogContent
           showCloseButton={false}
-          className="!max-h-[92dvh] !w-[min(94vw,112rem)] !max-w-none min-w-0 overflow-hidden rounded-[1rem] border border-ice/14 bg-[#071324]/96 p-0 text-ice shadow-[0_34px_140px_rgba(0,0,0,0.58)] backdrop-blur-2xl sm:!max-h-[96dvh] sm:!max-w-[min(96vw,112rem)] sm:rounded-[1.55rem]"
+          className="!max-h-[86dvh] !w-[min(92vw,76rem)] !max-w-none min-w-0 overflow-hidden rounded-[1rem] border border-ice/14 bg-[#071324]/96 p-0 text-ice shadow-[0_34px_140px_rgba(0,0,0,0.58)] backdrop-blur-2xl sm:!max-h-[88dvh] sm:rounded-[1.45rem]"
         >
           <DialogClose
             render={
@@ -290,8 +290,8 @@ export function ProjectSpotlightCard({
             <XIcon className="size-5 sm:size-7" aria-hidden="true" />
             <span className="sr-only">Close project details</span>
           </DialogClose>
-          <div className="max-h-[92dvh] min-w-0 overflow-y-auto sm:max-h-[96dvh]">
-            <div className="relative min-h-[21rem] overflow-hidden rounded-t-[1rem] bg-[#061427] sm:min-h-[46rem] sm:rounded-t-[1.55rem]">
+          <div className="max-h-[86dvh] min-w-0 overflow-y-auto sm:max-h-[88dvh]">
+            <div className="relative min-h-[18rem] overflow-hidden rounded-t-[1rem] bg-[#061427] sm:min-h-[28rem] lg:min-h-[30rem] sm:rounded-t-[1.45rem]">
               {project.previewVideo ? (
                 <video
                   src={project.previewVideo}
@@ -324,31 +324,31 @@ export function ProjectSpotlightCard({
                 </div>
               ) : null}
               <div className="absolute bottom-5 left-5 right-5 min-w-0 sm:bottom-8 sm:left-8 sm:right-8">
-                <DialogTitle className="break-words font-mono text-[clamp(1.85rem,10vw,2.65rem)] font-black leading-none tracking-tight text-ice drop-shadow-[0_4px_22px_rgba(0,0,0,0.62)] sm:text-[clamp(2.55rem,4.3vw,5.3rem)]">
+                <DialogTitle className="break-words font-mono text-[clamp(1.75rem,9vw,2.5rem)] font-black leading-none tracking-tight text-ice drop-shadow-[0_4px_22px_rgba(0,0,0,0.62)] sm:text-[clamp(2.2rem,4vw,4rem)]">
                   {project.title}
                 </DialogTitle>
-                <DialogDescription className="mt-4 flex flex-wrap items-center gap-2 break-words font-mono text-base font-bold uppercase tracking-[0.08em] text-ice/84 sm:mt-6 sm:gap-3 sm:text-2xl">
+                <DialogDescription className="mt-4 flex flex-wrap items-center gap-2 break-words font-mono text-base font-bold uppercase tracking-[0.08em] text-ice/84 sm:mt-5 sm:gap-3 sm:text-xl">
                   <CalendarDays className="h-4 w-4 sm:h-6 sm:w-6" aria-hidden="true" />
                   {project.date}
                 </DialogDescription>
               </div>
             </div>
 
-            <div className="bg-navy/92 flex min-w-0 flex-col gap-7 p-5 sm:gap-10 sm:p-11">
-              <div className="grid min-w-0 gap-7 border-y border-ice/14 py-5 sm:gap-8 sm:py-6 lg:grid-cols-2 lg:gap-10">
-                <div className="flex min-w-0 flex-col lg:min-h-[19rem]">
-                  <p className="flex items-center gap-2.5 font-mono text-lg font-black text-ice sm:gap-3 sm:text-2xl">
+            <div className="bg-navy/92 flex min-w-0 flex-col gap-6 p-5 sm:gap-8 sm:p-8 lg:p-9">
+              <div className="grid min-w-0 gap-7 border-y border-ice/14 py-5 sm:gap-8 sm:py-6 lg:grid-cols-2 lg:gap-9">
+                <div className="flex min-w-0 flex-col">
+                  <p className="flex items-center gap-2.5 font-mono text-lg font-black text-ice sm:gap-3 sm:text-xl">
                     <InfoIcon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                     Summary
                   </p>
-                  <p className="mt-4 break-words text-base font-semibold leading-7 tracking-tight text-ice sm:mt-5 sm:text-2xl sm:leading-9">
+                  <p className="mt-4 break-words text-base font-semibold leading-7 tracking-tight text-ice sm:mt-5 sm:text-xl sm:leading-8">
                     {project.details ?? project.description}
                   </p>
                 </div>
 
                 {project.keyFeatures?.length ? (
-                  <div className="flex min-w-0 flex-col lg:min-h-[19rem]">
-                    <p className="flex items-center gap-2.5 font-mono text-lg font-black text-ice sm:gap-3 sm:text-2xl">
+                  <div className="flex min-w-0 flex-col">
+                    <p className="flex items-center gap-2.5 font-mono text-lg font-black text-ice sm:gap-3 sm:text-xl">
                       <Code2 className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                       Key Features
                     </p>
@@ -356,7 +356,7 @@ export function ProjectSpotlightCard({
                       {project.keyFeatures.map((feature) => (
                         <li
                           key={feature}
-                          className="flex min-w-0 gap-3 text-base font-semibold leading-7 tracking-tight text-ice sm:gap-4 sm:text-2xl sm:leading-9"
+                          className="flex min-w-0 gap-3 text-base font-semibold leading-7 tracking-tight text-ice sm:gap-4 sm:text-xl sm:leading-8"
                         >
                           <span
                             className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-300 shadow-[0_0_0_5px_rgba(87,178,255,0.11)] sm:mt-3 sm:h-2 sm:w-2"
@@ -371,7 +371,7 @@ export function ProjectSpotlightCard({
               </div>
 
               <div className="min-w-0">
-                <p className="flex items-center gap-2.5 font-mono text-lg font-black text-ice/90 sm:gap-3 sm:text-2xl">
+                <p className="flex items-center gap-2.5 font-mono text-lg font-black text-ice/90 sm:gap-3 sm:text-xl">
                   <Code2 className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                   Technologies & Skills
                 </p>
@@ -380,7 +380,7 @@ export function ProjectSpotlightCard({
                     <Badge
                       key={technology}
                       variant="outline"
-                      className="max-w-full shrink whitespace-normal break-words rounded-xl border-blue-300/70 bg-cobalt/18 px-4 py-3 text-center font-mono text-sm font-black leading-tight tracking-[0.04em] text-ice shadow-[inset_0_0_18px_rgba(255,255,255,0.04)] sm:px-8 sm:py-4 sm:text-xl"
+                      className="max-w-full shrink whitespace-normal break-words rounded-xl border-blue-300/70 bg-cobalt/18 px-4 py-3 text-center font-mono text-sm font-black leading-tight tracking-[0.04em] text-ice shadow-[inset_0_0_18px_rgba(255,255,255,0.04)] sm:px-6 sm:py-3.5 sm:text-lg"
                     >
                       {technology}
                     </Badge>
@@ -389,7 +389,7 @@ export function ProjectSpotlightCard({
               </div>
 
               <div className="min-w-0 border-t border-ice/14 pt-6 sm:pt-8">
-                <p className="flex w-fit items-center gap-2.5 font-mono text-lg font-black uppercase tracking-[0.08em] text-ice sm:text-2xl">
+                <p className="flex w-fit items-center gap-2.5 font-mono text-lg font-black uppercase tracking-[0.08em] text-ice sm:text-xl">
                   <LinksAndResourcesIcon className="size-5 sm:size-6" />
                   Links & Resources
                 </p>
