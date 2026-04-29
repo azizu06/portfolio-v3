@@ -58,6 +58,37 @@ function lerp(p1: number, p2: number, t: number) {
   return p1 + (p2 - p1) * t;
 }
 
+function getGalleryCardMetrics(screen: ScreenSize, viewport: ViewportSize) {
+  if (screen.width < 640) {
+    const width = viewport.width * 0.78;
+    return {
+      width,
+      height: Math.min(viewport.height * 0.64, width * 1.28),
+      gap: viewport.width * 0.16,
+      titleOffset: 0.72,
+    };
+  }
+
+  if (screen.width < 1024) {
+    const width = viewport.width * 0.64;
+    return {
+      width,
+      height: Math.min(viewport.height * 0.58, width * 0.86),
+      gap: viewport.width * 0.14,
+      titleOffset: 0.82,
+    };
+  }
+
+  const scale = screen.height / 1500;
+
+  return {
+    width: (viewport.width * (1480 * scale)) / screen.width,
+    height: (viewport.height * (1040 * scale)) / screen.height,
+    gap: 1.25,
+    titleOffset: 0.94,
+  };
+}
+
 function createTextTexture(
   gl: OGLRenderingContext,
   text: string,
@@ -175,14 +206,16 @@ class Title {
     y,
     cardHeight,
     rotation,
+    titleOffset,
   }: {
     x: number;
     y: number;
     cardHeight: number;
     rotation: number;
+    titleOffset: number;
   }) {
     this.mesh.position.x = x;
-    this.mesh.position.y = y - cardHeight / 2 - 0.94;
+    this.mesh.position.y = y - cardHeight / 2 - titleOffset;
     this.mesh.rotation.z = rotation;
   }
 }
@@ -209,6 +242,7 @@ class Media {
   private baseScaleX = 1;
   private baseScaleY = 1;
   private hoverScale = 1;
+  private titleOffset = 0.94;
 
   plane!: Mesh;
   program!: Program;
@@ -389,6 +423,7 @@ class Media {
       y: this.plane.position.y,
       cardHeight: this.baseScaleY * this.hoverScale,
       rotation: this.plane.rotation.z,
+      titleOffset: this.titleOffset,
     });
 
     const planeOffset = this.plane.scale.x / 2;
@@ -423,9 +458,11 @@ class Media {
     if (screen) this.screen = screen;
     if (viewport) this.viewport = viewport;
 
-    const scale = this.screen.height / 1500;
-    this.baseScaleY = (this.viewport.height * (1040 * scale)) / this.screen.height;
-    this.baseScaleX = (this.viewport.width * (1480 * scale)) / this.screen.width;
+    const metrics = getGalleryCardMetrics(this.screen, this.viewport);
+
+    this.baseScaleX = metrics.width;
+    this.baseScaleY = metrics.height;
+    this.titleOffset = metrics.titleOffset;
     this.plane.scale.set(
       this.baseScaleX * this.hoverScale,
       this.baseScaleY * this.hoverScale,
@@ -435,7 +472,7 @@ class Media {
       this.baseScaleX,
       this.baseScaleY,
     ];
-    this.width = this.baseScaleX + 1.25;
+    this.width = this.baseScaleX + metrics.gap;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
   }

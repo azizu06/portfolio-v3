@@ -1,7 +1,6 @@
 import FadeContent from "@/components/FadeContent";
 import CircularGallery from "@/components/CircularGallery";
 import { HeroStage } from "@/components/portfolio/hero-stage";
-import { SkillsOrbitShowcase } from "@/components/portfolio/skills-orbit-showcase";
 import { profile } from "@/data/profile";
 
 const aboutGalleryItems = [
@@ -80,7 +79,7 @@ export function AboutPageContent() {
           </div>
 
           <FadeContent blur duration={1000} delay={120} threshold={0.16}>
-            <div className="relative -mx-5 mt-20 h-[42rem] sm:-mx-8 md:h-[52rem] lg:-mx-10 lg:h-[60rem] xl:-mx-16 xl:h-[66rem]">
+            <div className="relative -mx-5 mt-16 h-[34rem] sm:-mx-8 sm:h-[38rem] md:mt-20 md:h-[46rem] lg:-mx-10 lg:h-[60rem] xl:-mx-16 xl:h-[66rem]">
               <CircularGallery
                 items={aboutGalleryItems}
                 bend={1.35}
@@ -95,7 +94,6 @@ export function AboutPageContent() {
         </div>
       </section>
 
-      <SkillsOrbitShowcase />
     </main>
   );
 }
