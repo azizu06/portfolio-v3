@@ -142,7 +142,7 @@ export function HeroStage({ name }: HeroStageProps) {
           <button
             type="button"
             onClick={scrollToMore}
-            className="group mt-4 flex flex-col items-center px-6 py-2 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 active:scale-[0.98] md:mt-6"
+            className="group mt-12 flex flex-col items-center px-6 py-2 text-center transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 active:scale-[0.98] md:mt-16"
             aria-label="Scroll to more about Aziz"
           >
             <ShinyText

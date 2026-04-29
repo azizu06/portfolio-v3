@@ -18,7 +18,7 @@ export default function PillNav({ items, onItemSelect }: PillNavProps) {
   const pathname = usePathname();
 
   return (
-    <div className="relative flex min-w-0 flex-1 items-center justify-end gap-1 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-2 md:gap-3">
+    <div className="relative flex min-w-0 flex-1 items-center justify-center gap-1 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-2 md:gap-3">
       {items.map((item, index) => {
         const isActive = pathname === item.href;
 
