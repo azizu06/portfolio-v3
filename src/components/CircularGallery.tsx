@@ -62,11 +62,11 @@ function lerp(p1: number, p2: number, t: number) {
 
 function getGalleryCardMetrics(screen: ScreenSize, viewport: ViewportSize) {
   if (screen.width < 640) {
-    const width = viewport.width * 0.78;
+    const width = viewport.width * 0.76;
     return {
       width,
       height: Math.min(viewport.height * 0.64, width * 1.28),
-      gap: viewport.width * 0.16,
+      gap: viewport.width * 0.08,
       titleOffset: 0.72,
     };
   }
@@ -76,7 +76,7 @@ function getGalleryCardMetrics(screen: ScreenSize, viewport: ViewportSize) {
     return {
       width,
       height: Math.min(viewport.height * 0.58, width * 0.86),
-      gap: viewport.width * 0.14,
+      gap: viewport.width * 0.1,
       titleOffset: 0.82,
     };
   }
@@ -86,7 +86,7 @@ function getGalleryCardMetrics(screen: ScreenSize, viewport: ViewportSize) {
   return {
     width: (viewport.width * (1480 * scale)) / screen.width,
     height: (viewport.height * (1040 * scale)) / screen.height,
-    gap: 1.25,
+    gap: 0.72,
     titleOffset: 0.94,
   };
 }

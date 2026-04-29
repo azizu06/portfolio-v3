@@ -195,8 +195,8 @@ export function ProjectSpotlightCard({
               </h2>
             </div>
             {project.award ? (
-              <div className="absolute right-5 top-5 inline-flex items-center gap-2 rounded-xl border border-sky-300/45 bg-cobalt px-4 py-2.5 font-mono text-lg font-black leading-none text-ice shadow-[0_16px_34px_rgba(47,111,237,0.28)]">
-                <TrophyIcon className="h-5 w-5" aria-hidden="true" />
+              <div className="absolute right-4 top-4 z-20 inline-flex items-center gap-1.5 rounded-xl border border-sky-300/45 bg-cobalt px-3 py-2 font-mono text-sm font-black leading-none text-ice shadow-[0_16px_34px_rgba(47,111,237,0.28)] sm:right-5 sm:top-5 sm:gap-2 sm:px-4 sm:py-2.5 sm:text-lg">
+                <TrophyIcon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
                 Winner
               </div>
             ) : null}
