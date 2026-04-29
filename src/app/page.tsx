@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { HomeModelStage } from "@/components/portfolio/home-model-stage";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import { AboutPageContent } from "@/components/portfolio/about-page-content";
+import { ResponsiveHome } from "@/components/portfolio/responsive-home";
 
 const siteUrl = "https://azizu.dev";
 const ogImageUrl = `${siteUrl}/og-image.jpg`;
@@ -30,6 +33,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
-  return <HomeModelStage />;
+const mobileUserAgentPattern =
+  /Android|BlackBerry|iPad|iPhone|iPod|IEMobile|Mobile|Opera Mini|webOS|Windows Phone/i;
+
+export default async function Home() {
+  const userAgent = (await headers()).get("user-agent") ?? "";
+
+  if (mobileUserAgentPattern.test(userAgent)) {
+    redirect("/about");
+  }
+
+  return (
+    <ResponsiveHome mobile={<AboutPageContent />} mobileRedirectPath="/about" />
+  );
 }
