@@ -227,9 +227,13 @@ function rectIntersectionArea(a: DOMRect | DOMRectReadOnly, b: DOMRect | DOMRect
 }
 
 function getTooltipCandidates(anchor: DOMRect, label: string) {
-  const width = Math.min(Math.max(label.length * 11 + 54, 128), 270);
-  const height = 50;
-  const gap = 16;
+  const isCompactViewport =
+    typeof window !== "undefined" && window.innerWidth < 640;
+  const width = isCompactViewport
+    ? Math.min(Math.max(label.length * 8 + 34, 82), 160)
+    : Math.min(Math.max(label.length * 11 + 54, 128), 270);
+  const height = isCompactViewport ? 34 : 50;
+  const gap = isCompactViewport ? 10 : 16;
 
   return [
     {
@@ -513,7 +517,7 @@ export default function OrbitImages({
       {typeof document !== "undefined" && tooltip
         ? createPortal(
             <div
-              className="pointer-events-none fixed z-[100] whitespace-nowrap rounded-full border border-[#8db7ff]/32 bg-[#061427]/96 px-6 py-3 font-mono text-lg font-black text-white shadow-[0_14px_36px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.12)]"
+              className="pointer-events-none fixed z-[100] max-w-[10rem] whitespace-nowrap rounded-full border border-[#8db7ff]/32 bg-[#061427]/96 px-3 py-1.5 font-mono text-sm font-black text-white shadow-[0_10px_26px_rgba(0,0,0,0.32),inset_0_1px_0_rgba(255,255,255,0.12)] sm:max-w-none sm:px-6 sm:py-3 sm:text-lg sm:shadow-[0_14px_36px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.12)]"
               style={{
                 left: tooltip.x,
                 top: tooltip.y,
