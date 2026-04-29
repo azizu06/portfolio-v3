@@ -167,9 +167,9 @@ export function LiquidPillNav({
     <>
       <nav
         className={[
-          "grid min-h-[4.5rem] grid-cols-[auto_1fr_auto] items-center gap-2 rounded-full border border-ice/18 bg-ice/[0.07] px-3 py-3 shadow-[inset_0_1px_0_rgba(234,242,255,0.2),inset_0_-1px_0_rgba(47,111,237,0.18),0_24px_90px_rgba(0,0,0,0.36),0_0_0_1px_rgba(47,111,237,0.2)] backdrop-blur-2xl transition-[transform,opacity,filter] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform sm:gap-4 sm:px-4 md:min-h-[4.25rem] md:grid-cols-[1fr_auto_1fr] md:px-4 md:py-2",
+          "fixed inset-x-5 top-6 z-40 grid min-h-[4.5rem] grid-cols-[auto_1fr_auto] items-center gap-2 rounded-full border border-ice/18 bg-ice/[0.07] px-3 py-3 shadow-[inset_0_1px_0_rgba(234,242,255,0.2),inset_0_-1px_0_rgba(47,111,237,0.18),0_24px_90px_rgba(0,0,0,0.36),0_0_0_1px_rgba(47,111,237,0.2)] backdrop-blur-2xl transition-[transform,opacity,filter] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform sm:gap-4 sm:px-4 md:static md:inset-auto md:top-auto md:z-auto md:min-h-[4.25rem] md:grid-cols-[1fr_auto_1fr] md:px-4 md:py-2",
           navHidden && !mobileMenuOpen
-            ? "pointer-events-none -translate-y-6 opacity-0 blur-sm"
+            ? "pointer-events-none -translate-y-[calc(100%+3rem)] opacity-0 blur-sm"
             : "translate-y-0 opacity-100 blur-0",
           showLinks
             ? "mx-auto w-full max-w-7xl"
@@ -259,41 +259,24 @@ export function LiquidPillNav({
           />
           <div
             className={[
-              "absolute inset-x-5 top-6 bottom-5 overflow-hidden rounded-[2rem] border border-ice/16 bg-[#0b1f3a]/88 p-2 text-ice shadow-[inset_0_1px_0_rgba(234,242,255,0.18),0_28px_90px_rgba(0,0,0,0.42)] transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]",
+              "absolute inset-0 flex flex-col px-7 py-8 text-ice transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]",
               mobileMenuOpen
                 ? "translate-y-0 opacity-100 blur-0"
                 : "-translate-y-4 opacity-0 blur-sm",
             ].join(" ")}
           >
-            <div className="flex h-full flex-col rounded-[calc(2rem-0.5rem)] border border-ice/10 bg-[#061427]/82 p-4 shadow-[inset_0_1px_0_rgba(234,242,255,0.12)]">
-              <div className="flex items-center justify-between gap-4">
-                <Link
-                  href="/"
-                  aria-label="Aziz Umarov home"
-                  className="flex h-9 w-14 items-center justify-center"
-                  onClick={handleLogoClick}
-                >
-                  <Image
-                    src="/assets/au-logo-transparent.png"
-                    alt="Aziz Umarov logo"
-                    width={1254}
-                    height={1254}
-                    className="h-full w-full object-contain drop-shadow-[0_0_18px_rgba(56,189,248,0.28)]"
-                    priority
-                  />
-                </Link>
-                <button
-                  type="button"
-                  aria-label="Close navigation"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="relative grid size-11 place-items-center rounded-full border border-ice/12 bg-ice/[0.06] transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97]"
-                >
-                  <span className="absolute h-px w-5 rotate-45 rounded-full bg-current" />
-                  <span className="absolute h-px w-5 -rotate-45 rounded-full bg-current" />
-                </button>
-              </div>
+            <button
+              type="button"
+              aria-label="Close navigation"
+              onClick={() => setMobileMenuOpen(false)}
+              className="absolute right-7 top-8 grid size-11 place-items-center text-ice/88 transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:text-white active:scale-[0.94]"
+            >
+              <span className="absolute h-px w-7 rotate-45 rounded-full bg-current" />
+              <span className="absolute h-px w-7 -rotate-45 rounded-full bg-current" />
+            </button>
 
-              <div className="flex flex-1 flex-col items-center justify-center gap-7 pb-8 pt-4">
+            <div className="flex min-h-0 flex-1 items-center justify-center pt-10">
+              <div className="flex flex-col items-center justify-center gap-8">
                 {mobileNavItems.map((item, index) => {
                   const isActive = pathname === item.href;
                   const isPressed = pressedNavHref === item.href;
@@ -307,9 +290,9 @@ export function LiquidPillNav({
                       onPointerCancel={() => setPressedNavHref(null)}
                       onClick={(event) => handleMobileNavSelect(event, item)}
                       className={[
-                        "group flex touch-manipulation select-none items-center justify-center rounded-full px-6 py-2 text-center text-[1.05rem] font-semibold tracking-[-0.01em] transition-[transform,color,opacity,text-shadow] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform active:scale-[0.975]",
+                        "touch-manipulation select-none px-4 py-1 text-center text-[1.12rem] font-semibold tracking-[-0.01em] transition-[transform,color,opacity,text-shadow] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform active:scale-[0.96]",
                         isPressed
-                          ? "scale-[0.975] text-white [text-shadow:0_0_20px_rgba(234,242,255,0.34)]"
+                          ? "scale-[0.96] text-white [text-shadow:0_0_20px_rgba(234,242,255,0.34)]"
                           : isActive
                           ? "text-white [text-shadow:0_0_20px_rgba(234,242,255,0.28)]"
                           : "text-ice/82 hover:text-white",
@@ -319,49 +302,50 @@ export function LiquidPillNav({
                       ].join(" ")}
                       style={{
                         transitionDelay: mobileMenuOpen
-                          ? `${120 + index * 55}ms`
+                          ? `${110 + index * 65}ms`
                           : "0ms",
                       }}
                     >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div
+              className={[
+                "flex flex-col items-center gap-5 pb-7 transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]",
+                mobileMenuOpen
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-4 opacity-0",
+              ].join(" ")}
+              style={{
+                transitionDelay: mobileMenuOpen
+                  ? `${190 + mobileNavItems.length * 65}ms`
+                  : "0ms",
+              }}
+            >
+              <div className="flex items-center justify-center gap-7">
+                {socialNavItems.map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noreferrer" : undefined}
+                      className="flex items-center gap-2 text-sm font-semibold text-ice/78 transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:text-white active:scale-[0.96]"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <Icon className="size-4 fill-current" />
                       <span>{item.label}</span>
                     </Link>
                   );
                 })}
               </div>
-              <div
-                className={[
-                  "flex flex-col items-center gap-5 pb-4 transition duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]",
-                  mobileMenuOpen
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-4 opacity-0",
-                ].join(" ")}
-                style={{
-                  transitionDelay: mobileMenuOpen
-                    ? `${180 + mobileNavItems.length * 55}ms`
-                    : "0ms",
-                }}
-              >
-                <div className="flex items-center justify-center gap-4">
-                  {socialNavItems.map((item) => {
-                    const Icon = item.icon;
-
-                    return (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        aria-label={item.label}
-                        target={item.external ? "_blank" : undefined}
-                        rel={item.external ? "noreferrer" : undefined}
-                        className="grid size-12 place-items-center rounded-full border border-ice/12 bg-ice/[0.10] text-ice shadow-[inset_0_1px_0_rgba(234,242,255,0.18),0_12px_36px_rgba(0,0,0,0.24)] transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.96]"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        <Icon className="size-5 fill-current" />
-                      </Link>
-                    );
-                  })}
-                </div>
-                <span className="h-1.5 w-14 rounded-full bg-ice/28" />
-              </div>
+              <span className="h-1.5 w-14 rounded-full bg-ice/24" />
             </div>
           </div>
         </div>
