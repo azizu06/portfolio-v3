@@ -23,6 +23,8 @@
 # misc
 .DS_Store
 *.pem
+codex-agent-session-showcase.md
+elevenlabs-portfolio-knowledge-base.txt
 
 # debug
 npm-debug.log*
