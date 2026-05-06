@@ -1,6 +1,5 @@
 import { type NextRequest } from "next/server";
 
-const ELEVENLABS_AGENT_ID = "agent_3001kqxxgvjkexzr40ce3x5db8m5";
 const DAILY_SESSION_LIMIT = 3;
 const COOLDOWN_MS = 2 * 60 * 1000;
 const WINDOW_MS = 24 * 60 * 60 * 1000;
@@ -133,8 +132,9 @@ export async function POST(request: NextRequest) {
   }
 
   const apiKey = process.env.ELEVENLABS_API_KEY;
+  const agentId = process.env.ELEVENLABS_AGENT_ID;
 
-  if (!apiKey) {
+  if (!apiKey || !agentId) {
     return Response.json(
       { error: "Voice agent is not configured yet." },
       { status: 503 },
@@ -165,7 +165,7 @@ export async function POST(request: NextRequest) {
   }
 
   const response = await fetch(
-    `https://api.elevenlabs.io/v1/convai/conversation/get-signed-url?agent_id=${ELEVENLABS_AGENT_ID}`,
+    `https://api.elevenlabs.io/v1/convai/conversation/get-signed-url?agent_id=${agentId}`,
     {
       method: "GET",
       headers: {
