@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ElevenLabsWidget } from "@/components/portfolio/elevenlabs-widget";
 import { PageTransition } from "@/components/portfolio/page-transition";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
@@ -65,6 +66,7 @@ export default function RootLayout({
           <PageTransition>{children}</PageTransition>
           <Analytics />
           <SpeedInsights />
+          <ElevenLabsWidget />
         </TooltipProvider>
       </body>
     </html>
