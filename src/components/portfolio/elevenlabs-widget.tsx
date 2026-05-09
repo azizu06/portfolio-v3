@@ -8,6 +8,7 @@ export function ElevenLabsWidget() {
     <>
       {createElement("elevenlabs-convai", {
         "agent-id": ELEVENLABS_AGENT_ID,
+        className: "elevenlabs-convai-widget",
       })}
       <Script
         src="https://unpkg.com/@elevenlabs/convai-widget-embed"
