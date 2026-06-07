@@ -66,6 +66,25 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run start` | Serve the production build |
 | `npm run lint` | Run ESLint (`eslint-config-next`) |
 
+### Generating project previews
+
+Project cards play short screen-recordings (`public/assets/project-previews/<slug>.mp4`)
+captured from each project's live deployment. They're produced by a Playwright script,
+`.codex-project-preview-capture.spec.ts`, driven by `playwright.capture.config.ts`:
+
+```bash
+# record one project (writes <slug>-raw.webm + <slug>.png)
+PROJECT_SLUG=<slug> npx playwright test --config=playwright.capture.config.ts
+
+# convert the raw recording to the committed mp4 (H.264, 1440×810, 60fps)
+ffmpeg -i public/assets/project-previews/<slug>-raw.webm \
+  -vf "fps=60,format=yuv420p" -c:v libx264 -preset slow -crf 24 \
+  -movflags +faststart -an public/assets/project-previews/<slug>.mp4
+```
+
+Render-hosted demos cold-start after inactivity, so warm the URL (e.g. `curl`) before
+recording. Each capture entry lives in the spec's `projects` array.
+
 ## Environment variables
 
 No server-side secrets are required to run the site locally — the source does not read
@@ -116,7 +135,6 @@ public/
 
 ## Roadmap / ideas
 
-- Add the README preview screenshot noted above.
 - Wire up the `api/elevenlabs/signed-url` route if the voice agent moves to a
   server-authenticated signed-URL flow.
 
