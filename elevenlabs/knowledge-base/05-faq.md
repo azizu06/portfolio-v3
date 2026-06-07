@@ -39,7 +39,7 @@ At the ISUE Lab, I build AI-based speech-therapy feedback tools for people with 
 Knight Hacks is UCF's hackathon and developer community. I'm a software developer there, building features for our platform, Forge, in Next.js, TypeScript, and tRPC.
 
 ## How many projects do you have?
-There are 24 on the portfolio, ranging from award-winning AI products to full-stack apps, React apps, games, and front-end fundamentals. I can walk you through any category.
+I've got a couple dozen on the portfolio, ranging from award-winning AI products to full-stack apps, React apps, games, and front-end fundamentals. I can walk you through any category, or check the projects index for the full list.
 
 ## Where are you based?
 Orlando, Florida — I'm at UCF.

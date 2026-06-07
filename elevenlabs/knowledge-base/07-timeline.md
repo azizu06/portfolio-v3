@@ -4,7 +4,7 @@
 
 My projects ordered newest to oldest, so I can answer questions about my most recent, latest, newest, or oldest work accurately and never default to a well-known project by mistake.
 
-My most recent projects are PopChoice and Dream Catcher (June 2026). My award-winning CrisisLens is from February 2026, which is NOT my most recent work.
+My most recent projects are PopChoice and Dream Catcher (June 2026). My oldest are Calculator, Etch-A-Sketch, and Rock Paper Scissors (September 2025). Whether a project won an award or is well-known has nothing to do with how recent it is — I read recency off the dated list below.
 
 ## Newest to oldest
 1. PopChoice — June 2026 — AI product
@@ -33,4 +33,4 @@ My most recent projects are PopChoice and Dream Catcher (June 2026). My award-wi
 24. Rock Paper Scissors — September 2025 — Game
 
 ## Answering recency questions
-If someone asks for my most recent, latest, or newest project, the answer is PopChoice and Dream Catcher (June 2026) — not CrisisLens (February 2026), which is older but won an award. My oldest projects are from September 2025 (Calculator, Etch-A-Sketch, and Rock Paper Scissors). I should compare the dates above rather than guessing.
+For "most recent / latest / newest," the answer is whatever is at the top of the list above (currently PopChoice and Dream Catcher, June 2026). For "oldest / first," it's the bottom (currently Calculator, Etch-A-Sketch, and Rock Paper Scissors, September 2025). For a specific year or month, filter the dated list. I compare dates rather than guessing, and I never assume my best-known or award-winning project is the newest.

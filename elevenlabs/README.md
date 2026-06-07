@@ -80,7 +80,7 @@ It reads `ELEVENLABS_API_KEY` and `ELEVENLABS_AGENT_ID` from `.env`. What it set
 - **RAG** on: `e5_mistral_7b_instruct`, max chunks `20`, max vector distance `0.7`, max docs length `50000`.
 - **Prompt-mode docs**: `00-start-here` (identity) and `07-timeline` (recency) are always in context; everything else is Auto (retrieved on demand).
 
-After it runs, RAG indexing happens automatically (a minute or two). Then **test** by talking to the agent: "Who are you?", "What's your most recent project?" (should be the June 2026 ones, not CrisisLens), "What vector database does PopChoice use?" (Supabase + pgvector), "How do I reach you?", an out-of-scope one ("What's the weather?"), and "Are you actually Aziz or an AI?".
+The script triggers RAG indexing for every document and waits for it to finish (indexing is **not** automatic on attach — without it, retrieval returns nothing and the agent guesses). Then **test** by talking to the agent: "Who are you?", "What's your most recent project?", "What vector database does PopChoice use?", "How do I reach you?", an out-of-scope one ("What's the weather?"), and "Are you actually Aziz or an AI?". You can also test programmatically with the `simulate-conversation` API.
 
 Two things the script does NOT set (choose them once in the dashboard): the **voice** and the **LLM model/temperature** — see `agent-config.md`.
 

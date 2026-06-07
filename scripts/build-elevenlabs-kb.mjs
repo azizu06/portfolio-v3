@@ -78,11 +78,23 @@ const uniq = (arr) => [...new Set(arr)];
 
 // --- technology classification (drives accurate, answer-shaped Q&A) ---------
 
-const DB_NAMES = ["postgresql", "supabase", "firebase", "mongodb", "mysql", "sqlite", "redis", "upstash redis"];
-const VECTOR_NAMES = ["pgvector", "pinecone", "weaviate", "qdrant", "chroma", "milvus"];
+// These lists let the generator emit targeted Q&A ("what database does X use?").
+// They're broad on purpose so future projects are covered; anything not listed still
+// appears in the project's full tech stack and keywords, so it stays answerable.
+const DB_NAMES = [
+  "postgresql", "postgres", "supabase", "firebase", "firestore", "mongodb", "mysql",
+  "sqlite", "redis", "upstash redis", "neon", "planetscale", "dynamodb", "cassandra",
+  "cockroachdb", "turso", "libsql", "convex", "fauna",
+];
+const VECTOR_NAMES = [
+  "pgvector", "pinecone", "weaviate", "qdrant", "chroma", "chromadb", "milvus",
+  "lancedb", "faiss", "vespa",
+];
 const AI_NAMES = [
-  "openai", "google gemini", "gemini", "hugging face", "ollama", "langchain",
-  "pytorch", "vercel ai sdk", "openai whisper", "whisper", "claude",
+  "openai", "google gemini", "gemini", "anthropic", "claude", "mistral", "cohere",
+  "groq", "replicate", "hugging face", "ollama", "langchain", "langgraph", "llamaindex",
+  "pytorch", "tensorflow", "keras", "scikit-learn", "vercel ai sdk", "openai whisper",
+  "whisper",
 ];
 
 const has = (techs, names) => techs.filter((t) => names.includes(t.toLowerCase()));
@@ -184,6 +196,10 @@ function renderTimeline() {
   const newest = sorted.filter((p) => sortKey(p) === newestKey);
   const newestNames = humanList(newest.map((p) => p.title));
   const newestDate = parseDate(sorted[0].date).display;
+  const oldestKey = sortKey(sorted[sorted.length - 1]);
+  const oldest = sorted.filter((p) => sortKey(p) === oldestKey);
+  const oldestNames = humanList(oldest.map((p) => p.title));
+  const oldestDate = parseDate(sorted[sorted.length - 1].date).display;
 
   const lines = [];
   lines.push(GENERATED_BANNER, "");
@@ -195,7 +211,9 @@ function renderTimeline() {
   );
   lines.push(
     `My most recent project${newest.length > 1 ? "s are" : " is"} ${newestNames} (${newestDate}). ` +
-      "My award-winning CrisisLens is from February 2026, which is NOT my most recent work.",
+      `My oldest ${oldest.length > 1 ? "are" : "is"} ${oldestNames} (${oldestDate}). ` +
+      "Whether a project won an award or is well-known has nothing to do with how recent it is — " +
+      "I read recency off the dated list below.",
     "",
   );
 
@@ -210,13 +228,42 @@ function renderTimeline() {
 
   lines.push("## Answering recency questions");
   lines.push(
-    `If someone asks for my most recent, latest, or newest project, the answer is ${newestNames} ` +
-      `(${newestDate}) — not CrisisLens (February 2026), which is older but won an award. ` +
-      `My oldest projects are from September 2025 (${humanList(
-        sorted.slice(-3).map((p) => p.title),
-      )}). I should compare the dates above rather than guessing.`,
+    `For "most recent / latest / newest," the answer is whatever is at the top of the list above ` +
+      `(currently ${newestNames}, ${newestDate}). For "oldest / first," it's the bottom ` +
+      `(currently ${oldestNames}, ${oldestDate}). For a specific year or month, filter the dated list. ` +
+      `I compare dates rather than guessing, and I never assume my best-known or award-winning project is the newest.`,
     "",
   );
+  return lines.join("\n");
+}
+
+// --- technology index (answers "which projects use X" completely) -----------
+
+function renderTechIndex() {
+  const map = new Map(); // tech -> [titles]
+  for (const p of projects) {
+    for (const t of p.technologies) {
+      if (!map.has(t)) map.set(t, []);
+      map.get(t).push(p.title);
+    }
+  }
+  const entries = [...map.entries()].sort(
+    (a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]),
+  );
+
+  const lines = [];
+  lines.push(GENERATED_BANNER, "");
+  lines.push("# Technology index (which projects use what)", "");
+  lines.push(
+    "A complete cross-reference of which of my projects use each technology, so I can answer " +
+      `"what have you built with X?" or "which projects use Y?" completely and accurately, not with ` +
+      "just one example. Each line lists every project using that technology.",
+    "",
+  );
+  for (const [tech, titles] of entries) {
+    lines.push(`- ${tech} — ${titles.length} project${titles.length > 1 ? "s" : ""}: ${humanList(titles)}.`);
+  }
+  lines.push("");
   return lines.join("\n");
 }
 
@@ -347,8 +394,9 @@ writeFileSync(join(PROJECTS_DIR, "index.md"), renderProjectIndex(), "utf8");
 writeFileSync(join(KB, "03-experience.md"), renderExperience(), "utf8");
 writeFileSync(join(KB, "04-skills.md"), renderSkills(), "utf8");
 writeFileSync(join(KB, "07-timeline.md"), renderTimeline(), "utf8");
+writeFileSync(join(KB, "08-tech-index.md"), renderTechIndex(), "utf8");
 
-console.log(`✓ Wrote ${projects.length} project docs + index, timeline, experience, skills`);
+console.log(`✓ Wrote ${projects.length} project docs + index, timeline, tech-index, experience, skills`);
 console.log(`✓ Output: ${KB}`);
 console.log(
   `✓ Smallest project doc: "${smallestName}" at ${smallest} bytes ` +

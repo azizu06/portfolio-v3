@@ -26,7 +26,7 @@ Use the right document for the question:
 - Education — UCF, computer science, GPA, coursework. See "Education".
 - Experience — Knight Hacks and ISUE Lab roles in detail. See "Experience".
 - Skills — languages, frameworks, ML/data, databases, cloud/DevOps. See "Skills".
-- Projects — 24 projects with summaries, features, tech stacks, and live links. Start with "Projects index", then read the individual project document.
+- Projects — every project with summaries, features, tech stacks, and live links. Start with "Projects index" (or the "Projects timeline" for date/recency questions), then read the individual project document.
 - FAQ — common visitor questions answered conversationally. See "Frequently asked questions".
 - Portfolio site — how the 3D portfolio website itself works and how to navigate it. See "Portfolio site guide".
 
