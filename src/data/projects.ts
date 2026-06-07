@@ -74,6 +74,135 @@ export const projects: Project[] = [
     category: "Full-stack",
   },
   {
+    title: "PopChoice",
+    date: "June 2026",
+    image: "/assets/project-previews/pop-choice.png",
+    previewVideo: "/assets/project-previews/pop-choice.mp4",
+    description:
+      "Group movie picker that turns everyone's taste into one semantic search and streams back AI-explained recommendations.",
+    details:
+      "PopChoice is a Next.js 16 App Router app that helps a group decide what to watch. It collects each viewer's preferences, combines them into a single query, creates an OpenAI embedding, and runs vector similarity search over a Supabase pgvector movie database. Matches are enriched with TMDB poster art and OpenAI-written explanations, then streamed back one movie at a time, with Upstash Redis rate limiting and Zod validation protecting the recommendation route.",
+    keyFeatures: [
+      "Per-person preference flow combined into a single semantic search query.",
+      "OpenAI embeddings with Supabase pgvector similarity search for retrieval.",
+      "Streamed recommendations enriched with TMDB posters and AI-written reasons.",
+      "Upstash Redis rate limiting and Zod-validated API routes.",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "OpenAI",
+      "Supabase",
+      "pgvector",
+      "Zod",
+      "Tailwind CSS",
+    ],
+    githubHref: "https://github.com/azizu06/pop-choice",
+    liveHref: "https://pop-choice-kappa.vercel.app",
+    category: "AI product",
+  },
+  {
+    title: "Dream Catcher",
+    date: "June 2026",
+    image: "/assets/project-previews/dream-catcher.png",
+    previewVideo: "/assets/project-previews/dream-catcher.mp4",
+    description:
+      "Dream journal that records entries and returns AI-generated interpretations, kept in a persistent Postgres timeline.",
+    details:
+      "Dream Catcher is a full-stack journaling app with an Express REST backend, PostgreSQL storage, and a vanilla JavaScript frontend. Users write a dream, request an AI interpretation, and build a persistent journal of past entries with timestamps, expandable interpretations, and delete controls. The backend exposes RESTful routes and wraps the AI call in dedicated validation and helper utilities.",
+    keyFeatures: [
+      "Record dreams and generate AI interpretations on demand.",
+      "Persistent PostgreSQL journal with timestamps and delete actions.",
+      "Express REST API with dedicated routes and validation helpers.",
+      "Expandable interpretation cards in a lightweight vanilla-JS UI.",
+    ],
+    technologies: ["JavaScript", "Node.js", "Express", "PostgreSQL", "OpenAI", "REST APIs"],
+    githubHref: "https://github.com/azizu06/dream-catcher",
+    liveHref: "https://dream-catcher-0ts7.onrender.com",
+    category: "Full-stack",
+  },
+  {
+    title: "PollyGlot",
+    date: "May 2026",
+    image: "/assets/project-previews/pollyglot.png",
+    previewVideo: "/assets/project-previews/pollyglot.mp4",
+    description:
+      "AI translation chat that converts text into French, Spanish, or Japanese while preserving tone, formatting, and emoji.",
+    details:
+      "PollyGlot is an OpenAI-powered translation app with a React and Vite frontend and an Express API. Users pick a target language, type a message, and receive a translation rendered in a chat-style interface. The server corrects obvious spelling and grammar before translating, preserves the user's tone, punctuation, formatting, and emoji, keeps API credentials server-side, and enforces strict rate and input limits around the public endpoint.",
+    keyFeatures: [
+      "Translates into French, Spanish, or Japanese in a chat-style UI.",
+      "Pre-translation spelling and grammar fixes with tone and emoji preserved.",
+      "Server-held API credentials instead of browser-exposed keys.",
+      "Rate limiting, input caps, and daily limits on the public endpoint.",
+    ],
+    technologies: ["React", "Vite", "Express", "Node.js", "OpenAI", "Tailwind CSS"],
+    githubHref: "https://github.com/azizu06/PollyGlot",
+    liveHref: "https://pollyglot-qzxe.onrender.com",
+    category: "AI product",
+  },
+  {
+    title: "Tiny Library",
+    date: "May 2026",
+    image: "/assets/project-previews/tiny-library.png",
+    previewVideo: "/assets/project-previews/tiny-library.mp4",
+    description:
+      "Typed Next.js App Router catalog with a styled landing page, category routes, book search, and detail pages.",
+    details:
+      "Tiny Library is a book-browsing app built to practice the Next.js App Router with TypeScript. A styled hero landing page leads into a /books catalog with category routes, a search field, and individual book detail pages. TypeScript types are shared across the app, and the UI is styled with Tailwind CSS on a recent Next.js release.",
+    keyFeatures: [
+      "Next.js App Router with a styled hero landing page.",
+      "Category routes and search across a hand-picked catalog.",
+      "Individual book detail pages addressed by id.",
+      "Shared TypeScript types and Tailwind CSS styling.",
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    githubHref: "https://github.com/azizu06/tiny-library",
+    liveHref: "https://tiny-library-ivory.vercel.app",
+    category: "React",
+  },
+  {
+    title: "File Uploader",
+    date: "May 2026",
+    image: "/assets/project-previews/file-uploader.png",
+    previewVideo: "/assets/project-previews/file-uploader.mp4",
+    description:
+      "Personal cloud storage with session auth, nested folders, and uploads persisted to object storage through Prisma.",
+    details:
+      "File Uploader is an Express app for personal cloud storage, built to practice Prisma ORM. Users sign in with Passport (local strategy) and bcrypt, create nested folders, and upload files handled by multer and stored in Supabase storage. Data is modeled and queried through Prisma over PostgreSQL, sessions are persisted with a Prisma-backed store, and the top-level folder is protected from deletion.",
+    keyFeatures: [
+      "Passport local-strategy auth with bcrypt-hashed passwords.",
+      "Nested folder creation with sortable, detailed file tables.",
+      "File uploads via multer persisted to Supabase object storage.",
+      "Prisma ORM over PostgreSQL with Prisma-backed session storage.",
+    ],
+    technologies: ["Express", "Node.js", "Prisma", "PostgreSQL", "Supabase", "EJS", "Tailwind CSS"],
+    githubHref: "https://github.com/azizu06/file-uploader",
+    liveHref: "https://file-uploader-seven-rho.vercel.app",
+    category: "Full-stack",
+  },
+  {
+    title: "Members Only",
+    date: "May 2026",
+    image: "/assets/project-previews/members-only.png",
+    previewVideo: "/assets/project-previews/members-only.mp4",
+    description:
+      "Anonymous clubhouse board where membership tiers and passcodes gate who can see authors and delete posts.",
+    details:
+      "Members Only is an Express clubhouse message board built to practice authentication and authorization. Anyone can read posts, but author names stay masked until a user upgrades to a member tier with a passcode, and only admins can delete messages. It uses Passport local auth with bcrypt, role-based membership tiers, PostgreSQL-backed users and messages, and connect-pg-simple session storage.",
+    keyFeatures: [
+      "Passport local auth with bcrypt password hashing.",
+      "Passcode-gated member and admin tiers controlling visibility and actions.",
+      "Anonymous posts whose authors are revealed only to members.",
+      "Admin-only deletion with PostgreSQL-backed sessions and data.",
+    ],
+    technologies: ["Express", "Node.js", "Passport", "PostgreSQL", "EJS", "Tailwind CSS"],
+    githubHref: "https://github.com/azizu06/members-only",
+    liveHref: "https://members-only-blue.vercel.app",
+    category: "Full-stack",
+  },
+  {
     title: "Inventory App",
     date: "April 2026",
     image: "/assets/project-previews/inventory-app.png",
