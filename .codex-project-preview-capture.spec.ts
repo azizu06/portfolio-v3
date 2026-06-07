@@ -534,6 +534,236 @@ const projects: ProjectCapture[] = [
       await page.waitForTimeout(Math.max(0, durationMs - (Date.now() - startedAt)));
     },
   },
+  {
+    slug: "pop-choice",
+    url: "https://pop-choice-kappa.vercel.app/",
+    captureMs: 30_000,
+    action: async (page, durationMs) => {
+      const startedAt = Date.now();
+      const fill = async (locator: ReturnType<Page["getByRole"]>, text: string) => {
+        await ignore(() => locator.fill(text));
+        await page.waitForTimeout(300);
+      };
+
+      await fill(page.getByRole("spinbutton", { name: /how many people/i }), "1");
+      await fill(page.getByRole("textbox", { name: /how much time/i }), "2 hours");
+      await moveInArc(page, 480, 360, 380, 60, 8);
+      await ignore(() => page.getByRole("button", { name: /start/i }).click({ timeout: 2000 }));
+      await page.waitForTimeout(800);
+
+      await fill(
+        page.getByRole("textbox", { name: /favorite movie/i }),
+        "Interstellar — the mix of emotion and real science kept me hooked.",
+      );
+      await ignore(() => page.getByText("New", { exact: true }).click({ timeout: 1500 }));
+      await page.waitForTimeout(240);
+      await ignore(() => page.getByText("Inspiring", { exact: true }).click({ timeout: 1500 }));
+      await page.waitForTimeout(240);
+      await fill(
+        page.getByRole("textbox", { name: /famous film person/i }),
+        "Christopher Nolan — I'd never run out of stories to talk through.",
+      );
+      await moveInArc(page, 520, 360, 340, 70, 9);
+      await ignore(() => page.getByRole("button", { name: /get movie/i }).click({ timeout: 2000 }));
+
+      // Wait for the streamed recommendation (poster + AI explanation) to render.
+      await ignore(() =>
+        page.getByRole("img", { name: /poster/i }).first().waitFor({ timeout: 22000 }),
+      );
+      await page.waitForTimeout(2400);
+      await page.mouse.wheel(0, 220);
+      await page.waitForTimeout(900);
+      await page.mouse.wheel(0, -220);
+
+      await page.waitForTimeout(Math.max(0, durationMs - (Date.now() - startedAt)));
+    },
+  },
+  {
+    slug: "pollyglot",
+    url: "https://pollyglot-qzxe.onrender.com/",
+    captureMs: 24_000,
+    action: async (page, durationMs) => {
+      const startedAt = Date.now();
+      const translate = async (flag: string, text: string) => {
+        await ignore(() => page.getByRole("img", { name: flag }).click({ timeout: 1500 }));
+        await page.waitForTimeout(220);
+        await ignore(() => page.getByRole("textbox").first().fill(text));
+        await page.waitForTimeout(280);
+        await ignore(() => page.getByRole("button", { name: /send/i }).click({ timeout: 1500 }));
+        await page.waitForTimeout(2900);
+        await page.mouse.wheel(0, 260);
+        await moveInArc(page, 470, 320, 360, 50, 6);
+      };
+
+      await translate("French", "Where is the nearest train station?");
+      await translate("Spanish", "I would like to order a coffee, please.");
+      await translate("Japanese", "Thank you so much for your help today!");
+
+      await page.waitForTimeout(Math.max(0, durationMs - (Date.now() - startedAt)));
+    },
+  },
+  {
+    slug: "dream-catcher",
+    url: "https://dream-catcher-0ts7.onrender.com/",
+    captureMs: 22_000,
+    action: async (page, durationMs) => {
+      const startedAt = Date.now();
+
+      await ignore(() =>
+        page.getByRole("textbox", { name: /describe your dream/i }).fill(
+          "I was floating above a glowing city at night, weightless, watching the lights pulse like a heartbeat.",
+        ),
+      );
+      await page.waitForTimeout(450);
+      await moveInArc(page, 480, 320, 360, 60, 8);
+      await ignore(() =>
+        page.getByRole("button", { name: /get interpretation/i }).click({ timeout: 2000 }),
+      );
+
+      // Wait for the AI interpretation card to be generated and prepended.
+      await page.waitForTimeout(9500);
+      await page.mouse.wheel(0, 380);
+      await page.waitForTimeout(900);
+      await ignore(() =>
+        page.getByRole("button", { name: /read more/i }).first().click({ timeout: 1500 }),
+      );
+      await page.waitForTimeout(1200);
+      await page.mouse.wheel(0, 280);
+
+      await page.waitForTimeout(Math.max(0, durationMs - (Date.now() - startedAt)));
+    },
+  },
+  {
+    slug: "tiny-library",
+    url: "https://tiny-library-ivory.vercel.app/",
+    captureMs: 18_000,
+    action: async (page, durationMs) => {
+      const startedAt = Date.now();
+
+      await moveInArc(page, 420, 300, 420, 70, 8);
+      await ignore(() =>
+        page.getByRole("link", { name: /browse books/i }).first().click({ timeout: 2500 }),
+      );
+      await page.waitForTimeout(1300);
+      await ignore(() => page.getByRole("link", { name: "Fantasy", exact: true }).click({ timeout: 1800 }));
+      await page.waitForTimeout(1400);
+      await ignore(() => page.getByRole("link", { name: "All", exact: true }).click({ timeout: 1800 }));
+      await page.waitForTimeout(900);
+      await ignore(() => page.getByPlaceholder(/search for a book/i).fill("light"));
+      await page.waitForTimeout(1500);
+      await ignore(() => page.getByPlaceholder(/search for a book/i).fill(""));
+      await page.waitForTimeout(700);
+      await page.mouse.wheel(0, 520);
+      await page.waitForTimeout(700);
+      await page.mouse.wheel(0, -320);
+      await ignore(() =>
+        page.getByRole("link", { name: /The Last Lighthouse/i }).first().click({ timeout: 1800 }),
+      );
+      await page.waitForTimeout(1800);
+
+      await page.waitForTimeout(Math.max(0, durationMs - (Date.now() - startedAt)));
+    },
+  },
+  {
+    slug: "file-uploader",
+    url: "https://file-uploader-seven-rho.vercel.app/sign-up",
+    captureMs: 26_000,
+    action: async (page, durationMs) => {
+      const startedAt = Date.now();
+      const user = `demo${Date.now().toString().slice(-7)}`;
+      const pass = "DemoPass123";
+
+      // Create an account.
+      await ignore(() => page.getByRole("textbox", { name: /username/i }).fill(user));
+      await ignore(() => page.getByRole("textbox", { name: "Password", exact: true }).fill(pass));
+      await ignore(() => page.getByRole("textbox", { name: /confirm password/i }).fill(pass));
+      await page.waitForTimeout(450);
+      await ignore(() => page.getByRole("button", { name: /sign up/i }).click({ timeout: 2500 }));
+      await page.waitForTimeout(1600);
+
+      // Log in.
+      await ignore(() => page.getByRole("textbox", { name: /username/i }).fill(user));
+      await ignore(() => page.getByRole("textbox", { name: "Password", exact: true }).fill(pass));
+      await page.waitForTimeout(320);
+      await ignore(() => page.getByRole("button", { name: "Login" }).click({ timeout: 2500 }));
+      await page.waitForTimeout(2000);
+
+      // Create a folder.
+      await ignore(() => page.getByRole("button", { name: /new folder/i }).click({ timeout: 2000 }));
+      await page.waitForTimeout(550);
+      await ignore(() => page.getByRole("textbox", { name: /name/i }).fill("Project Files"));
+      await page.waitForTimeout(450);
+      await ignore(() => page.getByRole("button", { name: /create folder/i }).click({ timeout: 2000 }));
+      await page.waitForTimeout(1300);
+
+      // Upload a file.
+      await ignore(() => page.getByRole("button", { name: /new file/i }).click({ timeout: 2000 }));
+      await page.waitForTimeout(550);
+      await ignore(() =>
+        page.locator('input[type="file"]').setInputFiles("public/assets/resume.pdf"),
+      );
+      await page.waitForTimeout(750);
+      await ignore(() => page.getByRole("button", { name: /^upload$/i }).click({ timeout: 2500 }));
+      await page.waitForTimeout(2200);
+      await moveInArc(page, 700, 320, 420, 60, 8);
+
+      await page.waitForTimeout(Math.max(0, durationMs - (Date.now() - startedAt)));
+    },
+  },
+  {
+    slug: "members-only",
+    url: "https://members-only-blue.vercel.app/",
+    captureMs: 26_000,
+    action: async (page, durationMs) => {
+      const startedAt = Date.now();
+      const user = `demo${Date.now().toString().slice(-7)}`;
+      const pass = "DemoPass123";
+
+      // Show the masked board — authors are hidden until you're a member.
+      await page.waitForTimeout(900);
+      await page.mouse.wheel(0, 460);
+      await page.waitForTimeout(1000);
+      await page.mouse.wheel(0, -460);
+      await page.waitForTimeout(500);
+
+      // Create an account.
+      await page.goto("https://members-only-blue.vercel.app/sign-up", { waitUntil: "domcontentloaded" });
+      await page.waitForTimeout(700);
+      await ignore(() => page.getByRole("textbox", { name: /first name/i }).fill("Demo"));
+      await ignore(() => page.getByRole("textbox", { name: /last name/i }).fill("Visitor"));
+      await ignore(() => page.getByRole("textbox", { name: /username/i }).fill(user));
+      await ignore(() => page.getByRole("textbox", { name: "Password", exact: true }).fill(pass));
+      await ignore(() => page.getByRole("textbox", { name: /confirm password/i }).fill(pass));
+      await page.waitForTimeout(450);
+      await ignore(() => page.getByRole("button", { name: /sign up/i }).click({ timeout: 2500 }));
+      await page.waitForTimeout(1500);
+
+      // Log in.
+      await page.goto("https://members-only-blue.vercel.app/login", { waitUntil: "domcontentloaded" });
+      await page.waitForTimeout(600);
+      await ignore(() => page.getByRole("textbox", { name: /username/i }).fill(user));
+      await ignore(() => page.getByRole("textbox", { name: "Password", exact: true }).fill(pass));
+      await page.waitForTimeout(320);
+      await ignore(() => page.getByRole("button", { name: "Login" }).click({ timeout: 2500 }));
+      await page.waitForTimeout(1700);
+
+      // Post a message to the clubhouse board.
+      await page.goto("https://members-only-blue.vercel.app/add-msg", { waitUntil: "domcontentloaded" });
+      await page.waitForTimeout(600);
+      await ignore(() => page.getByRole("textbox", { name: /title/i }).fill("Shipped the portfolio update"));
+      await ignore(() =>
+        page
+          .getByRole("textbox", { name: /message/i })
+          .fill("Auth, roles, and anonymous posting all wired up with Passport and Postgres."),
+      );
+      await page.waitForTimeout(450);
+      await ignore(() => page.getByRole("button", { name: /send/i }).click({ timeout: 2500 }));
+      await page.waitForTimeout(1800);
+      await page.mouse.wheel(0, 300);
+
+      await page.waitForTimeout(Math.max(0, durationMs - (Date.now() - startedAt)));
+    },
+  },
 ];
 
 test("capture project previews", async ({ browser }) => {
