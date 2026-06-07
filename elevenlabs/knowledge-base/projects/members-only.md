@@ -2,10 +2,10 @@
 
 # Members Only
 
-Members Only is one of my (Aziz Umarov's) Full-stack projects, dated May 2026.
+Members Only is one of my (Aziz Umarov's) Full-stack projects, built May 2026.
 
 ## Summary
-Anonymous clubhouse board where membership tiers and passcodes gate who can see authors and delete posts.
+Members Only is an anonymous clubhouse board where membership tiers and passcodes gate who can see authors and delete posts.
 
 ## What it is
 Members Only is an Express clubhouse message board built to practice authentication and authorization. Anyone can read posts, but author names stay masked until a user upgrades to a member tier with a passcode, and only admins can delete messages. It uses Passport local auth with bcrypt, role-based membership tiers, PostgreSQL-backed users and messages, and connect-pg-simple session storage.
@@ -17,13 +17,21 @@ Members Only is an Express clubhouse message board built to practice authenticat
 - Admin-only deletion with PostgreSQL-backed sessions and data.
 
 ## Tech stack
-Express, Node.js, Passport, PostgreSQL, EJS, and Tailwind CSS.
+Members Only is built with Express, Node.js, Passport, PostgreSQL, EJS, and Tailwind CSS.
 
-## Links
+## Quick facts
+- Project: Members Only
+- Type: Full-stack
+- Built: May 2026
 - Live demo: https://members-only-blue.vercel.app
 - Source code: https://github.com/azizu06/members-only
+
+## Common questions about Members Only
+- When did I build Members Only? May 2026.
+- What is Members Only built with? Express, Node.js, Passport, PostgreSQL, EJS, and Tailwind CSS.
+- What database does Members Only use? PostgreSQL.
 
 ## How I talk about this project
 If someone asks me about Members Only, I'd tell them it's an anonymous clubhouse board where membership tiers and passcodes gate who can see authors and delete posts. I built it with Express, Node.js, Passport, and PostgreSQL. I can point them to the live demo at https://members-only-blue.vercel.app and the source on my GitHub at https://github.com/azizu06/members-only.
 
-Keywords: Members Only, Full-stack, Express, Node.js, Passport, PostgreSQL, EJS, Tailwind CSS.
+Keywords: Members Only, Full-stack, Express, Node.js, Passport, PostgreSQL, EJS, Tailwind CSS, database, storage, backend.

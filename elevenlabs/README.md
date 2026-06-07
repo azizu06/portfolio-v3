@@ -19,6 +19,7 @@ elevenlabs/
     ├── 04-skills.md          (skills + rationale)   — GENERATED
     ├── 05-faq.md             (conversational Q&A)   — curated
     ├── 06-portfolio-site.md  (how the site works)   — curated
+    ├── 07-timeline.md        (projects newest-first)— GENERATED (prompt mode)
     └── projects/
         ├── index.md          (project catalog)      — GENERATED
         └── <one file per project>.md (24 files)     — GENERATED
@@ -60,20 +61,32 @@ grep -rn "FILL IN" elevenlabs/knowledge-base
 
 Fill them in (or delete the comment to keep the default behavior). The agent is instructed never to guess these, so leaving them blank is safe — it just means the agent will say "I don't have that detail."
 
-## Setup steps (ElevenLabs dashboard)
+## Setup (automated)
 
-1. **Open your agent.** It already exists — its ID is in `.env` as `ELEVENLABS_AGENT_ID`.
-2. **System prompt.** Copy the contents of the code block in `system-prompt.md` into the agent's System prompt field.
-3. **First message + LLM + voice.** Apply the values in `agent-config.md`.
-4. **Upload the knowledge base.** Add every file under `knowledge-base/` (including all of `projects/`) to the agent's knowledge base. You can drag the markdown files in directly.
-5. **Enable RAG.** In the agent's Knowledge Base settings, toggle on **Use RAG**, then under Advanced set:
-   - Embedding model: `e5_mistral_7b_instruct`
-   - Maximum document chunks: `20`
-   - Maximum vector distance: `0.6`
-   - Maximum documents length: `50000`
-6. **Document modes.** Leave everything on **Auto**. Optionally switch only `00-start-here.md` to **Prompt** mode so core identity is always in context.
-7. **Wait for indexing.** Each document indexes automatically once added to a RAG-enabled agent. Give it a moment before testing.
-8. **Test.** Speak to it as a visitor and confirm it answers as Aziz in the first person: "Who are you?", "What's your best project?", "Do you have RAG experience?", "How do I reach you?", an out-of-scope one ("What's the weather?") to check the guardrails, and "Are you actually Aziz or an AI?" to confirm the honest-but-in-character acknowledgment.
+The whole agent — system prompt, first message, all knowledge-base documents, RAG settings, and per-document modes — is pushed by one script using the ElevenLabs API:
+
+```bash
+npm run kb:build              # regenerate docs from src/data/*.ts
+npm run kb:push               # upload + attach + enable RAG + set prompt/first message
+npm run kb:push -- --replace  # refresh content of docs that already exist (detaches, recreates, reattaches)
+npm run kb:push -- --dry-run  # preview actions without writing
+```
+
+It reads `ELEVENLABS_API_KEY` and `ELEVENLABS_AGENT_ID` from `.env`. What it sets:
+
+- **System prompt** from the code block in `system-prompt.md`.
+- **First message** (the default in `scripts/push-elevenlabs-agent.mjs`).
+- **All `knowledge-base/` docs** created and attached.
+- **RAG** on: `e5_mistral_7b_instruct`, max chunks `20`, max vector distance `0.7`, max docs length `50000`.
+- **Prompt-mode docs**: `00-start-here` (identity) and `07-timeline` (recency) are always in context; everything else is Auto (retrieved on demand).
+
+After it runs, RAG indexing happens automatically (a minute or two). Then **test** by talking to the agent: "Who are you?", "What's your most recent project?" (should be the June 2026 ones, not CrisisLens), "What vector database does PopChoice use?" (Supabase + pgvector), "How do I reach you?", an out-of-scope one ("What's the weather?"), and "Are you actually Aziz or an AI?".
+
+Two things the script does NOT set (choose them once in the dashboard): the **voice** and the **LLM model/temperature** — see `agent-config.md`.
+
+### Doing it by hand instead
+
+If you'd rather not run the script: open the agent (ID in `.env`), paste `system-prompt.md` into the System prompt field, set the first message from `agent-config.md`, drag every file under `knowledge-base/` (incl. `projects/`) into the knowledge base, toggle **Use RAG** with the Advanced values above, and set `00-start-here` + `07-timeline` to Prompt mode.
 
 ## Embedding the agent on the site
 
@@ -90,12 +103,9 @@ src/app/api/elevenlabs/signed-url/route.ts   →  GET /api/elevenlabs/signed-url
 
 It reads `ELEVENLABS_API_KEY` and `ELEVENLABS_AGENT_ID` from `.env`, calls ElevenLabs, and returns `{ "signedUrl": "wss://..." }`. The signed URL expires after 15 minutes. Wire the client widget / SDK to call this endpoint to start a conversation. (Make sure `ELEVENLABS_API_KEY` and `ELEVENLABS_AGENT_ID` are set in your Vercel project env, not just local `.env`.)
 
-## Replacing the old single-file knowledge base
-
-The repo's earlier `elevenlabs-portfolio-knowledge-base.txt` (one 32KB file) is superseded by this document set. After uploading the new docs and confirming the agent answers well, remove that single document from the ElevenLabs knowledge base so retrieval isn't split between the old monolith and the new focused docs. (The local `.txt` file can stay or be deleted — it's just the old source.)
-
 ## Maintenance checklist
 
-- Added/edited a project, skill, or role? → `npm run kb:build`, then re-upload the changed `knowledge-base/projects/*.md` / `03-experience.md` / `04-skills.md`.
-- Changed bio, education, or contact? → edit the curated doc directly, then re-upload it.
-- Want different agent behavior? → edit `system-prompt.md` and paste it back into the dashboard.
+- Added/edited a project, skill, or role? → `npm run kb:build` then `npm run kb:push -- --replace`.
+- Changed bio, education, or contact? → edit the curated doc directly, then `npm run kb:push -- --replace`.
+- Want different agent behavior? → edit `system-prompt.md`, then `npm run kb:push` (re-pushes the prompt).
+- The old single `elevenlabs-portfolio-knowledge-base.txt` monolith has been removed (deleted locally and from the ElevenLabs account) — the focused document set replaces it.

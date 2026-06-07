@@ -2,10 +2,10 @@
 
 # File Uploader
 
-File Uploader is one of my (Aziz Umarov's) Full-stack projects, dated May 2026.
+File Uploader is one of my (Aziz Umarov's) Full-stack projects, built May 2026.
 
 ## Summary
-Personal cloud storage with session auth, nested folders, and uploads persisted to object storage through Prisma.
+File Uploader is a personal cloud storage with session auth, nested folders, and uploads persisted to object storage through Prisma.
 
 ## What it is
 File Uploader is an Express app for personal cloud storage, built to practice Prisma ORM. Users sign in with Passport (local strategy) and bcrypt, create nested folders, and upload files handled by multer and stored in Supabase storage. Data is modeled and queried through Prisma over PostgreSQL, sessions are persisted with a Prisma-backed store, and the top-level folder is protected from deletion.
@@ -17,13 +17,21 @@ File Uploader is an Express app for personal cloud storage, built to practice Pr
 - Prisma ORM over PostgreSQL with Prisma-backed session storage.
 
 ## Tech stack
-Express, Node.js, Prisma, PostgreSQL, Supabase, EJS, and Tailwind CSS.
+File Uploader is built with Express, Node.js, Prisma, PostgreSQL, Supabase, EJS, and Tailwind CSS.
 
-## Links
+## Quick facts
+- Project: File Uploader
+- Type: Full-stack
+- Built: May 2026
 - Live demo: https://file-uploader-seven-rho.vercel.app
 - Source code: https://github.com/azizu06/file-uploader
+
+## Common questions about File Uploader
+- When did I build File Uploader? May 2026.
+- What is File Uploader built with? Express, Node.js, Prisma, PostgreSQL, Supabase, EJS, and Tailwind CSS.
+- What database does File Uploader use? PostgreSQL and Supabase.
 
 ## How I talk about this project
 If someone asks me about File Uploader, I'd tell them it's a personal cloud storage with session auth, nested folders, and uploads persisted to object storage through Prisma. I built it with Express, Node.js, Prisma, and PostgreSQL. I can point them to the live demo at https://file-uploader-seven-rho.vercel.app and the source on my GitHub at https://github.com/azizu06/file-uploader.
 
-Keywords: File Uploader, Full-stack, Express, Node.js, Prisma, PostgreSQL, Supabase, EJS, Tailwind CSS.
+Keywords: File Uploader, Full-stack, Express, Node.js, Prisma, PostgreSQL, Supabase, EJS, Tailwind CSS, database, storage, backend.

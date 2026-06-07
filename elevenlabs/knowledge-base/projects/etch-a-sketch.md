@@ -2,10 +2,10 @@
 
 # Etch-A-Sketch
 
-Etch-A-Sketch is one of my (Aziz Umarov's) JavaScript projects, dated September 2025.
+Etch-A-Sketch is one of my (Aziz Umarov's) JavaScript projects, built September 2025.
 
 ## Summary
-Browser sketchpad with adjustable grid sizing, color modes, pointer drawing, reset controls, and DOM rendering.
+Etch-A-Sketch is a browser sketchpad with adjustable grid sizing, color modes, pointer drawing, reset controls, and DOM rendering.
 
 ## What it is
 Etch-A-Sketch is a browser sketchpad built with vanilla JavaScript DOM generation. The app creates its toolbar and drawing canvas in script, supports adjustable grid resolution, color mode, eraser mode, rainbow mode, darken behavior, clear/reset controls, and pointer-based drawing across generated cells, making it a focused exercise in event handling, dynamic element creation, and user-controlled canvas state.
@@ -17,13 +17,20 @@ Etch-A-Sketch is a browser sketchpad built with vanilla JavaScript DOM generatio
 - DOM-focused rendering that rebuilds the board based on user settings.
 
 ## Tech stack
-JavaScript, HTML, and CSS.
+Etch-A-Sketch is built with JavaScript, HTML, and CSS.
 
-## Links
+## Quick facts
+- Project: Etch-A-Sketch
+- Type: JavaScript
+- Built: September 2025
 - Live demo: https://etch-a-sketch-chi-azure.vercel.app/
 - Source code: https://github.com/azizu06/Etch-A-Sketch
+
+## Common questions about Etch-A-Sketch
+- When did I build Etch-A-Sketch? September 2025.
+- What is Etch-A-Sketch built with? JavaScript, HTML, and CSS.
 
 ## How I talk about this project
 If someone asks me about Etch-A-Sketch, I'd tell them it's a browser sketchpad with adjustable grid sizing, color modes, pointer drawing, reset controls, and DOM rendering. I built it with JavaScript, HTML, and CSS. I can point them to the live demo at https://etch-a-sketch-chi-azure.vercel.app/ and the source on my GitHub at https://github.com/azizu06/Etch-A-Sketch.
 
-Keywords: Etch-A-Sketch, JavaScript, JavaScript, HTML, CSS.
+Keywords: Etch-A-Sketch, JavaScript, HTML, CSS.

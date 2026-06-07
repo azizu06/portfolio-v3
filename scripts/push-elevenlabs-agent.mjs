@@ -27,12 +27,14 @@ const RAG_SETTINGS = {
   enabled: true,
   embedding_model: "e5_mistral_7b_instruct",
   max_documents_length: 50000,
-  max_vector_distance: 0.6,
-  max_retrieved_rag_chunks_count: 20,
+  max_vector_distance: 0.7, // a bit looser than the 0.6 default to improve recall on paraphrased queries
+  max_retrieved_rag_chunks_count: 20, // 20 is the ElevenLabs maximum
 };
 
-// The one document we always inject into the prompt; everything else is retrieved on demand.
-const PROMPT_MODE_DOC = "00-start-here";
+// Documents we always inject into the prompt (not retrieval-gated): the overview and
+// the project timeline, so identity and recency are always available. Everything else
+// is retrieved on demand.
+const PROMPT_MODE_DOCS = new Set(["00-start-here", "07-timeline"]);
 
 const REPLACE = process.argv.includes("--replace");
 const DRY_RUN = process.argv.includes("--dry-run");
@@ -121,6 +123,49 @@ function extractSystemPrompt() {
 
 // --- main -------------------------------------------------------------------
 
+// RAG indexing is NOT automatic — each document must be explicitly indexed with the
+// embedding model before it can be retrieved. Without this, retrieval returns nothing
+// and the agent falls back on guesses. Trigger indexing for every doc, then poll.
+function indexDone(overview, model) {
+  const idx = (overview.indexes || []).find((i) => i.model === model) || (overview.indexes || [])[0];
+  if (!idx) return { state: "missing" };
+  const pct = idx.progress_percentage ?? 0;
+  const st = (idx.status || "").toLowerCase();
+  if (st.includes("fail")) return { state: "failed" };
+  if (pct >= 100 || st.includes("succ") || st.includes("complete") || st === "done") {
+    return { state: "done" };
+  }
+  return { state: "pending" };
+}
+
+async function ragIndexAll(entries) {
+  const model = RAG_SETTINGS.embedding_model;
+  console.log("\nTriggering RAG indexing...");
+  for (const e of entries) {
+    try {
+      await api("POST", `/convai/knowledge-base/${e.id}/rag-index`, { model });
+    } catch (err) {
+      console.warn(`  ⚠ index trigger failed for ${e.name} (${err.status ?? "?"})`);
+    }
+  }
+  const deadline = Date.now() + 180000; // up to 3 minutes
+  while (Date.now() < deadline) {
+    let done = 0;
+    let failed = 0;
+    for (const e of entries) {
+      const overview = await api("GET", `/convai/knowledge-base/${e.id}/rag-index`);
+      const { state } = indexDone(overview, model);
+      if (state === "done") done++;
+      else if (state === "failed") failed++;
+    }
+    console.log(`  indexed ${done}/${entries.length}${failed ? ` (${failed} failed)` : ""}`);
+    if (done + failed >= entries.length) return { done, failed };
+    await sleep(5000);
+  }
+  console.warn("  ⚠ indexing still in progress after 3 min; it will finish server-side.");
+  return { done: -1, failed: 0 };
+}
+
 async function listAllKbDocs() {
   const byName = new Map();
   let cursor = "";
@@ -136,11 +181,13 @@ async function listAllKbDocs() {
 
 async function main() {
   const files = collectMarkdown(KB_DIR).sort((a, b) => {
-    // 00-start-here first, then the rest alphabetically.
+    // Prompt-mode docs first, then the rest alphabetically.
     const na = docNameFor(a);
     const nb = docNameFor(b);
-    if (na === PROMPT_MODE_DOC) return -1;
-    if (nb === PROMPT_MODE_DOC) return 1;
+    const pa = PROMPT_MODE_DOCS.has(na);
+    const pb = PROMPT_MODE_DOCS.has(nb);
+    if (pa && !pb) return -1;
+    if (pb && !pa) return 1;
     return na.localeCompare(nb);
   });
   const systemPrompt = extractSystemPrompt();
@@ -155,6 +202,20 @@ async function main() {
   const cc = agent.conversation_config || {};
   const existing = await listAllKbDocs();
 
+  // For a clean content refresh, detach everything from the agent first so the old
+  // documents are no longer "in use" and can be deleted, then recreate + reattach.
+  if (REPLACE && !DRY_RUN && existing.size) {
+    const detached = {
+      ...cc,
+      agent: {
+        ...(cc.agent || {}),
+        prompt: { ...((cc.agent && cc.agent.prompt) || {}), knowledge_base: [] },
+      },
+    };
+    await api("PATCH", `/convai/agents/${AGENT_ID}`, { conversation_config: detached });
+    console.log("Detached existing knowledge base for clean replace.\n");
+  }
+
   const kbEntries = [];
   let created = 0;
   let reused = 0;
@@ -163,7 +224,7 @@ async function main() {
   for (const file of files) {
     const name = docNameFor(file);
     const text = readFileSync(file, "utf8");
-    const usage_mode = name === PROMPT_MODE_DOC ? "prompt" : "auto";
+    const usage_mode = PROMPT_MODE_DOCS.has(name) ? "prompt" : "auto";
     const prior = existing.get(name);
 
     if (DRY_RUN) {
@@ -225,13 +286,20 @@ async function main() {
 
   await api("PATCH", `/convai/agents/${AGENT_ID}`, { conversation_config: mergedConfig });
 
+  // Indexing must be triggered explicitly — it is NOT automatic on attach.
+  const { done, failed } = await ragIndexAll(kbEntries);
+
   console.log("");
   console.log(`✓ Docs: ${created} created, ${replaced} replaced, ${reused} reused`);
   console.log(`✓ Attached ${kbEntries.length} documents to the agent`);
-  console.log(`✓ RAG enabled (${RAG_SETTINGS.embedding_model}); "${PROMPT_MODE_DOC}" set to prompt mode`);
+  console.log(`✓ RAG enabled (${RAG_SETTINGS.embedding_model}); prompt-mode docs: ${[...PROMPT_MODE_DOCS].join(", ")}`);
   console.log(`✓ System prompt and first message updated`);
+  console.log(
+    done === -1
+      ? "✓ RAG indexing triggered (finishing server-side)"
+      : `✓ RAG indexing complete: ${done}/${kbEntries.length}${failed ? ` (${failed} failed)` : ""}`,
+  );
   console.log("");
-  console.log("Note: RAG indexing runs automatically now and may take a minute or two.");
   console.log("Any previously-attached documents (e.g. the old single .txt) are now detached.");
 }
 

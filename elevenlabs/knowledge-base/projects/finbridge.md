@@ -2,10 +2,10 @@
 
 # FinBridge
 
-FinBridge is one of my (Aziz Umarov's) Full-stack projects, dated October 2025.
+FinBridge is one of my (Aziz Umarov's) Full-stack projects, built October 2025.
 
 ## Summary
-Finance dashboard that explains account activity, translates guidance, and turns spending questions into visuals.
+FinBridge is a finance dashboard that explains account activity, translates guidance, and turns spending questions into visuals.
 
 ## What it is
 FinBridge is a multilingual financial literacy platform for immigrants, bilingual students, families, and communities learning the U.S. financial system. The repo combines a React and Vite frontend with an Express backend that handles translation history, document translation, finance advice, Plaid account linking, transaction routes, generated graph data, Firebase-backed history, and AI assistance through Google Gemini and chat service routes.
@@ -17,13 +17,21 @@ FinBridge is a multilingual financial literacy platform for immigrants, bilingua
 - Google Gemini assistant for contextual answers about transactions, finance terms, and next steps.
 
 ## Tech stack
-JavaScript, React, Tailwind, Google Gemini, Express, Node.js, Plaid API, and Chart.js.
+FinBridge is built with JavaScript, React, Tailwind, Google Gemini, Express, Node.js, Plaid API, and Chart.js.
 
-## Links
+## Quick facts
+- Project: FinBridge
+- Type: Full-stack
+- Built: October 2025
 - Live demo: https://d34qgf2s4sj5t3.cloudfront.net
 - Source code: https://github.com/GridGxly/FinBridgeV2
+
+## Common questions about FinBridge
+- When did I build FinBridge? October 2025.
+- What is FinBridge built with? JavaScript, React, Tailwind, Google Gemini, Express, Node.js, Plaid API, and Chart.js.
+- What AI, LLM, or ML does FinBridge use? Google Gemini.
 
 ## How I talk about this project
 If someone asks me about FinBridge, I'd tell them it's a finance dashboard that explains account activity, translates guidance, and turns spending questions into visuals. I built it with JavaScript, React, Tailwind, and Google Gemini. I can point them to the live demo at https://d34qgf2s4sj5t3.cloudfront.net and the source on my GitHub at https://github.com/GridGxly/FinBridgeV2.
 
-Keywords: FinBridge, Full-stack, JavaScript, React, Tailwind, Google Gemini, Express, Node.js, Plaid API, Chart.js.
+Keywords: FinBridge, Full-stack, JavaScript, React, Tailwind, Google Gemini, Express, Node.js, Plaid API, Chart.js, AI, LLM, artificial intelligence, machine learning.

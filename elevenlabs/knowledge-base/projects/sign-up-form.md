@@ -2,10 +2,10 @@
 
 # Sign-Up Form
 
-Sign-Up Form is one of my (Aziz Umarov's) CSS projects, dated November 2025.
+Sign-Up Form is one of my (Aziz Umarov's) CSS projects, built November 2025.
 
 ## Summary
-Responsive sign-up form with semantic labels, focused field states, validation styling, and polished CSS layout.
+Sign-Up Form is a responsive sign-up form with semantic labels, focused field states, validation styling, and polished CSS layout.
 
 ## What it is
 Sign-Up Form is a focused HTML and CSS form project for practicing client-side form structure and responsive layout. The repo centers on semantic account-creation fields, grouped labels and inputs, visual hierarchy between the image/brand area and the form area, focused and invalid field styling, password confirmation feedback, and a layout that adapts from a desktop two-column composition to narrower screens.
@@ -17,13 +17,20 @@ Sign-Up Form is a focused HTML and CSS form project for practicing client-side f
 - Polished CSS treatment around spacing, imagery, and call-to-action hierarchy.
 
 ## Tech stack
-JavaScript, HTML, and CSS.
+Sign-Up Form is built with JavaScript, HTML, and CSS.
 
-## Links
+## Quick facts
+- Project: Sign-Up Form
+- Type: CSS
+- Built: November 2025
 - Live demo: https://sign-up-one-liart.vercel.app/
 - Source code: https://github.com/azizu06/Sign-up
+
+## Common questions about Sign-Up Form
+- When did I build Sign-Up Form? November 2025.
+- What is Sign-Up Form built with? JavaScript, HTML, and CSS.
 
 ## How I talk about this project
 If someone asks me about Sign-Up Form, I'd tell them it's a responsive sign-up form with semantic labels, focused field states, validation styling, and polished CSS layout. I built it with JavaScript, HTML, and CSS. I can point them to the live demo at https://sign-up-one-liart.vercel.app/ and the source on my GitHub at https://github.com/azizu06/Sign-up.
 
-Keywords: Sign-Up Form, CSS, JavaScript, HTML, CSS.
+Keywords: Sign-Up Form, CSS, JavaScript, HTML.

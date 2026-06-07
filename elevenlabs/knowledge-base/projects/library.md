@@ -2,10 +2,10 @@
 
 # Library
 
-Library is one of my (Aziz Umarov's) JavaScript projects, dated October 2025.
+Library is one of my (Aziz Umarov's) JavaScript projects, built October 2025.
 
 ## Summary
-Personal library app with book-entry forms, reading-status controls, stored object state, and class-based logic.
+Library is a personal library app with book-entry forms, reading-status controls, stored object state, and class-based logic.
 
 ## What it is
 Library is a vanilla JavaScript book collection app built around a Book class and an in-memory library array. Each book receives a generated id and stores cover, title, author, page count, publication year, description, and reading status, while the UI renders book cards, supports adding new entries through a form, toggles each book between reading and finished, and removes books from the collection.
@@ -17,13 +17,20 @@ Library is a vanilla JavaScript book collection app built around a Book class an
 - Remove-book actions for managing the collection directly from the UI.
 
 ## Tech stack
-JavaScript, HTML, and CSS.
+Library is built with JavaScript, HTML, and CSS.
 
-## Links
+## Quick facts
+- Project: Library
+- Type: JavaScript
+- Built: October 2025
 - Live demo: https://library-flame-ten.vercel.app/
 - Source code: https://github.com/azizu06/Library
+
+## Common questions about Library
+- When did I build Library? October 2025.
+- What is Library built with? JavaScript, HTML, and CSS.
 
 ## How I talk about this project
 If someone asks me about Library, I'd tell them it's a personal library app with book-entry forms, reading-status controls, stored object state, and class-based logic. I built it with JavaScript, HTML, and CSS. I can point them to the live demo at https://library-flame-ten.vercel.app/ and the source on my GitHub at https://github.com/azizu06/Library.
 
-Keywords: Library, JavaScript, JavaScript, HTML, CSS.
+Keywords: Library, JavaScript, HTML, CSS.

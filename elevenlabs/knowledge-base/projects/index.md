@@ -2,7 +2,33 @@
 
 # Projects index
 
-I (Aziz Umarov) have 24 projects on my portfolio, spanning AI products, full-stack web apps, React apps, games, and front-end fundamentals. This index helps find the right project; each project also has its own document with more detail. Live demos are on my portfolio at https://azizu.dev/projects.
+I (Aziz Umarov) have 24 projects on my portfolio, spanning AI products, full-stack web apps, React apps, games, and front-end fundamentals. This index helps find the right project; each project also has its own document with more detail. Live demos are on my portfolio at https://azizu.dev/projects. For "most recent / latest" questions, use the order below (newest first).
+
+## Most recent first
+- PopChoice (June 2026)
+- Dream Catcher (June 2026)
+- PollyGlot (May 2026)
+- Tiny Library (May 2026)
+- File Uploader (May 2026)
+- Members Only (May 2026)
+- Inventory App (April 2026)
+- Message Board (April 2026)
+- Shopping Cart (March 2026)
+- CrisisLens (February 2026 (Hacklytics 2026)) — 1st Place Winner
+- Memory Card (February 2026)
+- Resume Builder (February 2026)
+- Battleship (January 2026)
+- To-Do List (December 2025)
+- Weather App (December 2025)
+- Restaurant Page (November 2025)
+- Sign-Up Form (November 2025)
+- Admin Dashboard (November 2025)
+- FinBridge (October 2025)
+- Tic Tac Toe (October 2025)
+- Library (October 2025)
+- Calculator (September 2025)
+- Etch-A-Sketch (September 2025)
+- Rock Paper Scissors (September 2025)
 
 ## Flagship and award-winning projects
 - CrisisLens (1st Place Winner): Command-center dashboard for mapping crisis risk, funding gaps, and AI insights across live humanitarian signals.
@@ -11,7 +37,7 @@ I (Aziz Umarov) have 24 projects on my portfolio, spanning AI products, full-sta
 
 ## All projects by category
 ### AI product
-- CrisisLens (Hacklytics 2026): Command-center dashboard for mapping crisis risk, funding gaps, and AI insights across live humanitarian signals. — live: https://crisis-lens-v2-web.vercel.app
+- CrisisLens (February 2026 (Hacklytics 2026)): Command-center dashboard for mapping crisis risk, funding gaps, and AI insights across live humanitarian signals. — live: https://crisis-lens-v2-web.vercel.app
 - PopChoice (June 2026): Group movie picker that turns everyone's taste into one semantic search and streams back AI-explained recommendations. — live: https://pop-choice-kappa.vercel.app
 - PollyGlot (May 2026): AI translation chat that converts text into French, Spanish, or Japanese while preserving tone, formatting, and emoji. — live: https://pollyglot-qzxe.onrender.com
 

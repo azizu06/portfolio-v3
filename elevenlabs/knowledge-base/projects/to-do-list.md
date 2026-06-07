@@ -2,10 +2,10 @@
 
 # To-Do List
 
-To-Do List is one of my (Aziz Umarov's) JavaScript projects, dated December 2025.
+To-Do List is one of my (Aziz Umarov's) JavaScript projects, built December 2025.
 
 ## Summary
-Task manager with project groups, dated todos, priority badges, localStorage persistence, and editable state.
+To-Do List is a task manager with project groups, dated todos, priority badges, localStorage persistence, and editable state.
 
 ## What it is
 To-Do List is an object-oriented JavaScript task manager structured around project, todo, all-projects, storage, form, renderer, and update-form modules. It supports multiple project groups, active project switching, dated todo items, priority and note fields, create and update forms, deletion flows, date-fns sorting helpers, and localStorage persistence so restored projects and todos survive refreshes.
@@ -17,13 +17,20 @@ To-Do List is an object-oriented JavaScript task manager structured around proje
 - localStorage persistence so projects and todos survive page refreshes.
 
 ## Tech stack
-JavaScript, HTML, CSS, Webpack, and localStorage.
+To-Do List is built with JavaScript, HTML, CSS, Webpack, and localStorage.
 
-## Links
+## Quick facts
+- Project: To-Do List
+- Type: JavaScript
+- Built: December 2025
 - Live demo: https://todo-list-nine-sooty-39.vercel.app/
 - Source code: https://github.com/azizu06/todo-list
+
+## Common questions about To-Do List
+- When did I build To-Do List? December 2025.
+- What is To-Do List built with? JavaScript, HTML, CSS, Webpack, and localStorage.
 
 ## How I talk about this project
 If someone asks me about To-Do List, I'd tell them it's a task manager with project groups, dated todos, priority badges, localStorage persistence, and editable state. I built it with JavaScript, HTML, CSS, and Webpack. I can point them to the live demo at https://todo-list-nine-sooty-39.vercel.app/ and the source on my GitHub at https://github.com/azizu06/todo-list.
 
-Keywords: To-Do List, JavaScript, JavaScript, HTML, CSS, Webpack, localStorage.
+Keywords: To-Do List, JavaScript, HTML, CSS, Webpack, localStorage.

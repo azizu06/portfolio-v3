@@ -2,10 +2,10 @@
 
 # Tiny Library
 
-Tiny Library is one of my (Aziz Umarov's) React projects, dated May 2026.
+Tiny Library is one of my (Aziz Umarov's) React projects, built May 2026.
 
 ## Summary
-Typed Next.js App Router catalog with a styled landing page, category routes, book search, and detail pages.
+Tiny Library is a typed Next.js App Router catalog with a styled landing page, category routes, book search, and detail pages.
 
 ## What it is
 Tiny Library is a book-browsing app built to practice the Next.js App Router with TypeScript. A styled hero landing page leads into a /books catalog with category routes, a search field, and individual book detail pages. TypeScript types are shared across the app, and the UI is styled with Tailwind CSS on a recent Next.js release.
@@ -17,13 +17,20 @@ Tiny Library is a book-browsing app built to practice the Next.js App Router wit
 - Shared TypeScript types and Tailwind CSS styling.
 
 ## Tech stack
-Next.js, React, TypeScript, and Tailwind CSS.
+Tiny Library is built with Next.js, React, TypeScript, and Tailwind CSS.
 
-## Links
+## Quick facts
+- Project: Tiny Library
+- Type: React
+- Built: May 2026
 - Live demo: https://tiny-library-ivory.vercel.app
 - Source code: https://github.com/azizu06/tiny-library
+
+## Common questions about Tiny Library
+- When did I build Tiny Library? May 2026.
+- What is Tiny Library built with? Next.js, React, TypeScript, and Tailwind CSS.
 
 ## How I talk about this project
 If someone asks me about Tiny Library, I'd tell them it's a typed Next.js App Router catalog with a styled landing page, category routes, book search, and detail pages. I built it with Next.js, React, TypeScript, and Tailwind CSS. I can point them to the live demo at https://tiny-library-ivory.vercel.app and the source on my GitHub at https://github.com/azizu06/tiny-library.
 
-Keywords: Tiny Library, React, Next.js, React, TypeScript, Tailwind CSS.
+Keywords: Tiny Library, React, Next.js, TypeScript, Tailwind CSS.

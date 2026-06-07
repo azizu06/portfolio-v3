@@ -23,14 +23,14 @@ The agent speaks as Aziz in the first person, so the opening line (the "First me
 
 - Attach every document in `knowledge-base/` (including all of `knowledge-base/projects/`) to the agent.
 - Turn ON **Use RAG** in the agent's Knowledge Base settings.
-- Advanced settings (good starting values):
+- Advanced settings (current values, set automatically by `npm run kb:push`):
   - Embedding model: `e5_mistral_7b_instruct`
-  - Maximum document chunks (`max_retrieved_rag_chunks_count`): `20`
-  - Maximum vector distance (`max_vector_distance`): `0.6`
+  - Maximum document chunks (`max_retrieved_rag_chunks_count`): `20` (the ElevenLabs maximum)
+  - Maximum vector distance (`max_vector_distance`): `0.7` (a bit looser than the 0.6 default to improve recall on paraphrased questions)
   - Maximum documents length (`max_documents_length`): `50000`
 - Per-document mode:
   - Leave project docs and most docs on **Auto** (retrieved only when relevant).
-  - Optionally set `00-start-here.md` (or `01-profile.md`) to **Prompt** mode so the agent always has Aziz's core identity in context. Keep this to ONE small document so you don't bloat the prompt.
+  - `00-start-here.md` (core identity) and `07-timeline.md` (project recency) are set to **Prompt** mode so they're always in context — this is what makes "who are you" and "most recent project" reliable without depending on retrieval. Keep prompt-mode docs few and small.
 - Note: ElevenLabs cannot RAG-index documents smaller than 500 bytes (they fall back to prompt mode). All generated docs in this repo clear that floor; the generator checks and warns if one doesn't.
 
 ## Voice

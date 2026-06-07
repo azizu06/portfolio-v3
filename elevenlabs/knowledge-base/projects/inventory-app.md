@@ -2,10 +2,10 @@
 
 # Inventory App
 
-Inventory App is one of my (Aziz Umarov's) Full-stack projects, dated April 2026.
+Inventory App is one of my (Aziz Umarov's) Full-stack projects, built April 2026.
 
 ## Summary
-Inventory catalog with product filters, detailed item pages, protected actions, image URLs, and SQL-backed records.
+Inventory App is an inventory catalog with product filters, detailed item pages, protected actions, image URLs, and SQL-backed records.
 
 ## What it is
 Inventory App is an Express and EJS inventory manager backed by PostgreSQL queries, category and product controllers, and validation middleware. It supports category browsing, product filtering through query parameters, detailed product pages, new and edit forms, image URL fields, server-side validation, and password-protected delete confirmation so destructive inventory actions require an admin pass before records are removed.
@@ -17,13 +17,21 @@ Inventory App is an Express and EJS inventory manager backed by PostgreSQL queri
 - Protected delete confirmation flow for safer destructive actions.
 
 ## Tech stack
-Express, PostgreSQL, EJS, and Node.js.
+Inventory App is built with Express, PostgreSQL, EJS, and Node.js.
 
-## Links
+## Quick facts
+- Project: Inventory App
+- Type: Full-stack
+- Built: April 2026
 - Live demo: https://inventory-app-rho-ivory.vercel.app
 - Source code: https://github.com/azizu06/inventory-app
+
+## Common questions about Inventory App
+- When did I build Inventory App? April 2026.
+- What is Inventory App built with? Express, PostgreSQL, EJS, and Node.js.
+- What database does Inventory App use? PostgreSQL.
 
 ## How I talk about this project
 If someone asks me about Inventory App, I'd tell them it's an inventory catalog with product filters, detailed item pages, protected actions, image URLs, and SQL-backed records. I built it with Express, PostgreSQL, EJS, and Node.js. I can point them to the live demo at https://inventory-app-rho-ivory.vercel.app and the source on my GitHub at https://github.com/azizu06/inventory-app.
 
-Keywords: Inventory App, Full-stack, Express, PostgreSQL, EJS, Node.js.
+Keywords: Inventory App, Full-stack, Express, PostgreSQL, EJS, Node.js, database, storage, backend.

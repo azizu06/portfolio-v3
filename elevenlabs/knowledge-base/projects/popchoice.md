@@ -2,10 +2,10 @@
 
 # PopChoice
 
-PopChoice is one of my (Aziz Umarov's) AI product projects, dated June 2026.
+PopChoice is one of my (Aziz Umarov's) AI product projects, built June 2026.
 
 ## Summary
-Group movie picker that turns everyone's taste into one semantic search and streams back AI-explained recommendations.
+PopChoice is a group movie picker that turns everyone's taste into one semantic search and streams back AI-explained recommendations.
 
 ## What it is
 PopChoice is a Next.js 16 App Router app that helps a group decide what to watch. It collects each viewer's preferences, combines them into a single query, creates an OpenAI embedding, and runs vector similarity search over a Supabase pgvector movie database. Matches are enriched with TMDB poster art and OpenAI-written explanations, then streamed back one movie at a time, with Upstash Redis rate limiting and Zod validation protecting the recommendation route.
@@ -17,13 +17,23 @@ PopChoice is a Next.js 16 App Router app that helps a group decide what to watch
 - Upstash Redis rate limiting and Zod-validated API routes.
 
 ## Tech stack
-Next.js, React, TypeScript, OpenAI, Supabase, pgvector, Zod, and Tailwind CSS.
+PopChoice is built with Next.js, React, TypeScript, OpenAI, Supabase, pgvector, Zod, and Tailwind CSS.
 
-## Links
+## Quick facts
+- Project: PopChoice
+- Type: AI product
+- Built: June 2026
 - Live demo: https://pop-choice-kappa.vercel.app
 - Source code: https://github.com/azizu06/pop-choice
+
+## Common questions about PopChoice
+- When did I build PopChoice? June 2026.
+- What is PopChoice built with? Next.js, React, TypeScript, OpenAI, Supabase, pgvector, Zod, and Tailwind CSS.
+- What database does PopChoice use? Supabase.
+- What vector database or vector store does PopChoice use? Supabase with the pgvector extension.
+- What AI, LLM, or ML does PopChoice use? OpenAI.
 
 ## How I talk about this project
 If someone asks me about PopChoice, I'd tell them it's a group movie picker that turns everyone's taste into one semantic search and streams back AI-explained recommendations. I built it with Next.js, React, TypeScript, and OpenAI. I can point them to the live demo at https://pop-choice-kappa.vercel.app and the source on my GitHub at https://github.com/azizu06/pop-choice.
 
-Keywords: PopChoice, AI product, Next.js, React, TypeScript, OpenAI, Supabase, pgvector, Zod, Tailwind CSS.
+Keywords: PopChoice, AI product, Next.js, React, TypeScript, OpenAI, Supabase, pgvector, Zod, Tailwind CSS, vector database, vector store, vector search, semantic search, embeddings, database, storage, backend, AI, LLM, artificial intelligence, machine learning.

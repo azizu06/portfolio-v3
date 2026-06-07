@@ -2,10 +2,10 @@
 
 # Battleship
 
-Battleship is one of my (Aziz Umarov's) Game projects, dated January 2026.
+Battleship is one of my (Aziz Umarov's) Game projects, built January 2026.
 
 ## Summary
-Test-driven Battleship game with random placement, dual boards, CPU turns, hit markers, and modular game logic.
+Battleship is a test-driven Battleship game with random placement, dual boards, CPU turns, hit markers, and modular game logic.
 
 ## What it is
 Battleship is a vanilla JavaScript and Webpack game built around separated game logic and DOM rendering. The repo includes board, ship, player, ship-placement, turn-flow, controller, and CPU-hunt modules, plus Jest tests for board and ship behavior. The UI lets the player place ships, randomize placement, attack the computer grid, see hit and miss markers, and progress through a complete player-versus-computer match.
@@ -17,11 +17,18 @@ Battleship is a vanilla JavaScript and Webpack game built around separated game 
 - Jest coverage for core board and ship behavior.
 
 ## Tech stack
-JavaScript, HTML, CSS, Jest, and Webpack.
+Battleship is built with JavaScript, HTML, CSS, Jest, and Webpack.
 
-## Links
+## Quick facts
+- Project: Battleship
+- Type: Game
+- Built: January 2026
 - Live demo: https://battleship-one-sandy.vercel.app/
 - Source code: https://github.com/azizu06/Battleship
+
+## Common questions about Battleship
+- When did I build Battleship? January 2026.
+- What is Battleship built with? JavaScript, HTML, CSS, Jest, and Webpack.
 
 ## How I talk about this project
 If someone asks me about Battleship, I'd tell them it's a test-driven Battleship game with random placement, dual boards, CPU turns, hit markers, and modular game logic. I built it with JavaScript, HTML, CSS, and Jest. I can point them to the live demo at https://battleship-one-sandy.vercel.app/ and the source on my GitHub at https://github.com/azizu06/Battleship.

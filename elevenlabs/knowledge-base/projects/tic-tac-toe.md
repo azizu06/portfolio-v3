@@ -2,10 +2,10 @@
 
 # Tic Tac Toe
 
-Tic Tac Toe is one of my (Aziz Umarov's) Game projects, dated October 2025.
+Tic Tac Toe is one of my (Aziz Umarov's) Game projects, built October 2025.
 
 ## Summary
-Classic Tic Tac Toe with player setup, turn messages, board state, win detection, and modular JavaScript flow.
+Tic Tac Toe is a classic Tic Tac Toe with player setup, turn messages, board state, win detection, and modular JavaScript flow.
 
 ## What it is
 Tic Tac Toe is a vanilla JavaScript game built with module-pattern state management. The script separates the board store from the game controller, creates player objects from the setup flow, tracks the active marker, updates turn and result messages, prevents invalid moves, clears state for replay, and checks the classic three-by-three win and draw conditions after each move.
@@ -17,11 +17,18 @@ Tic Tac Toe is a vanilla JavaScript game built with module-pattern state managem
 - Win and draw detection for the classic three-by-three board.
 
 ## Tech stack
-JavaScript, HTML, CSS, and Webpack.
+Tic Tac Toe is built with JavaScript, HTML, CSS, and Webpack.
 
-## Links
+## Quick facts
+- Project: Tic Tac Toe
+- Type: Game
+- Built: October 2025
 - Live demo: https://tic-tac-toe-alpha-ruddy-38.vercel.app/
 - Source code: https://github.com/azizu06/tic-tac-toe
+
+## Common questions about Tic Tac Toe
+- When did I build Tic Tac Toe? October 2025.
+- What is Tic Tac Toe built with? JavaScript, HTML, CSS, and Webpack.
 
 ## How I talk about this project
 If someone asks me about Tic Tac Toe, I'd tell them it's a classic Tic Tac Toe with player setup, turn messages, board state, win detection, and modular JavaScript flow. I built it with JavaScript, HTML, CSS, and Webpack. I can point them to the live demo at https://tic-tac-toe-alpha-ruddy-38.vercel.app/ and the source on my GitHub at https://github.com/azizu06/tic-tac-toe.

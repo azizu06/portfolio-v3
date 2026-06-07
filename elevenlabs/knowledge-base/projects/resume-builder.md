@@ -2,10 +2,10 @@
 
 # Resume Builder
 
-Resume Builder is one of my (Aziz Umarov's) Tool projects, dated February 2026.
+Resume Builder is one of my (Aziz Umarov's) Tool projects, built February 2026.
 
 ## Summary
-Resume editor with sidebar panels, structured forms, live document preview, reusable sections, and skills editing.
+Resume Builder is a resume editor with sidebar panels, structured forms, live document preview, reusable sections, and skills editing.
 
 ## What it is
 Resume Builder is a React resume editor with a split editing workspace and live document preview. It keeps the resume as structured state, uses sidebar panels for personal information, education, work experience, projects, and skills, drafts form edits before saving, supports adding and removing repeated sections, and renders the finished resume as a clean document preview from the same data model.
@@ -17,11 +17,18 @@ Resume Builder is a React resume editor with a split editing workspace and live 
 - Reusable constants and section components for keeping resume content organized.
 
 ## Tech stack
-React, Vite, JavaScript, and Tailwind CSS.
+Resume Builder is built with React, Vite, JavaScript, and Tailwind CSS.
 
-## Links
+## Quick facts
+- Project: Resume Builder
+- Type: Tool
+- Built: February 2026
 - Live demo: https://resume-builder-ashy-tau.vercel.app
 - Source code: https://github.com/azizu06/resume-builder
+
+## Common questions about Resume Builder
+- When did I build Resume Builder? February 2026.
+- What is Resume Builder built with? React, Vite, JavaScript, and Tailwind CSS.
 
 ## How I talk about this project
 If someone asks me about Resume Builder, I'd tell them it's a resume editor with sidebar panels, structured forms, live document preview, reusable sections, and skills editing. I built it with React, Vite, JavaScript, and Tailwind CSS. I can point them to the live demo at https://resume-builder-ashy-tau.vercel.app and the source on my GitHub at https://github.com/azizu06/resume-builder.

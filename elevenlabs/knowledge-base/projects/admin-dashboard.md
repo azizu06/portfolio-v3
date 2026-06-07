@@ -2,10 +2,10 @@
 
 # Admin Dashboard
 
-Admin Dashboard is one of my (Aziz Umarov's) CSS projects, dated November 2025.
+Admin Dashboard is one of my (Aziz Umarov's) CSS projects, built November 2025.
 
 ## Summary
-Admin dashboard layout built with CSS Grid, sidebar navigation, project cards, announcements, and trending lists.
+Admin Dashboard is an admin dashboard layout built with CSS Grid, sidebar navigation, project cards, announcements, and trending lists.
 
 ## What it is
 Admin Dashboard is a static HTML and CSS dashboard composition built to reinforce CSS Grid. The page lays out a persistent sidebar, header controls, main project card grid, announcements panel, and trending panel, using dashboard-style icon and text hierarchy to practice dense product UI structure, repeated card sections, aligned content columns, and a clear administrative scanning layout.
@@ -17,13 +17,20 @@ Admin Dashboard is a static HTML and CSS dashboard composition built to reinforc
 - Announcements and trending sections to practice dense dashboard composition.
 
 ## Tech stack
-HTML and CSS.
+Admin Dashboard is built with HTML and CSS.
 
-## Links
+## Quick facts
+- Project: Admin Dashboard
+- Type: CSS
+- Built: November 2025
 - Live demo: https://admin-dash-xi.vercel.app/
 - Source code: https://github.com/azizu06/adminDash
+
+## Common questions about Admin Dashboard
+- When did I build Admin Dashboard? November 2025.
+- What is Admin Dashboard built with? HTML and CSS.
 
 ## How I talk about this project
 If someone asks me about Admin Dashboard, I'd tell them it's an admin dashboard layout built with CSS Grid, sidebar navigation, project cards, announcements, and trending lists. I built it with HTML and CSS. I can point them to the live demo at https://admin-dash-xi.vercel.app/ and the source on my GitHub at https://github.com/azizu06/adminDash.
 
-Keywords: Admin Dashboard, CSS, HTML, CSS.
+Keywords: Admin Dashboard, CSS, HTML.

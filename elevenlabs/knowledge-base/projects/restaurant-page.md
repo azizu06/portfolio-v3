@@ -2,10 +2,10 @@
 
 # Restaurant Page
 
-Restaurant Page is one of my (Aziz Umarov's) JavaScript projects, dated November 2025.
+Restaurant Page is one of my (Aziz Umarov's) JavaScript projects, built November 2025.
 
 ## Summary
-Restaurant page with module-driven tabs, menu sections, contact content, and bundled DOM rendering through Webpack.
+Restaurant Page is a restaurant page with module-driven tabs, menu sections, contact content, and bundled DOM rendering through Webpack.
 
 ## What it is
 Restaurant Page is a modular DOM-rendered site bundled with Webpack. The app imports separate home, menu, about, and contact modules, swaps sections through tab-style navigation without page reloads, includes an order button that jumps from the hero into the menu, uses image assets for food and chef content, and builds contact rows for location, phone, email, social, and hours information.
@@ -17,13 +17,20 @@ Restaurant Page is a modular DOM-rendered site bundled with Webpack. The app imp
 - Webpack bundling for modular DOM rendering and static asset handling.
 
 ## Tech stack
-JavaScript, HTML, CSS, and Webpack.
+Restaurant Page is built with JavaScript, HTML, CSS, and Webpack.
 
-## Links
+## Quick facts
+- Project: Restaurant Page
+- Type: JavaScript
+- Built: November 2025
 - Live demo: https://restaurant-two-plum.vercel.app/
 - Source code: https://github.com/azizu06/restaurant
+
+## Common questions about Restaurant Page
+- When did I build Restaurant Page? November 2025.
+- What is Restaurant Page built with? JavaScript, HTML, CSS, and Webpack.
 
 ## How I talk about this project
 If someone asks me about Restaurant Page, I'd tell them it's a restaurant page with module-driven tabs, menu sections, contact content, and bundled DOM rendering through Webpack. I built it with JavaScript, HTML, CSS, and Webpack. I can point them to the live demo at https://restaurant-two-plum.vercel.app/ and the source on my GitHub at https://github.com/azizu06/restaurant.
 
-Keywords: Restaurant Page, JavaScript, JavaScript, HTML, CSS, Webpack.
+Keywords: Restaurant Page, JavaScript, HTML, CSS, Webpack.

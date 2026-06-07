@@ -2,10 +2,10 @@
 
 # Dream Catcher
 
-Dream Catcher is one of my (Aziz Umarov's) Full-stack projects, dated June 2026.
+Dream Catcher is one of my (Aziz Umarov's) Full-stack projects, built June 2026.
 
 ## Summary
-Dream journal that records entries and returns AI-generated interpretations, kept in a persistent Postgres timeline.
+Dream Catcher is a dream journal that records entries and returns AI-generated interpretations, kept in a persistent Postgres timeline.
 
 ## What it is
 Dream Catcher is a full-stack journaling app with an Express REST backend, PostgreSQL storage, and a vanilla JavaScript frontend. Users write a dream, request an AI interpretation, and build a persistent journal of past entries with timestamps, expandable interpretations, and delete controls. The backend exposes RESTful routes and wraps the AI call in dedicated validation and helper utilities.
@@ -17,13 +17,22 @@ Dream Catcher is a full-stack journaling app with an Express REST backend, Postg
 - Expandable interpretation cards in a lightweight vanilla-JS UI.
 
 ## Tech stack
-JavaScript, Node.js, Express, PostgreSQL, OpenAI, and REST APIs.
+Dream Catcher is built with JavaScript, Node.js, Express, PostgreSQL, OpenAI, and REST APIs.
 
-## Links
+## Quick facts
+- Project: Dream Catcher
+- Type: Full-stack
+- Built: June 2026
 - Live demo: https://dream-catcher-0ts7.onrender.com
 - Source code: https://github.com/azizu06/dream-catcher
+
+## Common questions about Dream Catcher
+- When did I build Dream Catcher? June 2026.
+- What is Dream Catcher built with? JavaScript, Node.js, Express, PostgreSQL, OpenAI, and REST APIs.
+- What database does Dream Catcher use? PostgreSQL.
+- What AI, LLM, or ML does Dream Catcher use? OpenAI.
 
 ## How I talk about this project
 If someone asks me about Dream Catcher, I'd tell them it's a dream journal that records entries and returns AI-generated interpretations, kept in a persistent Postgres timeline. I built it with JavaScript, Node.js, Express, and PostgreSQL. I can point them to the live demo at https://dream-catcher-0ts7.onrender.com and the source on my GitHub at https://github.com/azizu06/dream-catcher.
 
-Keywords: Dream Catcher, Full-stack, JavaScript, Node.js, Express, PostgreSQL, OpenAI, REST APIs.
+Keywords: Dream Catcher, Full-stack, JavaScript, Node.js, Express, PostgreSQL, OpenAI, REST APIs, database, storage, backend, AI, LLM, artificial intelligence, machine learning.

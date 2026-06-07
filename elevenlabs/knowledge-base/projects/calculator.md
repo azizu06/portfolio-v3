@@ -2,10 +2,10 @@
 
 # Calculator
 
-Calculator is one of my (Aziz Umarov's) JavaScript projects, dated September 2025.
+Calculator is one of my (Aziz Umarov's) JavaScript projects, built September 2025.
 
 ## Summary
-Accessible calculator with chained operations, decimal input guards, delete controls, and divide-by-zero feedback.
+Calculator is an accessible calculator with chained operations, decimal input guards, delete controls, and divide-by-zero feedback.
 
 ## What it is
 Calculator is a single-page vanilla JavaScript calculator that implements the core arithmetic functions directly in the browser. The script manages display state, button input, chained operations, decimal handling, repeated-operator protection, delete and clear behavior, equals evaluation, responsive layout, and edge-case feedback such as divide-by-zero handling so the UI behaves like a practical four-function calculator.
@@ -17,13 +17,20 @@ Calculator is a single-page vanilla JavaScript calculator that implements the co
 - Divide-by-zero feedback and responsive single-page layout.
 
 ## Tech stack
-JavaScript, HTML, and CSS.
+Calculator is built with JavaScript, HTML, and CSS.
 
-## Links
+## Quick facts
+- Project: Calculator
+- Type: JavaScript
+- Built: September 2025
 - Live demo: https://calculator-chi-three-10.vercel.app/
 - Source code: https://github.com/azizu06/Calculator
+
+## Common questions about Calculator
+- When did I build Calculator? September 2025.
+- What is Calculator built with? JavaScript, HTML, and CSS.
 
 ## How I talk about this project
 If someone asks me about Calculator, I'd tell them it's an accessible calculator with chained operations, decimal input guards, delete controls, and divide-by-zero feedback. I built it with JavaScript, HTML, and CSS. I can point them to the live demo at https://calculator-chi-three-10.vercel.app/ and the source on my GitHub at https://github.com/azizu06/Calculator.
 
-Keywords: Calculator, JavaScript, JavaScript, HTML, CSS.
+Keywords: Calculator, JavaScript, HTML, CSS.

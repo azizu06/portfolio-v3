@@ -2,10 +2,10 @@
 
 # Message Board
 
-Message Board is one of my (Aziz Umarov's) Full-stack projects, dated April 2026.
+Message Board is one of my (Aziz Umarov's) Full-stack projects, built April 2026.
 
 ## Summary
-Shared message board with post detail pages, server validation, hosted Postgres data, and Vercel routing.
+Message Board is a shared message board with post detail pages, server validation, hosted Postgres data, and Vercel routing.
 
 ## What it is
 Message Board is a server-rendered Express and EJS app that stores posts in PostgreSQL instead of temporary in-memory state. Its controller validates author and message input, renders a reusable message feed, supports a dedicated new-message form, shows individual message detail pages by id, and includes Vercel-oriented routing so the same Express app can run locally or as a hosted serverless deployment.
@@ -17,13 +17,21 @@ Message Board is a server-rendered Express and EJS app that stores posts in Post
 - Vercel serverless entry point and routing setup for hosted deployment.
 
 ## Tech stack
-Express, PostgreSQL, EJS, and Node.js.
+Message Board is built with Express, PostgreSQL, EJS, and Node.js.
 
-## Links
+## Quick facts
+- Project: Message Board
+- Type: Full-stack
+- Built: April 2026
 - Live demo: https://message-board-six-sigma.vercel.app
 - Source code: https://github.com/azizu06/message-board
+
+## Common questions about Message Board
+- When did I build Message Board? April 2026.
+- What is Message Board built with? Express, PostgreSQL, EJS, and Node.js.
+- What database does Message Board use? PostgreSQL.
 
 ## How I talk about this project
 If someone asks me about Message Board, I'd tell them it's a shared message board with post detail pages, server validation, hosted Postgres data, and Vercel routing. I built it with Express, PostgreSQL, EJS, and Node.js. I can point them to the live demo at https://message-board-six-sigma.vercel.app and the source on my GitHub at https://github.com/azizu06/message-board.
 
-Keywords: Message Board, Full-stack, Express, PostgreSQL, EJS, Node.js.
+Keywords: Message Board, Full-stack, Express, PostgreSQL, EJS, Node.js, database, storage, backend.

@@ -2,10 +2,10 @@
 
 # Weather App
 
-Weather App is one of my (Aziz Umarov's) JavaScript projects, dated December 2025.
+Weather App is one of my (Aziz Umarov's) JavaScript projects, built December 2025.
 
 ## Summary
-Weather search app that fetches forecast data, renders city results, toggles units, and handles async UI states.
+Weather App is a weather search app that fetches forecast data, renders city results, toggles units, and handles async UI states.
 
 ## What it is
 Weather App is a Webpack-based JavaScript app for practicing API calls and asynchronous rendering. It reads API configuration from environment-backed values, fetches weather data for a searched location, maps the response into display-ready fields, renders address, temperature, feels-like temperature, wind, humidity, and condition icons, initializes with Orlando weather, and includes Fahrenheit/Celsius conversion controls.
@@ -17,13 +17,20 @@ Weather App is a Webpack-based JavaScript app for practicing API calls and async
 - Config-driven setup for API values and bundled Webpack deployment.
 
 ## Tech stack
-JavaScript, HTML, CSS, and Webpack.
+Weather App is built with JavaScript, HTML, CSS, and Webpack.
 
-## Links
+## Quick facts
+- Project: Weather App
+- Type: JavaScript
+- Built: December 2025
 - Live demo: https://weather-eight-umber.vercel.app/
 - Source code: https://github.com/azizu06/weather
+
+## Common questions about Weather App
+- When did I build Weather App? December 2025.
+- What is Weather App built with? JavaScript, HTML, CSS, and Webpack.
 
 ## How I talk about this project
 If someone asks me about Weather App, I'd tell them it's a weather search app that fetches forecast data, renders city results, toggles units, and handles async UI states. I built it with JavaScript, HTML, CSS, and Webpack. I can point them to the live demo at https://weather-eight-umber.vercel.app/ and the source on my GitHub at https://github.com/azizu06/weather.
 
-Keywords: Weather App, JavaScript, JavaScript, HTML, CSS, Webpack.
+Keywords: Weather App, JavaScript, HTML, CSS, Webpack.

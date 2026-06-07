@@ -2,10 +2,10 @@
 
 # Shopping Cart
 
-Shopping Cart is one of my (Aziz Umarov's) React projects, dated March 2026.
+Shopping Cart is one of my (Aziz Umarov's) React projects, built March 2026.
 
 ## Summary
-Space-shop interface with routed product browsing, quantity steppers, cart totals, and checkout review state.
+Shopping Cart is a space-shop interface with routed product browsing, quantity steppers, cart totals, and checkout review state.
 
 ## What it is
 Shopping Cart is a React and Vite storefront built around routed home, shop, and cart pages. The app uses React Router for navigation, TanStack React Query for product loading, a cart context provider for shared quantities and totals, local product fallbacks, Space Devs launcher and spacecraft data shaping, dropdown filtering, quantity steppers, cart item removal, and responsive product cards for a complete shop flow.
@@ -17,13 +17,20 @@ Shopping Cart is a React and Vite storefront built around routed home, shop, and
 - Reusable shop item, cart item, dropdown, and stepper components.
 
 ## Tech stack
-React, Vite, JavaScript, React Router, React Query, and Tailwind CSS.
+Shopping Cart is built with React, Vite, JavaScript, React Router, React Query, and Tailwind CSS.
 
-## Links
+## Quick facts
+- Project: Shopping Cart
+- Type: React
+- Built: March 2026
 - Live demo: https://shopping-cart-iota-woad.vercel.app
 - Source code: https://github.com/azizu06/shopping-cart
+
+## Common questions about Shopping Cart
+- When did I build Shopping Cart? March 2026.
+- What is Shopping Cart built with? React, Vite, JavaScript, React Router, React Query, and Tailwind CSS.
 
 ## How I talk about this project
 If someone asks me about Shopping Cart, I'd tell them it's a space-shop interface with routed product browsing, quantity steppers, cart totals, and checkout review state. I built it with React, Vite, JavaScript, and React Router. I can point them to the live demo at https://shopping-cart-iota-woad.vercel.app and the source on my GitHub at https://github.com/azizu06/shopping-cart.
 
-Keywords: Shopping Cart, React, React, Vite, JavaScript, React Router, React Query, Tailwind CSS.
+Keywords: Shopping Cart, React, Vite, JavaScript, React Router, React Query, Tailwind CSS.

@@ -2,10 +2,10 @@
 
 # Memory Card
 
-Memory Card is one of my (Aziz Umarov's) Game projects, dated February 2026.
+Memory Card is one of my (Aziz Umarov's) Game projects, built February 2026.
 
 ## Summary
-Memory game with shuffled card rounds, flip feedback, score tracking, best-score state, and sound toggles.
+Memory Card is a memory game with shuffled card rounds, flip feedback, score tracking, best-score state, and sound toggles.
 
 ## What it is
 Memory Card is a React game built to practice hooks, fetched/static card data, and stateful play loops. The main app tracks flipped card ids, current score, best score, win/loss feedback, sound state, and randomized card order, while dedicated score, grid, card, and sound components create the arena-style board, flip animation, audio feedback, mute control, and round-by-round memory challenge.
@@ -17,11 +17,18 @@ Memory Card is a React game built to practice hooks, fetched/static card data, a
 - Visual card states tied to character artwork and game-result responses.
 
 ## Tech stack
-React, Vite, JavaScript, and Tailwind CSS.
+Memory Card is built with React, Vite, JavaScript, and Tailwind CSS.
 
-## Links
+## Quick facts
+- Project: Memory Card
+- Type: Game
+- Built: February 2026
 - Live demo: https://memory-card-eight-sepia.vercel.app
 - Source code: https://github.com/azizu06/memory-card
+
+## Common questions about Memory Card
+- When did I build Memory Card? February 2026.
+- What is Memory Card built with? React, Vite, JavaScript, and Tailwind CSS.
 
 ## How I talk about this project
 If someone asks me about Memory Card, I'd tell them it's a memory game with shuffled card rounds, flip feedback, score tracking, best-score state, and sound toggles. I built it with React, Vite, JavaScript, and Tailwind CSS. I can point them to the live demo at https://memory-card-eight-sepia.vercel.app and the source on my GitHub at https://github.com/azizu06/memory-card.

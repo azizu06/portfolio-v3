@@ -2,10 +2,10 @@
 
 # PollyGlot
 
-PollyGlot is one of my (Aziz Umarov's) AI product projects, dated May 2026.
+PollyGlot is one of my (Aziz Umarov's) AI product projects, built May 2026.
 
 ## Summary
-AI translation chat that converts text into French, Spanish, or Japanese while preserving tone, formatting, and emoji.
+PollyGlot is an AI translation chat that converts text into French, Spanish, or Japanese while preserving tone, formatting, and emoji.
 
 ## What it is
 PollyGlot is an OpenAI-powered translation app with a React and Vite frontend and an Express API. Users pick a target language, type a message, and receive a translation rendered in a chat-style interface. The server corrects obvious spelling and grammar before translating, preserves the user's tone, punctuation, formatting, and emoji, keeps API credentials server-side, and enforces strict rate and input limits around the public endpoint.
@@ -17,13 +17,21 @@ PollyGlot is an OpenAI-powered translation app with a React and Vite frontend an
 - Rate limiting, input caps, and daily limits on the public endpoint.
 
 ## Tech stack
-React, Vite, Express, Node.js, OpenAI, and Tailwind CSS.
+PollyGlot is built with React, Vite, Express, Node.js, OpenAI, and Tailwind CSS.
 
-## Links
+## Quick facts
+- Project: PollyGlot
+- Type: AI product
+- Built: May 2026
 - Live demo: https://pollyglot-qzxe.onrender.com
 - Source code: https://github.com/azizu06/PollyGlot
+
+## Common questions about PollyGlot
+- When did I build PollyGlot? May 2026.
+- What is PollyGlot built with? React, Vite, Express, Node.js, OpenAI, and Tailwind CSS.
+- What AI, LLM, or ML does PollyGlot use? OpenAI.
 
 ## How I talk about this project
 If someone asks me about PollyGlot, I'd tell them it's an AI translation chat that converts text into French, Spanish, or Japanese while preserving tone, formatting, and emoji. I built it with React, Vite, Express, and Node.js. I can point them to the live demo at https://pollyglot-qzxe.onrender.com and the source on my GitHub at https://github.com/azizu06/PollyGlot.
 
-Keywords: PollyGlot, AI product, React, Vite, Express, Node.js, OpenAI, Tailwind CSS.
+Keywords: PollyGlot, AI product, React, Vite, Express, Node.js, OpenAI, Tailwind CSS, AI, LLM, artificial intelligence, machine learning.
