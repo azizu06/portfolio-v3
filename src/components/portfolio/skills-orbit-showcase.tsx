@@ -17,6 +17,7 @@ const skillGroups: { title: string; skills: Skill[] }[] = [
       { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" },
       { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB" },
       { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
+      { name: "Go", icon: "https://cdn.simpleicons.org/go/00ADD8" },
       { name: "C", icon: "https://cdn.simpleicons.org/c/A8B9CC" },
       { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" },
       { name: "HTML", icon: "https://cdn.simpleicons.org/html5/E34F26" },
@@ -33,6 +34,7 @@ const skillGroups: { title: string; skills: Skill[] }[] = [
       { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
       { name: "tRPC", icon: "https://cdn.simpleicons.org/trpc/2596BE" },
       { name: "NextAuth", icon: "https://cdn.simpleicons.org/auth0/EB5424" },
+      { name: "Zod", icon: "https://cdn.simpleicons.org/zod/408AFF" },
       { name: "Three.js", icon: "https://cdn.simpleicons.org/threedotjs/FFFFFF" },
       { name: "Chart.js", icon: "https://cdn.simpleicons.org/chartdotjs/FF6384" },
     ],
@@ -44,6 +46,9 @@ const skillGroups: { title: string; skills: Skill[] }[] = [
       { name: "Pandas", icon: "https://cdn.simpleicons.org/pandas/150458" },
       { name: "NumPy", icon: "https://cdn.simpleicons.org/numpy/013243" },
       { name: "scikit-learn", icon: "https://cdn.simpleicons.org/scikitlearn/F7931E" },
+      { name: "LangChain", icon: "https://cdn.simpleicons.org/langchain/FFFFFF" },
+      { name: "Hugging Face", icon: "https://cdn.simpleicons.org/huggingface/FFD21E" },
+      { name: "Ollama", icon: "https://cdn.simpleicons.org/ollama/FFFFFF" },
       { name: "Databricks", icon: "https://cdn.simpleicons.org/databricks/FF3621" },
     ],
   },
@@ -51,15 +56,23 @@ const skillGroups: { title: string; skills: Skill[] }[] = [
     title: "Tools & Platforms",
     skills: [
       { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql/4169E1" },
+      { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase/3FCF8E" },
+      { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/47A248" },
       { name: "Firebase", icon: "https://cdn.simpleicons.org/firebase/FFCA28" },
       { name: "Prisma", icon: "https://cdn.simpleicons.org/prisma/2D3748" },
       { name: "Drizzle", icon: "https://cdn.simpleicons.org/drizzle/C5F74F" },
       { name: "Docker", icon: "https://cdn.simpleicons.org/docker/2496ED" },
+      { name: "Kubernetes", icon: "https://cdn.simpleicons.org/kubernetes/326CE5" },
       { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
       { name: "GitHub", icon: "https://cdn.simpleicons.org/github/FFFFFF" },
+      { name: "GitHub Actions", icon: "https://cdn.simpleicons.org/githubactions/2088FF" },
       { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/FFFFFF" },
       { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
       { name: "Azure", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
+      { name: "Linux", icon: "https://cdn.simpleicons.org/linux/FCC624" },
+      { name: "Prometheus", icon: "https://cdn.simpleicons.org/prometheus/E6522C" },
+      { name: "Grafana", icon: "https://cdn.simpleicons.org/grafana/F46800" },
+      { name: "RabbitMQ", icon: "https://cdn.simpleicons.org/rabbitmq/FF6600" },
       { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
     ],
   },
@@ -102,11 +115,11 @@ export function SkillsOrbitShowcase() {
               altPrefix="Skill"
               shape="ellipse"
               baseWidth={1000}
-              radiusX={330}
-              radiusY={430}
+              radiusX={350}
+              radiusY={480}
               rotation={-3}
               duration={54}
-              itemSize={60}
+              itemSize={44}
               pauseOnHover
               responsive
               responsiveScaleAxis="height"
@@ -122,11 +135,11 @@ export function SkillsOrbitShowcase() {
               altPrefix="Skill"
               shape="ellipse"
               baseWidth={1180}
-              radiusX={570}
-              radiusY={270}
+              radiusX={590}
+              radiusY={300}
               rotation={-18}
               duration={54}
-              itemSize={72}
+              itemSize={50}
               pauseOnHover
               responsive
               className="-translate-y-16"
@@ -140,11 +153,11 @@ export function SkillsOrbitShowcase() {
               altPrefix="Skill"
               shape="ellipse"
               baseWidth={1400}
-              radiusX={650}
+              radiusX={680}
               radiusY={370}
               rotation={-16}
               duration={54}
-              itemSize={86}
+              itemSize={56}
               pauseOnHover
               responsive
               className="-translate-y-32 xl:-translate-y-44"
