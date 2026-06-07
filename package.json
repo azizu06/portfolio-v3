@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "kb:build": "node --experimental-strip-types --no-warnings scripts/build-elevenlabs-kb.mjs",
+    "kb:push": "node scripts/push-elevenlabs-agent.mjs"
   },
   "engines": {
     "node": "24.x"

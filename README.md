@@ -2,8 +2,8 @@
 
 Personal portfolio site for **Aziz Umarov**, built with the Next.js App Router and a
 heavy emphasis on motion and 3D. It presents work, experience, and skills through an
-interactive WebGL hero, animated route transitions, and a conversational voice agent —
-rather than a static résumé page.
+interactive WebGL hero, animated route transitions, and a first-person voice agent that
+lets visitors talk to an AI version of Aziz — rather than a static résumé page.
 
 🔗 **Live:** [azizu.dev](https://azizu.dev)
 
@@ -23,7 +23,9 @@ rather than a static résumé page.
 - **3D hero stage** — a Three.js scene (`home-model-stage`, `hero-stage`) rendering a
   `sci-fi-lab` GLB model via React Three Fiber and `@react-three/drei`.
 - **Voice agent** — an embedded ElevenLabs conversational widget
-  (`elevenlabs-widget`) so visitors can talk to the portfolio instead of only reading it.
+  (`elevenlabs-widget`) that speaks **as Aziz in the first person**, so visitors can talk
+  to an AI version of him about his work instead of only reading it. Its prompt and
+  RAG knowledge base live in [`elevenlabs/`](elevenlabs/).
 - **Animated routing** — page transitions and scroll-driven reveals using GSAP and
   Motion, with a custom liquid "pill" navigation bar.
 - **Dedicated sections** — separate routes for Home, Projects, Experience, Skills, and
@@ -65,6 +67,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run build` | Production build |
 | `npm run start` | Serve the production build |
 | `npm run lint` | Run ESLint (`eslint-config-next`) |
+| `npm run kb:build` | Regenerate the voice agent's knowledge base in `elevenlabs/knowledge-base/` from `src/data/*.ts` |
 
 ### Generating project previews
 
@@ -87,10 +90,13 @@ recording. Each capture entry lives in the spec's `projects` array.
 
 ## Environment variables
 
-No server-side secrets are required to run the site locally — the source does not read
-any `process.env.*` values, and the ElevenLabs widget uses a **public** client-side
-agent ID embedded in `src/components/portfolio/elevenlabs-widget.tsx`. A local `.env`
-file (gitignored) may exist for tooling but is not needed for `npm run dev`.
+No server-side secrets are required to run the site locally. The ElevenLabs widget uses a
+**public** client-side agent ID embedded in
+`src/components/portfolio/elevenlabs-widget.tsx`, so the voice agent works with no env
+vars. A local `.env` file (gitignored) holds `ELEVENLABS_API_KEY` and
+`ELEVENLABS_AGENT_ID`; these are only used by the optional
+`GET /api/elevenlabs/signed-url` route (for a private/signed-URL agent flow), not by the
+public widget. To use that route in production, set both vars in the Vercel project.
 
 ## Project structure
 
@@ -103,7 +109,7 @@ src/
 │   ├── experience/           # Experience route
 │   ├── skills/               # Skills route
 │   ├── about/                # About route
-│   ├── api/elevenlabs/       # Voice-agent endpoint scaffold
+│   ├── api/elevenlabs/       # signed-url route for the (optional) private voice-agent flow
 │   └── globals.css
 ├── components/
 │   ├── portfolio/            # Page-level building blocks (hero, nav, spotlight, widget)
@@ -111,12 +117,17 @@ src/
 │   └── *.tsx                 # React Bits–style visual effects
 ├── data/
 │   ├── projects.ts           # Project catalog (titles, descriptions, links, tech)
-│   └── experience.ts         # Experience timeline data
+│   ├── experience.ts         # Experience timeline data
+│   ├── skills.ts             # Skill groups
+│   └── profile.ts            # Identity, links, proof points
 └── lib/utils.ts
 public/
 ├── models/sci-fi-lab-2k-web.glb   # 3D hero model
 ├── assets/                        # Project previews, logos, headshot, résumé
 └── og-image.jpg                   # Social preview
+elevenlabs/                        # Voice agent: system prompt + RAG knowledge base + setup guide
+scripts/
+└── build-elevenlabs-kb.mjs        # Generates the KB from src/data/*.ts (npm run kb:build)
 ```
 
 ## Technical highlights
@@ -135,8 +146,9 @@ public/
 
 ## Roadmap / ideas
 
-- Wire up the `api/elevenlabs/signed-url` route if the voice agent moves to a
-  server-authenticated signed-URL flow.
+- The `api/elevenlabs/signed-url` route is implemented for a server-authenticated
+  signed-URL flow; switch the widget to it if the agent is made private. See
+  [`elevenlabs/README.md`](elevenlabs/README.md).
 
 ## License
 
