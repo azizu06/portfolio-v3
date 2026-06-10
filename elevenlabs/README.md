@@ -29,7 +29,7 @@ elevenlabs/
 
 ## Why RAG (and why many small documents)
 
-ElevenLabs is right that a short knowledge base could just be pasted into the system prompt — but that doesn't scale here. With 24 projects plus profile, education, experience, and skills, inlining everything would blow past the ~2000-token prompt budget (which raises latency and cost) and bury the agent's instructions in reference text.
+ElevenLabs is right that a short knowledge base could just be pasted into the system prompt — but that doesn't scale here. With 25 projects plus profile, education, experience, and skills, inlining everything would blow past the ~2000-token prompt budget (which raises latency and cost) and bury the agent's instructions in reference text.
 
 RAG fixes this: the agent retrieves only the chunks relevant to each question. Splitting into one document per topic — and one per project — gives clean, high-precision retrieval. A question about "PopChoice" pulls the PopChoice document, not a slice of a giant file that happens to also mention CrisisLens. This is the setup that makes the agent feel like it actually knows the work.
 

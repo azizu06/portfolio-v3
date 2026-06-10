@@ -4,33 +4,34 @@
 
 My projects ordered newest to oldest, so I can answer questions about my most recent, latest, newest, or oldest work accurately and never default to a well-known project by mistake.
 
-My most recent projects are PopChoice and Dream Catcher (June 2026). My oldest are Calculator, Etch-A-Sketch, and Rock Paper Scissors (September 2025). Whether a project won an award or is well-known has nothing to do with how recent it is — I read recency off the dated list below.
+My most recent projects are Meridian, PopChoice, and Dream Catcher (June 2026). My oldest are Calculator, Etch-A-Sketch, and Rock Paper Scissors (September 2025). Whether a project won an award or is well-known has nothing to do with how recent it is — I read recency off the dated list below.
 
 ## Newest to oldest
-1. PopChoice — June 2026 — AI product
-2. Dream Catcher — June 2026 — Full-stack
-3. PollyGlot — May 2026 — AI product
-4. Tiny Library — May 2026 — React
-5. File Uploader — May 2026 — Full-stack
-6. Members Only — May 2026 — Full-stack
-7. Inventory App — April 2026 — Full-stack
-8. Message Board — April 2026 — Full-stack
-9. Shopping Cart — March 2026 — React
-10. CrisisLens — February 2026 (Hacklytics 2026) — AI product — 1st Place Winner
-11. Memory Card — February 2026 — Game
-12. Resume Builder — February 2026 — Tool
-13. Battleship — January 2026 — Game
-14. To-Do List — December 2025 — JavaScript
-15. Weather App — December 2025 — JavaScript
-16. Restaurant Page — November 2025 — JavaScript
-17. Sign-Up Form — November 2025 — CSS
-18. Admin Dashboard — November 2025 — CSS
-19. FinBridge — October 2025 — Full-stack
-20. Tic Tac Toe — October 2025 — Game
-21. Library — October 2025 — JavaScript
-22. Calculator — September 2025 — JavaScript
-23. Etch-A-Sketch — September 2025 — JavaScript
-24. Rock Paper Scissors — September 2025 — Game
+1. Meridian — June 2026 — AI product
+2. PopChoice — June 2026 — AI product
+3. Dream Catcher — June 2026 — Full-stack
+4. PollyGlot — May 2026 — AI product
+5. Tiny Library — May 2026 — React
+6. File Uploader — May 2026 — Full-stack
+7. Members Only — May 2026 — Full-stack
+8. Inventory App — April 2026 — Full-stack
+9. Message Board — April 2026 — Full-stack
+10. Shopping Cart — March 2026 — React
+11. CrisisLens — February 2026 (Hacklytics 2026) — AI product — 1st Place Winner
+12. Memory Card — February 2026 — Game
+13. Resume Builder — February 2026 — Tool
+14. Battleship — January 2026 — Game
+15. To-Do List — December 2025 — JavaScript
+16. Weather App — December 2025 — JavaScript
+17. Restaurant Page — November 2025 — JavaScript
+18. Sign-Up Form — November 2025 — CSS
+19. Admin Dashboard — November 2025 — CSS
+20. FinBridge — October 2025 — Full-stack
+21. Tic Tac Toe — October 2025 — Game
+22. Library — October 2025 — JavaScript
+23. Calculator — September 2025 — JavaScript
+24. Etch-A-Sketch — September 2025 — JavaScript
+25. Rock Paper Scissors — September 2025 — Game
 
 ## Answering recency questions
-For "most recent / latest / newest," the answer is whatever is at the top of the list above (currently PopChoice and Dream Catcher, June 2026). For "oldest / first," it's the bottom (currently Calculator, Etch-A-Sketch, and Rock Paper Scissors, September 2025). For a specific year or month, filter the dated list. I compare dates rather than guessing, and I never assume my best-known or award-winning project is the newest.
+For "most recent / latest / newest," the answer is whatever is at the top of the list above (currently Meridian, PopChoice, and Dream Catcher, June 2026). For "oldest / first," it's the bottom (currently Calculator, Etch-A-Sketch, and Rock Paper Scissors, September 2025). For a specific year or month, filter the dated list. I compare dates rather than guessing, and I never assume my best-known or award-winning project is the newest.

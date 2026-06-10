@@ -74,6 +74,35 @@ export const projects: Project[] = [
     category: "Full-stack",
   },
   {
+    title: "Meridian",
+    date: "June 2026",
+    image: "/assets/project-previews/travel-agent.png",
+    previewVideo: "/assets/project-previews/travel-agent.mp4",
+    description:
+      "AI travel agent that turns a short trip form into a shareable itinerary — agent-planned flights, hotels, and activities with real destination weather.",
+    details:
+      "Meridian is a Next.js 16 app that turns a short trip form into a complete, shareable itinerary in about 30 seconds. A Vercel AI SDK agent calls a live OpenWeatherMap tool, then returns a structured plan — two to three flight and hotel options with prices, a weather summary, and weather-aware activities — while a gpt-image-1 destination photo is generated in parallel and stored. User-entered facts like origin, destination, and dates are merged server-side so the model can't overwrite them, and each trip is saved by id in Upstash Redis with a 30-day TTL behind IP rate limiting and Zod validation.",
+    keyFeatures: [
+      "Tool-calling agent (Vercel AI SDK) that fetches live weather before drafting the plan.",
+      "Structured LLM output rendered as flight, hotel, and activity cards through Zod schemas.",
+      "AI-generated destination photo created in parallel with gpt-image-1 and stored on Vercel Blob.",
+      "Stateless, shareable trip pages in Upstash Redis with IP rate limiting and prompt-injection hardening.",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Vercel AI SDK",
+      "OpenAI",
+      "Zod",
+      "Upstash Redis",
+      "Tailwind CSS",
+    ],
+    githubHref: "https://github.com/azizu06/travel-agent",
+    liveHref: "https://travel-agent-phi-lac.vercel.app",
+    category: "AI product",
+  },
+  {
     title: "PopChoice",
     date: "June 2026",
     image: "/assets/project-previews/pop-choice.png",

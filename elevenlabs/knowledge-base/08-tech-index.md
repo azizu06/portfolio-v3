@@ -7,18 +7,19 @@ A complete cross-reference of which of my projects use each technology, so I can
 - JavaScript — 15 projects: FinBridge, Dream Catcher, Shopping Cart, Memory Card, Resume Builder, Battleship, To-Do List, Tic Tac Toe, Weather App, Restaurant Page, Library, Sign-Up Form, Calculator, Etch-A-Sketch, and Rock Paper Scissors.
 - CSS — 11 projects: Battleship, To-Do List, Tic Tac Toe, Weather App, Restaurant Page, Library, Sign-Up Form, Admin Dashboard, Calculator, Etch-A-Sketch, and Rock Paper Scissors.
 - HTML — 11 projects: Battleship, To-Do List, Tic Tac Toe, Weather App, Restaurant Page, Library, Sign-Up Form, Admin Dashboard, Calculator, Etch-A-Sketch, and Rock Paper Scissors.
-- React — 8 projects: CrisisLens, FinBridge, PopChoice, PollyGlot, Tiny Library, Shopping Cart, Memory Card, and Resume Builder.
-- Tailwind CSS — 8 projects: PopChoice, PollyGlot, Tiny Library, File Uploader, Members Only, Shopping Cart, Memory Card, and Resume Builder.
+- React — 9 projects: CrisisLens, FinBridge, Meridian, PopChoice, PollyGlot, Tiny Library, Shopping Cart, Memory Card, and Resume Builder.
+- Tailwind CSS — 9 projects: Meridian, PopChoice, PollyGlot, Tiny Library, File Uploader, Members Only, Shopping Cart, Memory Card, and Resume Builder.
 - Express — 7 projects: FinBridge, Dream Catcher, PollyGlot, File Uploader, Members Only, Inventory App, and Message Board.
 - Node.js — 7 projects: FinBridge, Dream Catcher, PollyGlot, File Uploader, Members Only, Inventory App, and Message Board.
 - PostgreSQL — 5 projects: Dream Catcher, File Uploader, Members Only, Inventory App, and Message Board.
 - Webpack — 5 projects: Battleship, To-Do List, Tic Tac Toe, Weather App, and Restaurant Page.
 - EJS — 4 projects: File Uploader, Members Only, Inventory App, and Message Board.
+- Next.js — 4 projects: CrisisLens, Meridian, PopChoice, and Tiny Library.
+- OpenAI — 4 projects: Meridian, PopChoice, Dream Catcher, and PollyGlot.
+- TypeScript — 4 projects: CrisisLens, Meridian, PopChoice, and Tiny Library.
 - Vite — 4 projects: PollyGlot, Shopping Cart, Memory Card, and Resume Builder.
-- Next.js — 3 projects: CrisisLens, PopChoice, and Tiny Library.
-- OpenAI — 3 projects: PopChoice, Dream Catcher, and PollyGlot.
-- TypeScript — 3 projects: CrisisLens, PopChoice, and Tiny Library.
 - Supabase — 2 projects: PopChoice and File Uploader.
+- Zod — 2 projects: Meridian and PopChoice.
 - Chart.js — 1 project: FinBridge.
 - Google Gemini — 1 project: FinBridge.
 - Jest — 1 project: Battleship.
@@ -36,4 +37,5 @@ A complete cross-reference of which of my projects use each technology, so I can
 - REST APIs — 1 project: Dream Catcher.
 - Tailwind — 1 project: FinBridge.
 - Three.js — 1 project: CrisisLens.
-- Zod — 1 project: PopChoice.
+- Upstash Redis — 1 project: Meridian.
+- Vercel AI SDK — 1 project: Meridian.

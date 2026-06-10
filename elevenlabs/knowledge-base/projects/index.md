@@ -2,9 +2,10 @@
 
 # Projects index
 
-I (Aziz Umarov) have 24 projects on my portfolio, spanning AI products, full-stack web apps, React apps, games, and front-end fundamentals. This index helps find the right project; each project also has its own document with more detail. Live demos are on my portfolio at https://azizu.dev/projects. For "most recent / latest" questions, use the order below (newest first).
+I (Aziz Umarov) have 25 projects on my portfolio, spanning AI products, full-stack web apps, React apps, games, and front-end fundamentals. This index helps find the right project; each project also has its own document with more detail. Live demos are on my portfolio at https://azizu.dev/projects. For "most recent / latest" questions, use the order below (newest first).
 
 ## Most recent first
+- Meridian (June 2026)
 - PopChoice (June 2026)
 - Dream Catcher (June 2026)
 - PollyGlot (May 2026)
@@ -32,12 +33,14 @@ I (Aziz Umarov) have 24 projects on my portfolio, spanning AI products, full-sta
 
 ## Flagship and award-winning projects
 - CrisisLens (1st Place Winner): Command-center dashboard for mapping crisis risk, funding gaps, and AI insights across live humanitarian signals.
+- Meridian: AI travel agent that turns a short trip form into a shareable itinerary — agent-planned flights, hotels, and activities with real destination weather.
 - PopChoice: Group movie picker that turns everyone's taste into one semantic search and streams back AI-explained recommendations.
 - PollyGlot: AI translation chat that converts text into French, Spanish, or Japanese while preserving tone, formatting, and emoji.
 
 ## All projects by category
 ### AI product
 - CrisisLens (February 2026 (Hacklytics 2026)): Command-center dashboard for mapping crisis risk, funding gaps, and AI insights across live humanitarian signals. — live: https://crisis-lens-v2-web.vercel.app
+- Meridian (June 2026): AI travel agent that turns a short trip form into a shareable itinerary — agent-planned flights, hotels, and activities with real destination weather. — live: https://travel-agent-phi-lac.vercel.app
 - PopChoice (June 2026): Group movie picker that turns everyone's taste into one semantic search and streams back AI-explained recommendations. — live: https://pop-choice-kappa.vercel.app
 - PollyGlot (May 2026): AI translation chat that converts text into French, Spanish, or Japanese while preserving tone, formatting, and emoji. — live: https://pollyglot-qzxe.onrender.com
 

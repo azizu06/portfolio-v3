@@ -764,6 +764,62 @@ const projects: ProjectCapture[] = [
       await page.waitForTimeout(Math.max(0, durationMs - (Date.now() - startedAt)));
     },
   },
+  {
+    slug: "travel-agent",
+    url: "https://travel-agent-phi-lac.vercel.app/",
+    captureMs: 48_000,
+    action: async (page, durationMs) => {
+      const startedAt = Date.now();
+
+      // Landing intro → trip form.
+      await moveInArc(page, 460, 320, 360, 60, 8);
+      await ignore(() =>
+        page.getByRole("button", { name: /let.?s begin/i }).click({ timeout: 2500 }),
+      );
+      await page.waitForTimeout(900);
+
+      // Fill the trip essentials.
+      await ignore(() => page.getByLabel(/flying from/i).fill("New York (JFK)"));
+      await page.waitForTimeout(260);
+      await ignore(() => page.getByLabel(/flying to/i).fill("Lisbon, Portugal"));
+      await page.waitForTimeout(260);
+      await ignore(() => page.getByLabel(/from date/i).fill("2026-07-12"));
+      await page.waitForTimeout(220);
+      await ignore(() => page.getByLabel(/to date/i).fill("2026-07-19"));
+      await page.waitForTimeout(220);
+      await ignore(() =>
+        page.getByRole("button", { name: /add one traveller/i }).click({ timeout: 1500 }),
+      );
+      await page.waitForTimeout(220);
+      await ignore(() => page.getByLabel(/budget/i).fill("3200"));
+      await page.waitForTimeout(360);
+      await moveInArc(page, 520, 360, 320, 60, 8);
+
+      // Plan the trip — agent calls the weather tool + generates the image (~30s).
+      await ignore(() =>
+        page.getByRole("button", { name: /plan my trip/i }).click({ timeout: 2500 }),
+      );
+
+      // Wait for the redirect to /trips/<id> and the itinerary to render.
+      await ignore(() => page.waitForURL(/\/trips\//, { timeout: 60000 }));
+      await ignore(() =>
+        page.getByText(/drafted by meridian/i).waitFor({ timeout: 60000 }),
+      );
+      await page.waitForTimeout(2400);
+
+      // Pan down through weather → flights → hotels → activities.
+      await page.mouse.wheel(0, 360);
+      await page.waitForTimeout(1100);
+      await page.mouse.wheel(0, 360);
+      await page.waitForTimeout(1100);
+      await page.mouse.wheel(0, 360);
+      await page.waitForTimeout(1100);
+      await page.mouse.wheel(0, -520);
+      await page.waitForTimeout(800);
+
+      await page.waitForTimeout(Math.max(0, durationMs - (Date.now() - startedAt)));
+    },
+  },
 ];
 
 test("capture project previews", async ({ browser }) => {
