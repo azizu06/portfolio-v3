@@ -23,7 +23,6 @@ A complete cross-reference of which of my projects use each technology, so I can
 - Google Gemini — 2 projects: CapCheck and FinBridge.
 - Chart.js — 1 project: FinBridge.
 - Finnhub — 1 project: CapCheck.
-- Google Search grounding — 1 project: CapCheck.
 - Jest — 1 project: Battleship.
 - localStorage — 1 project: To-Do List.
 - NumPy — 1 project: CrisisLens.

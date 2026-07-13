@@ -34,7 +34,6 @@ export const projects: Project[] = [
       "React",
       "TypeScript",
       "Google Gemini",
-      "Google Search grounding",
       "Finnhub",
       "Supabase",
       "Zod",
