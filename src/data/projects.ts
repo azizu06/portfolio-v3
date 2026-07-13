@@ -15,6 +15,35 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "CapCheck",
+    date: "July 2026",
+    image: "/assets/project-previews/capcheck.png",
+    previewVideo: "/assets/project-previews/capcheck.mp4",
+    description:
+      "AI financial-video fact-checker that turns influencer claims into a cited Cap Score, evidence trail, and concrete next steps.",
+    details:
+      "CapCheck is a collaborative BloomKnights 2026 project for checking factual and predictive claims in short-form financial videos. Users can paste a video URL or upload a file, follow the streamed analysis stages, and inspect a verdict-first scorecard. Gemini watches the video and extracts timestamped claims, Google Search grounding and Finnhub market data verify them, and the final Cap Score explains supported, contradicted, and unverifiable claims alongside citations, hype-language signals, and actions to take before trusting the advice. The preserved deployment keeps the verified feed and evidence pages live while the paid analysis pipeline remains archived.",
+    keyFeatures: [
+      "Gemini video understanding extracts timestamped financial claims from URLs and uploads.",
+      "Google Search grounding and Finnhub function calls verify narrative and quantitative claims with cited evidence.",
+      "Verdict-first scorecards combine a 0–100 Cap Score with claim-level confidence, sources, hype language, and next actions.",
+      "Searchable, category-filtered Verified Feed persists vetted YouTube videos in Supabase for a durable read-only showcase.",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Google Gemini",
+      "Google Search grounding",
+      "Finnhub",
+      "Supabase",
+      "Zod",
+    ],
+    githubHref: "https://github.com/azizu06/CapChecker",
+    liveHref: "https://capcheck-sigma.vercel.app/",
+    category: "AI product",
+  },
+  {
     title: "CrisisLens",
     date: "Hacklytics 2026",
     image: "/assets/project-previews/crisislens.png",

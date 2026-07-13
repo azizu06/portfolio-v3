@@ -7,21 +7,23 @@ A complete cross-reference of which of my projects use each technology, so I can
 - JavaScript — 15 projects: FinBridge, Dream Catcher, Shopping Cart, Memory Card, Resume Builder, Battleship, To-Do List, Tic Tac Toe, Weather App, Restaurant Page, Library, Sign-Up Form, Calculator, Etch-A-Sketch, and Rock Paper Scissors.
 - CSS — 11 projects: Battleship, To-Do List, Tic Tac Toe, Weather App, Restaurant Page, Library, Sign-Up Form, Admin Dashboard, Calculator, Etch-A-Sketch, and Rock Paper Scissors.
 - HTML — 11 projects: Battleship, To-Do List, Tic Tac Toe, Weather App, Restaurant Page, Library, Sign-Up Form, Admin Dashboard, Calculator, Etch-A-Sketch, and Rock Paper Scissors.
-- React — 9 projects: CrisisLens, FinBridge, Meridian, PopChoice, PollyGlot, Tiny Library, Shopping Cart, Memory Card, and Resume Builder.
+- React — 10 projects: CapCheck, CrisisLens, FinBridge, Meridian, PopChoice, PollyGlot, Tiny Library, Shopping Cart, Memory Card, and Resume Builder.
 - Tailwind CSS — 9 projects: Meridian, PopChoice, PollyGlot, Tiny Library, File Uploader, Members Only, Shopping Cart, Memory Card, and Resume Builder.
 - Express — 7 projects: FinBridge, Dream Catcher, PollyGlot, File Uploader, Members Only, Inventory App, and Message Board.
 - Node.js — 7 projects: FinBridge, Dream Catcher, PollyGlot, File Uploader, Members Only, Inventory App, and Message Board.
+- Next.js — 5 projects: CapCheck, CrisisLens, Meridian, PopChoice, and Tiny Library.
 - PostgreSQL — 5 projects: Dream Catcher, File Uploader, Members Only, Inventory App, and Message Board.
+- TypeScript — 5 projects: CapCheck, CrisisLens, Meridian, PopChoice, and Tiny Library.
 - Webpack — 5 projects: Battleship, To-Do List, Tic Tac Toe, Weather App, and Restaurant Page.
 - EJS — 4 projects: File Uploader, Members Only, Inventory App, and Message Board.
-- Next.js — 4 projects: CrisisLens, Meridian, PopChoice, and Tiny Library.
 - OpenAI — 4 projects: Meridian, PopChoice, Dream Catcher, and PollyGlot.
-- TypeScript — 4 projects: CrisisLens, Meridian, PopChoice, and Tiny Library.
 - Vite — 4 projects: PollyGlot, Shopping Cart, Memory Card, and Resume Builder.
-- Supabase — 2 projects: PopChoice and File Uploader.
-- Zod — 2 projects: Meridian and PopChoice.
+- Supabase — 3 projects: CapCheck, PopChoice, and File Uploader.
+- Zod — 3 projects: CapCheck, Meridian, and PopChoice.
+- Google Gemini — 2 projects: CapCheck and FinBridge.
 - Chart.js — 1 project: FinBridge.
-- Google Gemini — 1 project: FinBridge.
+- Finnhub — 1 project: CapCheck.
+- Google Search grounding — 1 project: CapCheck.
 - Jest — 1 project: Battleship.
 - localStorage — 1 project: To-Do List.
 - NumPy — 1 project: CrisisLens.
