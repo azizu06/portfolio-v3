@@ -21,9 +21,11 @@ const mobileNavItems = navItems
 
 type SocialNavItem = {
   label: string;
+  handle?: string;
   href: string;
   icon: ComponentType<SVGProps<SVGSVGElement>>;
   iconClassName?: string;
+  opticalScaleClassName?: string;
   external?: boolean;
 };
 
@@ -63,12 +65,32 @@ function LinkedInBrandIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+function InstagramBrandIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" />
+      <circle cx="12" cy="12" r="4" fill="none" />
+      <circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 const socialNavItems: SocialNavItem[] = [
   {
     label: "LinkedIn",
     href: profile.links.find((link) => link.label === "LinkedIn")?.href ?? "https://www.linkedin.com/in/abduaziz-umarov/",
     icon: LinkedInBrandIcon,
     iconClassName: "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
+    opticalScaleClassName: "scale-90",
     external: true,
   },
   {
@@ -76,6 +98,14 @@ const socialNavItems: SocialNavItem[] = [
     href: profile.links.find((link) => link.label === "GitHub")?.href ?? "https://github.com/azizu06",
     icon: GitHubBrandIcon,
     iconClassName: "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
+    external: true,
+  },
+  {
+    label: "Instagram",
+    handle: "@azizbuildss",
+    href: profile.links.find((link) => link.label === "Instagram")?.href ?? "https://www.instagram.com/azizbuildss/",
+    icon: InstagramBrandIcon,
+    iconClassName: "size-[1.18rem] sm:size-[1.28rem] lg:size-[1.4rem]",
     external: true,
   },
 ];
@@ -90,12 +120,18 @@ function SocialNavLink({
   return (
     <Link
       href={item.href}
-      aria-label={item.label}
+      aria-label={item.handle ? `${item.label}: ${item.handle}` : item.label}
+      title={item.handle ? `${item.handle} on ${item.label}` : undefined}
       target={item.external ? "_blank" : undefined}
       rel={item.external ? "noreferrer" : undefined}
       className="group relative grid size-10 shrink-0 place-items-center rounded-full text-ice/80 no-underline transition-[transform,color] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:text-ice sm:size-11 lg:size-12"
     >
-      <Icon className={item.iconClassName ?? "size-[1.35rem] fill-none stroke-current stroke-[1.7] sm:size-[1.45rem] lg:size-[1.55rem]"} />
+      <Icon
+        className={[
+          item.iconClassName ?? "size-[1.35rem] fill-none stroke-current stroke-[1.7] sm:size-[1.45rem] lg:size-[1.55rem]",
+          item.opticalScaleClassName,
+        ].filter(Boolean).join(" ")}
+      />
       <span className="absolute inset-x-2 bottom-1 h-px origin-center scale-x-0 bg-ice/82 shadow-[0_0_18px_rgba(255,255,255,0.46)] transition-transform duration-300 group-hover:scale-x-100 sm:inset-x-2.5 lg:bottom-1.5" />
     </Link>
   );
@@ -400,13 +436,19 @@ export function LiquidPillNav({
                     <Link
                       key={item.label}
                       href={item.href}
-                      aria-label={item.label}
+                      aria-label={item.handle ? `${item.label}: ${item.handle}` : item.label}
+                      title={item.handle ? `${item.handle} on ${item.label}` : undefined}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noreferrer" : undefined}
-                      className="grid size-9 place-items-center text-ice/78 transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:text-white active:scale-[0.94]"
+                      className="grid size-11 place-items-center text-ice/78 transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:text-white active:scale-[0.94]"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <Icon className="size-6 fill-current" />
+                      <Icon
+                        className={[
+                          "size-6 fill-current",
+                          item.opticalScaleClassName,
+                        ].filter(Boolean).join(" ")}
+                      />
                     </Link>
                   );
                 })}
