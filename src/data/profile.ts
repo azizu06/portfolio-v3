@@ -30,6 +30,11 @@ export const profile = {
       icon: CameraIcon,
     },
     {
+      label: "X",
+      href: "https://x.com/azizbuildss",
+      icon: LinkIcon,
+    },
+    {
       label: "Live projects",
       href: "/projects",
       icon: ArrowUpRightIcon,

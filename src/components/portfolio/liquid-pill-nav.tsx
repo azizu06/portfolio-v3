@@ -1,6 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState, type ComponentType, type MouseEvent, type SVGProps } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ComponentType,
+  type MouseEvent,
+  type SVGProps,
+} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -14,10 +21,9 @@ import PillNav from "@/components/PillNav";
 import { navItems, profile } from "@/data/profile";
 import type { PillNavItem } from "@/components/PillNav";
 
-const mobileNavItems = navItems
-  .filter((item) =>
-    ["About", "Experience", "Projects", "Skills"].includes(item.label),
-  );
+const mobileNavItems = navItems.filter((item) =>
+  ["About", "Experience", "Projects", "Skills"].includes(item.label),
+);
 
 type SocialNavItem = {
   label: string;
@@ -84,37 +90,60 @@ function InstagramBrandIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+function XBrandIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" {...props}>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117Z" />
+    </svg>
+  );
+}
+
 const socialNavItems: SocialNavItem[] = [
   {
     label: "LinkedIn",
-    href: profile.links.find((link) => link.label === "LinkedIn")?.href ?? "https://www.linkedin.com/in/abduaziz-umarov/",
+    href:
+      profile.links.find((link) => link.label === "LinkedIn")?.href ??
+      "https://www.linkedin.com/in/abduaziz-umarov/",
     icon: LinkedInBrandIcon,
-    iconClassName: "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
+    iconClassName:
+      "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
     opticalScaleClassName: "scale-90",
     external: true,
   },
   {
+    label: "X",
+    handle: "@azizbuildss",
+    href:
+      profile.links.find((link) => link.label === "X")?.href ??
+      "https://x.com/azizbuildss",
+    icon: XBrandIcon,
+    iconClassName:
+      "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
+    external: true,
+  },
+  {
     label: "GitHub",
-    href: profile.links.find((link) => link.label === "GitHub")?.href ?? "https://github.com/azizu06",
+    href:
+      profile.links.find((link) => link.label === "GitHub")?.href ??
+      "https://github.com/azizu06",
     icon: GitHubBrandIcon,
-    iconClassName: "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
+    iconClassName:
+      "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
     external: true,
   },
   {
     label: "Instagram",
     handle: "@azizbuildss",
-    href: profile.links.find((link) => link.label === "Instagram")?.href ?? "https://www.instagram.com/azizbuildss/",
+    href:
+      profile.links.find((link) => link.label === "Instagram")?.href ??
+      "https://www.instagram.com/azizbuildss/",
     icon: InstagramBrandIcon,
     iconClassName: "size-[1.18rem] sm:size-[1.28rem] lg:size-[1.4rem]",
     external: true,
   },
 ];
 
-function SocialNavLink({
-  item,
-}: {
-  item: SocialNavItem;
-}) {
+function SocialNavLink({ item }: { item: SocialNavItem }) {
   const Icon = item.icon;
 
   return (
@@ -128,9 +157,12 @@ function SocialNavLink({
     >
       <Icon
         className={[
-          item.iconClassName ?? "size-[1.35rem] fill-none stroke-current stroke-[1.7] sm:size-[1.45rem] lg:size-[1.55rem]",
+          item.iconClassName ??
+            "size-[1.35rem] fill-none stroke-current stroke-[1.7] sm:size-[1.45rem] lg:size-[1.55rem]",
           item.opticalScaleClassName,
-        ].filter(Boolean).join(" ")}
+        ]
+          .filter(Boolean)
+          .join(" ")}
       />
       <span className="absolute inset-x-2 bottom-1 h-px origin-center scale-x-0 bg-ice/82 shadow-[0_0_18px_rgba(255,255,255,0.46)] transition-transform duration-300 group-hover:scale-x-100 sm:inset-x-2.5 lg:bottom-1.5" />
     </Link>
@@ -289,9 +321,7 @@ export function LiquidPillNav({
           navHidden && !mobileMenuOpen
             ? "pointer-events-none opacity-0 blur-sm"
             : "opacity-100 blur-0",
-          showLinks
-            ? "max-w-7xl"
-            : "w-fit justify-center",
+          showLinks ? "max-w-7xl" : "w-fit justify-center",
         ].join(" ")}
         style={{
           transform:
@@ -329,7 +359,9 @@ export function LiquidPillNav({
               </div>
               <button
                 type="button"
-                aria-label={mobileMenuOpen ? "Close navigation" : "Open navigation"}
+                aria-label={
+                  mobileMenuOpen ? "Close navigation" : "Open navigation"
+                }
                 aria-expanded={mobileMenuOpen}
                 aria-controls="mobile-navigation-menu"
                 onClick={() => {
@@ -375,9 +407,7 @@ export function LiquidPillNav({
             className="absolute inset-0"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div
-            className="relative z-10 flex min-h-dvh flex-col px-7 py-8 text-ice"
-          >
+          <div className="relative z-10 flex min-h-dvh flex-col px-7 py-8 text-ice">
             <button
               type="button"
               aria-label="Close navigation"
@@ -406,9 +436,9 @@ export function LiquidPillNav({
                         "inline-flex touch-manipulation select-none items-center gap-3 px-4 py-1 text-center text-xl font-semibold tracking-[-0.01em] text-white transition-[transform,color,text-shadow] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.96]",
                         isPressed
                           ? "scale-[0.96] text-white [text-shadow:0_0_20px_rgba(234,242,255,0.34)]"
-                        : isActive
-                          ? "text-white [text-shadow:0_0_20px_rgba(234,242,255,0.28)]"
-                          : "text-ice/86 hover:text-white",
+                          : isActive
+                            ? "text-white [text-shadow:0_0_20px_rgba(234,242,255,0.28)]"
+                            : "text-ice/86 hover:text-white",
                       ].join(" ")}
                       style={{
                         animation: `mobile-menu-item-in 440ms cubic-bezier(0.32,0.72,0,1) ${index * 55}ms both`,
@@ -436,8 +466,16 @@ export function LiquidPillNav({
                     <Link
                       key={item.label}
                       href={item.href}
-                      aria-label={item.handle ? `${item.label}: ${item.handle}` : item.label}
-                      title={item.handle ? `${item.handle} on ${item.label}` : undefined}
+                      aria-label={
+                        item.handle
+                          ? `${item.label}: ${item.handle}`
+                          : item.label
+                      }
+                      title={
+                        item.handle
+                          ? `${item.handle} on ${item.label}`
+                          : undefined
+                      }
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noreferrer" : undefined}
                       className="grid size-11 place-items-center text-ice/78 transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:text-white active:scale-[0.94]"
@@ -447,7 +485,9 @@ export function LiquidPillNav({
                         className={[
                           "size-6 fill-current",
                           item.opticalScaleClassName,
-                        ].filter(Boolean).join(" ")}
+                        ]
+                          .filter(Boolean)
+                          .join(" ")}
                       />
                     </Link>
                   );
