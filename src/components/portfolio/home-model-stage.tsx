@@ -8,15 +8,18 @@ import {
   useRef,
   useState,
 } from "react";
-import { Canvas, type ThreeEvent, useFrame } from "@react-three/fiber";
+import { Canvas, type ThreeEvent, useFrame, useThree } from "@react-three/fiber";
 import { Environment, useGLTF } from "@react-three/drei";
 import { useRouter } from "next/navigation";
 import * as THREE from "three";
+import { KTX2Loader, type GLTFLoader } from "three-stdlib";
 import CountUp from "@/components/CountUp";
 import { LiquidPillNav } from "@/components/portfolio/liquid-pill-nav";
 import type { PillNavItem } from "@/components/PillNav";
 
-const MODEL_PATH = "/models/sci-fi-lab-2k-web.glb";
+const MODEL_PATH = "/models/sci-fi-lab-selective-ktx2.glb";
+const KTX2_TRANSCODER_PATH = "/basis/";
+const ktx2Loader = new KTX2Loader().setTranscoderPath(KTX2_TRANSCODER_PATH);
 const MODEL_CENTER = new THREE.Vector3(
   3.978700399398805,
   0,
@@ -112,7 +115,14 @@ function SciFiLabModel({
 }: {
   onReady: () => void;
 }) {
-  const gltf = useGLTF(MODEL_PATH);
+  const { gl } = useThree();
+  const configureLoader = useCallback(
+    (loader: GLTFLoader) => {
+      loader.setKTX2Loader(ktx2Loader.detectSupport(gl));
+    },
+    [gl],
+  );
+  const gltf = useGLTF(MODEL_PATH, false, true, configureLoader);
   const model = useMemo(() => gltf.scene.clone(true), [gltf.scene]);
 
   useEffect(() => {
@@ -831,5 +841,3 @@ export function HomeModelStage() {
     </main>
   );
 }
-
-useGLTF.preload(MODEL_PATH);
