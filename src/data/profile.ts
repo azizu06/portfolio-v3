@@ -1,6 +1,5 @@
 import {
   ArrowUpRightIcon,
-  CameraIcon,
   CodeXmlIcon,
   LinkIcon,
 } from "lucide-react";
@@ -22,16 +21,6 @@ export const profile = {
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/abduaziz-umarov/",
-      icon: LinkIcon,
-    },
-    {
-      label: "Instagram",
-      href: "https://www.instagram.com/azizbuildss/",
-      icon: CameraIcon,
-    },
-    {
-      label: "X",
-      href: "https://x.com/azizbuildss",
       icon: LinkIcon,
     },
     {

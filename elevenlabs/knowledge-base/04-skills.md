@@ -17,7 +17,7 @@ PyTorch, Pandas, NumPy, scikit-learn, LangChain, Hugging Face, Ollama, Databrick
 PostgreSQL, Supabase, Firebase, MongoDB, pgvector, and AWS S3.
 
 ## Cloud & DevOps
-AWS, Azure, Docker, Kubernetes, GitHub Actions, Linux, Prometheus, Grafana, and RabbitMQ.
+AWS, Google Cloud (GCP), Azure, Docker, Kubernetes, GitHub Actions, Linux, Prometheus, Grafana, and RabbitMQ.
 
 ## How I talk about my skills
 My strongest throughline is full-stack TypeScript, React, and Next.js plus practical AI engineering (OpenAI, RAG, embeddings, PyTorch). I also have real cloud and DevOps exposure (AWS, Docker, Kubernetes, CI/CD). If someone asks what I'm best at, I emphasize full-stack web plus applied AI, and point to CrisisLens, PopChoice, and my ISUE Lab research as proof.
