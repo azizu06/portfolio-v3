@@ -41,6 +41,7 @@ export const skillGroups = [
     title: "Cloud & DevOps",
     skills: [
       "AWS",
+      "Google Cloud (GCP)",
       "Azure",
       "Docker",
       "Kubernetes",

@@ -27,7 +27,6 @@ const mobileNavItems = navItems.filter((item) =>
 
 type SocialNavItem = {
   label: string;
-  handle?: string;
   href: string;
   icon: ComponentType<SVGProps<SVGSVGElement>>;
   iconClassName?: string;
@@ -71,33 +70,6 @@ function LinkedInBrandIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-function InstagramBrandIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...props}
-    >
-      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" />
-      <circle cx="12" cy="12" r="4" fill="none" />
-      <circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function XBrandIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" {...props}>
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117Z" />
-    </svg>
-  );
-}
-
 const socialNavItems: SocialNavItem[] = [
   {
     label: "LinkedIn",
@@ -111,17 +83,6 @@ const socialNavItems: SocialNavItem[] = [
     external: true,
   },
   {
-    label: "X",
-    handle: "@azizbuildss",
-    href:
-      profile.links.find((link) => link.label === "X")?.href ??
-      "https://x.com/azizbuildss",
-    icon: XBrandIcon,
-    iconClassName:
-      "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
-    external: true,
-  },
-  {
     label: "GitHub",
     href:
       profile.links.find((link) => link.label === "GitHub")?.href ??
@@ -129,16 +90,6 @@ const socialNavItems: SocialNavItem[] = [
     icon: GitHubBrandIcon,
     iconClassName:
       "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
-    external: true,
-  },
-  {
-    label: "Instagram",
-    handle: "@azizbuildss",
-    href:
-      profile.links.find((link) => link.label === "Instagram")?.href ??
-      "https://www.instagram.com/azizbuildss/",
-    icon: InstagramBrandIcon,
-    iconClassName: "size-[1.18rem] sm:size-[1.28rem] lg:size-[1.4rem]",
     external: true,
   },
 ];
@@ -149,8 +100,7 @@ function SocialNavLink({ item }: { item: SocialNavItem }) {
   return (
     <Link
       href={item.href}
-      aria-label={item.handle ? `${item.label}: ${item.handle}` : item.label}
-      title={item.handle ? `${item.handle} on ${item.label}` : undefined}
+      aria-label={item.label}
       target={item.external ? "_blank" : undefined}
       rel={item.external ? "noreferrer" : undefined}
       className="group relative grid size-10 shrink-0 place-items-center rounded-full text-ice/80 no-underline transition-[transform,color] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:text-ice sm:size-11 lg:size-12"
@@ -466,16 +416,7 @@ export function LiquidPillNav({
                     <Link
                       key={item.label}
                       href={item.href}
-                      aria-label={
-                        item.handle
-                          ? `${item.label}: ${item.handle}`
-                          : item.label
-                      }
-                      title={
-                        item.handle
-                          ? `${item.handle} on ${item.label}`
-                          : undefined
-                      }
+                      aria-label={item.label}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noreferrer" : undefined}
                       className="grid size-11 place-items-center text-ice/78 transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:text-white active:scale-[0.94]"
