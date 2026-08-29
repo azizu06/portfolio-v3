@@ -15,14 +15,6 @@ export function ElevenLabsWidget() {
         "agent-id": ELEVENLABS_AGENT_ID,
         className: "elevenlabs-convai-widget",
       })}
-      <a
-        className="elevenlabs-attribution"
-        href="https://elevenlabs.io"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Powered by ElevenLabs
-      </a>
       <Script
         src="https://unpkg.com/@elevenlabs/convai-widget-embed"
         strategy="afterInteractive"
