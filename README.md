@@ -23,8 +23,8 @@ lets visitors talk to an AI version of Aziz — rather than a static résumé pa
 - **3D hero stage** — a Three.js scene (`home-model-stage`, `hero-stage`) rendering a
   `sci-fi-lab` GLB model via React Three Fiber and `@react-three/drei`.
 - **Voice agent** — an embedded ElevenLabs conversational widget
-  (`elevenlabs-widget`) that speaks **as Aziz in the first person**, so visitors can talk
-  to an AI version of him about his work instead of only reading it. Its prompt and
+  (`elevenlabs-widget`) that acts as Aziz's transparent AI portfolio guide, using a
+  synthetic voice and third-person narration about his work. Its prompt and
   RAG knowledge base live in [`elevenlabs/`](elevenlabs/).
 - **Animated routing** — page transitions and scroll-driven reveals using GSAP and
   Motion, with a custom liquid "pill" navigation bar.
