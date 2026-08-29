@@ -16,8 +16,13 @@ The agent is a transparent third-person portfolio guide. Its opening line must i
 
 ## LLM
 
-- Recommended model: a strong, low-latency model (for example GPT-4.1 / GPT-4o-class or Claude Sonnet-class). The prompt is small and the knowledge base does the heavy lifting, so you do not need the largest model.
+- Selected model: **GPT-5.6 Luna**. It is low-latency and inexpensive enough for this focused portfolio RAG use case.
+- Reasoning effort: None. Voice responses need low latency, and the knowledge base supplies the facts.
 - Temperature: 0.3–0.5. Lower keeps it factual and on-script, which suits a grounded, no-hallucination assistant.
+
+## Turn taking
+
+- Turn model: **Turn V3**. It improves contextual turn detection without a separate plan surcharge.
 
 ## Knowledge base + RAG (the important part)
 
@@ -35,7 +40,7 @@ The agent is a transparent third-person portfolio guide. Its opening line must i
 
 ## Voice
 
-- Selected voice: **Jack John - Conversational and Upbeat** (`7EzWGsX10sAS4c9m9cPf`).
+- Selected voice: **Jarnathan - Confident and Versatile** (`c6SfcYrb2t09NHXiT80T`).
 - This is a synthetic Voice Library voice recommended for the V3 Conversational model.
 - Optimize for latency if the 3D site is already heavy on the page.
 

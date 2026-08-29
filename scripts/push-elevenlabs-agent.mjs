@@ -19,7 +19,7 @@ const ROOT = join(__dirname, "..");
 const KB_DIR = join(ROOT, "elevenlabs", "knowledge-base");
 const SYSTEM_PROMPT_FILE = join(ROOT, "elevenlabs", "system-prompt.md");
 const API = "https://api.elevenlabs.io/v1";
-const SYNTHETIC_VOICE_ID = "7EzWGsX10sAS4c9m9cPf"; // Jack John - Conversational and Upbeat
+const SYNTHETIC_VOICE_ID = "c6SfcYrb2t09NHXiT80T"; // Jarnathan - Confident and Versatile
 
 const FIRST_MESSAGE =
   "Hi, I'm Aziz's AI portfolio guide. Ask me anything about his background, experience, or projects.";
@@ -284,7 +284,7 @@ async function main() {
     console.log("DRY RUN — would PATCH agent with:");
     console.log(`  - system prompt: ${systemPrompt.length} chars`);
     console.log(`  - first message: "${FIRST_MESSAGE}"`);
-    console.log(`  - voice: Jack John (${SYNTHETIC_VOICE_ID})`);
+    console.log(`  - voice: Jarnathan (${SYNTHETIC_VOICE_ID})`);
     console.log(`  - knowledge base: ${kbEntries.length} docs attached`);
     console.log(`  - RAG: ${JSON.stringify(RAG_SETTINGS)}`);
     return;

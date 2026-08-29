@@ -76,14 +76,14 @@ It reads `ELEVENLABS_API_KEY` and `ELEVENLABS_AGENT_ID` from `.env`. What it set
 
 - **System prompt** from the code block in `system-prompt.md`.
 - **First message** (the default in `scripts/push-elevenlabs-agent.mjs`).
-- **Synthetic voice**: Jack John - Conversational and Upbeat.
+- **Synthetic voice**: Jarnathan - Confident and Versatile.
 - **All `knowledge-base/` docs** created and attached.
 - **RAG** on: `e5_mistral_7b_instruct`, max chunks `20`, max vector distance `0.7`, max docs length `50000`.
 - **Prompt-mode docs**: `00-start-here` (identity) and `07-timeline` (recency) are always in context; everything else is Auto (retrieved on demand).
 
 The script triggers RAG indexing for every document and waits for it to finish (indexing is **not** automatic on attach — without it, retrieval returns nothing and the agent guesses). Then **test** by talking to the agent: "Who are you?", "What's Aziz's most recent project?", "What vector database does PopChoice use?", "How do I reach Aziz?", an out-of-scope one ("What's the weather?"), and "Are you actually Aziz?". You can also test programmatically with the `simulate-conversation` API.
 
-The script preserves the existing LLM model/temperature. Voice and guide behavior are pinned by the repository configuration.
+The script preserves the existing LLM model, turn model, and temperature. Voice and guide behavior are pinned by the repository configuration. Current dashboard settings use GPT-5.6 Luna with no reasoning effort and Turn V3.
 
 ### Doing it by hand instead
 
