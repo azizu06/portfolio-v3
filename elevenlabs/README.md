@@ -2,7 +2,7 @@
 
 Everything needed to configure Aziz Umarov's portfolio voice agent: a crafted system prompt, a RAG-optimized knowledge base split into focused documents, and the exact dashboard settings.
 
-**This agent is Aziz, in the first person.** It's embedded on the portfolio so visitors feel like they're talking to Aziz directly — not to a separate "assistant." The system prompt, knowledge base, and first message are all written in his voice. The one honesty rule: if a visitor *directly* asks whether they're talking to the real Aziz or an AI, the agent acknowledges (in his voice) that it's an AI version of Aziz built into the site, then keeps going. It never claims to be a physically present human or pretends it can take real-world actions.
+**This agent is Aziz's AI portfolio guide.** It uses a synthetic voice and speaks about Aziz in the third person. The system prompt and first message identify it transparently; it never impersonates Aziz or implies that the selected voice is his real voice. Some knowledge-base documents remain Aziz-authored first-person source material, and the system prompt requires the guide to convert that wording into third-person narration before speaking.
 
 ## What's in here
 
@@ -76,13 +76,14 @@ It reads `ELEVENLABS_API_KEY` and `ELEVENLABS_AGENT_ID` from `.env`. What it set
 
 - **System prompt** from the code block in `system-prompt.md`.
 - **First message** (the default in `scripts/push-elevenlabs-agent.mjs`).
+- **Synthetic voice**: Jack John - Conversational and Upbeat.
 - **All `knowledge-base/` docs** created and attached.
 - **RAG** on: `e5_mistral_7b_instruct`, max chunks `20`, max vector distance `0.7`, max docs length `50000`.
 - **Prompt-mode docs**: `00-start-here` (identity) and `07-timeline` (recency) are always in context; everything else is Auto (retrieved on demand).
 
-The script triggers RAG indexing for every document and waits for it to finish (indexing is **not** automatic on attach — without it, retrieval returns nothing and the agent guesses). Then **test** by talking to the agent: "Who are you?", "What's your most recent project?", "What vector database does PopChoice use?", "How do I reach you?", an out-of-scope one ("What's the weather?"), and "Are you actually Aziz or an AI?". You can also test programmatically with the `simulate-conversation` API.
+The script triggers RAG indexing for every document and waits for it to finish (indexing is **not** automatic on attach — without it, retrieval returns nothing and the agent guesses). Then **test** by talking to the agent: "Who are you?", "What's Aziz's most recent project?", "What vector database does PopChoice use?", "How do I reach Aziz?", an out-of-scope one ("What's the weather?"), and "Are you actually Aziz?". You can also test programmatically with the `simulate-conversation` API.
 
-Two things the script does NOT set (choose them once in the dashboard): the **voice** and the **LLM model/temperature** — see `agent-config.md`.
+The script preserves the existing LLM model/temperature. Voice and guide behavior are pinned by the repository configuration.
 
 ### Doing it by hand instead
 

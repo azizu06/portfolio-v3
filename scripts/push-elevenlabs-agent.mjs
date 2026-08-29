@@ -19,9 +19,10 @@ const ROOT = join(__dirname, "..");
 const KB_DIR = join(ROOT, "elevenlabs", "knowledge-base");
 const SYSTEM_PROMPT_FILE = join(ROOT, "elevenlabs", "system-prompt.md");
 const API = "https://api.elevenlabs.io/v1";
+const SYNTHETIC_VOICE_ID = "7EzWGsX10sAS4c9m9cPf"; // Jack John - Conversational and Upbeat
 
 const FIRST_MESSAGE =
-  "Hey, I'm Aziz — welcome to my portfolio. Ask me anything about my background, my projects, or what I'm working on.";
+  "Hi, I'm Aziz's AI portfolio guide. Ask me anything about his background, experience, or projects.";
 
 const RAG_SETTINGS = {
   enabled: true,
@@ -259,9 +260,13 @@ async function main() {
   }
 
   // Build a merge-safe conversation_config: keep everything the agent already has,
-  // override only the prompt text, knowledge base list, RAG settings, and first message.
+  // while pinning the approved synthetic voice and guide behavior.
   const mergedConfig = {
     ...cc,
+    tts: {
+      ...(cc.tts || {}),
+      voice_id: SYNTHETIC_VOICE_ID,
+    },
     agent: {
       ...(cc.agent || {}),
       first_message: FIRST_MESSAGE,
@@ -279,6 +284,7 @@ async function main() {
     console.log("DRY RUN — would PATCH agent with:");
     console.log(`  - system prompt: ${systemPrompt.length} chars`);
     console.log(`  - first message: "${FIRST_MESSAGE}"`);
+    console.log(`  - voice: Jack John (${SYNTHETIC_VOICE_ID})`);
     console.log(`  - knowledge base: ${kbEntries.length} docs attached`);
     console.log(`  - RAG: ${JSON.stringify(RAG_SETTINGS)}`);
     return;
