@@ -399,7 +399,7 @@ export function ProjectSpotlightCard({
                   Links & Resources
                 </p>
                 <div className="mt-5 flex max-w-[32rem] flex-col items-center gap-3 sm:flex-row sm:gap-4">
-                  {project.githubHref ? (
+                  {project.githubHref && project.githubHref !== demoHref ? (
                     <Button
                       render={
                         <Link
