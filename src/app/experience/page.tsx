@@ -154,6 +154,7 @@ export default function ExperiencePage() {
                                 src={experience.image}
                                 alt=""
                                 fill
+                                loading={index === 0 ? "eager" : "lazy"}
                                 sizes="(min-width: 768px) 44vw, 100vw"
                                 className={
                                   hasTransparentImage
