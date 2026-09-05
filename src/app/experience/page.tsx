@@ -141,7 +141,7 @@ export default function ExperiencePage() {
                         edgeSensitivity={8}
                         borderRadius={26}
                       >
-                        <Card className="overflow-hidden rounded-[inherit] border-ice/10 bg-navy/76 py-0 shadow-none ring-1 ring-ice/8">
+                        <Card className="gap-0 overflow-hidden rounded-[inherit] border-ice/10 bg-navy/76 py-0 shadow-none ring-1 ring-ice/8">
                           <div
                             className={`relative aspect-[16/9] overflow-hidden ${
                               hasTransparentImage
@@ -174,7 +174,7 @@ export default function ExperiencePage() {
                               />
                             ) : null}
                           </div>
-                          <CardContent className="grid grid-rows-[minmax(6rem,auto)_auto_minmax(10rem,auto)_minmax(7.5rem,auto)] gap-y-4 bg-navy/86 p-5 sm:grid-rows-[minmax(5rem,auto)_auto_minmax(8.5rem,auto)_minmax(7rem,auto)] sm:gap-y-5 sm:p-8">
+                          <CardContent className="grid grid-rows-[minmax(6rem,auto)_auto_minmax(10rem,auto)_minmax(7.5rem,auto)] gap-y-4 bg-navy/86 p-5 max-[359px]:grid-rows-[minmax(8.25rem,auto)_3rem_minmax(12.625rem,auto)_minmax(8.5625rem,auto)] sm:grid-rows-[minmax(5rem,auto)_auto_minmax(8.5rem,auto)_minmax(7rem,auto)] sm:gap-y-5 sm:p-8">
                             <div>
                               <h2 className="font-mono text-xl font-black leading-6 tracking-tight text-ice sm:text-2xl sm:leading-7">
                                 {experience.displayRole ?? experience.role}
@@ -210,12 +210,12 @@ export default function ExperiencePage() {
                               <Code2 className="h-5 w-5" aria-hidden="true" />
                               Technologies & Skills
                             </p>
-                            <div className="mt-3 flex flex-wrap gap-2">
+                            <div className="mt-3 flex flex-wrap gap-1 max-[359px]:gap-x-0.5 sm:gap-2">
                               {experience.technologies.map((technology) => (
                                 <Badge
                                   key={technology}
                                   variant="outline"
-                                  className={`rounded-lg px-3.5 py-2.5 font-mono text-sm font-bold leading-none ${accent.chip}`}
+                                  className={`rounded-lg px-1.5 py-2.5 font-mono text-[15px] font-bold leading-none min-[360px]:px-4 sm:text-base ${accent.chip}`}
                                 >
                                   {technology}
                                 </Badge>
