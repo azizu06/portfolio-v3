@@ -15,16 +15,42 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
+    company: "Versant Media",
+    role: "Incoming Software Engineering Intern",
+    displayRole: "Incoming Software Engineering Intern",
+    period: "Sep 2026 - Apr 2027",
+    dateLabel: "Sep 2026",
+    location: "Orlando, FL · Hybrid",
+    image: "/assets/versant-experience.jpeg",
+    accent: "blue",
+    summary:
+      "Selected to work on mobile and web features for Rotten Tomatoes, including social experiences and AI-powered discovery.",
+    technologies: ["Mobile", "Web", "Product Engineering"],
+  },
+  {
+    company: "OpenAI",
+    role: "Campus Lead",
+    displayRole: "Campus Lead",
+    period: "Aug 2026 - Present",
+    dateLabel: "Aug 2026",
+    location: "Orlando, FL · Hybrid",
+    image: "/assets/openai-student-collective.png",
+    accent: "violet",
+    summary:
+      "Representing OpenAI at the University of Central Florida through the OpenAI Student Collective, with workshops and studio hours planned for this school year.",
+    technologies: ["AI Literacy", "Workshops", "Community Building"],
+  },
+  {
     company: "Knight Hacks",
-    role: "Software Developer",
-    displayRole: "Software Developer",
-    period: "Oct 2025 - Present",
-    dateLabel: "Oct 2025",
+    role: "Software Engineer Intern",
+    displayRole: "Software Engineer Intern",
+    period: "Jan 2026 - Present",
+    dateLabel: "Jan 2026",
     location: "Orlando, FL",
     image: "/assets/knighthacks2.webp",
     accent: "blue",
     summary:
-      "Built production features for Forge, a platform supporting a 1,000+ member Knight Hacks community. I work in Next.js, TypeScript, and tRPC, shipping organizer-facing flows with strong data consistency and practical UX polish.",
+      "Building full-stack software for hackathon operations and the Knight Hacks community using Next.js, TypeScript, and tRPC.",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -35,16 +61,28 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    company: "ISUE Lab",
+    company: "MLH Fellowship",
+    role: "Founder Fellow",
+    displayRole: "Founder Fellow",
+    period: "Jul 2026 - Aug 2026",
+    dateLabel: "Jul 2026",
+    location: "Remote",
+    accent: "cyan",
+    summary:
+      "Developed a startup idea through founder-led sessions focused on entrepreneurship and customer discovery.",
+    technologies: ["Entrepreneurship", "Customer Discovery"],
+  },
+  {
+    company: "UCF Department of Computer Science",
     role: "Undergraduate Research Assistant",
-    displayRole: "Research Assistant",
-    period: "Sep 2025 - Present",
+    displayRole: "Undergraduate Research Assistant",
+    period: "Sep 2025 - May 2026",
     dateLabel: "Sep 2025",
-    location: "Orlando, FL",
+    location: "Orlando, FL · On-site",
     image: "/assets/isue-experience.png",
     accent: "cyan",
     summary:
-      "Developing AI-based speech therapy feedback tools for dysarthric speakers with a focus on clinician usability. I build and refine data pipelines, PyTorch models, and evaluation workflows so feedback remains understandable and actionable during therapy sessions.",
+      "Analyzed speech data and developed AI-assisted feedback tools for dysarthria therapy research.",
     technologies: [
       "Python",
       "Pandas",

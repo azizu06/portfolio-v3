@@ -4,39 +4,33 @@
 
 A complete cross-reference of which of my projects use each technology, so I can answer "what have you built with X?" or "which projects use Y?" completely and accurately, not with just one example. Each line lists every project using that technology.
 
-- JavaScript — 15 projects: FinBridge, Dream Catcher, Shopping Cart, Memory Card, Resume Builder, Battleship, To-Do List, Tic Tac Toe, Weather App, Restaurant Page, Library, Sign-Up Form, Calculator, Etch-A-Sketch, and Rock Paper Scissors.
-- CSS — 11 projects: Battleship, To-Do List, Tic Tac Toe, Weather App, Restaurant Page, Library, Sign-Up Form, Admin Dashboard, Calculator, Etch-A-Sketch, and Rock Paper Scissors.
-- HTML — 11 projects: Battleship, To-Do List, Tic Tac Toe, Weather App, Restaurant Page, Library, Sign-Up Form, Admin Dashboard, Calculator, Etch-A-Sketch, and Rock Paper Scissors.
-- React — 10 projects: CapCheck, CrisisLens, FinBridge, Meridian, PopChoice, PollyGlot, Tiny Library, Shopping Cart, Memory Card, and Resume Builder.
-- Tailwind CSS — 9 projects: Meridian, PopChoice, PollyGlot, Tiny Library, File Uploader, Members Only, Shopping Cart, Memory Card, and Resume Builder.
-- Express — 7 projects: FinBridge, Dream Catcher, PollyGlot, File Uploader, Members Only, Inventory App, and Message Board.
-- Node.js — 7 projects: FinBridge, Dream Catcher, PollyGlot, File Uploader, Members Only, Inventory App, and Message Board.
-- Next.js — 5 projects: CapCheck, CrisisLens, Meridian, PopChoice, and Tiny Library.
-- PostgreSQL — 5 projects: Dream Catcher, File Uploader, Members Only, Inventory App, and Message Board.
-- TypeScript — 5 projects: CapCheck, CrisisLens, Meridian, PopChoice, and Tiny Library.
-- Webpack — 5 projects: Battleship, To-Do List, Tic Tac Toe, Weather App, and Restaurant Page.
-- EJS — 4 projects: File Uploader, Members Only, Inventory App, and Message Board.
-- OpenAI — 4 projects: Meridian, PopChoice, Dream Catcher, and PollyGlot.
-- Vite — 4 projects: PollyGlot, Shopping Cart, Memory Card, and Resume Builder.
-- Supabase — 3 projects: CapCheck, PopChoice, and File Uploader.
-- Zod — 3 projects: CapCheck, Meridian, and PopChoice.
+- React — 4 projects: Rehearse, CrisisLens, CapCheck, and FinBridge.
+- Next.js — 3 projects: SnapList, CrisisLens, and CapCheck.
+- TypeScript — 3 projects: SnapList, CrisisLens, and CapCheck.
 - Google Gemini — 2 projects: CapCheck and FinBridge.
+- Node.js — 2 projects: Shields.io and FinBridge.
+- Supabase — 2 projects: SnapList and CapCheck.
+- AWS — 1 project: Rehearse.
+- Chai — 1 project: Shields.io.
 - Chart.js — 1 project: FinBridge.
+- Databricks — 1 project: CrisisLens.
+- Docker — 1 project: Rehearse.
+- eBay APIs — 1 project: SnapList.
+- Express — 1 project: FinBridge.
 - Finnhub — 1 project: CapCheck.
-- Jest — 1 project: Battleship.
-- localStorage — 1 project: To-Do List.
-- NumPy — 1 project: CrisisLens.
-- pandas — 1 project: CrisisLens.
-- Passport — 1 project: Members Only.
-- pgvector — 1 project: PopChoice.
+- GitHub Actions — 1 project: Shields.io.
+- Go — 1 project: Rehearse.
+- Grafana — 1 project: Rehearse.
+- JavaScript — 1 project: Shields.io.
+- Mocha — 1 project: Shields.io.
+- Nock — 1 project: Shields.io.
+- OpenAI — 1 project: SnapList.
 - Plaid API — 1 project: FinBridge.
-- Prisma — 1 project: File Uploader.
-- Python — 1 project: CrisisLens.
-- PyTorch — 1 project: CrisisLens.
-- React Query — 1 project: Shopping Cart.
-- React Router — 1 project: Shopping Cart.
-- REST APIs — 1 project: Dream Catcher.
-- Tailwind — 1 project: FinBridge.
+- Prometheus — 1 project: Rehearse.
+- REST APIs — 1 project: Shields.io.
+- SQL Warehouse — 1 project: CrisisLens.
+- SQLite — 1 project: Rehearse.
+- Swift — 1 project: SnapList.
+- SwiftUI — 1 project: SnapList.
+- Terraform — 1 project: Rehearse.
 - Three.js — 1 project: CrisisLens.
-- Upstash Redis — 1 project: Meridian.
-- Vercel AI SDK — 1 project: Meridian.

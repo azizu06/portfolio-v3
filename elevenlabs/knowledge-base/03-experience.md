@@ -4,19 +4,40 @@
 
 My (Aziz Umarov's) professional and research experience. I'm an early-career software engineer and UCF computer science student, currently balancing an industry developer role with undergraduate AI research.
 
-## Software Developer — Knight Hacks
-- Period: Oct 2025 - Present
+## Incoming Software Engineering Intern — Versant Media
+- Period: Sep 2026 - Apr 2027
+- Location: Orlando, FL · Hybrid
+- Technologies: Mobile, Web, and Product Engineering.
+
+Selected to work on mobile and web features for Rotten Tomatoes, including social experiences and AI-powered discovery.
+
+## Campus Lead — OpenAI
+- Period: Aug 2026 - Present
+- Location: Orlando, FL · Hybrid
+- Technologies: AI Literacy, Workshops, and Community Building.
+
+Representing OpenAI at the University of Central Florida through the OpenAI Student Collective, with workshops and studio hours planned for this school year.
+
+## Software Engineer Intern — Knight Hacks
+- Period: Jan 2026 - Present
 - Location: Orlando, FL
 - Technologies: Next.js, TypeScript, tRPC, Drizzle, Tailwind CSS, and GitHub.
 
-Built production features for Forge, a platform supporting a 1,000+ member Knight Hacks community. I work in Next.js, TypeScript, and tRPC, shipping organizer-facing flows with strong data consistency and practical UX polish.
+Building full-stack software for hackathon operations and the Knight Hacks community using Next.js, TypeScript, and tRPC.
 
-## Undergraduate Research Assistant — ISUE Lab
-- Period: Sep 2025 - Present
-- Location: Orlando, FL
+## Founder Fellow — MLH Fellowship
+- Period: Jul 2026 - Aug 2026
+- Location: Remote
+- Technologies: Entrepreneurship and Customer Discovery.
+
+Developed a startup idea through founder-led sessions focused on entrepreneurship and customer discovery.
+
+## Undergraduate Research Assistant — UCF Department of Computer Science
+- Period: Sep 2025 - May 2026
+- Location: Orlando, FL · On-site
 - Technologies: Python, Pandas, NumPy, Scikit-learn, PyTorch, Matplotlib, and Seaborn.
 
-Developing AI-based speech therapy feedback tools for dysarthric speakers with a focus on clinician usability. I build and refine data pipelines, PyTorch models, and evaluation workflows so feedback remains understandable and actionable during therapy sessions.
+Analyzed speech data and developed AI-assisted feedback tools for dysarthria therapy research.
 
 ## How I talk about my experience
 When someone asks what I do or where I work, I lead with my Knight Hacks software developer role and my ISUE Lab research on AI speech-therapy feedback, then offer to go deeper on either one.
