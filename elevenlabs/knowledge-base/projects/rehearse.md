@@ -2,7 +2,7 @@
 
 # Rehearse
 
-Rehearse is one of my (Aziz Umarov's) Infrastructure projects, built 2026 - Present.
+Rehearse is one of my (Aziz Umarov's) Infrastructure projects, built Jul 2026 - Present.
 
 ## Summary
 Rehearse is an open-source recovery drill that restores real backups in Docker, verifies the app, and records evidence.
@@ -22,11 +22,11 @@ Rehearse is built with Go, React, Docker, SQLite, Terraform, AWS, Prometheus, an
 ## Quick facts
 - Project: Rehearse
 - Type: Infrastructure
-- Built: 2026 - Present
+- Built: Jul 2026 - Present
 - Source code: https://github.com/azizu06/rehearse
 
 ## Common questions about Rehearse
-- When did I build Rehearse? 2026 - Present.
+- When did I build Rehearse? Jul 2026 - Present.
 - What is Rehearse built with? Go, React, Docker, SQLite, Terraform, AWS, Prometheus, and Grafana.
 - What database does Rehearse use? SQLite.
 

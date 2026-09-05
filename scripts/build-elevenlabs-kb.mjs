@@ -53,7 +53,7 @@ function parseDate(dateStr) {
 }
 
 const sortKey = (p) => {
-  const d = parseDate(p.date);
+  const d = parseDate(p.sortDate ?? p.date);
   return d.y * 100 + d.m;
 };
 

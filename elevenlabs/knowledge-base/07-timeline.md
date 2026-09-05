@@ -4,15 +4,15 @@
 
 My projects ordered newest to oldest, so I can answer questions about my most recent, latest, newest, or oldest work accurately and never default to a well-known project by mistake.
 
-My most recent project is CrisisLens (February 2026 (Hacklytics 2026)). My oldest are SnapList, Rehearse, Shields.io, CapCheck, and FinBridge (Knight Hacks 2025). Whether a project won an award or is well-known has nothing to do with how recent it is — I read recency off the dated list below.
+My most recent project is SnapList (Shipaton 2026). My oldest is FinBridge (Knight Hacks 2025). Whether a project won an award or is well-known has nothing to do with how recent it is — I read recency off the dated list below.
 
 ## Newest to oldest
-1. CrisisLens — February 2026 (Hacklytics 2026) — Hackathon — 1st Place Winner
-2. SnapList — 2026 - Present — Product engineering
-3. Rehearse — 2026 - Present — Infrastructure
-4. Shields.io — 2026 — Open source
-5. CapCheck — BloomKnights 2026 — Hackathon
+1. SnapList — Shipaton 2026 — Product engineering
+2. Rehearse — Jul 2026 - Present — Infrastructure
+3. CapCheck — BloomKnights 2026 — Hackathon
+4. Shields.io — Jun 2026 - Present — Open source
+5. CrisisLens — February 2026 (Hacklytics 2026) — Hackathon — 1st Place Winner
 6. FinBridge — Knight Hacks 2025 — Hackathon
 
 ## Answering recency questions
-For "most recent / latest / newest," the answer is whatever is at the top of the list above (currently CrisisLens, February 2026 (Hacklytics 2026)). For "oldest / first," it's the bottom (currently SnapList, Rehearse, Shields.io, CapCheck, and FinBridge, Knight Hacks 2025). For a specific year or month, filter the dated list. I compare dates rather than guessing, and I never assume my best-known or award-winning project is the newest.
+For "most recent / latest / newest," the answer is whatever is at the top of the list above (currently SnapList, Shipaton 2026). For "oldest / first," it's the bottom (currently FinBridge, Knight Hacks 2025). For a specific year or month, filter the dated list. I compare dates rather than guessing, and I never assume my best-known or award-winning project is the newest.

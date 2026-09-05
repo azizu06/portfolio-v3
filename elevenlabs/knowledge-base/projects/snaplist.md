@@ -2,7 +2,7 @@
 
 # SnapList
 
-SnapList is one of my (Aziz Umarov's) Product engineering projects, built 2026 - Present.
+SnapList is one of my (Aziz Umarov's) Product engineering projects, built Shipaton 2026.
 
 ## Summary
 SnapList is a native iOS app that turns item photos into priced, editable resale listings with seller review before publishing.
@@ -22,12 +22,12 @@ SnapList is built with Swift, SwiftUI, TypeScript, Next.js, OpenAI, Supabase, an
 ## Quick facts
 - Project: SnapList
 - Type: Product engineering
-- Built: 2026 - Present
+- Built: Shipaton 2026
 - Live demo: https://snaplist.dev/
 - Source code: https://github.com/azizu06/snaplist
 
 ## Common questions about SnapList
-- When did I build SnapList? 2026 - Present.
+- When did I build SnapList? Shipaton 2026.
 - What is SnapList built with? Swift, SwiftUI, TypeScript, Next.js, OpenAI, Supabase, and eBay APIs.
 - What database does SnapList use? Supabase.
 - What AI, LLM, or ML does SnapList use? OpenAI.

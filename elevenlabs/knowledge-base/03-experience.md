@@ -9,21 +9,21 @@ My (Aziz Umarov's) professional and research experience. I'm an early-career sof
 - Location: Orlando, FL
 - Technologies: Mobile, Web, and Product Engineering.
 
-Selected to work on mobile and web features for Rotten Tomatoes, including social experiences and AI-powered discovery.
+Selected to build mobile and web features for Rotten Tomatoes, including social tools and AI-powered discovery.
 
 ## Campus Lead — OpenAI
 - Period: Aug 2026 - Present
 - Location: Orlando, FL
-- Technologies: AI Literacy, Workshops, and Community Building.
+- Technologies: AI Literacy, Workshops, and Community.
 
-Representing OpenAI at the University of Central Florida through the OpenAI Student Collective, with workshops and studio hours planned for this school year.
+Leading OpenAI Student Collective workshops and studio hours at UCF for students learning and building with AI.
 
 ## Software Engineer Intern — Knight Hacks
 - Period: Jan 2026 - Present
 - Location: Orlando, FL
-- Technologies: Next.js, TypeScript, tRPC, Drizzle, Tailwind CSS, and GitHub.
+- Technologies: Next.js, TypeScript, and tRPC.
 
-Building full-stack software for hackathon operations and the Knight Hacks community using Next.js, TypeScript, and tRPC.
+Building full-stack software for Knight Hacks operations and its community with Next.js, TypeScript, and tRPC.
 
 ## Founder Fellow — MLH Fellowship
 - Period: Jul 2026 - Aug 2026
@@ -35,9 +35,9 @@ Developed a startup idea through founder-led sessions focused on entrepreneurshi
 ## Undergraduate Research Assistant — UCF Department of Computer Science
 - Period: Sep 2025 - May 2026
 - Location: Orlando, FL
-- Technologies: Python, Pandas, NumPy, Scikit-learn, PyTorch, Matplotlib, and Seaborn.
+- Technologies: Python, PyTorch, and Scikit-learn.
 
-Analyzed speech data and developed AI-assisted feedback tools for dysarthria therapy research.
+Analyzed speech data and developed AI-assisted feedback tools to support dysarthria therapy research at UCF.
 
 ## How I talk about my experience
 When someone asks what I do or where I work, I lead with my Knight Hacks software developer role and my ISUE Lab research on AI speech-therapy feedback, then offer to go deeper on either one.

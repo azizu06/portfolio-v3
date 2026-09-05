@@ -174,40 +174,40 @@ export default function ExperiencePage() {
                               />
                             ) : null}
                           </div>
-                          <CardContent className="grid grid-rows-[minmax(7rem,auto)_2.5rem_minmax(11.5rem,auto)_minmax(10rem,auto)] bg-navy/86 p-5 max-[359px]:grid-rows-[minmax(9rem,auto)_2.5rem_minmax(14.5rem,auto)_minmax(12rem,auto)] sm:grid-rows-[minmax(6rem,auto)_2.5rem_minmax(9rem,auto)_minmax(9rem,auto)] sm:p-8">
+                          <CardContent className="grid grid-rows-[minmax(6rem,auto)_auto_minmax(10rem,auto)_minmax(7.5rem,auto)] gap-y-4 bg-navy/86 p-5 sm:grid-rows-[minmax(5rem,auto)_auto_minmax(8.5rem,auto)_minmax(7rem,auto)] sm:gap-y-5 sm:p-8">
                             <div>
                               <h2 className="font-mono text-xl font-black leading-6 tracking-tight text-ice sm:text-2xl sm:leading-7">
                                 {experience.displayRole ?? experience.role}
                               </h2>
-                              <p className="mt-3 flex items-start gap-2 font-mono text-sm font-bold leading-5 text-ice/80 sm:text-base">
+                              <p className="mt-3 flex items-start gap-2 font-mono text-base font-bold leading-6 text-ice/85 sm:text-lg">
                                 <Building2
                                   className="mt-0.5 h-4 w-4 shrink-0"
                                   aria-hidden="true"
                                 />
-                                {experience.company}
+                                {experience.displayCompany ?? experience.company}
                               </p>
                             </div>
-                          <div className="flex items-center justify-between gap-2 whitespace-nowrap font-mono text-[10px] font-bold uppercase tracking-tight text-ice/78 min-[400px]:text-xs sm:text-[clamp(10px,1vw,13px)]">
-                            <span className="inline-flex items-center gap-1.5">
-                              <MapPin className="h-3 w-3 shrink-0 max-[359px]:hidden" aria-hidden="true" />
+                          <div className="flex flex-col items-start gap-2 font-mono text-sm font-bold uppercase tracking-tight text-ice/85 min-[360px]:flex-row min-[360px]:items-center min-[360px]:justify-between sm:text-base">
+                            <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+                              <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
                               {experience.location}
                             </span>
-                            <span className="inline-flex items-center gap-1.5">
+                            <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
                               <CalendarDays
-                                className="h-3 w-3 shrink-0 max-[359px]:hidden"
+                                className="h-4 w-4 shrink-0"
                                 aria-hidden="true"
                               />
                               {experience.period}
                             </span>
                           </div>
 
-                          <p className="border-y border-ice/14 py-4 text-base font-medium leading-6 text-ice sm:text-lg sm:leading-7">
+                          <p className="border-y border-ice/14 py-4 text-lg font-medium leading-7 text-ice sm:text-xl sm:leading-8">
                             {experience.summary}
                           </p>
 
-                          <div className="pt-5">
-                            <p className="flex items-center gap-2 font-mono text-sm font-bold text-ice/90 sm:text-base">
-                              <Code2 className="h-4 w-4" aria-hidden="true" />
+                          <div className="pt-1">
+                            <p className="flex items-center gap-2 font-mono text-base font-bold text-ice/90 sm:text-lg">
+                              <Code2 className="h-5 w-5" aria-hidden="true" />
                               Technologies & Skills
                             </p>
                             <div className="mt-3 flex flex-wrap gap-2">
@@ -215,7 +215,7 @@ export default function ExperiencePage() {
                                 <Badge
                                   key={technology}
                                   variant="outline"
-                                  className={`rounded-lg px-2.5 py-2 font-mono text-xs font-bold leading-none ${accent.chip}`}
+                                  className={`rounded-lg px-3.5 py-2.5 font-mono text-sm font-bold leading-none ${accent.chip}`}
                                 >
                                   {technology}
                                 </Badge>
