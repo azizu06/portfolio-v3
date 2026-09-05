@@ -23,7 +23,7 @@ Shields.io is built with JavaScript, Node.js, REST APIs, Mocha, Chai, Nock, and 
 - Project: Shields.io
 - Type: Open source
 - Built: 2026
-- Live demo: https://shields.io/
+- Live demo: https://github.com/badges/shields
 - Source code: https://github.com/badges/shields/pulls?q=is%3Apr+author%3Aazizu06
 
 ## Common questions about Shields.io
@@ -31,6 +31,6 @@ Shields.io is built with JavaScript, Node.js, REST APIs, Mocha, Chai, Nock, and 
 - What is Shields.io built with? JavaScript, Node.js, REST APIs, Mocha, Chai, Nock, and GitHub Actions.
 
 ## How I talk about this project
-If someone asks me about Shields.io, I'd tell them it's an open-source contributions improving badge services, private-project support, and safer self-hosting controls. I built it with JavaScript, Node.js, REST APIs, and Mocha. I can point them to the live demo at https://shields.io/ and the source on my GitHub at https://github.com/badges/shields/pulls?q=is%3Apr+author%3Aazizu06.
+If someone asks me about Shields.io, I'd tell them it's an open-source contributions improving badge services, private-project support, and safer self-hosting controls. I built it with JavaScript, Node.js, REST APIs, and Mocha. I can point them to the live demo at https://github.com/badges/shields and the source on my GitHub at https://github.com/badges/shields/pulls?q=is%3Apr+author%3Aazizu06.
 
 Keywords: Shields.io, Open source, JavaScript, Node.js, REST APIs, Mocha, Chai, Nock, GitHub Actions.

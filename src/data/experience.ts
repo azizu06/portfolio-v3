@@ -6,6 +6,7 @@ export type Experience = {
   location: string;
   dateLabel: string;
   image?: string;
+  animatedImage?: string;
   imageTreatment?: "cover" | "transparent";
   mark?: string;
   accent: "green" | "blue" | "cyan" | "violet";
@@ -16,11 +17,11 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     company: "Versant Media",
-    role: "Incoming Software Engineering Intern",
-    displayRole: "Incoming Software Engineering Intern",
+    role: "Software Engineering Intern",
+    displayRole: "Software Engineering Intern",
     period: "Sep 2026 - Apr 2027",
     dateLabel: "Sep 2026",
-    location: "Orlando, FL · Hybrid",
+    location: "Orlando, FL",
     image: "/assets/versant-experience.jpeg",
     accent: "blue",
     summary:
@@ -33,8 +34,9 @@ export const experiences: Experience[] = [
     displayRole: "Campus Lead",
     period: "Aug 2026 - Present",
     dateLabel: "Aug 2026",
-    location: "Orlando, FL · Hybrid",
+    location: "Orlando, FL",
     image: "/assets/openai-student-collective.png",
+    animatedImage: "/assets/openai-student-collective.gif",
     accent: "violet",
     summary:
       "Representing OpenAI at the University of Central Florida through the OpenAI Student Collective, with workshops and studio hours planned for this school year.",
@@ -67,6 +69,8 @@ export const experiences: Experience[] = [
     period: "Jul 2026 - Aug 2026",
     dateLabel: "Jul 2026",
     location: "Remote",
+    image: "/assets/mlh-fellowship.jpg",
+    imageTreatment: "transparent",
     accent: "cyan",
     summary:
       "Developed a startup idea through founder-led sessions focused on entrepreneurship and customer discovery.",
@@ -78,7 +82,7 @@ export const experiences: Experience[] = [
     displayRole: "Undergraduate Research Assistant",
     period: "Sep 2025 - May 2026",
     dateLabel: "Sep 2025",
-    location: "Orlando, FL · On-site",
+    location: "Orlando, FL",
     image: "/assets/isue-experience.png",
     accent: "cyan",
     summary:

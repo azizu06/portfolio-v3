@@ -4,16 +4,16 @@
 
 My (Aziz Umarov's) professional and research experience. I'm an early-career software engineer and UCF computer science student, currently balancing an industry developer role with undergraduate AI research.
 
-## Incoming Software Engineering Intern — Versant Media
+## Software Engineering Intern — Versant Media
 - Period: Sep 2026 - Apr 2027
-- Location: Orlando, FL · Hybrid
+- Location: Orlando, FL
 - Technologies: Mobile, Web, and Product Engineering.
 
 Selected to work on mobile and web features for Rotten Tomatoes, including social experiences and AI-powered discovery.
 
 ## Campus Lead — OpenAI
 - Period: Aug 2026 - Present
-- Location: Orlando, FL · Hybrid
+- Location: Orlando, FL
 - Technologies: AI Literacy, Workshops, and Community Building.
 
 Representing OpenAI at the University of Central Florida through the OpenAI Student Collective, with workshops and studio hours planned for this school year.
@@ -34,7 +34,7 @@ Developed a startup idea through founder-led sessions focused on entrepreneurshi
 
 ## Undergraduate Research Assistant — UCF Department of Computer Science
 - Period: Sep 2025 - May 2026
-- Location: Orlando, FL · On-site
+- Location: Orlando, FL
 - Technologies: Python, Pandas, NumPy, Scikit-learn, PyTorch, Matplotlib, and Seaborn.
 
 Analyzed speech data and developed AI-assisted feedback tools for dysarthria therapy research.
