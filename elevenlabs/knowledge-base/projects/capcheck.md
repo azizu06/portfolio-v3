@@ -2,37 +2,37 @@
 
 # CapCheck
 
-CapCheck is one of my (Aziz Umarov's) AI product projects, built July 2026.
+CapCheck is one of my (Aziz Umarov's) Hackathon projects, built BloomKnights 2026.
 
 ## Summary
-CapCheck is an AI financial-video fact-checker that turns influencer claims into a cited Cap Score, evidence trail, and concrete next steps.
+CapCheck is a financial-video fact-checker that turns influencer claims into a cited score, evidence trail, and next steps.
 
 ## What it is
-CapCheck is a collaborative BloomKnights 2026 project for checking factual and predictive claims in short-form financial videos. Users can paste a video URL or upload a file, follow the streamed analysis stages, and inspect a verdict-first scorecard. Gemini watches the video and extracts timestamped claims, Google Search grounding and Finnhub market data verify them, and the final Cap Score explains supported, contradicted, and unverifiable claims alongside citations, hype-language signals, and actions to take before trusting the advice. The preserved deployment keeps the verified feed and evidence pages live while the paid analysis pipeline remains archived.
+CapCheck is a collaborative hackathon project for checking factual and predictive claims in short-form financial videos. Users paste a video URL or upload a file, follow the analysis, and inspect a scorecard with timestamped claims, sources, confidence, hype-language signals, and actions to consider before trusting the advice.
 
 ## Key features
-- Gemini video understanding extracts timestamped financial claims from URLs and uploads.
-- Google Search grounding and Finnhub function calls verify narrative and quantitative claims with cited evidence.
-- Verdict-first scorecards combine a 0–100 Cap Score with claim-level confidence, sources, hype language, and next actions.
-- Searchable, category-filtered Verified Feed persists vetted YouTube videos in Supabase for a durable read-only showcase.
+- Gemini video understanding for extracting timestamped financial claims.
+- Google Search grounding and Finnhub data for claim verification.
+- Claim-level confidence, citations, and hype-language signals.
+- Searchable verified-video feed stored in Supabase.
 
 ## Tech stack
-CapCheck is built with Next.js, React, TypeScript, Google Gemini, Finnhub, Supabase, and Zod.
+CapCheck is built with Next.js, React, TypeScript, Google Gemini, Finnhub, and Supabase.
 
 ## Quick facts
 - Project: CapCheck
-- Type: AI product
-- Built: July 2026
+- Type: Hackathon
+- Built: BloomKnights 2026
 - Live demo: https://capcheck-sigma.vercel.app/
 - Source code: https://github.com/azizu06/CapChecker
 
 ## Common questions about CapCheck
-- When did I build CapCheck? July 2026.
-- What is CapCheck built with? Next.js, React, TypeScript, Google Gemini, Finnhub, Supabase, and Zod.
+- When did I build CapCheck? BloomKnights 2026.
+- What is CapCheck built with? Next.js, React, TypeScript, Google Gemini, Finnhub, and Supabase.
 - What database does CapCheck use? Supabase.
 - What AI, LLM, or ML does CapCheck use? Google Gemini.
 
 ## How I talk about this project
-If someone asks me about CapCheck, I'd tell them it's an AI financial-video fact-checker that turns influencer claims into a cited Cap Score, evidence trail, and concrete next steps. I built it with Next.js, React, TypeScript, and Google Gemini. I can point them to the live demo at https://capcheck-sigma.vercel.app/ and the source on my GitHub at https://github.com/azizu06/CapChecker.
+If someone asks me about CapCheck, I'd tell them it's a financial-video fact-checker that turns influencer claims into a cited score, evidence trail, and next steps. I built it with Next.js, React, TypeScript, and Google Gemini. I can point them to the live demo at https://capcheck-sigma.vercel.app/ and the source on my GitHub at https://github.com/azizu06/CapChecker.
 
-Keywords: CapCheck, AI product, Next.js, React, TypeScript, Google Gemini, Finnhub, Supabase, Zod, database, storage, backend, AI, LLM, artificial intelligence, machine learning.
+Keywords: CapCheck, Hackathon, Next.js, React, TypeScript, Google Gemini, Finnhub, Supabase, database, storage, backend, AI, LLM, artificial intelligence, machine learning.

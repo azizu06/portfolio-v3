@@ -2,26 +2,26 @@
 
 # CrisisLens
 
-CrisisLens is one of my (Aziz Umarov's) AI product projects, built February 2026 (Hacklytics 2026). It won 1st Place Winner.
+CrisisLens is one of my (Aziz Umarov's) Hackathon projects, built February 2026 (Hacklytics 2026). It won 1st Place Winner.
 
 ## Summary
-CrisisLens is a command-center dashboard for mapping crisis risk, funding gaps, and AI insights across live humanitarian signals.
+CrisisLens is a humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe.
 
 ## What it is
-CrisisLens is a humanitarian intelligence command center built as a monorepo with a Next.js App Router web app and a Python ML workspace. The web app centers on a Three.js globe, crisis KPI layers, country search, analytics views, and geo-insight API routes, while the ML side generates country-level neglect scores from features like fragility, crisis metrics, funding coverage, people-in-need rates, anomaly signals, and model ensembles.
+CrisisLens is a team-built humanitarian intelligence platform. I worked on the frontend, the interactive 3D analyst dashboard, and the Databricks Genie integration that turns natural-language questions into SQL-backed insights. My teammates owned the machine-learning models behind the country-level neglect scores.
 
 ## Key features
-- Interactive Three.js globe with country-level crisis exploration and layer controls.
-- KPI panels for severity, funding coverage, in-need rates, and priority country signals.
-- ML workspace and generated country metrics connected to the command-center UI.
-- Geo-insight endpoints for country briefs, AI explanations, and natural-language crisis queries.
+- Interactive Three.js globe with country-level crisis exploration.
+- Dashboard views for risk, funding coverage, and people-in-need signals.
+- Databricks Genie questions backed by SQL Warehouse data.
+- Country briefs and AI explanations through geo-insight endpoints.
 
 ## Tech stack
-CrisisLens is built with Next.js, React, TypeScript, Three.js, PyTorch, Python, pandas, and NumPy.
+CrisisLens is built with Next.js, React, TypeScript, Three.js, Databricks, and SQL Warehouse.
 
 ## Quick facts
 - Project: CrisisLens
-- Type: AI product
+- Type: Hackathon
 - Built: February 2026 (Hacklytics 2026)
 - Award: 1st Place Winner
 - Live demo: https://crisis-lens-v2-web.vercel.app
@@ -29,11 +29,10 @@ CrisisLens is built with Next.js, React, TypeScript, Three.js, PyTorch, Python, 
 
 ## Common questions about CrisisLens
 - When did I build CrisisLens? February 2026 (Hacklytics 2026).
-- What is CrisisLens built with? Next.js, React, TypeScript, Three.js, PyTorch, Python, pandas, and NumPy.
-- What AI, LLM, or ML does CrisisLens use? PyTorch.
+- What is CrisisLens built with? Next.js, React, TypeScript, Three.js, Databricks, and SQL Warehouse.
 - Did CrisisLens win anything? Yes — 1st Place Winner.
 
 ## How I talk about this project
-If someone asks me about CrisisLens, I'd tell them it's a command-center dashboard for mapping crisis risk, funding gaps, and AI insights across live humanitarian signals. I built it with Next.js, React, TypeScript, and Three.js. It won 1st Place Winner. I can point them to the live demo at https://crisis-lens-v2-web.vercel.app and the source on my GitHub at https://github.com/azizu06/CrisisLensV2.
+If someone asks me about CrisisLens, I'd tell them it's a humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe. I built it with Next.js, React, TypeScript, and Three.js. It won 1st Place Winner. I can point them to the live demo at https://crisis-lens-v2-web.vercel.app and the source on my GitHub at https://github.com/azizu06/CrisisLensV2.
 
-Keywords: CrisisLens, AI product, Next.js, React, TypeScript, Three.js, PyTorch, Python, pandas, NumPy, AI, LLM, artificial intelligence, machine learning.
+Keywords: CrisisLens, Hackathon, Next.js, React, TypeScript, Three.js, Databricks, SQL Warehouse.

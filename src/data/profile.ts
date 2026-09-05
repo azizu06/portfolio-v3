@@ -9,9 +9,10 @@ export const profile = {
   shortName: "Aziz",
   location: "Orlando, FL",
   role: "Software engineer and UCF computer science student",
-  headline: "UCF CS student, ISUE Lab researcher, Knight Hacks developer.",
+  headline:
+    "Incoming software engineering intern at Versant, OpenAI campus lead, and UCF computer science student.",
   summary:
-    "A UCF computer science student with a 4.0 GPA, research experience in AI-assisted speech feedback, and hackathon work recognized at Hacklytics 2026.",
+    "A UCF computer science student building software through internships, open-source work, and projects across product engineering and infrastructure.",
   links: [
     {
       label: "GitHub",
@@ -41,7 +42,7 @@ export const navItems = [
 
 export const proofPoints = [
   "UCF Computer Science, 4.0 GPA",
-  "Knight Hacks Software Developer",
-  "ISUE Lab Undergraduate Research Assistant",
+  "Incoming Versant Software Engineering Intern",
+  "OpenAI Campus Lead",
   "CrisisLens, Hacklytics 2026 first place",
 ];

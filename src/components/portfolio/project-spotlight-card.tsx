@@ -254,22 +254,24 @@ export function ProjectSpotlightCard({
                   <InfoIcon className="size-5" aria-hidden="true" />
                 </span>
               </Button>
-              <Button
-                render={
-                  <Link
-                    href={project.liveHref ?? "#"}
-                    target="_blank"
-                    rel="noreferrer"
-                  />
-                }
-                size="sm"
-                className="group/button h-11 min-w-0 w-full rounded-full bg-cobalt px-5 py-3 text-base font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:bg-cobalt/85 active:scale-[0.98] sm:flex-1 sm:px-6 sm:text-lg"
-              >
-                Live demo
-                <span className="ml-1 inline-flex size-7 items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5">
-                  <Link2 className="size-5" aria-hidden="true" />
-                </span>
-              </Button>
+              {project.liveHref ? (
+                <Button
+                  render={
+                    <Link
+                      href={project.liveHref}
+                      target="_blank"
+                      rel="noreferrer"
+                    />
+                  }
+                  size="sm"
+                  className="group/button h-11 min-w-0 w-full rounded-full bg-cobalt px-5 py-3 text-base font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:bg-cobalt/85 active:scale-[0.98] sm:flex-1 sm:px-6 sm:text-lg"
+                >
+                  Live demo
+                  <span className="ml-1 inline-flex size-7 items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5">
+                    <Link2 className="size-5" aria-hidden="true" />
+                  </span>
+                </Button>
+              ) : null}
             </div>
           </CardContent>
         </Card>
@@ -395,38 +397,42 @@ export function ProjectSpotlightCard({
                   <LinksAndResourcesIcon className="size-5 sm:size-6" />
                   Links & Resources
                 </p>
-                <div className="mt-5 grid max-w-[32rem] grid-cols-1 gap-3 justify-items-center sm:grid-cols-2 sm:gap-4">
-                  <Button
-                    render={
-                      <Link
-                        href={project.githubHref ?? "#"}
-                        target="_blank"
-                        rel="noreferrer"
-                      />
-                    }
-                    variant="outline"
-                    size="sm"
-                    className="h-11 w-full max-w-none justify-center rounded-full border-ice/16 bg-ice/7 px-5 py-3 text-base font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300/45 hover:bg-ice/13 active:scale-[0.98] sm:max-w-[14.5rem] sm:text-lg"
-                  >
-                    <GitHubBrandIcon />
-                    GitHub
-                  </Button>
-                  <Button
-                    render={
-                      <Link
-                        href={project.liveHref ?? "#"}
-                        target="_blank"
-                        rel="noreferrer"
-                      />
-                    }
-                    size="sm"
-                    className="group/button h-11 w-full max-w-none justify-center rounded-full bg-cobalt px-5 py-3 text-base font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:bg-cobalt/85 active:scale-[0.98] sm:max-w-[14.5rem] sm:text-lg"
-                  >
-                    Live demo
-                    <span className="ml-1 inline-flex size-7 items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5">
-                      <Link2 className="size-6" aria-hidden="true" />
-                    </span>
-                  </Button>
+                <div className="mt-5 flex max-w-[32rem] flex-col items-center gap-3 sm:flex-row sm:gap-4">
+                  {project.githubHref ? (
+                    <Button
+                      render={
+                        <Link
+                          href={project.githubHref}
+                          target="_blank"
+                          rel="noreferrer"
+                        />
+                      }
+                      variant="outline"
+                      size="sm"
+                      className="h-11 w-full max-w-none justify-center rounded-full border-ice/16 bg-ice/7 px-5 py-3 text-base font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300/45 hover:bg-ice/13 active:scale-[0.98] sm:max-w-[14.5rem] sm:text-lg"
+                    >
+                      <GitHubBrandIcon />
+                      GitHub
+                    </Button>
+                  ) : null}
+                  {project.liveHref ? (
+                    <Button
+                      render={
+                        <Link
+                          href={project.liveHref}
+                          target="_blank"
+                          rel="noreferrer"
+                        />
+                      }
+                      size="sm"
+                      className="group/button h-11 w-full max-w-none justify-center rounded-full bg-cobalt px-5 py-3 text-base font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:bg-cobalt/85 active:scale-[0.98] sm:max-w-[14.5rem] sm:text-lg"
+                    >
+                      Live demo
+                      <span className="ml-1 inline-flex size-7 items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5">
+                        <Link2 className="size-6" aria-hidden="true" />
+                      </span>
+                    </Button>
+                  ) : null}
                 </div>
               </div>
             </div>
