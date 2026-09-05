@@ -1,5 +1,6 @@
 export type Experience = {
   company: string;
+  displayCompany?: string;
   role: string;
   displayRole?: string;
   period: string;
@@ -25,7 +26,7 @@ export const experiences: Experience[] = [
     image: "/assets/versant-experience.jpeg",
     accent: "blue",
     summary:
-      "Selected to work on mobile and web features for Rotten Tomatoes, including social experiences and AI-powered discovery.",
+      "Selected to build mobile and web features for Rotten Tomatoes, including social tools and AI-powered discovery.",
     technologies: ["Mobile", "Web", "Product Engineering"],
   },
   {
@@ -39,8 +40,8 @@ export const experiences: Experience[] = [
     animatedImage: "/assets/openai-student-collective.gif",
     accent: "violet",
     summary:
-      "Representing OpenAI at the University of Central Florida through the OpenAI Student Collective, with workshops and studio hours planned for this school year.",
-    technologies: ["AI Literacy", "Workshops", "Community Building"],
+      "Leading OpenAI Student Collective workshops and studio hours at UCF for students learning and building with AI.",
+    technologies: ["AI Literacy", "Workshops", "Community"],
   },
   {
     company: "Knight Hacks",
@@ -52,15 +53,8 @@ export const experiences: Experience[] = [
     image: "/assets/knighthacks2.webp",
     accent: "blue",
     summary:
-      "Building full-stack software for hackathon operations and the Knight Hacks community using Next.js, TypeScript, and tRPC.",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "tRPC",
-      "Drizzle",
-      "Tailwind CSS",
-      "GitHub",
-    ],
+      "Building full-stack software for Knight Hacks operations and its community with Next.js, TypeScript, and tRPC.",
+    technologies: ["Next.js", "TypeScript", "tRPC"],
   },
   {
     company: "MLH Fellowship",
@@ -78,6 +72,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "UCF Department of Computer Science",
+    displayCompany: "UCF Computer Science",
     role: "Undergraduate Research Assistant",
     displayRole: "Undergraduate Research Assistant",
     period: "Sep 2025 - May 2026",
@@ -86,15 +81,7 @@ export const experiences: Experience[] = [
     image: "/assets/isue-experience.png",
     accent: "cyan",
     summary:
-      "Analyzed speech data and developed AI-assisted feedback tools for dysarthria therapy research.",
-    technologies: [
-      "Python",
-      "Pandas",
-      "NumPy",
-      "Scikit-learn",
-      "PyTorch",
-      "Matplotlib",
-      "Seaborn",
-    ],
+      "Analyzed speech data and developed AI-assisted feedback tools to support dysarthria therapy research at UCF.",
+    technologies: ["Python", "PyTorch", "Scikit-learn"],
   },
 ];

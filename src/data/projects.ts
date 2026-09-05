@@ -1,6 +1,7 @@
 export type Project = {
   title: string;
   date: string;
+  sortDate?: string;
   image?: string;
   previewVideo?: string;
   description: string;
@@ -16,7 +17,8 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "SnapList",
-    date: "2026 - Present",
+    date: "Shipaton 2026",
+    sortDate: "August 2026",
     image: "/assets/project-previews/snaplist.png",
     previewVideo: "/assets/project-previews/snaplist.mp4",
     description:
@@ -44,7 +46,8 @@ export const projects: Project[] = [
   },
   {
     title: "Rehearse",
-    date: "2026 - Present",
+    date: "Jul 2026 - Present",
+    sortDate: "July 2026",
     image: "/assets/project-previews/rehearse.png",
     description:
       "Open-source recovery drill that restores real backups in Docker, verifies the app, and records evidence.",
@@ -71,7 +74,8 @@ export const projects: Project[] = [
   },
   {
     title: "Shields.io",
-    date: "2026",
+    date: "Jun 2026 - Present",
+    sortDate: "June 2026",
     image: "/assets/project-previews/shields.png",
     previewVideo: "/assets/project-previews/shields.mp4",
     description:
@@ -129,6 +133,7 @@ export const projects: Project[] = [
   {
     title: "CapCheck",
     date: "BloomKnights 2026",
+    sortDate: "July 2026",
     image: "/assets/project-previews/capcheck.png",
     previewVideo: "/assets/project-previews/capcheck.mp4",
     description:
@@ -156,6 +161,7 @@ export const projects: Project[] = [
   {
     title: "FinBridge",
     date: "Knight Hacks 2025",
+    sortDate: "October 2025",
     image: "/assets/project-previews/finbridge.png",
     previewVideo: "/assets/project-previews/finbridge.mp4",
     description:

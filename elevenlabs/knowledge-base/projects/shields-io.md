@@ -2,7 +2,7 @@
 
 # Shields.io
 
-Shields.io is one of my (Aziz Umarov's) Open source projects, built 2026.
+Shields.io is one of my (Aziz Umarov's) Open source projects, built Jun 2026 - Present.
 
 ## Summary
 Shields.io is an open-source contributions improving badge services, private-project support, and safer self-hosting controls.
@@ -22,12 +22,12 @@ Shields.io is built with JavaScript, Node.js, REST APIs, Mocha, Chai, Nock, and 
 ## Quick facts
 - Project: Shields.io
 - Type: Open source
-- Built: 2026
+- Built: Jun 2026 - Present
 - Live demo: https://github.com/badges/shields
 - Source code: https://github.com/badges/shields/pulls?q=is%3Apr+author%3Aazizu06
 
 ## Common questions about Shields.io
-- When did I build Shields.io? 2026.
+- When did I build Shields.io? Jun 2026 - Present.
 - What is Shields.io built with? JavaScript, Node.js, REST APIs, Mocha, Chai, Nock, and GitHub Actions.
 
 ## How I talk about this project
