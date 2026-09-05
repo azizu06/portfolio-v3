@@ -145,7 +145,7 @@ export default function ExperiencePage() {
                           <div
                             className={`relative aspect-[16/9] overflow-hidden ${
                               hasTransparentImage
-                                ? "bg-[#255793]"
+                                ? "bg-[#1e539f]"
                                 : `bg-gradient-to-br ${accent.header}`
                             }`}
                           >
