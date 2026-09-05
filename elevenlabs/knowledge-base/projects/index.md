@@ -17,13 +17,13 @@ I (Aziz Umarov) have 6 projects on my portfolio, spanning AI products, full-stac
 
 ## All projects by category
 ### Product engineering
-- SnapList (2026 - Present): Native iOS app that turns item photos into priced, editable resale listings with seller review before publishing.
+- SnapList (2026 - Present): Native iOS app that turns item photos into priced, editable resale listings with seller review before publishing. — live: https://snaplist.dev/
 
 ### Infrastructure
 - Rehearse (2026 - Present): Open-source recovery drill that restores real backups in Docker, verifies the app, and records evidence.
 
 ### Open source
-- Shields.io (2026): Open-source contributions improving badge services, private-project support, and safer self-hosting controls. — live: https://shields.io/
+- Shields.io (2026): Open-source contributions improving badge services, private-project support, and safer self-hosting controls. — live: https://github.com/badges/shields
 
 ### Hackathon
 - CrisisLens (February 2026 (Hacklytics 2026)): Humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe. — live: https://crisis-lens-v2-web.vercel.app

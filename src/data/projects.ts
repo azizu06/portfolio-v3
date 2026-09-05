@@ -18,6 +18,7 @@ export const projects: Project[] = [
     title: "SnapList",
     date: "2026 - Present",
     image: "/assets/project-previews/snaplist.png",
+    previewVideo: "/assets/project-previews/snaplist.mp4",
     description:
       "Native iOS app that turns item photos into priced, editable resale listings with seller review before publishing.",
     details:
@@ -38,6 +39,7 @@ export const projects: Project[] = [
       "eBay APIs",
     ],
     githubHref: "https://github.com/azizu06/snaplist",
+    liveHref: "https://snaplist.dev/",
     category: "Product engineering",
   },
   {
@@ -71,6 +73,7 @@ export const projects: Project[] = [
     title: "Shields.io",
     date: "2026",
     image: "/assets/project-previews/shields.png",
+    previewVideo: "/assets/project-previews/shields.mp4",
     description:
       "Open-source contributions improving badge services, private-project support, and safer self-hosting controls.",
     details:
@@ -92,7 +95,7 @@ export const projects: Project[] = [
     ],
     githubHref:
       "https://github.com/badges/shields/pulls?q=is%3Apr+author%3Aazizu06",
-    liveHref: "https://shields.io/",
+    liveHref: "https://github.com/badges/shields",
     category: "Open source",
   },
   {

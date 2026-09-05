@@ -55,6 +55,7 @@ export function ProjectSpotlightCard({
   const [shouldLoadVideo, setShouldLoadVideo] = useState(priority);
   const [isNearViewport, setIsNearViewport] = useState(priority);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const demoHref = project.liveHref ?? project.githubHref;
 
   useEffect(() => {
     if (!project.previewVideo) return;
@@ -254,11 +255,11 @@ export function ProjectSpotlightCard({
                   <InfoIcon className="size-5" aria-hidden="true" />
                 </span>
               </Button>
-              {project.liveHref ? (
+              {demoHref ? (
                 <Button
                   render={
                     <Link
-                      href={project.liveHref}
+                      href={demoHref}
                       target="_blank"
                       rel="noreferrer"
                     />
@@ -415,11 +416,11 @@ export function ProjectSpotlightCard({
                       GitHub
                     </Button>
                   ) : null}
-                  {project.liveHref ? (
+                  {demoHref ? (
                     <Button
                       render={
                         <Link
-                          href={project.liveHref}
+                          href={demoHref}
                           target="_blank"
                           rel="noreferrer"
                         />

@@ -17,28 +17,28 @@ export const metadata: Metadata = {
 const accentStyles = {
   green: {
     line: "bg-cobalt shadow-[0_0_18px_rgba(47,111,237,0.54)]",
-    glow: "md:shadow-[0_0_28px_rgba(47,111,237,0.42)]",
+    glow: "xl:shadow-[0_0_28px_rgba(47,111,237,0.42)]",
     chip: "border-blue-300/70 bg-cobalt/18 text-ice",
     header: "from-[#08182d] via-[#0b2550] to-[#050b18]",
     mark: "bg-cobalt/18 text-ice",
   },
   blue: {
     line: "bg-cobalt shadow-[0_0_18px_rgba(47,111,237,0.54)]",
-    glow: "md:shadow-[0_0_28px_rgba(47,111,237,0.42)]",
+    glow: "xl:shadow-[0_0_28px_rgba(47,111,237,0.42)]",
     chip: "border-blue-300/70 bg-cobalt/18 text-ice",
     header: "from-[#08182d] via-[#0b2550] to-[#050b18]",
     mark: "bg-cobalt/18 text-ice",
   },
   cyan: {
     line: "bg-cobalt shadow-[0_0_18px_rgba(47,111,237,0.54)]",
-    glow: "md:shadow-[0_0_28px_rgba(47,111,237,0.42)]",
+    glow: "xl:shadow-[0_0_28px_rgba(47,111,237,0.42)]",
     chip: "border-blue-300/70 bg-cobalt/18 text-ice",
     header: "from-[#edf4ff] via-[#82c8e5] to-[#6d8196]",
     mark: "bg-cobalt/18 text-ice",
   },
   violet: {
     line: "bg-cobalt shadow-[0_0_18px_rgba(47,111,237,0.54)]",
-    glow: "md:shadow-[0_0_28px_rgba(47,111,237,0.42)]",
+    glow: "xl:shadow-[0_0_28px_rgba(47,111,237,0.42)]",
     chip: "border-blue-300/70 bg-cobalt/18 text-ice",
     header: "from-[#08182d] via-[#0b2550] to-[#050b18]",
     mark: "bg-cobalt/18 text-ice",
@@ -46,9 +46,9 @@ const accentStyles = {
 };
 
 const experienceMediaClass =
-  "object-cover object-center";
+  "object-contain object-center";
 const transparentExperienceMediaClass =
-  "!bottom-auto !left-1/2 !right-auto !top-[44%] !h-[72%] !w-[88%] !-translate-x-1/2 !-translate-y-1/2 object-contain object-center drop-shadow-[0_18px_34px_rgba(47,111,237,0.24)] sm:!inset-0 sm:!h-full sm:!w-full sm:!translate-x-0 sm:!translate-y-0 sm:p-10 sm:pb-28";
+  "object-contain object-center p-8 sm:p-14";
 
 export default function ExperiencePage() {
   return (
@@ -73,8 +73,8 @@ export default function ExperiencePage() {
       }
     >
       <FadeContent blur duration={900} delay={150} threshold={0.04}>
-        <div className="relative mt-20 pb-36 md:pb-44">
-          <div className="absolute bottom-32 left-[0.55rem] top-0 z-0 w-2 md:bottom-40 md:left-1/2 md:w-3 md:-translate-x-1/2">
+        <div className="relative mt-20 pb-36 xl:pb-44">
+          <div className="absolute bottom-32 left-[0.55rem] top-0 z-0 w-2 xl:bottom-40 xl:left-1/2 xl:w-3 xl:-translate-x-1/2">
             <ElectricBorder
               color="#2f6fed"
               speed={0.78}
@@ -84,7 +84,7 @@ export default function ExperiencePage() {
               tight
               className="h-full w-full rounded-full opacity-90"
             >
-              <div className="mx-auto h-full w-px rounded-full bg-gradient-to-b from-cobalt/0 via-[#8db7ff] to-cobalt/0 shadow-[0_0_14px_rgba(47,111,237,0.5)] md:w-[2px] md:shadow-[0_0_22px_rgba(47,111,237,0.58)]" />
+              <div className="mx-auto h-full w-px rounded-full bg-gradient-to-b from-cobalt/0 via-[#8db7ff] to-cobalt/0 shadow-[0_0_14px_rgba(47,111,237,0.5)] xl:w-[2px] xl:shadow-[0_0_22px_rgba(47,111,237,0.58)]" />
             </ElectricBorder>
           </div>
 
@@ -93,11 +93,11 @@ export default function ExperiencePage() {
               const accent = accentStyles[experience.accent];
               const isLeft = index % 2 === 0;
               const dateClassName = isLeft
-                ? "hidden pt-12 md:order-1 md:block md:pr-4 md:text-right"
-                : "hidden pt-12 md:order-3 md:block md:pl-4";
+                ? "hidden pt-12 xl:order-1 xl:block xl:pr-4 xl:text-right"
+                : "hidden pt-12 xl:order-3 xl:block xl:pl-4";
               const cardClassName = isLeft
-                ? "min-w-0 md:order-3 md:pl-3"
-                : "min-w-0 md:order-1 md:pr-3";
+                ? "min-w-0 xl:order-3 xl:pl-3"
+                : "min-w-0 xl:order-1 xl:pr-3";
               const hasTransparentImage =
                 experience.imageTreatment === "transparent";
 
@@ -109,7 +109,7 @@ export default function ExperiencePage() {
                   delay={index * 140}
                   threshold={0.12}
                 >
-                  <article className="relative grid gap-5 pl-9 last:mb-0 md:grid-cols-[minmax(0,1fr)_3.5rem_minmax(0,1fr)] md:items-start md:gap-0 md:pl-0">
+                  <article className="relative grid gap-5 pl-9 last:mb-0 xl:grid-cols-[minmax(0,1fr)_3.5rem_minmax(0,1fr)] xl:items-start xl:gap-0 xl:pl-0">
                     <div className={dateClassName}>
                       <p className="font-mono text-lg font-bold uppercase tracking-[0.18em] text-ice/90">
                   {experience.dateLabel}
@@ -120,14 +120,14 @@ export default function ExperiencePage() {
                       />
                     </div>
 
-                    <div className="absolute left-0 top-8 md:static md:order-2 md:flex md:justify-center md:pt-8">
+                    <div className="absolute left-0 top-8 xl:static xl:order-2 xl:flex xl:justify-center xl:pt-8">
                       <div
-                        className={`relative z-20 h-6 w-6 rounded-full border-2 border-deep-navy bg-gradient-to-br from-[#eaf2ff] via-[#8db7ff] to-[#2f6fed] shadow-[0_0_14px_rgba(142,191,255,0.34)] md:h-9 md:w-9 md:border-4 md:shadow-[0_0_26px_rgba(142,191,255,0.44)] ${accent.glow}`}
+                        className={`relative z-20 h-6 w-6 rounded-full border-2 border-deep-navy bg-gradient-to-br from-[#eaf2ff] via-[#8db7ff] to-[#2f6fed] shadow-[0_0_14px_rgba(142,191,255,0.34)] xl:h-9 xl:w-9 xl:border-4 xl:shadow-[0_0_26px_rgba(142,191,255,0.44)] ${accent.glow}`}
                       />
                     </div>
 
                     <div className={cardClassName}>
-                      <p className="mb-3 font-mono text-lg font-bold uppercase tracking-[0.18em] text-ice/90 md:hidden">
+                      <p className="mb-3 font-mono text-lg font-bold uppercase tracking-[0.18em] text-ice/90 xl:hidden">
                         {experience.dateLabel}
                         <span className="text-sky-300">.</span>
                       </p>
@@ -143,9 +143,9 @@ export default function ExperiencePage() {
                       >
                         <Card className="overflow-hidden rounded-[inherit] border-ice/10 bg-navy/76 py-0 shadow-none ring-1 ring-ice/8">
                           <div
-                            className={`relative aspect-[4/3] overflow-hidden px-5 py-8 sm:aspect-[16/9] sm:min-h-[22rem] sm:px-9 sm:py-10 ${
+                            className={`relative aspect-[16/9] overflow-hidden ${
                               hasTransparentImage
-                                ? "bg-transparent"
+                                ? "bg-[#255793]"
                                 : `bg-gradient-to-br ${accent.header}`
                             }`}
                           >
@@ -155,7 +155,7 @@ export default function ExperiencePage() {
                                 alt=""
                                 fill
                                 loading={index === 0 ? "eager" : "lazy"}
-                                sizes="(min-width: 768px) 44vw, 100vw"
+                                sizes="(min-width: 1280px) 44vw, 100vw"
                                 className={
                                   hasTransparentImage
                                     ? transparentExperienceMediaClass
@@ -163,56 +163,59 @@ export default function ExperiencePage() {
                                 }
                               />
                             ) : null}
-                            {!hasTransparentImage ? (
-                              <>
-                                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,20,39,0)_0%,rgba(6,20,39,0)_42%,rgba(6,20,39,0.66)_100%)]" />
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_84%,rgba(6,20,39,0.48),transparent_16rem)]" />
-                              </>
+                            {experience.animatedImage ? (
+                              <Image
+                                src={experience.animatedImage}
+                                alt=""
+                                fill
+                                unoptimized
+                                sizes="(min-width: 1280px) 44vw, 100vw"
+                                className="object-contain object-center motion-reduce:hidden"
+                              />
                             ) : null}
-                            <div className="absolute bottom-7 left-5 right-5 sm:bottom-8 sm:left-8 sm:right-7">
-                              <h2 className="max-w-full font-mono text-[clamp(1.15rem,5.8vw,1.75rem)] font-black leading-none tracking-tight text-ice drop-shadow-[0_4px_22px_rgba(0,0,0,0.62)] sm:whitespace-nowrap sm:text-[clamp(1.35rem,1.75vw,2rem)]">
+                          </div>
+                          <CardContent className="grid grid-rows-[minmax(7rem,auto)_2.5rem_minmax(11.5rem,auto)_minmax(10rem,auto)] bg-navy/86 p-5 max-[359px]:grid-rows-[minmax(9rem,auto)_2.5rem_minmax(14.5rem,auto)_minmax(12rem,auto)] sm:grid-rows-[minmax(6rem,auto)_2.5rem_minmax(9rem,auto)_minmax(9rem,auto)] sm:p-8">
+                            <div>
+                              <h2 className="font-mono text-xl font-black leading-6 tracking-tight text-ice sm:text-2xl sm:leading-7">
                                 {experience.displayRole ?? experience.role}
                               </h2>
-                              <p className="mt-3 flex items-center gap-2.5 font-mono text-base font-black text-ice drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)] sm:mt-4 sm:text-xl">
+                              <p className="mt-3 flex items-start gap-2 font-mono text-sm font-bold leading-5 text-ice/80 sm:text-base">
                                 <Building2
-                                  className="h-4 w-4 sm:h-5 sm:w-5"
+                                  className="mt-0.5 h-4 w-4 shrink-0"
                                   aria-hidden="true"
                                 />
                                 {experience.company}
                               </p>
                             </div>
-                          </div>
-
-                          <CardContent className="bg-navy/86 p-5 sm:p-9">
-                          <div className="flex flex-wrap gap-x-5 gap-y-2.5 font-mono text-sm font-bold uppercase tracking-[0.08em] text-ice/78 sm:gap-x-7 sm:gap-y-3.5 sm:text-xl">
-                            <span className="inline-flex items-center gap-2.5">
-                              <MapPin className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
+                          <div className="flex items-center justify-between gap-2 whitespace-nowrap font-mono text-[10px] font-bold uppercase tracking-tight text-ice/78 min-[400px]:text-xs sm:text-[clamp(10px,1vw,13px)]">
+                            <span className="inline-flex items-center gap-1.5">
+                              <MapPin className="h-3 w-3 shrink-0 max-[359px]:hidden" aria-hidden="true" />
                               {experience.location}
                             </span>
-                            <span className="inline-flex items-center gap-2.5">
+                            <span className="inline-flex items-center gap-1.5">
                               <CalendarDays
-                                className="h-4 w-4 sm:h-5 sm:w-5"
+                                className="h-3 w-3 shrink-0 max-[359px]:hidden"
                                 aria-hidden="true"
                               />
                               {experience.period}
                             </span>
                           </div>
 
-                          <p className="mt-5 max-w-2xl border-y border-ice/14 py-5 text-base font-semibold leading-7 tracking-tight text-ice sm:mt-7 sm:py-6 sm:text-2xl sm:leading-9">
+                          <p className="border-y border-ice/14 py-4 text-base font-medium leading-6 text-ice sm:text-lg sm:leading-7">
                             {experience.summary}
                           </p>
 
-                          <div className="mt-7">
-                            <p className="flex items-center gap-2 font-mono text-base font-black text-ice/90 sm:text-xl">
+                          <div className="pt-5">
+                            <p className="flex items-center gap-2 font-mono text-sm font-bold text-ice/90 sm:text-base">
                               <Code2 className="h-4 w-4" aria-hidden="true" />
                               Technologies & Skills
                             </p>
-                            <div className="mt-4 flex flex-wrap gap-2.5 sm:gap-6">
+                            <div className="mt-3 flex flex-wrap gap-2">
                               {experience.technologies.map((technology) => (
                                 <Badge
                                   key={technology}
                                   variant="outline"
-                                  className={`rounded-xl px-4 py-3 font-mono text-sm font-black leading-none tracking-[0.04em] shadow-[inset_0_0_18px_rgba(255,255,255,0.04)] sm:px-8 sm:py-4 sm:text-lg ${accent.chip}`}
+                                  className={`rounded-lg px-2.5 py-2 font-mono text-xs font-bold leading-none ${accent.chip}`}
                                 >
                                   {technology}
                                 </Badge>

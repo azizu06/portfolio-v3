@@ -23,6 +23,7 @@ SnapList is built with Swift, SwiftUI, TypeScript, Next.js, OpenAI, Supabase, an
 - Project: SnapList
 - Type: Product engineering
 - Built: 2026 - Present
+- Live demo: https://snaplist.dev/
 - Source code: https://github.com/azizu06/snaplist
 
 ## Common questions about SnapList
@@ -32,6 +33,6 @@ SnapList is built with Swift, SwiftUI, TypeScript, Next.js, OpenAI, Supabase, an
 - What AI, LLM, or ML does SnapList use? OpenAI.
 
 ## How I talk about this project
-If someone asks me about SnapList, I'd tell them it's a native iOS app that turns item photos into priced, editable resale listings with seller review before publishing. I built it with Swift, SwiftUI, TypeScript, and Next.js. and the source on my GitHub at https://github.com/azizu06/snaplist.
+If someone asks me about SnapList, I'd tell them it's a native iOS app that turns item photos into priced, editable resale listings with seller review before publishing. I built it with Swift, SwiftUI, TypeScript, and Next.js. I can point them to the live demo at https://snaplist.dev/ and the source on my GitHub at https://github.com/azizu06/snaplist.
 
 Keywords: SnapList, Product engineering, Swift, SwiftUI, TypeScript, Next.js, OpenAI, Supabase, eBay APIs, database, storage, backend, AI, LLM, artificial intelligence, machine learning.
