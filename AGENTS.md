@@ -9,8 +9,14 @@ for the project map and only the source/data relevant to the requested change.
 - Inspect branch, status, worktrees, and open PRs before edits. Preserve existing
   work; use a separate branch/worktree for concurrent changes.
 - Use the installed Matt Pocock workflow appropriate to the task: diagnosing-bugs
-  for an unproved regression, tdd for changed behavior, and independent Standards
-  and Spec code-review for a reviewable change. Keep tests proportional to risk.
+  for an unproved regression and tdd for changed behavior. Keep tests proportional
+  to risk.
+- Merge-on-green: for this personal portfolio, inspect the diff and merge promptly
+  once applicable tests, lint/build, and CI pass for the exact PR head and the code
+  looks good. Aziz authorizes merging without a separate review or another
+  confirmation; this repository-specific rule overrides the shared review-pair
+  gate. Resolve failing checks or known defects before merging, then verify the
+  production deployment and affected live routes.
 - Use Node 24.x and npm with the committed package-lock.json. For code changes,
   run `npm run lint` and `npm run build`; report unavailable checks honestly.
   For visual changes, inspect the affected routes at desktop/mobile sizes,
