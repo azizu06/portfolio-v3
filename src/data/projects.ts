@@ -192,7 +192,7 @@ export const projects: Project[] = [
   },
   {
     title: "FinBridge",
-    date: "Knight Hacks 2025",
+    date: "KnightHacks 2025",
     sortDate: "October 2025",
     image: "/assets/project-previews/finbridge.png",
     previewVideo: "/assets/project-previews/finbridge.mp4",

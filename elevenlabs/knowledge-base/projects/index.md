@@ -11,7 +11,7 @@ I (Aziz Umarov) have 7 projects on my portfolio, spanning AI products, full-stac
 - CapCheck (BloomKnights 2026)
 - Shields.io (Jun 2026 - Present)
 - CrisisLens (February 2026 (Hacklytics 2026)) — 1st Place Winner
-- FinBridge (Knight Hacks 2025)
+- FinBridge (KnightHacks 2025)
 
 ## Flagship and award-winning projects
 - CrisisLens (1st Place Winner): Humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe.
@@ -21,7 +21,7 @@ I (Aziz Umarov) have 7 projects on my portfolio, spanning AI products, full-stac
 - PIP (ShellHacks 2026): iPhone LiDAR rover that maps indoor spaces in 3D, remembers observed objects, and plans routes through mapped floor.
 - CrisisLens (February 2026 (Hacklytics 2026)): Humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe. — live: https://crisis-lens-v2-web.vercel.app
 - CapCheck (BloomKnights 2026): Financial-video fact-checker that turns influencer claims into a cited score, evidence trail, and next steps. — live: https://capcheck-sigma.vercel.app/
-- FinBridge (Knight Hacks 2025): Multilingual finance dashboard that explains account activity and turns spending questions into visuals. — live: https://d34qgf2s4sj5t3.cloudfront.net
+- FinBridge (KnightHacks 2025): Multilingual finance dashboard that explains account activity and turns spending questions into visuals. — live: https://d34qgf2s4sj5t3.cloudfront.net
 
 ### Product engineering
 - SnapList (Shipaton 2026): Native iOS app that turns item photos into priced, editable resale listings with seller review before publishing. — live: https://snaplist.dev/

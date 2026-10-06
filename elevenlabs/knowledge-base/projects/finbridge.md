@@ -2,7 +2,7 @@
 
 # FinBridge
 
-FinBridge is one of my (Aziz Umarov's) Hackathon projects, built Knight Hacks 2025.
+FinBridge is one of my (Aziz Umarov's) Hackathon projects, built KnightHacks 2025.
 
 ## Summary
 FinBridge is a multilingual finance dashboard that explains account activity and turns spending questions into visuals.
@@ -22,12 +22,12 @@ FinBridge is built with React, Node.js, Express, Google Gemini, Plaid API, and C
 ## Quick facts
 - Project: FinBridge
 - Type: Hackathon
-- Built: Knight Hacks 2025
+- Built: KnightHacks 2025
 - Live demo: https://d34qgf2s4sj5t3.cloudfront.net
 - Source code: https://github.com/GridGxly/FinBridgeV2
 
 ## Common questions about FinBridge
-- When did I build FinBridge? Knight Hacks 2025.
+- When did I build FinBridge? KnightHacks 2025.
 - What is FinBridge built with? React, Node.js, Express, Google Gemini, Plaid API, and Chart.js.
 - What AI, LLM, or ML does FinBridge use? Google Gemini.
 

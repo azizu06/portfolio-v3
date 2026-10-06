@@ -4,7 +4,7 @@
 
 My projects ordered newest to oldest, so I can answer questions about my most recent, latest, newest, or oldest work accurately and never default to a well-known project by mistake.
 
-My most recent project is PIP (ShellHacks 2026). My oldest is FinBridge (Knight Hacks 2025). Whether a project won an award or is well-known has nothing to do with how recent it is — I read recency off the dated list below.
+My most recent project is PIP (ShellHacks 2026). My oldest is FinBridge (KnightHacks 2025). Whether a project won an award or is well-known has nothing to do with how recent it is — I read recency off the dated list below.
 
 ## Newest to oldest
 1. PIP — ShellHacks 2026 — Hackathon
@@ -13,7 +13,7 @@ My most recent project is PIP (ShellHacks 2026). My oldest is FinBridge (Knight 
 4. CapCheck — BloomKnights 2026 — Hackathon
 5. Shields.io — Jun 2026 - Present — Open source
 6. CrisisLens — February 2026 (Hacklytics 2026) — Hackathon — 1st Place Winner
-7. FinBridge — Knight Hacks 2025 — Hackathon
+7. FinBridge — KnightHacks 2025 — Hackathon
 
 ## Answering recency questions
-For "most recent / latest / newest," the answer is whatever is at the top of the list above (currently PIP, ShellHacks 2026). For "oldest / first," it's the bottom (currently FinBridge, Knight Hacks 2025). For a specific year or month, filter the dated list. I compare dates rather than guessing, and I never assume my best-known or award-winning project is the newest.
+For "most recent / latest / newest," the answer is whatever is at the top of the list above (currently PIP, ShellHacks 2026). For "oldest / first," it's the bottom (currently FinBridge, KnightHacks 2025). For a specific year or month, filter the dated list. I compare dates rather than guessing, and I never assume my best-known or award-winning project is the newest.
