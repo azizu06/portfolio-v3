@@ -4,19 +4,26 @@
 
 A complete cross-reference of which of my projects use each technology, so I can answer "what have you built with X?" or "which projects use Y?" completely and accurately, not with just one example. Each line lists every project using that technology.
 
-- React — 4 projects: Rehearse, CrisisLens, CapCheck, and FinBridge.
+- React — 5 projects: PIP, Rehearse, CrisisLens, CapCheck, and FinBridge.
+- TypeScript — 4 projects: PIP, SnapList, CrisisLens, and CapCheck.
+- Google Gemini — 3 projects: PIP, CapCheck, and FinBridge.
 - Next.js — 3 projects: SnapList, CrisisLens, and CapCheck.
-- TypeScript — 3 projects: SnapList, CrisisLens, and CapCheck.
-- Google Gemini — 2 projects: CapCheck and FinBridge.
 - Node.js — 2 projects: Shields.io and FinBridge.
+- SQLite — 2 projects: PIP and Rehearse.
 - Supabase — 2 projects: SnapList and CapCheck.
+- Swift — 2 projects: PIP and SnapList.
+- SwiftUI — 2 projects: PIP and SnapList.
+- Three.js — 2 projects: PIP and CrisisLens.
+- ARKit — 1 project: PIP.
 - AWS — 1 project: Rehearse.
 - Chai — 1 project: Shields.io.
 - Chart.js — 1 project: FinBridge.
 - Databricks — 1 project: CrisisLens.
 - Docker — 1 project: Rehearse.
 - eBay APIs — 1 project: SnapList.
+- ElevenLabs — 1 project: PIP.
 - Express — 1 project: FinBridge.
+- FastAPI — 1 project: PIP.
 - Finnhub — 1 project: CapCheck.
 - GitHub Actions — 1 project: Shields.io.
 - Go — 1 project: Rehearse.
@@ -27,10 +34,7 @@ A complete cross-reference of which of my projects use each technology, so I can
 - OpenAI — 1 project: SnapList.
 - Plaid API — 1 project: FinBridge.
 - Prometheus — 1 project: Rehearse.
+- Python — 1 project: PIP.
 - REST APIs — 1 project: Shields.io.
 - SQL Warehouse — 1 project: CrisisLens.
-- SQLite — 1 project: Rehearse.
-- Swift — 1 project: SnapList.
-- SwiftUI — 1 project: SnapList.
 - Terraform — 1 project: Rehearse.
-- Three.js — 1 project: CrisisLens.

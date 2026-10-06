@@ -16,6 +16,38 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "PIP",
+    date: "ShellHacks 2026",
+    sortDate: "September 2026",
+    image: "/assets/project-previews/pip.jpg",
+    previewVideo: "/assets/project-previews/pip.mp4",
+    description:
+      "iPhone LiDAR rover that maps indoor spaces in 3D, remembers observed objects, and plans routes through mapped floor.",
+    details:
+      "PIP (Personal Intelligent Pathfinder) is a team-built robotics prototype connecting an iPhone sensing app, a perception and navigation backend, a 3D dashboard, and Scout, a small rover. I worked on autonomy: frontier-based exploration, route planning, obstacle replanning, and operator-controlled movement. The dashboard preserves observed geometry and candidate person detections to help inspect unfamiliar indoor spaces. Physical autonomy remains experimental, and the prototype has not been validated for emergency response.",
+    keyFeatures: [
+      "Synchronized iPhone camera, LiDAR depth, and pose capture through SwiftUI and ARKit.",
+      "Persistent colored 3D reconstruction with object history and a top-down occupancy map.",
+      "Frontier-based exploration and route planning with obstacle replanning and explicit Arm/Stop controls.",
+      "Optional Gemini and ElevenLabs voice interface grounded in observed scene evidence.",
+    ],
+    technologies: [
+      "Python",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "Three.js",
+      "Swift",
+      "SwiftUI",
+      "ARKit",
+      "SQLite",
+      "Google Gemini",
+      "ElevenLabs",
+    ],
+    githubHref: "https://github.com/azizu06/pip-scout",
+    category: "Hackathon",
+  },
+  {
     title: "SnapList",
     date: "Shipaton 2026",
     sortDate: "August 2026",
