@@ -55,7 +55,8 @@ export function ProjectSpotlightCard({
   const [shouldLoadVideo, setShouldLoadVideo] = useState(priority);
   const [isNearViewport, setIsNearViewport] = useState(priority);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
-  const demoHref = project.liveHref ?? project.githubHref;
+  const demoHref = project.liveHref ?? project.devpostHref ?? project.githubHref;
+  const demoLabel = !project.liveHref && project.devpostHref ? "Devpost" : "Live demo";
 
   useEffect(() => {
     if (!project.previewVideo) return;
@@ -200,7 +201,7 @@ export function ProjectSpotlightCard({
             {project.award ? (
               <div className="absolute left-4 top-4 z-30 inline-flex max-w-[calc(100%-2rem)] items-center gap-1.5 rounded-xl border border-sky-300/60 bg-cobalt px-3 py-2 font-mono text-sm font-black leading-none text-ice shadow-[0_16px_34px_rgba(47,111,237,0.32)] ring-1 ring-ice/18 sm:left-auto sm:right-5 sm:top-5 sm:gap-2 sm:px-4 sm:py-2.5 sm:text-lg">
                 <TrophyIcon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
-                Winner
+                {project.awardBadge ?? "Winner"}
               </div>
             ) : null}
           </div>
@@ -267,7 +268,7 @@ export function ProjectSpotlightCard({
                   size="sm"
                   className="group/button h-11 min-w-0 w-full rounded-full bg-cobalt px-5 py-3 text-base font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:bg-cobalt/85 active:scale-[0.98] sm:flex-1 sm:px-6 sm:text-lg"
                 >
-                  Live demo
+                  {demoLabel}
                   <span className="ml-1 inline-flex size-7 items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5">
                     <Link2 className="size-5" aria-hidden="true" />
                   </span>
@@ -325,7 +326,7 @@ export function ProjectSpotlightCard({
               {project.award ? (
                 <div className="absolute left-4 top-4 z-40 inline-flex max-w-[calc(100%-2rem)] transform-gpu items-center gap-1.5 rounded-xl border border-sky-300/60 bg-cobalt px-3 py-2 font-mono text-sm font-black leading-none text-ice shadow-[0_16px_34px_rgba(47,111,237,0.32)] ring-1 ring-ice/18 sm:left-8 sm:top-8 sm:gap-2 sm:px-5 sm:py-3 sm:text-xl">
                   <TrophyIcon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
-                  Winner
+                  {project.awardBadge ?? "Winner"}
                 </div>
               ) : null}
               <div className="absolute bottom-5 left-5 right-5 z-30 min-w-0 sm:bottom-8 sm:left-8 sm:right-8">
@@ -428,7 +429,7 @@ export function ProjectSpotlightCard({
                       size="sm"
                       className="group/button h-11 w-full max-w-none justify-center rounded-full bg-cobalt px-5 py-3 text-base font-bold text-ice transition-all duration-300 hover:-translate-y-0.5 hover:bg-cobalt/85 active:scale-[0.98] sm:max-w-[14.5rem] sm:text-lg"
                     >
-                      Live demo
+                      {demoLabel}
                       <span className="ml-1 inline-flex size-7 items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5">
                         <Link2 className="size-6" aria-hidden="true" />
                       </span>

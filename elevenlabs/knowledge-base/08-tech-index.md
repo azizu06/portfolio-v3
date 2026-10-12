@@ -5,16 +5,17 @@
 A complete cross-reference of which of my projects use each technology, so I can answer "what have you built with X?" or "which projects use Y?" completely and accurately, not with just one example. Each line lists every project using that technology.
 
 - React — 5 projects: PIP, Rehearse, CrisisLens, CapCheck, and FinBridge.
-- TypeScript — 4 projects: PIP, SnapList, CrisisLens, and CapCheck.
+- TypeScript — 5 projects: Farsight, PIP, SnapList, CrisisLens, and CapCheck.
 - Google Gemini — 3 projects: PIP, CapCheck, and FinBridge.
 - Next.js — 3 projects: SnapList, CrisisLens, and CapCheck.
+- ARKit — 2 projects: Farsight and PIP.
 - Node.js — 2 projects: Shields.io and FinBridge.
+- Python — 2 projects: Farsight and PIP.
 - SQLite — 2 projects: PIP and Rehearse.
 - Supabase — 2 projects: SnapList and CapCheck.
 - Swift — 2 projects: PIP and SnapList.
 - SwiftUI — 2 projects: PIP and SnapList.
 - Three.js — 2 projects: PIP and CrisisLens.
-- ARKit — 1 project: PIP.
 - AWS — 1 project: Rehearse.
 - Chai — 1 project: Shields.io.
 - Chart.js — 1 project: FinBridge.
@@ -25,16 +26,22 @@ A complete cross-reference of which of my projects use each technology, so I can
 - Express — 1 project: FinBridge.
 - FastAPI — 1 project: PIP.
 - Finnhub — 1 project: CapCheck.
+- Gaussian Splatting / Brush — 1 project: Farsight.
 - GitHub Actions — 1 project: Shields.io.
 - Go — 1 project: Rehearse.
 - Grafana — 1 project: Rehearse.
 - JavaScript — 1 project: Shields.io.
 - Mocha — 1 project: Shields.io.
 - Nock — 1 project: Shields.io.
+- NVIDIA Jetson — 1 project: Farsight.
 - OpenAI — 1 project: SnapList.
 - Plaid API — 1 project: FinBridge.
 - Prometheus — 1 project: Rehearse.
-- Python — 1 project: PIP.
+- Qwen3-VL — 1 project: Farsight.
 - REST APIs — 1 project: Shields.io.
+- ROS 2 / Nav2 — 1 project: Farsight.
 - SQL Warehouse — 1 project: CrisisLens.
+- TensorRT — 1 project: Farsight.
 - Terraform — 1 project: Rehearse.
+- WebXR — 1 project: Farsight.
+- Whisper — 1 project: Farsight.

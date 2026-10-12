@@ -10,11 +10,47 @@ export type Project = {
   technologies: string[];
   githubHref?: string;
   liveHref?: string;
+  devpostHref?: string;
   award?: string;
+  awardBadge?: string;
   category: string;
 };
 
 export const projects: Project[] = [
+  {
+    title: "Farsight",
+    date: "KnightHacks IX",
+    sortDate: "October 2026",
+    image: "/assets/project-previews/farsight.jpg",
+    previewVideo: "/assets/project-previews/farsight.mp4",
+    description:
+      "VR-controlled rover with on-device person detection and spoken answers, plus a post-run 3D room walkthrough with face sightings.",
+    details:
+      "Farsight is a team-built search-training prototype that lets an operator drive a rover from a Meta Quest and review a reconstructed room afterward. I owned rover-side integration, connecting Quest driving and local voice AI to the Jetson's camera perception and the automatic post-run room build. I also wired and mounted the hardware and tested it on the floor. Our team won sponsor tracks from Hugging Face, NVIDIA, Encompass and Full Sail. Autonomous exploration was tuned mostly in simulation; the prototype is not validated for emergency response.",
+    keyFeatures: [
+      "Meta Quest driving through WebXR, with onboard person detection and operator stop controls.",
+      "Local Whisper, Qwen3-VL and Piper voice pipeline for camera questions and English/Spanish survivor phrases.",
+      "Rover-mounted iPhone RGB, LiDAR depth and ARKit poses feed an automatic post-run Brush room reconstruction on the Mac.",
+      "Browser walkthrough with face sightings linked to source photos, plus a separate Quest splat viewer.",
+    ],
+    technologies: [
+      "Python",
+      "TypeScript",
+      "WebXR",
+      "NVIDIA Jetson",
+      "TensorRT",
+      "ROS 2 / Nav2",
+      "Whisper",
+      "Qwen3-VL",
+      "ARKit",
+      "Gaussian Splatting / Brush",
+    ],
+    githubHref: "https://github.com/azizu06/farsight",
+    devpostHref: "https://devpost.com/software/farsight-t4qyli",
+    award: "4 sponsor tracks: Hugging Face, NVIDIA, Encompass and Full Sail",
+    awardBadge: "Won 4 tracks",
+    category: "Hackathon",
+  },
   {
     title: "PIP",
     date: "ShellHacks 2026",
