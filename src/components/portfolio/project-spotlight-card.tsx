@@ -201,7 +201,7 @@ export function ProjectSpotlightCard({
             {project.award ? (
               <div className="absolute left-4 top-4 z-30 inline-flex max-w-[calc(100%-2rem)] items-center gap-1.5 rounded-xl border border-sky-300/60 bg-cobalt px-3 py-2 font-mono text-sm font-black leading-none text-ice shadow-[0_16px_34px_rgba(47,111,237,0.32)] ring-1 ring-ice/18 sm:left-auto sm:right-5 sm:top-5 sm:gap-2 sm:px-4 sm:py-2.5 sm:text-lg">
                 <TrophyIcon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
-                {project.awardBadge ?? "Winner"}
+                Winner
               </div>
             ) : null}
           </div>
@@ -326,7 +326,7 @@ export function ProjectSpotlightCard({
               {project.award ? (
                 <div className="absolute left-4 top-4 z-40 inline-flex max-w-[calc(100%-2rem)] transform-gpu items-center gap-1.5 rounded-xl border border-sky-300/60 bg-cobalt px-3 py-2 font-mono text-sm font-black leading-none text-ice shadow-[0_16px_34px_rgba(47,111,237,0.32)] ring-1 ring-ice/18 sm:left-8 sm:top-8 sm:gap-2 sm:px-5 sm:py-3 sm:text-xl">
                   <TrophyIcon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
-                  {project.awardBadge ?? "Winner"}
+                  Winner
                 </div>
               ) : null}
               <div className="absolute bottom-5 left-5 right-5 z-30 min-w-0 sm:bottom-8 sm:left-8 sm:right-8">
