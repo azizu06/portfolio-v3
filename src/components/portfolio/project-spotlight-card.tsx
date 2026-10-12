@@ -56,7 +56,7 @@ export function ProjectSpotlightCard({
   const [isNearViewport, setIsNearViewport] = useState(priority);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const demoHref = project.liveHref ?? project.devpostHref ?? project.githubHref;
-  const demoLabel = !project.liveHref && project.devpostHref ? "Devpost" : "Live demo";
+  const demoLabel = project.liveHref ? "Live demo" : project.devpostHref ? "Devpost" : "GitHub";
 
   useEffect(() => {
     if (!project.previewVideo) return;
@@ -158,7 +158,7 @@ export function ProjectSpotlightCard({
                 {project.image ? (
                   <Image
                     src={project.image}
-                    alt={`${project.title} preview`}
+                    alt={project.imageAlt ?? `${project.title} preview`}
                     fill
                     priority={priority}
                     sizes="(min-width: 1280px) 44vw, (min-width: 768px) 86vw, 100vw"
@@ -182,7 +182,7 @@ export function ProjectSpotlightCard({
             ) : project.image ? (
               <Image
                 src={project.image}
-                alt={`${project.title} preview`}
+                alt={project.imageAlt ?? `${project.title} preview`}
                 fill
                 priority={priority}
                 sizes="(min-width: 1280px) 44vw, (min-width: 768px) 86vw, 100vw"
@@ -313,7 +313,7 @@ export function ProjectSpotlightCard({
               ) : project.image ? (
                 <Image
                   src={project.image}
-                  alt={`${project.title} preview`}
+                  alt={project.imageAlt ?? `${project.title} preview`}
                   fill
                   sizes="(min-width: 1024px) 48vw, 100vw"
                   className={`${modalMediaClass} z-0`}

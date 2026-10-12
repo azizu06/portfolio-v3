@@ -16,7 +16,6 @@ A complete cross-reference of which of my projects use each technology, so I can
 - Swift — 2 projects: PIP and SnapList.
 - SwiftUI — 2 projects: PIP and SnapList.
 - Three.js — 2 projects: PIP and CrisisLens.
-- AWS — 1 project: Rehearse.
 - Chai — 1 project: Shields.io.
 - Chart.js — 1 project: FinBridge.
 - Databricks — 1 project: CrisisLens.
@@ -42,6 +41,5 @@ A complete cross-reference of which of my projects use each technology, so I can
 - ROS 2 / Nav2 — 1 project: Farsight.
 - SQL Warehouse — 1 project: CrisisLens.
 - TensorRT — 1 project: Farsight.
-- Terraform — 1 project: Rehearse.
 - WebXR — 1 project: Farsight.
 - Whisper — 1 project: Farsight.
