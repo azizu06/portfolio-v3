@@ -5,19 +5,19 @@
 Rehearse is one of my (Aziz Umarov's) Infrastructure projects, built Jul 2026 - Present.
 
 ## Summary
-Rehearse is an open-source recovery drill that restores real backups in Docker, verifies the app, and records evidence.
+Rehearse is a local backup-recovery tool in development, with tested restore components and a durable record of drill evidence.
 
 ## What it is
-Rehearse is a self-hosted recovery-testing tool for applications backed up with restic and other supported sources. It restores a backup into an isolated Docker environment, starts the recovered application, runs HTTP, TCP, and database checks, records recovery time and failures, and removes the temporary environment when the drill ends.
+Rehearse is an open-source recovery-testing tool for Docker Compose applications. The current MVP has a read-only restic adapter and an isolated Compose sandbox, with probes and redacted evidence reports tested at their component boundaries. A SQLite journal preserves run history. The localhost React screen shows connection status; the end-to-end drill workflow is still being integrated. Optional Prometheus and Grafana support is in place, with drill metrics waiting on that workflow.
 
 ## Key features
-- Automated recovery drills for real application backups.
-- Isolated Docker environments with cleanup after success, failure, or interruption.
-- HTTP, TCP, and database probes with a readable React report.
-- AWS and Terraform recovery path with Prometheus and Grafana metrics.
+- Read-only restic recovery-point listing and acquisition adapter.
+- Bounded Docker Compose sandbox with ownership-aware cleanup.
+- Typed probes and immutable, redacted evidence reports.
+- Durable SQLite run journal and optional Prometheus/Grafana observability.
 
 ## Tech stack
-Rehearse is built with Go, React, Docker, SQLite, Terraform, AWS, Prometheus, and Grafana.
+Rehearse is built with Go, React, Docker, SQLite, Prometheus, and Grafana.
 
 ## Quick facts
 - Project: Rehearse
@@ -27,10 +27,10 @@ Rehearse is built with Go, React, Docker, SQLite, Terraform, AWS, Prometheus, an
 
 ## Common questions about Rehearse
 - When did I build Rehearse? Jul 2026 - Present.
-- What is Rehearse built with? Go, React, Docker, SQLite, Terraform, AWS, Prometheus, and Grafana.
+- What is Rehearse built with? Go, React, Docker, SQLite, Prometheus, and Grafana.
 - What database does Rehearse use? SQLite.
 
 ## How I talk about this project
-If someone asks me about Rehearse, I'd tell them it's an open-source recovery drill that restores real backups in Docker, verifies the app, and records evidence. I built it with Go, React, Docker, and SQLite. and the source on my GitHub at https://github.com/azizu06/rehearse.
+If someone asks me about Rehearse, I'd tell them it's a local backup-recovery tool in development, with tested restore components and a durable record of drill evidence. I built it with Go, React, Docker, and SQLite. and the source on my GitHub at https://github.com/azizu06/rehearse.
 
-Keywords: Rehearse, Infrastructure, Go, React, Docker, SQLite, Terraform, AWS, Prometheus, Grafana, database, storage, backend.
+Keywords: Rehearse, Infrastructure, Go, React, Docker, SQLite, Prometheus, Grafana, database, storage, backend.

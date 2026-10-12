@@ -3,6 +3,7 @@ export type Project = {
   date: string;
   sortDate?: string;
   image?: string;
+  imageAlt?: string;
   previewVideo?: string;
   description: string;
   details?: string;
@@ -116,24 +117,23 @@ export const projects: Project[] = [
     title: "Rehearse",
     date: "Jul 2026 - Present",
     sortDate: "July 2026",
-    image: "/assets/project-previews/rehearse.png",
+    image: "/assets/project-previews/rehearse-cover.webp",
+    imageAlt: "Running Rehearse localhost connection screen",
     description:
-      "Open-source recovery drill that restores real backups in Docker, verifies the app, and records evidence.",
+      "Local backup-recovery tool in development, with tested restore components and a durable record of drill evidence.",
     details:
-      "Rehearse is a self-hosted recovery-testing tool for applications backed up with restic and other supported sources. It restores a backup into an isolated Docker environment, starts the recovered application, runs HTTP, TCP, and database checks, records recovery time and failures, and removes the temporary environment when the drill ends.",
+      "Rehearse is an open-source recovery-testing tool for Docker Compose applications. The current MVP has a read-only restic adapter and an isolated Compose sandbox, with probes and redacted evidence reports tested at their component boundaries. A SQLite journal preserves run history. The localhost React screen shows connection status; the end-to-end drill workflow is still being integrated. Optional Prometheus and Grafana support is in place, with drill metrics waiting on that workflow.",
     keyFeatures: [
-      "Automated recovery drills for real application backups.",
-      "Isolated Docker environments with cleanup after success, failure, or interruption.",
-      "HTTP, TCP, and database probes with a readable React report.",
-      "AWS and Terraform recovery path with Prometheus and Grafana metrics.",
+      "Read-only restic recovery-point listing and acquisition adapter.",
+      "Bounded Docker Compose sandbox with ownership-aware cleanup.",
+      "Typed probes and immutable, redacted evidence reports.",
+      "Durable SQLite run journal and optional Prometheus/Grafana observability.",
     ],
     technologies: [
       "Go",
       "React",
       "Docker",
       "SQLite",
-      "Terraform",
-      "AWS",
       "Prometheus",
       "Grafana",
     ],
