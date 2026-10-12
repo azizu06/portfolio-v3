@@ -1,15 +1,15 @@
 # Rehearse cover
 
-`public/assets/project-previews/rehearse-cover.webp` is a real screenshot of the
-running localhost interface, captured in signed-in Chrome at 1440 x 810 and
-encoded as WebP. It is 21,384 bytes. It is not generated artwork or a dashboard
-mockup. The proposed 3D illustration was rejected and is not shipped.
+`public/assets/project-previews/rehearse-architecture.webp` is a hand-authored recovery
+architecture illustration, encoded at 1440 x 1000 as a 35,658-byte WebP. Its
+editable source is `docs/assets/rehearse-architecture.svg`. It replaces the
+connection-screen screenshot, which was accurate but not a useful project cover.
+The rejected generated 3D illustration is not shipped.
 
 Source: [azizu06/rehearse](https://github.com/azizu06/rehearse), main commit
-`413089f`, captured 2026-10-12 from a temporary clean source snapshot. The native
-binary was built with the repository's `make build` command, served on loopback,
-and returned `{"status":"ok"}` from `/api/v1/health` and `{"version":"dev"}`
-from `/api/v1/version`.
+`413089f`, inspected 2026-10-12. The diagram shows the intended relationship
+between the repository's restic, Compose sandbox, probe, evidence, and journal
+boundaries. Arrows describe architecture, not a captured end-to-end execution.
 
 The UI only displays its local control-plane connection. There are no drill
 controls to demonstrate yet. The optional Grafana dashboard is provisioned, but
@@ -17,6 +17,34 @@ the native runtime does not execute drills, so its drill series remain at zero.
 See the current [README](https://github.com/azizu06/rehearse/blob/413089f/README.md)
 and [observability limits](https://github.com/azizu06/rehearse/blob/413089f/docs/observability.md).
 
-The portfolio copy distinguishes tested component boundaries from the planned
-end-to-end workflow. The repository-only link is labeled GitHub. Generated local
-voice knowledge-base files are updated; the hosted agent is not published.
+The portfolio copy describes tested component boundaries without adding fake
+metrics, dashboard controls, or recovery-run results. The repository-only link
+is labeled GitHub. Local voice knowledge-base files are regenerated; the hosted
+agent is not published.
+
+The Docker mark comes from [Devicon's Docker plain SVG](https://github.com/devicons/devicon/blob/master/icons/docker/docker-plain.svg),
+recolored to match the cover. Docker remains its owner's trademark; no endorsement
+is implied. Devicon's license follows.
+
+## Devicon license
+
+The MIT License (MIT)
+
+Copyright (c) 2015 konpa
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

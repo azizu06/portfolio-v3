@@ -13,7 +13,6 @@ export type Project = {
   liveHref?: string;
   devpostHref?: string;
   award?: string;
-  awardBadge?: string;
   category: string;
 };
 
@@ -49,7 +48,6 @@ export const projects: Project[] = [
     githubHref: "https://github.com/azizu06/farsight",
     devpostHref: "https://devpost.com/software/farsight-t4qyli",
     award: "4 sponsor tracks: Hugging Face, NVIDIA, Encompass and Full Sail",
-    awardBadge: "Won 4 tracks",
     category: "Hackathon",
   },
   {
@@ -117,12 +115,12 @@ export const projects: Project[] = [
     title: "Rehearse",
     date: "Jul 2026 - Present",
     sortDate: "July 2026",
-    image: "/assets/project-previews/rehearse-cover.webp",
-    imageAlt: "Running Rehearse localhost connection screen",
+    image: "/assets/project-previews/rehearse-architecture.webp",
+    imageAlt: "Rehearse recovery architecture: restic backups, Docker sandbox, application probes, and evidence reports",
     description:
-      "Local backup-recovery tool in development, with tested restore components and a durable record of drill evidence.",
+      "Local backup-recovery tool for Docker Compose, with isolated environments, application probes, and durable evidence reports.",
     details:
-      "Rehearse is an open-source recovery-testing tool for Docker Compose applications. The current MVP has a read-only restic adapter and an isolated Compose sandbox, with probes and redacted evidence reports tested at their component boundaries. A SQLite journal preserves run history. The localhost React screen shows connection status; the end-to-end drill workflow is still being integrated. Optional Prometheus and Grafana support is in place, with drill metrics waiting on that workflow.",
+      "Rehearse is an open-source recovery-testing project for Docker Compose applications. Its architecture combines a read-only restic adapter, an isolated Compose sandbox, typed application probes, and redacted evidence reports. These capabilities are tested at their component boundaries. A SQLite journal preserves run history, while optional Prometheus metrics and a provisioned Grafana dashboard support observability.",
     keyFeatures: [
       "Read-only restic recovery-point listing and acquisition adapter.",
       "Bounded Docker Compose sandbox with ownership-aware cleanup.",

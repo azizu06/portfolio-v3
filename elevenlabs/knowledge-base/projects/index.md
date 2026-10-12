@@ -30,7 +30,7 @@ I (Aziz Umarov) have 8 projects on my portfolio, spanning AI products, full-stac
 - SnapList (Shipaton 2026): Native iOS app that turns item photos into priced, editable resale listings with seller review before publishing. — live: https://snaplist.dev/
 
 ### Infrastructure
-- Rehearse (Jul 2026 - Present): Local backup-recovery tool in development, with tested restore components and a durable record of drill evidence.
+- Rehearse (Jul 2026 - Present): Local backup-recovery tool for Docker Compose, with isolated environments, application probes, and durable evidence reports.
 
 ### Open source
 - Shields.io (Jun 2026 - Present): Open-source contributions improving badge services, private-project support, and safer self-hosting controls. — live: https://github.com/badges/shields

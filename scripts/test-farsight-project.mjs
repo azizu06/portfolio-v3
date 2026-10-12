@@ -13,9 +13,9 @@ test("Farsight is the newest standalone project with accurate awards and submiss
   assert.equal(project.category, "Hackathon");
   assert.equal(project.devpostHref, "https://devpost.com/software/farsight-t4qyli");
   assert.equal(project.githubHref, "https://github.com/azizu06/farsight");
-  assert.equal(project.awardBadge, "Won 4 tracks");
   for (const sponsor of ["Hugging Face", "NVIDIA", "Encompass", "Full Sail"]) {
     assert.ok(project.award.includes(sponsor));
+    assert.ok(project.details.includes(sponsor));
   }
   assert.equal(project.keyFeatures.length, 4);
   assert.ok(project.technologies.length <= 11);
