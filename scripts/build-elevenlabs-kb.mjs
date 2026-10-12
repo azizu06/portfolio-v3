@@ -94,7 +94,7 @@ const AI_NAMES = [
   "openai", "google gemini", "gemini", "anthropic", "claude", "mistral", "cohere",
   "groq", "replicate", "hugging face", "ollama", "langchain", "langgraph", "llamaindex",
   "pytorch", "tensorflow", "keras", "scikit-learn", "vercel ai sdk", "openai whisper",
-  "whisper",
+  "whisper", "qwen3-vl",
 ];
 
 const has = (techs, names) => techs.filter((t) => names.includes(t.toLowerCase()));
@@ -152,6 +152,7 @@ function renderProject(p) {
   lines.push(`- Built: ${d.display}`);
   if (p.award) lines.push(`- Award: ${p.award}`);
   if (p.liveHref) lines.push(`- Live demo: ${p.liveHref}`);
+  if (p.devpostHref) lines.push(`- Hackathon submission: ${p.devpostHref}`);
   if (p.githubHref) lines.push(`- Source code: ${p.githubHref}`);
   lines.push("");
 
