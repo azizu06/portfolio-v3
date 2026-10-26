@@ -12,7 +12,8 @@ test("Rehearse uses a lightweight architecture cover without implying a live das
   assert.equal(project.liveHref, undefined);
   assert.equal(project.githubHref, "https://github.com/azizu06/rehearse");
   assert.match(project.description, /backup-recovery/i);
-  assert.match(project.details, /component boundaries/i);
+  assert.match(project.details, /isolated Docker Compose environment/);
+  assert.match(project.details, /integration tests/);
   assert.doesNotMatch(project.details, /live dashboard|end-to-end drill execution|measured recovery time/i);
   assert.doesNotMatch(project.keyFeatures.join(" "), /AWS|Terraform|React report/);
   assert.ok(statSync(new URL(`../public${project.image}`, import.meta.url)).size < 200_000);

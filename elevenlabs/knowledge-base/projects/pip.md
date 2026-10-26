@@ -8,7 +8,7 @@ PIP is one of my (Aziz Umarov's) Hackathon projects, built ShellHacks 2026.
 PIP is an iPhone LiDAR rover that maps indoor spaces in 3D, remembers observed objects, and plans routes through mapped floor.
 
 ## What it is
-PIP (Personal Intelligent Pathfinder) is a team-built robotics prototype connecting an iPhone sensing app, a perception and navigation backend, a 3D dashboard, and Scout, a small rover. I worked on autonomy: frontier-based exploration, route planning, obstacle replanning, and operator-controlled movement. The dashboard preserves observed geometry and candidate person detections to help inspect unfamiliar indoor spaces. Physical autonomy remains experimental, and the prototype has not been validated for emergency response.
+PIP (Personal Intelligent Pathfinder) is an indoor mapping robot built from an iPhone sensing app, a perception and navigation backend, a 3D dashboard, and Scout, a small rover. My part was autonomy, including frontier-based exploration, route planning, obstacle replanning, and operator-controlled movement. The dashboard preserves observed geometry and candidate person detections to help inspect unfamiliar indoor spaces. On the physical rover, Scout followed a laptop-planned route and stopped on its own when the updated map showed the path was blocked.
 
 ## Key features
 - Synchronized iPhone camera, LiDAR depth, and pose capture through SwiftUI and ARKit.

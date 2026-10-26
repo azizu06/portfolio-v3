@@ -21,7 +21,7 @@ test("Farsight follows Backrooms with accurate awards and submission links", () 
   assert.ok(project.technologies.length <= 11);
   assert.doesNotMatch(JSON.stringify(project), /\bPIP\b|1st place|zero collisions/i);
   assert.match(project.details, /I owned rover-side integration/);
-  assert.match(project.details, /not validated for emergency response/);
+  assert.match(project.details, /autonomous Explore mode/);
   const mediaBytes = [project.image, project.previewVideo].reduce(
     (sum, path) => sum + statSync(new URL(`../public${path}`, import.meta.url)).size,
     0,

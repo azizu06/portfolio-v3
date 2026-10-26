@@ -59,7 +59,7 @@ export const projects: Project[] = [
     description:
       "VR-controlled rover with on-device person detection and spoken answers, plus a post-run 3D room walkthrough with face sightings.",
     details:
-      "Farsight is a team-built search-training prototype that lets an operator drive a rover from a Meta Quest and review a reconstructed room afterward. I owned rover-side integration, connecting Quest driving and local voice AI to the Jetson's camera perception and the automatic post-run room build. I also wired and mounted the hardware and tested it on the floor. Our team won sponsor tracks from Hugging Face, NVIDIA, Encompass and Full Sail. Autonomous exploration was tuned mostly in simulation; the prototype is not validated for emergency response.",
+      "Farsight is a search-and-rescue rover that an operator drives from a Meta Quest headset, and after each run it rebuilds the room in 3D for review. I owned rover-side integration, connecting Quest driving and local voice AI to the Jetson's camera perception and the automatic post-run room build. I also wired and mounted the hardware and tested it on the floor. Our team won sponsor tracks from Hugging Face, NVIDIA, Encompass and Full Sail. From the headset, the operator can switch the rover into autonomous Explore mode and press one button to stop it and take back manual control.",
     keyFeatures: [
       "Meta Quest driving through WebXR, with onboard person detection and operator stop controls.",
       "Local Whisper, Qwen3-VL and Piper voice pipeline for camera questions and English/Spanish survivor phrases.",
@@ -92,7 +92,7 @@ export const projects: Project[] = [
     description:
       "iPhone LiDAR rover that maps indoor spaces in 3D, remembers observed objects, and plans routes through mapped floor.",
     details:
-      "PIP (Personal Intelligent Pathfinder) is a team-built robotics prototype connecting an iPhone sensing app, a perception and navigation backend, a 3D dashboard, and Scout, a small rover. I worked on autonomy: frontier-based exploration, route planning, obstacle replanning, and operator-controlled movement. The dashboard preserves observed geometry and candidate person detections to help inspect unfamiliar indoor spaces. Physical autonomy remains experimental, and the prototype has not been validated for emergency response.",
+      "PIP (Personal Intelligent Pathfinder) is an indoor mapping robot built from an iPhone sensing app, a perception and navigation backend, a 3D dashboard, and Scout, a small rover. My part was autonomy, including frontier-based exploration, route planning, obstacle replanning, and operator-controlled movement. The dashboard preserves observed geometry and candidate person detections to help inspect unfamiliar indoor spaces. On the physical rover, Scout followed a laptop-planned route and stopped on its own when the updated map showed the path was blocked.",
     keyFeatures: [
       "Synchronized iPhone camera, LiDAR depth, and pose capture through SwiftUI and ARKit.",
       "Persistent colored 3D reconstruction with object history and a top-down occupancy map.",
@@ -149,14 +149,14 @@ export const projects: Project[] = [
     date: "Jul 2026 - Present",
     sortDate: "July 2026",
     image: "/assets/project-previews/rehearse-architecture.webp",
-    imageAlt: "Rehearse recovery architecture: restic backups, Docker sandbox, application probes, and evidence reports",
+    imageAlt: "Rehearse recovery architecture: restic backups, an isolated Docker Compose environment, application probes, and evidence reports",
     description:
       "Local backup-recovery tool for Docker Compose, with isolated environments, application probes, and durable evidence reports.",
     details:
-      "Rehearse is an open-source recovery-testing project for Docker Compose applications. Its architecture combines a read-only restic adapter, an isolated Compose sandbox, typed application probes, and redacted evidence reports. These capabilities are tested at their component boundaries. A SQLite journal preserves run history, while optional Prometheus metrics and a provisioned Grafana dashboard support observability.",
+      "Rehearse is an open-source recovery-testing project for Docker Compose applications. Its architecture combines a read-only restic adapter, an isolated Docker Compose environment, typed application probes, and redacted evidence reports. Each part has its own Go tests, including Docker and restic integration tests. A SQLite journal preserves run history, while optional Prometheus metrics and a provisioned Grafana dashboard support observability.",
     keyFeatures: [
       "Read-only restic recovery-point listing and acquisition adapter.",
-      "Bounded Docker Compose sandbox with ownership-aware cleanup.",
+      "Isolated Docker Compose environment with ownership-aware cleanup.",
       "Typed probes and immutable, redacted evidence reports.",
       "Durable SQLite run journal and optional Prometheus/Grafana observability.",
     ],
