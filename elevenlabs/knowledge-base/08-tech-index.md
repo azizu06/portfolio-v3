@@ -4,10 +4,11 @@
 
 A complete cross-reference of which of my projects use each technology, so I can answer "what have you built with X?" or "which projects use Y?" completely and accurately, not with just one example. Each line lists every project using that technology.
 
+- TypeScript — 6 projects: Backrooms, Farsight, PIP, SnapList, CrisisLens, and CapCheck.
 - React — 5 projects: PIP, Rehearse, CrisisLens, CapCheck, and FinBridge.
-- TypeScript — 5 projects: Farsight, PIP, SnapList, CrisisLens, and CapCheck.
+- Next.js — 4 projects: Backrooms, SnapList, CrisisLens, and CapCheck.
 - Google Gemini — 3 projects: PIP, CapCheck, and FinBridge.
-- Next.js — 3 projects: SnapList, CrisisLens, and CapCheck.
+- Three.js — 3 projects: Backrooms, PIP, and CrisisLens.
 - ARKit — 2 projects: Farsight and PIP.
 - Node.js — 2 projects: Shields.io and FinBridge.
 - Python — 2 projects: Farsight and PIP.
@@ -15,9 +16,11 @@ A complete cross-reference of which of my projects use each technology, so I can
 - Supabase — 2 projects: SnapList and CapCheck.
 - Swift — 2 projects: PIP and SnapList.
 - SwiftUI — 2 projects: PIP and SnapList.
-- Three.js — 2 projects: PIP and CrisisLens.
+- Cartesia — 1 project: Backrooms.
 - Chai — 1 project: Shields.io.
 - Chart.js — 1 project: FinBridge.
+- Claude Agent SDK — 1 project: Backrooms.
+- Coinbase x402 — 1 project: Backrooms.
 - Databricks — 1 project: CrisisLens.
 - Docker — 1 project: Rehearse.
 - eBay APIs — 1 project: SnapList.
@@ -33,13 +36,17 @@ A complete cross-reference of which of my projects use each technology, so I can
 - Mocha — 1 project: Shields.io.
 - Nock — 1 project: Shields.io.
 - NVIDIA Jetson — 1 project: Farsight.
+- Ollama / NVIDIA GX10 — 1 project: Backrooms.
 - OpenAI — 1 project: SnapList.
 - Plaid API — 1 project: FinBridge.
 - Prometheus — 1 project: Rehearse.
 - Qwen3-VL — 1 project: Farsight.
+- React Three Fiber — 1 project: Backrooms.
 - REST APIs — 1 project: Shields.io.
 - ROS 2 / Nav2 — 1 project: Farsight.
+- SpacetimeDB — 1 project: Backrooms.
 - SQL Warehouse — 1 project: CrisisLens.
 - TensorRT — 1 project: Farsight.
+- WebAuthn — 1 project: Backrooms.
 - WebXR — 1 project: Farsight.
 - Whisper — 1 project: Farsight.

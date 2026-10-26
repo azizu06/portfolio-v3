@@ -2,9 +2,10 @@
 
 # Projects index
 
-I (Aziz Umarov) have 8 projects on my portfolio, spanning AI products, full-stack web apps, React apps, games, and front-end fundamentals. This index helps find the right project; each project also has its own document with more detail. Live demos are on my portfolio at https://azizu.dev/projects. For "most recent / latest" questions, use the order below (newest first).
+I (Aziz Umarov) have 9 projects on my portfolio, spanning AI products, full-stack web apps, React apps, games, and front-end fundamentals. This index helps find the right project; each project also has its own document with more detail. Live demos are on my portfolio at https://azizu.dev/projects. For "most recent / latest" questions, use the order below (newest first).
 
 ## Most recent first
+- Backrooms (Cal Hacks 13.0)
 - Farsight (KnightHacks IX) — 4 sponsor tracks: Hugging Face, NVIDIA, Encompass and Full Sail
 - PIP (ShellHacks 2026)
 - SnapList (Shipaton 2026)
@@ -20,6 +21,7 @@ I (Aziz Umarov) have 8 projects on my portfolio, spanning AI products, full-stac
 
 ## All projects by category
 ### Hackathon
+- Backrooms (Cal Hacks 13.0): 3D back office where AI agents do a small business's finance work.
 - Farsight (KnightHacks IX): VR-controlled rover with on-device person detection and spoken answers, plus a post-run 3D room walkthrough with face sightings.
 - PIP (ShellHacks 2026): iPhone LiDAR rover that maps indoor spaces in 3D, remembers observed objects, and plans routes through mapped floor.
 - CrisisLens (February 2026 (Hacklytics 2026)): Humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe. — live: https://crisis-lens-v2-web.vercel.app

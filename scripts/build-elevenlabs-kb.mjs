@@ -45,16 +45,17 @@ const DATE_OVERRIDES = {
 
 function parseDate(dateStr) {
   if (DATE_OVERRIDES[dateStr]) return DATE_OVERRIDES[dateStr];
-  const m = dateStr.match(/^([A-Za-z]+)\s+(\d{4})$/);
+  // "Month YYYY" or "Month D, YYYY"; the day only breaks ties within a month.
+  const m = dateStr.match(/^([A-Za-z]+)\s+(?:(\d{1,2}),\s+)?(\d{4})$/);
   if (m && MONTHS[m[1].toLowerCase()]) {
-    return { y: Number(m[2]), m: MONTHS[m[1].toLowerCase()], display: dateStr };
+    return { y: Number(m[3]), m: MONTHS[m[1].toLowerCase()], day: Number(m[2] ?? 0), display: dateStr };
   }
-  return { y: 0, m: 0, display: dateStr }; // unknown sorts oldest
+  return { y: 0, m: 0, day: 0, display: dateStr }; // unknown sorts oldest
 }
 
 const sortKey = (p) => {
   const d = parseDate(p.sortDate ?? p.date);
-  return d.y * 100 + d.m;
+  return d.y * 10000 + d.m * 100 + (d.day ?? 0);
 };
 
 // --- small text helpers -----------------------------------------------------
