@@ -3,7 +3,7 @@
 Sources checked October 26, 2026:
 
 - [Devpost submission](https://devpost.com/software/backrooms-h4o783): project identity, Cal Hacks 13.0, four-person team, demo flow and policy behavior.
-- [Source repository](https://github.com/azizu06/backrooms): seven Claude Agent SDK roles, 28 policy rules (`policy/src/sentences.ts`), WebAuthn approvals, SpacetimeDB state, Cartesia calls, local GX10 models and the x402 testnet payment (`docs/x402.md`).
+- [Source repository](https://github.com/azizu06/backrooms): Claude Agent SDK agents and their handoffs, 28 policy rules (`policy/src/sentences.ts`), WebAuthn approvals, SpacetimeDB state, Cartesia calls, local models on the NVIDIA Grace Blackwell GX10 (GB10 in `nvidia-smi` output) and the x402 payment (`docs/x402.md`).
 
 No award is claimed. Cal Hacks 13.0 winners were not announced when this card
 shipped, so the card has no `award` field and no Winner badge. Add one only after
@@ -21,8 +21,10 @@ The JPEG poster is the repository README banner
 (`docs/assets/backrooms-office.jpg`, commit `5303ba6`), cropped to 16:9 and
 scaled to 960 x 540.
 
-Company data in the demo is synthetic, Nessie is a sandbox bank API and x402
-payments use Base Sepolia test USDC. Devpost is the card's secondary action;
+Card metrics trace to the repository: `docs/redteam.md` (320 attack cases, none
+moved money), `docs/evidence/burst/ten-company/summary.json` (99% of model tasks
+on the GX10) and `docs/t10-gx10.md` plus `docs/eval/scoreboard.md` (3x faster
+extraction, 99.7% of fields exact). Devpost is the card's secondary action;
 GitHub is also available in the details dialog. Generated voice-guide documents
 are updated locally only; publishing the hosted ElevenLabs knowledge base
 requires separate authorization.
