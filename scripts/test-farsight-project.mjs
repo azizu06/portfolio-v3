@@ -3,11 +3,11 @@ import { statSync } from "node:fs";
 import test from "node:test";
 import { projects } from "../src/data/projects.ts";
 
-test("Farsight is the newest standalone project with accurate awards and submission links", () => {
+test("Farsight follows Backrooms with accurate awards and submission links", () => {
   const project = projects.find(({ title }) => title === "Farsight");
   assert.ok(project, "Farsight must appear in the project catalog");
-  assert.equal(projects[0], project);
-  assert.equal(projects[1].title, "PIP");
+  assert.equal(projects[1], project);
+  assert.equal(projects[2].title, "PIP");
   assert.equal(project.date, "KnightHacks IX");
   assert.equal(project.sortDate, "October 2026");
   assert.equal(project.category, "Hackathon");

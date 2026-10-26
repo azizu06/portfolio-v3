@@ -18,6 +18,39 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Backrooms",
+    date: "Cal Hacks 13.0",
+    sortDate: "October 25, 2026",
+    image: "/assets/project-previews/backrooms.jpg",
+    imageAlt: "Backrooms 3D office with labeled finance agents passing invoice cases between desks",
+    previewVideo: "/assets/project-previews/backrooms.mp4",
+    description:
+      "3D back office where AI agents do a small business's finance work.",
+    details:
+      "Seven Claude agents pass invoice cases between desks in a 3D office, and the collections agent calls clients about overdue invoices through a Cartesia voice agent. Every money decision goes through our TypeScript policy engine, and anything outside the rules waits for the owner to approve it with a passkey. My team of four built it at Cal Hacks 13.0, and I worked across the whole stack.",
+    keyFeatures: [
+      "Seven Claude Agent SDK roles hand invoice cases between desks in a live SpacetimeDB office.",
+      "Collections calls clients through a Cartesia voice agent, with each tool call checked on the server.",
+      "28 policy rules hold bank changes, lookalike domains and over-limit amounts for passkey approval.",
+      "Hash-chained audit wall with cited Ask why answers, plus Coinbase x402 test payments to vendors.",
+    ],
+    technologies: [
+      "TypeScript",
+      "Next.js",
+      "React Three Fiber",
+      "Three.js",
+      "Claude Agent SDK",
+      "SpacetimeDB",
+      "Cartesia",
+      "WebAuthn",
+      "Ollama / NVIDIA GX10",
+      "Coinbase x402",
+    ],
+    githubHref: "https://github.com/azizu06/backrooms",
+    devpostHref: "https://devpost.com/software/backrooms-h4o783",
+    category: "Hackathon",
+  },
+  {
     title: "Farsight",
     date: "KnightHacks IX",
     sortDate: "October 2026",
