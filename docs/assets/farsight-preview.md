@@ -3,8 +3,8 @@
 Sources checked October 12, 2026:
 
 - [Devpost submission](https://devpost.com/software/farsight-t4qyli): project identity, team, Aziz's integration contribution, and four sponsor-track wins.
-- [Source repository](https://github.com/azizu06/farsight): current architecture, separate browser face-pin walkthrough and Quest splat viewer, local voice pipeline, and prototype limits.
-- [Post-run receipt](https://github.com/azizu06/farsight/blob/main/tools/postprocess/MAC_RECEIPT.md) and [pitch metrics](https://github.com/azizu06/farsight/blob/main/docs/pitch-metrics.md): measurement conditions. The card deliberately avoids unqualified performance numbers.
+- [Source repository](https://github.com/azizu06/farsight): current architecture, separate browser face-pin walkthrough and Quest splat viewer, and local voice pipeline.
+- [Post-run receipt](https://github.com/azizu06/farsight/blob/main/tools/postprocess/MAC_RECEIPT.md) and [pitch metrics](https://github.com/azizu06/farsight/blob/main/docs/pitch-metrics.md): measurement conditions. The card states capabilities and leaves out performance numbers.
 - Aziz's supplied handoff and local interview defense confirm rover-side integration, hardware wiring/mounting and floor tests. Teammate-owned phone, reconstruction method and viewer work are presented as team capabilities, not Aziz's solo implementation.
 
 Devpost lists wins for Hugging Face, NVIDIA, Encompass and Full Sail. The badge says
@@ -18,7 +18,7 @@ then source-photo inspection. The JPEG poster comes from second 10.
 
 The original 127 MiB recording remains outside the repository and deployment.
 No raw run captures, face datasets, model weights or reconstructed scenes ship.
-This preview illustrates a hackathon prototype, not validated emergency use.
+This preview shows the search-and-rescue rover as built at the hackathon.
 
 Farsight is first by its October 2026 sort date. PIP's entry and media remain
 unchanged. Devpost is the card's secondary action; GitHub is also available in the

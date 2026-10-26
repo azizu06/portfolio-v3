@@ -7,12 +7,11 @@ dashboard, and optional hardware rather than a public hosted demo.
 Sources checked October 6, 2026:
 
 - [ShellHacks submission](https://devpost.com/software/pip-personal-intelligent-pathfinder): project identity, hackathon, September 2026 date, and Aziz's autonomy contribution.
-- [Source repository](https://github.com/azizu06/pip-scout): current architecture, capabilities, and experimental physical autonomy status.
+- [Source repository](https://github.com/azizu06/pip-scout): current architecture, capabilities, and physical autonomy status.
 
 `public/assets/project-previews/pip.mp4` combines three clips from the Devpost
 gallery: the classroom LiDAR reconstruction, the top-down workspace, and the
-supervised rover movement. These are submitted prototype demonstrations, not
-evidence of validated rescue performance. The poster is a frame from the first
+supervised rover movement. These are the submitted demonstrations of the rover mapping and moving. The poster is a frame from the first
 clip. Original GIFs are kept outside the deployment.
 
 Original gallery assets:

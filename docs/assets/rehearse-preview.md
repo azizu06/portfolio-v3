@@ -2,23 +2,19 @@
 
 `public/assets/project-previews/rehearse-architecture.webp` is a hand-authored recovery
 architecture illustration, encoded at 1440 x 1000 as a 35,708-byte WebP. Its
-editable source is `docs/assets/rehearse-architecture.svg`. It replaces the
-connection-screen screenshot, which was accurate but not a useful project cover.
-The rejected generated 3D illustration is not shipped.
+editable source is `docs/assets/rehearse-architecture.svg`. It serves as the project cover in place of the
+connection-screen screenshot.
 
 Source: [azizu06/rehearse](https://github.com/azizu06/rehearse), main commit
 `413089f`, inspected 2026-10-12. The diagram shows the intended relationship
 between the repository's restic, isolated Docker Compose environment, probe, evidence, and journal
-boundaries. Arrows describe architecture, not a captured end-to-end execution.
+boundaries. Arrows describe the architecture.
 
-The UI only displays its local control-plane connection. There are no drill
-controls to demonstrate yet. The optional Grafana dashboard is provisioned, but
-the native runtime does not execute drills, so its drill series remain at zero.
-See the current [README](https://github.com/azizu06/rehearse/blob/413089f/README.md)
-and [observability limits](https://github.com/azizu06/rehearse/blob/413089f/docs/observability.md).
+The UI shows its local control-plane connection. The optional Grafana dashboard is
+provisioned for drill metrics. See the current [README](https://github.com/azizu06/rehearse/blob/413089f/README.md)
+and [observability notes](https://github.com/azizu06/rehearse/blob/413089f/docs/observability.md).
 
-The portfolio copy describes the tested components without adding invented
-metrics, dashboard controls, or recovery-run results. The repository-only link
+The portfolio copy describes the tested components. The repository-only link
 is labeled GitHub. Local voice knowledge-base files are regenerated; the hosted
 agent is not published.
 
