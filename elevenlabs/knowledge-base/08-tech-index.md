@@ -35,8 +35,8 @@ A complete cross-reference of which of my projects use each technology, so I can
 - JavaScript — 1 project: Shields.io.
 - Mocha — 1 project: Shields.io.
 - Nock — 1 project: Shields.io.
+- NVIDIA Grace Blackwell GX10 — 1 project: Backrooms.
 - NVIDIA Jetson — 1 project: Farsight.
-- Ollama / NVIDIA GX10 — 1 project: Backrooms.
 - OpenAI — 1 project: SnapList.
 - Plaid API — 1 project: FinBridge.
 - Prometheus — 1 project: Rehearse.

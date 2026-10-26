@@ -5,19 +5,19 @@
 Backrooms is one of my (Aziz Umarov's) Hackathon projects, built Cal Hacks 13.0.
 
 ## Summary
-Backrooms is a 3D back office where AI agents do a small business's finance work.
+Backrooms is an agentic back office where Claude agents hand finance work to each other.
 
 ## What it is
-Seven Claude agents pass invoice cases between desks in a 3D office, and the collections agent calls clients about overdue invoices through a Cartesia voice agent. Every money decision goes through our TypeScript policy engine, and anything outside the rules waits for the owner to approve it with a passkey. My team of four built it at Cal Hacks 13.0, and I worked across the whole stack.
+Each Claude agent owns one finance job, from reading invoices and paying vendors to calling clients about overdue invoices through a Cartesia voice agent, and the agents hand work to each other through the Claude Agent SDK. Every money decision goes through our TypeScript policy engine, and anything outside the rules waits for the owner to approve it with a passkey. Most of the model work runs locally on an NVIDIA Grace Blackwell GX10. My team of four built it at Cal Hacks 13.0, and I worked across the whole stack.
 
 ## Key features
-- Seven Claude Agent SDK roles hand invoice cases between desks in a live SpacetimeDB office.
+- Claude Agent SDK agents each own a finance function and pass checked handoffs through one dispatcher in a live 3D office.
 - Collections calls clients through a Cartesia voice agent, with each tool call checked on the server.
-- 28 policy rules hold bank changes, lookalike domains and over-limit amounts for passkey approval.
-- Hash-chained audit wall with cited Ask why answers, plus Coinbase x402 test payments to vendors.
+- A 28-rule policy engine blocked 100% of 320 attack cases and holds risky payments for passkey approval.
+- 99% of model work runs on a local NVIDIA Grace Blackwell GX10, reading invoices 3x faster at 99.7% accuracy.
 
 ## Tech stack
-Backrooms is built with TypeScript, Next.js, React Three Fiber, Three.js, Claude Agent SDK, SpacetimeDB, Cartesia, WebAuthn, Ollama / NVIDIA GX10, and Coinbase x402.
+Backrooms is built with TypeScript, Next.js, React Three Fiber, Three.js, Claude Agent SDK, SpacetimeDB, Cartesia, WebAuthn, NVIDIA Grace Blackwell GX10, and Coinbase x402.
 
 ## Quick facts
 - Project: Backrooms
@@ -28,9 +28,9 @@ Backrooms is built with TypeScript, Next.js, React Three Fiber, Three.js, Claude
 
 ## Common questions about Backrooms
 - When did I build Backrooms? Cal Hacks 13.0.
-- What is Backrooms built with? TypeScript, Next.js, React Three Fiber, Three.js, Claude Agent SDK, SpacetimeDB, Cartesia, WebAuthn, Ollama / NVIDIA GX10, and Coinbase x402.
+- What is Backrooms built with? TypeScript, Next.js, React Three Fiber, Three.js, Claude Agent SDK, SpacetimeDB, Cartesia, WebAuthn, NVIDIA Grace Blackwell GX10, and Coinbase x402.
 
 ## How I talk about this project
-If someone asks me about Backrooms, I'd tell them it's a 3D back office where AI agents do a small business's finance work. I built it with TypeScript, Next.js, React Three Fiber, and Three.js. and the source on my GitHub at https://github.com/azizu06/backrooms.
+If someone asks me about Backrooms, I'd tell them it's an agentic back office where Claude agents hand finance work to each other. I built it with TypeScript, Next.js, React Three Fiber, and Three.js. and the source on my GitHub at https://github.com/azizu06/backrooms.
 
-Keywords: Backrooms, Hackathon, TypeScript, Next.js, React Three Fiber, Three.js, Claude Agent SDK, SpacetimeDB, Cartesia, WebAuthn, Ollama / NVIDIA GX10, Coinbase x402.
+Keywords: Backrooms, Hackathon, TypeScript, Next.js, React Three Fiber, Three.js, Claude Agent SDK, SpacetimeDB, Cartesia, WebAuthn, NVIDIA Grace Blackwell GX10, Coinbase x402.

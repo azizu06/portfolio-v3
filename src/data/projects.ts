@@ -25,14 +25,14 @@ export const projects: Project[] = [
     imageAlt: "Backrooms 3D office with labeled finance agents passing invoice cases between desks",
     previewVideo: "/assets/project-previews/backrooms.mp4",
     description:
-      "3D back office where AI agents do a small business's finance work.",
+      "Agentic back office where Claude agents hand finance work to each other.",
     details:
-      "Seven Claude agents pass invoice cases between desks in a 3D office, and the collections agent calls clients about overdue invoices through a Cartesia voice agent. Every money decision goes through our TypeScript policy engine, and anything outside the rules waits for the owner to approve it with a passkey. My team of four built it at Cal Hacks 13.0, and I worked across the whole stack.",
+      "Each Claude agent owns one finance job, from reading invoices and paying vendors to calling clients about overdue invoices through a Cartesia voice agent, and the agents hand work to each other through the Claude Agent SDK. Every money decision goes through our TypeScript policy engine, and anything outside the rules waits for the owner to approve it with a passkey. Most of the model work runs locally on an NVIDIA Grace Blackwell GX10. My team of four built it at Cal Hacks 13.0, and I worked across the whole stack.",
     keyFeatures: [
-      "Seven Claude Agent SDK roles hand invoice cases between desks in a live SpacetimeDB office.",
+      "Claude Agent SDK agents each own a finance function and pass checked handoffs through one dispatcher in a live 3D office.",
       "Collections calls clients through a Cartesia voice agent, with each tool call checked on the server.",
-      "28 policy rules hold bank changes, lookalike domains and over-limit amounts for passkey approval.",
-      "Hash-chained audit wall with cited Ask why answers, plus Coinbase x402 test payments to vendors.",
+      "A 28-rule policy engine blocked 100% of 320 attack cases and holds risky payments for passkey approval.",
+      "99% of model work runs on a local NVIDIA Grace Blackwell GX10, reading invoices 3x faster at 99.7% accuracy.",
     ],
     technologies: [
       "TypeScript",
@@ -43,7 +43,7 @@ export const projects: Project[] = [
       "SpacetimeDB",
       "Cartesia",
       "WebAuthn",
-      "Ollama / NVIDIA GX10",
+      "NVIDIA Grace Blackwell GX10",
       "Coinbase x402",
     ],
     githubHref: "https://github.com/azizu06/backrooms",
