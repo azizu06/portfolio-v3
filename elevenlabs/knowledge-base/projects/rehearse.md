@@ -8,11 +8,11 @@ Rehearse is one of my (Aziz Umarov's) Infrastructure projects, built Jul 2026 - 
 Rehearse is a local backup-recovery tool for Docker Compose, with isolated environments, application probes, and durable evidence reports.
 
 ## What it is
-Rehearse is an open-source recovery-testing project for Docker Compose applications. Its architecture combines a read-only restic adapter, an isolated Compose sandbox, typed application probes, and redacted evidence reports. These capabilities are tested at their component boundaries. A SQLite journal preserves run history, while optional Prometheus metrics and a provisioned Grafana dashboard support observability.
+Rehearse is an open-source recovery-testing project for Docker Compose applications. Its architecture combines a read-only restic adapter, an isolated Docker Compose environment, typed application probes, and redacted evidence reports. Each part has its own Go tests, including Docker and restic integration tests. A SQLite journal preserves run history, while optional Prometheus metrics and a provisioned Grafana dashboard support observability.
 
 ## Key features
 - Read-only restic recovery-point listing and acquisition adapter.
-- Bounded Docker Compose sandbox with ownership-aware cleanup.
+- Isolated Docker Compose environment with ownership-aware cleanup.
 - Typed probes and immutable, redacted evidence reports.
 - Durable SQLite run journal and optional Prometheus/Grafana observability.
 

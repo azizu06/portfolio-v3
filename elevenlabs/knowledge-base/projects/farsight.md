@@ -8,7 +8,7 @@ Farsight is one of my (Aziz Umarov's) Hackathon projects, built KnightHacks IX. 
 Farsight is a VR-controlled rover with on-device person detection and spoken answers, plus a post-run 3D room walkthrough with face sightings.
 
 ## What it is
-Farsight is a team-built search-training prototype that lets an operator drive a rover from a Meta Quest and review a reconstructed room afterward. I owned rover-side integration, connecting Quest driving and local voice AI to the Jetson's camera perception and the automatic post-run room build. I also wired and mounted the hardware and tested it on the floor. Our team won sponsor tracks from Hugging Face, NVIDIA, Encompass and Full Sail. Autonomous exploration was tuned mostly in simulation; the prototype is not validated for emergency response.
+Farsight is a search-and-rescue rover that an operator drives from a Meta Quest headset, and after each run it rebuilds the room in 3D for review. I owned rover-side integration, connecting Quest driving and local voice AI to the Jetson's camera perception and the automatic post-run room build. I also wired and mounted the hardware and tested it on the floor. Our team won sponsor tracks from Hugging Face, NVIDIA, Encompass and Full Sail. From the headset, the operator can switch the rover into autonomous Explore mode and press one button to stop it and take back manual control.
 
 ## Key features
 - Meta Quest driving through WebXR, with onboard person detection and operator stop controls.
