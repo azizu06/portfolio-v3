@@ -2,13 +2,13 @@
 
 # Backrooms
 
-Backrooms is one of my (Aziz Umarov's) Hackathon projects, built Cal Hacks 13.0.
+Backrooms is one of my (Aziz Umarov's) Hackathon projects, built Cal Hacks 13.0. It won a Hyphenate sponsor track prize.
 
 ## Summary
 Backrooms is an agentic back office where Claude agents hand finance work to each other.
 
 ## What it is
-Each Claude agent owns one finance job, from reading invoices and paying vendors to calling clients about overdue invoices through a Cartesia voice agent, and the agents hand work to each other through the Claude Agent SDK. Every money decision goes through our TypeScript policy engine, and anything outside the rules waits for the owner to approve it with a passkey. Most of the model work runs locally on an NVIDIA Grace Blackwell GX10. My team of four built it at Cal Hacks 13.0, and I worked across the whole stack.
+Each Claude agent owns one finance job, from reading invoices and paying vendors to calling clients about overdue invoices through a Cartesia voice agent, and the agents hand work to each other through the Claude Agent SDK. Every money decision goes through our TypeScript policy engine, and anything outside the rules waits for the owner to approve it with a passkey. Most of the model work runs locally on an NVIDIA Grace Blackwell GX10. My team of four built it at Cal Hacks 13.0, where it won a Hyphenate sponsor track prize, and I worked across the whole stack.
 
 ## Key features
 - Claude Agent SDK agents each own a finance function and pass checked handoffs through one dispatcher in a live 3D office.
@@ -23,14 +23,16 @@ Backrooms is built with TypeScript, Next.js, React Three Fiber, Three.js, Claude
 - Project: Backrooms
 - Type: Hackathon
 - Built: Cal Hacks 13.0
+- Award: a Hyphenate sponsor track prize
 - Hackathon submission: https://devpost.com/software/backrooms-h4o783
 - Source code: https://github.com/azizu06/backrooms
 
 ## Common questions about Backrooms
 - When did I build Backrooms? Cal Hacks 13.0.
 - What is Backrooms built with? TypeScript, Next.js, React Three Fiber, Three.js, Claude Agent SDK, SpacetimeDB, Cartesia, WebAuthn, NVIDIA Grace Blackwell GX10, and Coinbase x402.
+- Did Backrooms win anything? Yes — a Hyphenate sponsor track prize.
 
 ## How I talk about this project
-If someone asks me about Backrooms, I'd tell them it's an agentic back office where Claude agents hand finance work to each other. I built it with TypeScript, Next.js, React Three Fiber, and Three.js. and the source on my GitHub at https://github.com/azizu06/backrooms.
+If someone asks me about Backrooms, I'd tell them it's an agentic back office where Claude agents hand finance work to each other. I built it with TypeScript, Next.js, React Three Fiber, and Three.js. It won a Hyphenate sponsor track prize. and the source on my GitHub at https://github.com/azizu06/backrooms.
 
 Keywords: Backrooms, Hackathon, TypeScript, Next.js, React Three Fiber, Three.js, Claude Agent SDK, SpacetimeDB, Cartesia, WebAuthn, NVIDIA Grace Blackwell GX10, Coinbase x402.

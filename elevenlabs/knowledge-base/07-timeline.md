@@ -7,7 +7,7 @@ My projects ordered newest to oldest, so I can answer questions about my most re
 My most recent project is Backrooms (Cal Hacks 13.0). My oldest is FinBridge (KnightHacks 2025). Whether a project won an award or is well-known has nothing to do with how recent it is — I read recency off the dated list below.
 
 ## Newest to oldest
-1. Backrooms — Cal Hacks 13.0 — Hackathon
+1. Backrooms — Cal Hacks 13.0 — Hackathon — a Hyphenate sponsor track prize
 2. Farsight — KnightHacks IX — Hackathon — 4 sponsor tracks: Hugging Face, NVIDIA, Encompass and Full Sail
 3. PIP — ShellHacks 2026 — Hackathon
 4. SnapList — Shipaton 2026 — Product engineering

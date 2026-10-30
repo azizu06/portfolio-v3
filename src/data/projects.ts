@@ -27,7 +27,7 @@ export const projects: Project[] = [
     description:
       "Agentic back office where Claude agents hand finance work to each other.",
     details:
-      "Each Claude agent owns one finance job, from reading invoices and paying vendors to calling clients about overdue invoices through a Cartesia voice agent, and the agents hand work to each other through the Claude Agent SDK. Every money decision goes through our TypeScript policy engine, and anything outside the rules waits for the owner to approve it with a passkey. Most of the model work runs locally on an NVIDIA Grace Blackwell GX10. My team of four built it at Cal Hacks 13.0, and I worked across the whole stack.",
+      "Each Claude agent owns one finance job, from reading invoices and paying vendors to calling clients about overdue invoices through a Cartesia voice agent, and the agents hand work to each other through the Claude Agent SDK. Every money decision goes through our TypeScript policy engine, and anything outside the rules waits for the owner to approve it with a passkey. Most of the model work runs locally on an NVIDIA Grace Blackwell GX10. My team of four built it at Cal Hacks 13.0, where it won a Hyphenate sponsor track prize, and I worked across the whole stack.",
     keyFeatures: [
       "Claude Agent SDK agents each own a finance function and pass checked handoffs through one dispatcher in a live 3D office.",
       "Collections calls clients through a Cartesia voice agent, with each tool call checked on the server.",
@@ -48,6 +48,7 @@ export const projects: Project[] = [
     ],
     githubHref: "https://github.com/azizu06/backrooms",
     devpostHref: "https://devpost.com/software/backrooms-h4o783",
+    award: "a Hyphenate sponsor track prize",
     category: "Hackathon",
   },
   {
