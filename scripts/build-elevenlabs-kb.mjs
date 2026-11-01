@@ -153,6 +153,7 @@ function renderProject(p) {
   lines.push(`- Built: ${d.display}`);
   if (p.award) lines.push(`- Award: ${p.award}`);
   if (p.liveHref) lines.push(`- Live demo: ${p.liveHref}`);
+  if (p.demoVideoHref) lines.push(`- Demo video: ${p.demoVideoHref}`);
   if (p.devpostHref) lines.push(`- Hackathon submission: ${p.devpostHref}`);
   if (p.githubHref) lines.push(`- Source code: ${p.githubHref}`);
   lines.push("");
@@ -176,6 +177,7 @@ function renderProject(p) {
       `I built it with ${humanList(p.technologies.slice(0, 4))}.` +
       (p.award ? ` It won ${p.award}.` : "") +
       (p.liveHref ? ` I can point them to the live demo at ${p.liveHref}` : "") +
+      (p.demoVideoHref ? ` I can point them to the demo video at ${p.demoVideoHref}` : "") +
       (p.githubHref ? ` and the source on my GitHub at ${p.githubHref}.` : "."),
     "",
   );
@@ -309,7 +311,11 @@ function renderProjectIndex() {
   for (const [category, items] of byCategory) {
     lines.push(`### ${category}`);
     for (const p of items) {
-      const live = p.liveHref ? ` — live: ${p.liveHref}` : "";
+      const live = p.liveHref
+        ? ` — live: ${p.liveHref}`
+        : p.demoVideoHref
+          ? ` — demo video: ${p.demoVideoHref}`
+          : "";
       lines.push(`- ${p.title} (${parseDate(p.date).display}): ${p.description}${live}`);
     }
     lines.push("");
