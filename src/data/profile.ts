@@ -25,6 +25,11 @@ export const profile = {
       icon: LinkIcon,
     },
     {
+      label: "Devpost",
+      href: "https://devpost.com/azizu06",
+      icon: LinkIcon,
+    },
+    {
       label: "Live projects",
       href: "/projects",
       icon: ArrowUpRightIcon,
