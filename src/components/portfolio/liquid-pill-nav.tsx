@@ -70,6 +70,14 @@ function LinkedInBrandIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+function DevpostBrandIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" {...props}>
+      <path d="M6.002 1.61 0 12.004 6.002 22.39h11.996L24 12.004 17.998 1.61zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31 0 4.436-3.21 6.302-6.456 6.302H7.595zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861.009-2.569-1.096-3.853-3.767-3.853Z" />
+    </svg>
+  );
+}
+
 const socialNavItems: SocialNavItem[] = [
   {
     label: "LinkedIn",
@@ -88,6 +96,16 @@ const socialNavItems: SocialNavItem[] = [
       profile.links.find((link) => link.label === "GitHub")?.href ??
       "https://github.com/azizu06",
     icon: GitHubBrandIcon,
+    iconClassName:
+      "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
+    external: true,
+  },
+  {
+    label: "Devpost",
+    href:
+      profile.links.find((link) => link.label === "Devpost")?.href ??
+      "https://devpost.com/azizu06",
+    icon: DevpostBrandIcon,
     iconClassName:
       "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
     external: true,
