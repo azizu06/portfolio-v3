@@ -55,8 +55,8 @@ export function ProjectSpotlightCard({
   const [shouldLoadVideo, setShouldLoadVideo] = useState(priority);
   const [isNearViewport, setIsNearViewport] = useState(priority);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
-  const demoHref = project.liveHref ?? project.devpostHref ?? project.githubHref;
-  const demoLabel = project.liveHref ? "Live demo" : project.devpostHref ? "Devpost" : "GitHub";
+  const demoHref = project.liveHref ?? project.demoVideoHref ?? project.devpostHref ?? project.githubHref;
+  const demoLabel = project.liveHref ? "Live demo" : project.demoVideoHref ? "Demo video" : project.devpostHref ? "Devpost" : "GitHub";
 
   useEffect(() => {
     if (!project.previewVideo) return;

@@ -11,6 +11,7 @@ export type Project = {
   technologies: string[];
   githubHref?: string;
   liveHref?: string;
+  demoVideoHref?: string;
   devpostHref?: string;
   award?: string;
   category: string;
@@ -226,7 +227,7 @@ export const projects: Project[] = [
       "SQL Warehouse",
     ],
     githubHref: "https://github.com/azizu06/CrisisLensV2",
-    liveHref: "https://crisis-lens-v2-web.vercel.app",
+    demoVideoHref: "https://youtu.be/YD6H3emkDrc",
     award: "1st Place Winner",
     category: "Hackathon",
   },

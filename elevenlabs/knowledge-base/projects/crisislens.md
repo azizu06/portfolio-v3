@@ -24,7 +24,7 @@ CrisisLens is built with Next.js, React, TypeScript, Three.js, Databricks, and S
 - Type: Hackathon
 - Built: February 2026 (Hacklytics 2026)
 - Award: 1st Place Winner
-- Live demo: https://crisis-lens-v2-web.vercel.app
+- Demo video: https://youtu.be/YD6H3emkDrc
 - Source code: https://github.com/azizu06/CrisisLensV2
 
 ## Common questions about CrisisLens
@@ -33,6 +33,6 @@ CrisisLens is built with Next.js, React, TypeScript, Three.js, Databricks, and S
 - Did CrisisLens win anything? Yes — 1st Place Winner.
 
 ## How I talk about this project
-If someone asks me about CrisisLens, I'd tell them it's a humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe. I built it with Next.js, React, TypeScript, and Three.js. It won 1st Place Winner. I can point them to the live demo at https://crisis-lens-v2-web.vercel.app and the source on my GitHub at https://github.com/azizu06/CrisisLensV2.
+If someone asks me about CrisisLens, I'd tell them it's a humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe. I built it with Next.js, React, TypeScript, and Three.js. It won 1st Place Winner. I can point them to the demo video at https://youtu.be/YD6H3emkDrc and the source on my GitHub at https://github.com/azizu06/CrisisLensV2.
 
 Keywords: CrisisLens, Hackathon, Next.js, React, TypeScript, Three.js, Databricks, SQL Warehouse.

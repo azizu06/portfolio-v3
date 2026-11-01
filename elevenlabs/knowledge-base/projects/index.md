@@ -25,7 +25,7 @@ I (Aziz Umarov) have 9 projects on my portfolio, spanning AI products, full-stac
 - Backrooms (Cal Hacks 13.0): Agentic back office where Claude agents hand finance work to each other.
 - Farsight (KnightHacks IX): VR-controlled rover with on-device person detection and spoken answers, plus a post-run 3D room walkthrough with face sightings.
 - PIP (ShellHacks 2026): iPhone LiDAR rover that maps indoor spaces in 3D, remembers observed objects, and plans routes through mapped floor.
-- CrisisLens (February 2026 (Hacklytics 2026)): Humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe. — live: https://crisis-lens-v2-web.vercel.app
+- CrisisLens (February 2026 (Hacklytics 2026)): Humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe. — demo video: https://youtu.be/YD6H3emkDrc
 - CapCheck (BloomKnights 2026): Financial-video fact-checker that turns influencer claims into a cited score, evidence trail, and next steps. — live: https://capcheck-sigma.vercel.app/
 - FinBridge (KnightHacks 2025): Multilingual finance dashboard that explains account activity and turns spending questions into visuals. — live: https://d34qgf2s4sj5t3.cloudfront.net
 
