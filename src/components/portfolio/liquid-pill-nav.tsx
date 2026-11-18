@@ -13,6 +13,7 @@ import Link from "next/link";
 import {
   BriefcaseBusinessIcon,
   CodeXmlIcon,
+  FileTextIcon,
   MonitorIcon,
   UserRoundIcon,
 } from "lucide-react";
@@ -108,6 +109,12 @@ const socialNavItems: SocialNavItem[] = [
     icon: DevpostBrandIcon,
     iconClassName:
       "size-[1.18rem] fill-current sm:size-[1.28rem] lg:size-[1.4rem]",
+    external: true,
+  },
+  {
+    label: "Resume",
+    href: "/Abduaziz-Umarov-Resume.pdf",
+    icon: FileTextIcon,
     external: true,
   },
 ];

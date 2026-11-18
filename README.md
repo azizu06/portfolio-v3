@@ -69,6 +69,8 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run lint` | Run ESLint (`eslint-config-next`) |
 | `npm run kb:build` | Regenerate the voice agent's knowledge base in `elevenlabs/knowledge-base/` from `src/data/*.ts` |
 
+Rebuild the public, phone-free résumé at `public/Abduaziz-Umarov-Resume.pdf` with `scripts/build-public-resume.sh` after the source résumé changes.
+
 ### Generating project previews
 
 Project cards play short screen-recordings (`public/assets/project-previews/<slug>.mp4`)
