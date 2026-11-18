@@ -113,7 +113,7 @@ function vectorDbAnswer(techs) {
 }
 
 // --- project document -------------------------------------------------------
-// their Devpost page, then a live demo or demo video, then the source.
+
 function pointerSentence(p) {
   const targets = [
     p.devpostHref && `the Devpost page at ${p.devpostHref}`,
