@@ -2,10 +2,10 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { openSourceTools, projects } from "../src/data/projects.ts";
 
-test("project list keeps its order without CapCheck or FinBridge", () => {
+test("project list keeps its live order", () => {
   assert.deepEqual(
     projects.map(({ title }) => title),
-    ["Backrooms", "Farsight", "PIP", "SnapList", "Rehearse", "Shields.io", "CrisisLens"],
+    ["Backrooms", "Farsight", "PIP", "SnapList", "Rehearse", "Shields.io", "CrisisLens", "CapCheck", "FinBridge"],
   );
 });
 

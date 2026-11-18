@@ -232,6 +232,62 @@ export const projects: Project[] = [
     award: "the Databricks Challenge at Georgia Tech's Hacklytics, out of 234 projects",
     category: "Hackathon",
   },
+  {
+    title: "CapCheck",
+    date: "BloomKnights 2026",
+    sortDate: "July 2026",
+    image: "/assets/project-previews/capcheck.png",
+    previewVideo: "/assets/project-previews/capcheck.mp4",
+    description:
+      "Financial-video fact-checker that turns influencer claims into a cited score, evidence trail, and next steps.",
+    details:
+      "CapCheck is a collaborative hackathon project for checking factual and predictive claims in short-form financial videos. Users paste a video URL or upload a file, follow the analysis, and inspect a scorecard with timestamped claims, sources, confidence, hype-language signals, and actions to consider before trusting the advice.",
+    keyFeatures: [
+      "Gemini video understanding for extracting timestamped financial claims.",
+      "Google Search grounding and Finnhub data for claim verification.",
+      "Claim-level confidence, citations, and hype-language signals.",
+      "Searchable verified-video feed stored in Supabase.",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Google Gemini",
+      "Finnhub",
+      "Supabase",
+    ],
+    githubHref: "https://github.com/azizu06/CapChecker",
+    liveHref: "https://capcheck-sigma.vercel.app/",
+    category: "Hackathon",
+  },
+  {
+    title: "FinBridge",
+    date: "KnightHacks 2025",
+    sortDate: "October 2025",
+    image: "/assets/project-previews/finbridge.png",
+    previewVideo: "/assets/project-previews/finbridge.mp4",
+    description:
+      "Multilingual finance dashboard that explains account activity and turns spending questions into visuals.",
+    details:
+      "FinBridge is a team-built financial literacy platform for people learning the U.S. financial system. It combines multilingual guidance, document translation, Plaid-connected account activity, spending visuals, and an AI assistant that explains transactions and finance terms in plain language.",
+    keyFeatures: [
+      "Multilingual finance guidance and document translation.",
+      "Plaid-connected account activity for spending context.",
+      "Google Gemini assistance for transaction and finance questions.",
+      "Firebase-backed history with Chart.js visualizations.",
+    ],
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "Google Gemini",
+      "Plaid API",
+      "Chart.js",
+    ],
+    githubHref: "https://github.com/GridGxly/FinBridgeV2",
+    liveHref: "https://d34qgf2s4sj5t3.cloudfront.net",
+    category: "Hackathon",
+  },
 ];
 
 export type OpenSourceTool = {

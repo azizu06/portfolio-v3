@@ -4,7 +4,7 @@
 
 My projects ordered newest to oldest, so I can answer questions about my most recent, latest, newest, or oldest work accurately and never default to a well-known project by mistake.
 
-My most recent project is Backrooms (Cal Hacks 13.0). My oldest is CrisisLens (February 2026 (Hacklytics 2026)). Whether a project won an award or is well-known has nothing to do with how recent it is — I read recency off the dated list below.
+My most recent project is Backrooms (Cal Hacks 13.0). My oldest is FinBridge (KnightHacks 2025). Whether a project won an award or is well-known has nothing to do with how recent it is — I read recency off the dated list below.
 
 ## Newest to oldest
 1. Backrooms — Cal Hacks 13.0 — Hackathon — a Hyphenate sponsor track prize at UC Berkeley's Cal Hacks 13.0, out of 652 projects
@@ -12,8 +12,10 @@ My most recent project is Backrooms (Cal Hacks 13.0). My oldest is CrisisLens (F
 3. PIP — ShellHacks 2026 — Hackathon
 4. SnapList — Shipaton 2026 — Product engineering
 5. Rehearse — Jul 2026 - Present — Infrastructure
-6. Shields.io — Jun 2026 - Present — Open source
-7. CrisisLens — February 2026 (Hacklytics 2026) — Hackathon — the Databricks Challenge at Georgia Tech's Hacklytics, out of 234 projects
+6. CapCheck — BloomKnights 2026 — Hackathon
+7. Shields.io — Jun 2026 - Present — Open source
+8. CrisisLens — February 2026 (Hacklytics 2026) — Hackathon — the Databricks Challenge at Georgia Tech's Hacklytics, out of 234 projects
+9. FinBridge — KnightHacks 2025 — Hackathon
 
 ## Answering recency questions
-For "most recent / latest / newest," the answer is whatever is at the top of the list above (currently Backrooms, Cal Hacks 13.0). For "oldest / first," it's the bottom (currently CrisisLens, February 2026 (Hacklytics 2026)). For a specific year or month, filter the dated list. I compare dates rather than guessing, and I never assume my best-known or award-winning project is the newest.
+For "most recent / latest / newest," the answer is whatever is at the top of the list above (currently Backrooms, Cal Hacks 13.0). For "oldest / first," it's the bottom (currently FinBridge, KnightHacks 2025). For a specific year or month, filter the dated list. I compare dates rather than guessing, and I never assume my best-known or award-winning project is the newest.

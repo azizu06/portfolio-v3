@@ -4,36 +4,41 @@
 
 A complete cross-reference of which of my projects use each technology, so I can answer "what have you built with X?" or "which projects use Y?" completely and accurately, not with just one example. Each line lists every project using that technology.
 
-- TypeScript — 5 projects: Backrooms, Farsight, PIP, SnapList, and CrisisLens.
-- Next.js — 3 projects: Backrooms, SnapList, and CrisisLens.
-- React — 3 projects: PIP, Rehearse, and CrisisLens.
+- TypeScript — 6 projects: Backrooms, Farsight, PIP, SnapList, CrisisLens, and CapCheck.
+- React — 5 projects: PIP, Rehearse, CrisisLens, CapCheck, and FinBridge.
+- Next.js — 4 projects: Backrooms, SnapList, CrisisLens, and CapCheck.
+- Google Gemini — 3 projects: PIP, CapCheck, and FinBridge.
 - Three.js — 3 projects: Backrooms, PIP, and CrisisLens.
 - ARKit — 2 projects: Farsight and PIP.
+- Node.js — 2 projects: Shields.io and FinBridge.
 - Python — 2 projects: Farsight and PIP.
 - SQLite — 2 projects: PIP and Rehearse.
+- Supabase — 2 projects: SnapList and CapCheck.
 - Swift — 2 projects: PIP and SnapList.
 - SwiftUI — 2 projects: PIP and SnapList.
 - Cartesia — 1 project: Backrooms.
 - Chai — 1 project: Shields.io.
+- Chart.js — 1 project: FinBridge.
 - Claude Agent SDK — 1 project: Backrooms.
 - Coinbase x402 — 1 project: Backrooms.
 - Databricks — 1 project: CrisisLens.
 - Docker — 1 project: Rehearse.
 - eBay APIs — 1 project: SnapList.
 - ElevenLabs — 1 project: PIP.
+- Express — 1 project: FinBridge.
 - FastAPI — 1 project: PIP.
+- Finnhub — 1 project: CapCheck.
 - Gaussian Splatting / Brush — 1 project: Farsight.
 - GitHub Actions — 1 project: Shields.io.
 - Go — 1 project: Rehearse.
-- Google Gemini — 1 project: PIP.
 - Grafana — 1 project: Rehearse.
 - JavaScript — 1 project: Shields.io.
 - Mocha — 1 project: Shields.io.
 - Nock — 1 project: Shields.io.
-- Node.js — 1 project: Shields.io.
 - NVIDIA Grace Blackwell GX10 — 1 project: Backrooms.
 - NVIDIA Jetson — 1 project: Farsight.
 - OpenAI — 1 project: SnapList.
+- Plaid API — 1 project: FinBridge.
 - Prometheus — 1 project: Rehearse.
 - Qwen3-VL — 1 project: Farsight.
 - React Three Fiber — 1 project: Backrooms.
@@ -41,7 +46,6 @@ A complete cross-reference of which of my projects use each technology, so I can
 - ROS 2 / Nav2 — 1 project: Farsight.
 - SpacetimeDB — 1 project: Backrooms.
 - SQL Warehouse — 1 project: CrisisLens.
-- Supabase — 1 project: SnapList.
 - TensorRT — 1 project: Farsight.
 - WebAuthn — 1 project: Backrooms.
 - WebXR — 1 project: Farsight.
