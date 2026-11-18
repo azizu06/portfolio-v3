@@ -31,6 +31,6 @@ Rehearse is built with Go, React, Docker, SQLite, Prometheus, and Grafana.
 - What database does Rehearse use? SQLite.
 
 ## How I talk about this project
-If someone asks me about Rehearse, I'd tell them it's a local backup-recovery tool for Docker Compose, with isolated environments, application probes, and durable evidence reports. I built it with Go, React, Docker, and SQLite. and the source on my GitHub at https://github.com/azizu06/rehearse.
+If someone asks me about Rehearse, I'd tell them it's a local backup-recovery tool for Docker Compose, with isolated environments, application probes, and durable evidence reports. I built it with Go, React, Docker, and SQLite. I can point them to the source on my GitHub at https://github.com/azizu06/rehearse.
 
 Keywords: Rehearse, Infrastructure, Go, React, Docker, SQLite, Prometheus, Grafana, database, storage, backend.

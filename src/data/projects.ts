@@ -28,11 +28,11 @@ export const projects: Project[] = [
     description:
       "Agentic back office where Claude agents hand finance work to each other.",
     details:
-      "Each Claude agent owns one finance job, from reading invoices and paying vendors to calling clients about overdue invoices through a Cartesia voice agent, and the agents hand work to each other through the Claude Agent SDK. Every money decision goes through our TypeScript policy engine, and anything outside the rules waits for the owner to approve it with a passkey. Most of the model work runs locally on an NVIDIA Grace Blackwell GX10. My team of four built it at Cal Hacks 13.0, where it won a Hyphenate sponsor track prize, and I worked across the whole stack.",
+      "Each Claude agent owns one finance job, from reading invoices and paying vendors to calling clients about overdue invoices through a Cartesia voice agent, and the agents hand work to each other through the Claude Agent SDK. Every money decision goes through our TypeScript policy engine, and anything outside the rules waits for the owner to approve it with a passkey. Most of the model work runs locally on an NVIDIA Grace Blackwell GX10. My team of four built it at UC Berkeley's Cal Hacks 13.0, where it won a Hyphenate sponsor track prize out of 652 projects, and I worked across the whole stack.",
     keyFeatures: [
       "Claude Agent SDK agents each own a finance function and pass checked handoffs through one dispatcher in a live 3D office.",
       "Collections calls clients through a Cartesia voice agent, with each tool call checked on the server.",
-      "A 28-rule policy engine blocked 100% of 320 attack cases and holds risky payments for passkey approval.",
+      "A 28-rule policy engine blocked all 320 attack cases from moving money and holds risky payments for passkey approval.",
       "99% of model work runs on a local NVIDIA Grace Blackwell GX10, reading invoices 3x faster at 99.7% accuracy.",
     ],
     technologies: [
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     ],
     githubHref: "https://github.com/azizu06/backrooms",
     devpostHref: "https://devpost.com/software/backrooms-h4o783",
-    award: "a Hyphenate sponsor track prize",
+    award: "a Hyphenate sponsor track prize at UC Berkeley's Cal Hacks 13.0, out of 652 projects",
     category: "Hackathon",
   },
   {
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     description:
       "VR-controlled rover with on-device person detection and spoken answers, plus a post-run 3D room walkthrough with face sightings.",
     details:
-      "Farsight is a search-and-rescue rover that an operator drives from a Meta Quest headset, and after each run it rebuilds the room in 3D for review. I owned rover-side integration, connecting Quest driving and local voice AI to the Jetson's camera perception and the automatic post-run room build. I also wired and mounted the hardware and tested it on the floor. Our team won sponsor tracks from Hugging Face, NVIDIA, Encompass and Full Sail. From the headset, the operator can switch the rover into autonomous Explore mode and press one button to stop it and take back manual control.",
+      "Farsight is a search-and-rescue rover that an operator drives from a Meta Quest headset, and after each run it rebuilds the room in 3D for review. I owned rover-side integration, connecting Quest driving and local voice AI to the Jetson's camera perception and the automatic post-run room build. I also wired and mounted the hardware and tested it on the floor. My team won 4 sponsor tracks at UCF's Knight Hacks IX, out of 212 projects, from NVIDIA, Hugging Face, Encompass and Full Sail. From the headset, the operator can switch the rover into autonomous Explore mode and press one button to stop it and take back manual control.",
     keyFeatures: [
       "Meta Quest driving through WebXR, with onboard person detection and operator stop controls.",
       "Local Whisper, Qwen3-VL and Piper voice pipeline for camera questions and English/Spanish survivor phrases.",
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     ],
     githubHref: "https://github.com/azizu06/farsight",
     devpostHref: "https://devpost.com/software/farsight-t4qyli",
-    award: "4 sponsor tracks: Hugging Face, NVIDIA, Encompass and Full Sail",
+    award: "4 sponsor tracks from NVIDIA, Hugging Face, Encompass and Full Sail at UCF's Knight Hacks IX, out of 212 projects",
     category: "Hackathon",
   },
   {
@@ -211,7 +211,7 @@ export const projects: Project[] = [
     description:
       "Humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe.",
     details:
-      "CrisisLens is a team-built humanitarian intelligence platform. I worked on the frontend, the interactive 3D analyst dashboard, and the Databricks Genie integration that turns natural-language questions into SQL-backed insights. My teammates owned the machine-learning models behind the country-level neglect scores.",
+      "CrisisLens is a team-built humanitarian intelligence platform, and it won the Databricks Challenge at Georgia Tech's Hacklytics 2026, out of 234 projects. I worked on the frontend, the interactive 3D analyst dashboard, and the Databricks Genie integration that turns natural-language questions into SQL-backed insights. My teammates owned the machine-learning models behind the country-level neglect scores.",
     keyFeatures: [
       "Interactive Three.js globe with country-level crisis exploration.",
       "Dashboard views for risk, funding coverage, and people-in-need signals.",
@@ -228,63 +228,37 @@ export const projects: Project[] = [
     ],
     githubHref: "https://github.com/azizu06/CrisisLensV2",
     demoVideoHref: "https://youtu.be/YD6H3emkDrc",
-    award: "1st Place Winner",
+    devpostHref: "https://devpost.com/software/crisislens-rlebdw",
+    award: "the Databricks Challenge at Georgia Tech's Hacklytics, out of 234 projects",
     category: "Hackathon",
   },
+];
+
+export type OpenSourceTool = {
+  name: string;
+  description: string;
+  href: string;
+  stars: string;
+  forks: string;
+};
+
+// Star and fork counts checked with the GitHub API on 2026-11-18. Stars are
+// rounded down to a "+" floor so the copy stays true as the counts move.
+export const openSourceTools: OpenSourceTool[] = [
   {
-    title: "CapCheck",
-    date: "BloomKnights 2026",
-    sortDate: "July 2026",
-    image: "/assets/project-previews/capcheck.png",
-    previewVideo: "/assets/project-previews/capcheck.mp4",
+    name: "ai-coding-interview-practice",
     description:
-      "Financial-video fact-checker that turns influencer claims into a cited score, evidence trail, and next steps.",
-    details:
-      "CapCheck is a collaborative hackathon project for checking factual and predictive claims in short-form financial videos. Users paste a video URL or upload a file, follow the analysis, and inspect a scorecard with timestamped claims, sources, confidence, hype-language signals, and actions to consider before trusting the advice.",
-    keyFeatures: [
-      "Gemini video understanding for extracting timestamped financial claims.",
-      "Google Search grounding and Finnhub data for claim verification.",
-      "Claim-level confidence, citations, and hype-language signals.",
-      "Searchable verified-video feed stored in Supabase.",
-    ],
-    technologies: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Google Gemini",
-      "Finnhub",
-      "Supabase",
-    ],
-    githubHref: "https://github.com/azizu06/CapChecker",
-    liveHref: "https://capcheck-sigma.vercel.app/",
-    category: "Hackathon",
+      "Ten practice problems for the AI-assisted coding interview format, with timed tests and an interviewer prompt you run with your own coding agent.",
+    href: "https://github.com/azizu06/ai-coding-interview-practice",
+    stars: "45+ stars",
+    forks: "7 forks",
   },
   {
-    title: "FinBridge",
-    date: "KnightHacks 2025",
-    sortDate: "October 2025",
-    image: "/assets/project-previews/finbridge.png",
-    previewVideo: "/assets/project-previews/finbridge.mp4",
+    name: "hackathon-agent-board",
     description:
-      "Multilingual finance dashboard that explains account activity and turns spending questions into visuals.",
-    details:
-      "FinBridge is a team-built financial literacy platform for people learning the U.S. financial system. It combines multilingual guidance, document translation, Plaid-connected account activity, spending visuals, and an AI assistant that explains transactions and finance terms in plain language.",
-    keyFeatures: [
-      "Multilingual finance guidance and document translation.",
-      "Plaid-connected account activity for spending context.",
-      "Google Gemini assistance for transaction and finance questions.",
-      "Firebase-backed history with Chart.js visualizations.",
-    ],
-    technologies: [
-      "React",
-      "Node.js",
-      "Express",
-      "Google Gemini",
-      "Plaid API",
-      "Chart.js",
-    ],
-    githubHref: "https://github.com/GridGxly/FinBridgeV2",
-    liveHref: "https://d34qgf2s4sj5t3.cloudfront.net",
-    category: "Hackathon",
+      "One pinned GitHub issue where every teammate's coding agent posts its updates and waits for its own ping.",
+    href: "https://github.com/azizu06/hackathon-agent-board",
+    stars: "35+ stars",
+    forks: "4 forks",
   },
 ];

@@ -32,6 +32,6 @@ PIP is built with Python, FastAPI, React, TypeScript, Three.js, Swift, SwiftUI, 
 - What AI, LLM, or ML does PIP use? Google Gemini.
 
 ## How I talk about this project
-If someone asks me about PIP, I'd tell them it's an iPhone LiDAR rover that maps indoor spaces in 3D, remembers observed objects, and plans routes through mapped floor. I built it with Python, FastAPI, React, and TypeScript. and the source on my GitHub at https://github.com/azizu06/pip-scout.
+If someone asks me about PIP, I'd tell them it's an iPhone LiDAR rover that maps indoor spaces in 3D, remembers observed objects, and plans routes through mapped floor. I built it with Python, FastAPI, React, and TypeScript. I can point them to the source on my GitHub at https://github.com/azizu06/pip-scout.
 
 Keywords: PIP, Hackathon, Python, FastAPI, React, TypeScript, Three.js, Swift, SwiftUI, ARKit, SQLite, Google Gemini, ElevenLabs, database, storage, backend, AI, LLM, artificial intelligence, machine learning.

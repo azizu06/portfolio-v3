@@ -114,6 +114,18 @@ function vectorDbAnswer(techs) {
 
 // --- project document -------------------------------------------------------
 
+// One sentence naming where to send a visitor. Hackathon projects lead with
+// their Devpost page, then a live demo or demo video, then the source.
+function pointerSentence(p) {
+  const targets = [
+    p.devpostHref && `the Devpost page at ${p.devpostHref}`,
+    p.liveHref && `the live demo at ${p.liveHref}`,
+    p.demoVideoHref && `the demo video at ${p.demoVideoHref}`,
+    p.githubHref && `the source on my GitHub at ${p.githubHref}`,
+  ].filter(Boolean);
+  return targets.length ? ` I can point them to ${humanList(targets)}.` : "";
+}
+
 function renderProject(p) {
   const d = parseDate(p.date);
   const lines = [];
@@ -176,9 +188,7 @@ function renderProject(p) {
     `If someone asks me about ${p.title}, I'd tell them it's ${descArticle} ${descLower} ` +
       `I built it with ${humanList(p.technologies.slice(0, 4))}.` +
       (p.award ? ` It won ${p.award}.` : "") +
-      (p.liveHref ? ` I can point them to the live demo at ${p.liveHref}` : "") +
-      (p.demoVideoHref ? ` I can point them to the demo video at ${p.demoVideoHref}` : "") +
-      (p.githubHref ? ` and the source on my GitHub at ${p.githubHref}.` : "."),
+      pointerSentence(p),
     "",
   );
 
@@ -331,7 +341,8 @@ function renderExperience() {
   lines.push("# Experience", "");
   lines.push(
     "My (Aziz Umarov's) professional and research experience. I'm an early-career software engineer and UCF " +
-      "computer science student, currently balancing an industry developer role with undergraduate AI research.",
+      "computer science student. Right now I'm a software engineering intern at Versant Media, an OpenAI Campus Lead, " +
+      "and a software engineer intern at Knight Hacks. My UCF research role ran from September 2025 to May 2026.",
     "",
   );
   for (const e of experiences) {
@@ -343,8 +354,8 @@ function renderExperience() {
   }
   lines.push("## How I talk about my experience");
   lines.push(
-    "When someone asks what I do or where I work, I lead with my Knight Hacks software developer role " +
-      "and my ISUE Lab research on AI speech-therapy feedback, then offer to go deeper on either one.",
+    "When someone asks what I do or where I work, I lead with my Versant Media internship on Rotten Tomatoes search, " +
+      "then my Knight Hacks and OpenAI Campus Lead roles, and offer to go deeper on any of them.",
     "",
   );
   return lines.join("\n");
@@ -367,8 +378,8 @@ function renderSkills() {
   lines.push(
     "My strongest throughline is full-stack TypeScript, React, and Next.js plus practical AI engineering " +
       "(OpenAI, RAG, embeddings, PyTorch). I also have real cloud and DevOps exposure (AWS, Docker, Kubernetes, CI/CD). " +
-      "If someone asks what I'm best at, I emphasize full-stack web plus applied AI, and point to CrisisLens, PopChoice, " +
-      "and my ISUE Lab research as proof.",
+      "If someone asks what I'm best at, I emphasize full-stack web plus applied AI, and point to CrisisLens, Backrooms, " +
+      "and my UCF speech-therapy research as proof.",
     "",
   );
   return lines.join("\n");

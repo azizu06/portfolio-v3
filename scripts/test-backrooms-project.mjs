@@ -16,7 +16,7 @@ test("Backrooms is the newest standalone project with sourced links and its Hyph
   // Top 20 of the Hyphenate sponsor track (Hyphenate email 2026-10-29); placement unknown,
   // so the copy says "a Hyphenate sponsor track prize" and never a place, a dollar amount,
   // or "won the Hyphenate track".
-  assert.equal(project.award, "a Hyphenate sponsor track prize");
+  assert.equal(project.award, "a Hyphenate sponsor track prize at UC Berkeley's Cal Hacks 13.0, out of 652 projects");
   assert.match(project.details, /won a Hyphenate sponsor track prize/);
   assert.equal(project.liveHref, undefined);
   assert.equal(project.keyFeatures.length, 4);

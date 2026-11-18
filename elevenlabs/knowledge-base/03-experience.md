@@ -2,14 +2,14 @@
 
 # Experience
 
-My (Aziz Umarov's) professional and research experience. I'm an early-career software engineer and UCF computer science student, currently balancing an industry developer role with undergraduate AI research.
+My (Aziz Umarov's) professional and research experience. I'm an early-career software engineer and UCF computer science student. Right now I'm a software engineering intern at Versant Media, an OpenAI Campus Lead, and a software engineer intern at Knight Hacks. My UCF research role ran from September 2025 to May 2026.
 
 ## Software Engineering Intern — Versant Media
-- Period: Sep 2026 - Apr 2027
+- Period: Aug 2026 - Apr 2027
 - Location: Orlando, FL
-- Technologies: Mobile, Web, and Product Engineering.
+- Technologies: OpenSearch, XGBoost, and AWS.
 
-Selected to build mobile and web features for Rotten Tomatoes, including social tools and AI-powered discovery.
+Building personalized search autocomplete for Rotten Tomatoes across iOS, Android, and web, with an OpenSearch backend and an XGBoost ranker that raised top-10 search success from 58% to 84%.
 
 ## Campus Lead — OpenAI
 - Period: Aug 2026 - Present
@@ -23,7 +23,7 @@ Leading OpenAI Student Collective workshops and studio hours at UCF for students
 - Location: Orlando, FL
 - Technologies: Next.js, TypeScript, and tRPC.
 
-Building full-stack software for Knight Hacks operations and its community with Next.js, TypeScript, and tRPC.
+Building Forge, the Next.js registration platform for UCF's 10,000+ member Knight Hacks community, with TypeScript, tRPC, and PostgreSQL.
 
 ## Founder Fellow — MLH Fellowship
 - Period: Jul 2026 - Aug 2026
@@ -40,4 +40,4 @@ Developed a startup idea through founder-led sessions focused on entrepreneurshi
 Analyzed speech data and developed AI-assisted feedback tools to support dysarthria therapy research at UCF.
 
 ## How I talk about my experience
-When someone asks what I do or where I work, I lead with my Knight Hacks software developer role and my ISUE Lab research on AI speech-therapy feedback, then offer to go deeper on either one.
+When someone asks what I do or where I work, I lead with my Versant Media internship on Rotten Tomatoes search, then my Knight Hacks and OpenAI Campus Lead roles, and offer to go deeper on any of them.

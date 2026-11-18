@@ -2,13 +2,13 @@
 
 # Farsight
 
-Farsight is one of my (Aziz Umarov's) Hackathon projects, built KnightHacks IX. It won 4 sponsor tracks: Hugging Face, NVIDIA, Encompass and Full Sail.
+Farsight is one of my (Aziz Umarov's) Hackathon projects, built KnightHacks IX. It won 4 sponsor tracks from NVIDIA, Hugging Face, Encompass and Full Sail at UCF's Knight Hacks IX, out of 212 projects.
 
 ## Summary
 Farsight is a VR-controlled rover with on-device person detection and spoken answers, plus a post-run 3D room walkthrough with face sightings.
 
 ## What it is
-Farsight is a search-and-rescue rover that an operator drives from a Meta Quest headset, and after each run it rebuilds the room in 3D for review. I owned rover-side integration, connecting Quest driving and local voice AI to the Jetson's camera perception and the automatic post-run room build. I also wired and mounted the hardware and tested it on the floor. Our team won sponsor tracks from Hugging Face, NVIDIA, Encompass and Full Sail. From the headset, the operator can switch the rover into autonomous Explore mode and press one button to stop it and take back manual control.
+Farsight is a search-and-rescue rover that an operator drives from a Meta Quest headset, and after each run it rebuilds the room in 3D for review. I owned rover-side integration, connecting Quest driving and local voice AI to the Jetson's camera perception and the automatic post-run room build. I also wired and mounted the hardware and tested it on the floor. My team won 4 sponsor tracks at UCF's Knight Hacks IX, out of 212 projects, from NVIDIA, Hugging Face, Encompass and Full Sail. From the headset, the operator can switch the rover into autonomous Explore mode and press one button to stop it and take back manual control.
 
 ## Key features
 - Meta Quest driving through WebXR, with onboard person detection and operator stop controls.
@@ -23,7 +23,7 @@ Farsight is built with Python, TypeScript, WebXR, NVIDIA Jetson, TensorRT, ROS 2
 - Project: Farsight
 - Type: Hackathon
 - Built: KnightHacks IX
-- Award: 4 sponsor tracks: Hugging Face, NVIDIA, Encompass and Full Sail
+- Award: 4 sponsor tracks from NVIDIA, Hugging Face, Encompass and Full Sail at UCF's Knight Hacks IX, out of 212 projects
 - Hackathon submission: https://devpost.com/software/farsight-t4qyli
 - Source code: https://github.com/azizu06/farsight
 
@@ -31,9 +31,9 @@ Farsight is built with Python, TypeScript, WebXR, NVIDIA Jetson, TensorRT, ROS 2
 - When did I build Farsight? KnightHacks IX.
 - What is Farsight built with? Python, TypeScript, WebXR, NVIDIA Jetson, TensorRT, ROS 2 / Nav2, Whisper, Qwen3-VL, ARKit, and Gaussian Splatting / Brush.
 - What AI, LLM, or ML does Farsight use? Whisper and Qwen3-VL.
-- Did Farsight win anything? Yes — 4 sponsor tracks: Hugging Face, NVIDIA, Encompass and Full Sail.
+- Did Farsight win anything? Yes — 4 sponsor tracks from NVIDIA, Hugging Face, Encompass and Full Sail at UCF's Knight Hacks IX, out of 212 projects.
 
 ## How I talk about this project
-If someone asks me about Farsight, I'd tell them it's a VR-controlled rover with on-device person detection and spoken answers, plus a post-run 3D room walkthrough with face sightings. I built it with Python, TypeScript, WebXR, and NVIDIA Jetson. It won 4 sponsor tracks: Hugging Face, NVIDIA, Encompass and Full Sail. and the source on my GitHub at https://github.com/azizu06/farsight.
+If someone asks me about Farsight, I'd tell them it's a VR-controlled rover with on-device person detection and spoken answers, plus a post-run 3D room walkthrough with face sightings. I built it with Python, TypeScript, WebXR, and NVIDIA Jetson. It won 4 sponsor tracks from NVIDIA, Hugging Face, Encompass and Full Sail at UCF's Knight Hacks IX, out of 212 projects. I can point them to the Devpost page at https://devpost.com/software/farsight-t4qyli and the source on my GitHub at https://github.com/azizu06/farsight.
 
 Keywords: Farsight, Hackathon, Python, TypeScript, WebXR, NVIDIA Jetson, TensorRT, ROS 2 / Nav2, Whisper, Qwen3-VL, ARKit, Gaussian Splatting / Brush, AI, LLM, artificial intelligence, machine learning.
