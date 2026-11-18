@@ -113,8 +113,6 @@ function vectorDbAnswer(techs) {
 }
 
 // --- project document -------------------------------------------------------
-
-// One sentence naming where to send a visitor. Hackathon projects lead with
 // their Devpost page, then a live demo or demo video, then the source.
 function pointerSentence(p) {
   const targets = [

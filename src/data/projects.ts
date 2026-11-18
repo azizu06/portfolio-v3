@@ -298,8 +298,6 @@ export type OpenSourceTool = {
   forks: string;
 };
 
-// Star and fork counts checked with the GitHub API on 2026-11-18. Stars are
-// rounded down to a "+" floor so the copy stays true as the counts move.
 export const openSourceTools: OpenSourceTool[] = [
   {
     name: "ai-coding-interview-practice",
