@@ -20,14 +20,14 @@ export const experiences: Experience[] = [
     company: "Versant Media",
     role: "Software Engineering Intern",
     displayRole: "Software Engineering Intern",
-    period: "Sep 2026 - Apr 2027",
-    dateLabel: "Sep 2026",
+    period: "Aug 2026 - Apr 2027",
+    dateLabel: "Aug 2026",
     location: "Orlando, FL",
     image: "/assets/versant-experience.jpeg",
     accent: "blue",
     summary:
-      "Selected to build mobile and web features for Rotten Tomatoes, including social tools and AI-powered discovery.",
-    technologies: ["Mobile", "Web", "Product Engineering"],
+      "Building personalized search autocomplete for Rotten Tomatoes across iOS, Android, and web, with an OpenSearch backend and an XGBoost ranker that raised top-10 search success from 58% to 84%.",
+    technologies: ["OpenSearch", "XGBoost", "AWS"],
   },
   {
     company: "OpenAI",
@@ -53,7 +53,7 @@ export const experiences: Experience[] = [
     image: "/assets/knighthacks2.webp",
     accent: "blue",
     summary:
-      "Building full-stack software for Knight Hacks operations and its community with Next.js, TypeScript, and tRPC.",
+      "Building Forge, the Next.js registration platform for UCF's 10,000+ member Knight Hacks community, with TypeScript, tRPC, and PostgreSQL.",
     technologies: ["Next.js", "TypeScript", "tRPC"],
   },
   {

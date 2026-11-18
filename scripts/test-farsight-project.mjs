@@ -8,6 +8,7 @@ test("Farsight follows Backrooms with accurate awards and submission links", () 
   assert.ok(project, "Farsight must appear in the project catalog");
   assert.equal(projects[1], project);
   assert.equal(projects[2].title, "PIP");
+  assert.match(project.award, /UCF's Knight Hacks IX, out of 212 projects/);
   assert.equal(project.date, "KnightHacks IX");
   assert.equal(project.sortDate, "October 2026");
   assert.equal(project.category, "Hackathon");

@@ -4,14 +4,17 @@
 
 I'm Aziz Umarov, a software engineer and computer science student at the University of Central Florida. My full name is Abduaziz Umarov; I go by Aziz. I'm based in Orlando, Florida. My portfolio positioning is "Software Engineer · Full-Stack Developer."
 
-In short: I'm a UCF computer science student with a 4.0 GPA, a Knight Hacks developer, an ISUE Lab researcher, and I have hackathon work recognized at Hacklytics 2026.
+In short: I'm a UCF computer science student with a 3.7 GPA, a software engineering intern at Versant Media, an OpenAI Campus Lead, and a Knight Hacks developer, and my hackathon teams have won at Hacklytics, Knight Hacks IX, and Cal Hacks.
 
 ## Proof points
 
-- UCF Computer Science, 4.0 GPA
-- Knight Hacks Software Developer
-- ISUE Lab Undergraduate Research Assistant
-- CrisisLens — 1st place, Hacklytics 2026
+- UCF Computer Science, 3.7 GPA
+- Versant Media Software Engineering Intern
+- OpenAI Campus Lead
+- Knight Hacks Software Engineer Intern
+- CrisisLens won the Databricks Challenge at Georgia Tech's Hacklytics 2026
+- Farsight won 4 sponsor tracks at UCF's Knight Hacks IX
+- Backrooms won a Hyphenate track prize at UC Berkeley's Cal Hacks
 
 ## What I'm interested in
 

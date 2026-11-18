@@ -5,20 +5,20 @@
 I (Aziz Umarov) have 9 projects on my portfolio, spanning AI products, full-stack web apps, React apps, games, and front-end fundamentals. This index helps find the right project; each project also has its own document with more detail. Live demos are on my portfolio at https://azizu.dev/projects. For "most recent / latest" questions, use the order below (newest first).
 
 ## Most recent first
-- Backrooms (Cal Hacks 13.0) — a Hyphenate sponsor track prize
-- Farsight (KnightHacks IX) — 4 sponsor tracks: Hugging Face, NVIDIA, Encompass and Full Sail
+- Backrooms (Cal Hacks 13.0) — a Hyphenate sponsor track prize at UC Berkeley's Cal Hacks 13.0, out of 652 projects
+- Farsight (KnightHacks IX) — 4 sponsor tracks from NVIDIA, Hugging Face, Encompass and Full Sail at UCF's Knight Hacks IX, out of 212 projects
 - PIP (ShellHacks 2026)
 - SnapList (Shipaton 2026)
 - Rehearse (Jul 2026 - Present)
 - CapCheck (BloomKnights 2026)
 - Shields.io (Jun 2026 - Present)
-- CrisisLens (February 2026 (Hacklytics 2026)) — 1st Place Winner
+- CrisisLens (February 2026 (Hacklytics 2026)) — the Databricks Challenge at Georgia Tech's Hacklytics, out of 234 projects
 - FinBridge (KnightHacks 2025)
 
 ## Flagship and award-winning projects
-- Backrooms (a Hyphenate sponsor track prize): Agentic back office where Claude agents hand finance work to each other.
-- Farsight (4 sponsor tracks: Hugging Face, NVIDIA, Encompass and Full Sail): VR-controlled rover with on-device person detection and spoken answers, plus a post-run 3D room walkthrough with face sightings.
-- CrisisLens (1st Place Winner): Humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe.
+- Backrooms (a Hyphenate sponsor track prize at UC Berkeley's Cal Hacks 13.0, out of 652 projects): Agentic back office where Claude agents hand finance work to each other.
+- Farsight (4 sponsor tracks from NVIDIA, Hugging Face, Encompass and Full Sail at UCF's Knight Hacks IX, out of 212 projects): VR-controlled rover with on-device person detection and spoken answers, plus a post-run 3D room walkthrough with face sightings.
+- CrisisLens (the Databricks Challenge at Georgia Tech's Hacklytics, out of 234 projects): Humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe.
 
 ## All projects by category
 ### Hackathon

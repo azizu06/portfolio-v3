@@ -2,13 +2,13 @@
 
 # CrisisLens
 
-CrisisLens is one of my (Aziz Umarov's) Hackathon projects, built February 2026 (Hacklytics 2026). It won 1st Place Winner.
+CrisisLens is one of my (Aziz Umarov's) Hackathon projects, built February 2026 (Hacklytics 2026). It won the Databricks Challenge at Georgia Tech's Hacklytics, out of 234 projects.
 
 ## Summary
 CrisisLens is a humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe.
 
 ## What it is
-CrisisLens is a team-built humanitarian intelligence platform. I worked on the frontend, the interactive 3D analyst dashboard, and the Databricks Genie integration that turns natural-language questions into SQL-backed insights. My teammates owned the machine-learning models behind the country-level neglect scores.
+CrisisLens is a team-built humanitarian intelligence platform, and it won the Databricks Challenge at Georgia Tech's Hacklytics 2026, out of 234 projects. I worked on the frontend, the interactive 3D analyst dashboard, and the Databricks Genie integration that turns natural-language questions into SQL-backed insights. My teammates owned the machine-learning models behind the country-level neglect scores.
 
 ## Key features
 - Interactive Three.js globe with country-level crisis exploration.
@@ -23,16 +23,17 @@ CrisisLens is built with Next.js, React, TypeScript, Three.js, Databricks, and S
 - Project: CrisisLens
 - Type: Hackathon
 - Built: February 2026 (Hacklytics 2026)
-- Award: 1st Place Winner
+- Award: the Databricks Challenge at Georgia Tech's Hacklytics, out of 234 projects
 - Demo video: https://youtu.be/YD6H3emkDrc
+- Hackathon submission: https://devpost.com/software/crisislens-rlebdw
 - Source code: https://github.com/azizu06/CrisisLensV2
 
 ## Common questions about CrisisLens
 - When did I build CrisisLens? February 2026 (Hacklytics 2026).
 - What is CrisisLens built with? Next.js, React, TypeScript, Three.js, Databricks, and SQL Warehouse.
-- Did CrisisLens win anything? Yes — 1st Place Winner.
+- Did CrisisLens win anything? Yes — the Databricks Challenge at Georgia Tech's Hacklytics, out of 234 projects.
 
 ## How I talk about this project
-If someone asks me about CrisisLens, I'd tell them it's a humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe. I built it with Next.js, React, TypeScript, and Three.js. It won 1st Place Winner. I can point them to the demo video at https://youtu.be/YD6H3emkDrc and the source on my GitHub at https://github.com/azizu06/CrisisLensV2.
+If someone asks me about CrisisLens, I'd tell them it's a humanitarian intelligence platform for exploring crisis risk, funding gaps, and country-level signals on a 3D globe. I built it with Next.js, React, TypeScript, and Three.js. It won the Databricks Challenge at Georgia Tech's Hacklytics, out of 234 projects. I can point them to the Devpost page at https://devpost.com/software/crisislens-rlebdw, the demo video at https://youtu.be/YD6H3emkDrc, and the source on my GitHub at https://github.com/azizu06/CrisisLensV2.
 
 Keywords: CrisisLens, Hackathon, Next.js, React, TypeScript, Three.js, Databricks, SQL Warehouse.

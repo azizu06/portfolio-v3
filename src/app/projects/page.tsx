@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import FadeContent from "@/components/FadeContent";
 import GradientText from "@/components/GradientText";
 import { PageShell } from "@/components/portfolio/page-shell";
+import { OpenSourceTools } from "@/components/portfolio/open-source-tools";
 import { ProjectSpotlightCard } from "@/components/portfolio/project-spotlight-card";
-import { projects } from "@/data/projects";
+import { openSourceTools, projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -41,6 +42,7 @@ export default function ProjectsPage() {
             />
           ))}
         </div>
+        <OpenSourceTools tools={openSourceTools} />
       </div>
     </PageShell>
   );
